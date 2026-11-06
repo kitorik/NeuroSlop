@@ -1,6 +1,5 @@
 {
   "type": "function",
-  "position": 999,
   "name": "hud_fix",
   "values": [
     {
