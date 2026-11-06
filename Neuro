@@ -1,6 +1,6 @@
 {
   "type": "event",
-  "event": "player_move",
+  "event": "player_moe",
   "position": 1,
   "operations": [
     {
