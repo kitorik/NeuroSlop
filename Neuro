@@ -1,17 +1,26 @@
 {
-  "type": "function",
+  "type": "event",
+  "event": "player_move",
   "position": 1,
-  "name": "hud_fix",
-  "values": [
-    {
-      "name": "is_hidden",
-      "value": {
-        "type": "enum",
-        "enum": "FALSE"
-      }
-    }
-  ],
   "operations": [
+    {
+      "action": "select_entity_by_name",
+      "values": [
+        {
+          "name": "name_or_uuid",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "text",
+                "text": "hud_visualizer",
+                "parsing": "legacy"
+              }
+            ]
+          }
+        }
+      ]
+    },
     {
       "action": "set_variable_value",
       "values": [
@@ -663,24 +672,6 @@
             "type": "variable",
             "variable": "move_vec",
             "scope": "line"
-          }
-        }
-      ]
-    },
-    {
-      "action": "select_entity_by_name",
-      "values": [
-        {
-          "name": "name_or_uuid",
-          "value": {
-            "type": "array",
-            "values": [
-              {
-                "type": "text",
-                "text": "HUD_%player%",
-                "parsing": "legacy"
-              }
-            ]
           }
         }
       ]
