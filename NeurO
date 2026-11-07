@@ -558,6 +558,13 @@
               ]
             },
             {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                { "name": "value", "value": { "type": "number", "number": 0.0 } }
+              ]
+            },
+            {
               "action": "repeat_for_each_in_list",
               "values": [
                 { "name": "index_variable", "value": { "type": "variable", "variable": "ci", "scope": "local" } },
@@ -605,18 +612,107 @@
                   "is_inverted": "true",
                   "operations": [
                     {
-                      "action": "if_variable_equals",
+                      "action": "if_variable_text_starts_with",
                       "values": [
                         { "name": "value", "value": { "type": "variable", "variable": "belowType", "scope": "local" } },
-                        { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "minecraft:air", "parsing": "plain" } ] } }
+                        { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "minecraft:water", "parsing": "plain" } ] } },
+                        { "name": "ignore_case", "value": { "type": "enum", "enum": "FALSE" } }
                       ],
-                      "is_inverted": "true",
                       "operations": [
                         {
-                          "action": "set_variable_value",
+                          "action": "if_variable_less",
                           "values": [
-                            { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
-                            { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                            { "name": "value", "value": { "type": "variable", "variable": "avgWeight", "scope": "local" } },
+                            { "name": "compare", "value": { "type": "number", "number": "%var(phys.waterDensity)%" } }
+                          ],
+                          "operations": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                { "name": "variable", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                                { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "belowType", "scope": "local" } },
+                            { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "minecraft:air", "parsing": "plain" } ] } }
+                          ],
+                          "is_inverted": "true",
+                          "operations": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
+                                { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                        { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1.0 } ] } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_set_all_coordinates",
+                          "values": [
+                            { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+                            { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
+                            { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy) + 1)" } },
+                            { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
+                            { "name": "yaw", "value": {} },
+                            { "name": "pitch", "value": {} }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_get_block_material",
+                          "values": [
+                            { "name": "variable", "value": { "type": "variable", "variable": "aboveType", "scope": "local" } },
+                            { "name": "location", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+                            { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
+                          ]
+                        },
+                        {
+                          "action": "if_variable_list_contains_value",
+                          "values": [
+                            { "name": "list", "value": { "type": "variable", "variable": "cluster", "scope": "local" } },
+                            { "name": "values", "value": { "type": "array", "values": [ { "type": "variable", "variable": "above", "scope": "local" } ] } },
+                            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+                          ],
+                          "is_inverted": "true",
+                          "operations": [
+                            {
+                              "action": "if_variable_text_starts_with",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "aboveType", "scope": "local" } },
+                                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "minecraft:water", "parsing": "plain" } ] } },
+                                { "name": "ignore_case", "value": { "type": "enum", "enum": "FALSE" } }
+                              ],
+                              "is_inverted": "true",
+                              "operations": [
+                                {
+                                  "action": "set_variable_value",
+                                  "values": [
+                                    { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
+                                    { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                                  ]
+                                }
+                              ]
+                            }
                           ]
                         }
                       ]
@@ -637,3 +733,425 @@
               "values": [
                 { "name": "value", "value": { "type": "variable", "variable": "steps", "scope": "local" } },
                 { "name": "compare", "value": { "type": "number", "number": 200.0 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
+                    { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0.0 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1.0 } ] } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "dy", "scope": "local" } },
+                        { "name": "value", "value": { "type": "number", "number": 1.0 } }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "dy", "scope": "local" } },
+                        { "name": "value", "value": { "type": "number", "number": -1.0 } }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "repeat_for_each_in_list",
+                  "values": [
+                    { "name": "index_variable", "value": { "type": "variable", "variable": "mi", "scope": "local" } },
+                    { "name": "value_variable", "value": { "type": "variable", "variable": "mloc", "scope": "local" } },
+                    { "name": "list", "value": { "type": "variable", "variable": "cluster", "scope": "local" } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_get_all_coordinates",
+                      "values": [
+                        { "name": "location", "value": { "type": "variable", "variable": "mloc", "scope": "local" } },
+                        { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+                        { "name": "y", "value": { "type": "variable", "variable": "my", "scope": "local" } },
+                        { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+                        { "name": "yaw", "value": {} },
+                        { "name": "pitch", "value": {} }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_set_all_coordinates",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "newLoc", "scope": "local" } },
+                        { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+                        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my) + %var_local(dy))" } },
+                        { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+                        { "name": "yaw", "value": {} },
+                        { "name": "pitch", "value": {} }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_set_list_value",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "cluster", "scope": "local" } },
+                        { "name": "list", "value": { "type": "variable", "variable": "cluster", "scope": "local" } },
+                        { "name": "number", "value": { "type": "variable", "variable": "mi", "scope": "local" } },
+                        { "name": "value", "value": { "type": "variable", "variable": "newLoc", "scope": "local" } }
+                      ]
+                    },
+                    {
+                      "action": "select_reset",
+                      "values": []
+                    },
+                    {
+                      "action": "select_add_entity_by_name",
+                      "values": [
+                        { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(mi)%)", "parsing": "plain" } }
+                      ]
+                    },
+                    {
+                      "action": "entity_teleport",
+                      "values": [
+                        { "name": "location", "value": { "type": "variable", "variable": "newLoc", "scope": "local" } },
+                        { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "control_wait",
+                  "values": [
+                    { "name": "duration", "value": { "type": "number", "number": "%math(round(clamp(5 - sqrt(totalWeight), 1, 5), 0))" } },
+                    { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+                  ]
+                }
+              ]
+            }
+          ],
+          "conditional": { "action": "if_variable_equals", "is_inverted": false }
+        },
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            { "name": "index_variable", "value": { "type": "variable", "variable": "li", "scope": "local" } },
+            { "name": "value_variable", "value": { "type": "variable", "variable": "lloc", "scope": "local" } },
+            { "name": "list", "value": { "type": "variable", "variable": "cluster", "scope": "local" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "btype", "scope": "local" } },
+                { "name": "value", "value": { "type": "text", "text": "%index_local(types, %var_local(li)%)", "parsing": "plain" } }
+              ]
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                { "name": "locations", "value": { "type": "array", "values": [ { "type": "variable", "variable": "lloc", "scope": "local" } ] } },
+                { "name": "block", "value": { "type": "variable", "variable": "btype", "scope": "local" } },
+                { "name": "update_blocks", "value": { "type": "enum", "enum": "FALSE" } }
+              ]
+            },
+            {
+              "action": "select_reset",
+              "values": []
+            },
+            {
+              "action": "select_add_entity_by_name",
+              "values": [
+                { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(li)%)", "parsing": "plain" } }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            }
+          ]
+        }
+      ],
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "plural",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Блоки\",\"parsingType\":\"PLAIN\"}}",
+                "name": "cluster",
+                "value_type": "location",
+                "is_required": "true",
+                "default_value": "{\"type\":\"array\",\"values\":[]}",
+                "slots": "[10, 11, 12, 13, 14, 15, 16, 17, 18]",
+                "description_slots": "[19, 20, 21, 22, 23, 24, 25, 26, 27]"
+              },
+              {
+                "type": "parameter",
+                "type_key": "plural",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Типы\",\"parsingType\":\"PLAIN\"}}",
+                "name": "types",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{\"type\":\"array\",\"values\":[]}",
+                "slots": "[28, 29, 30, 31, 32, 33, 34, 35, 36]",
+                "description_slots": "[37, 38, 39, 40, 41, 42, 43, 44, 45]"
+              },
+              {
+                "type": "parameter",
+                "type_key": "plural",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Имена\",\"parsingType\":\"PLAIN\"}}",
+                "name": "names",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{\"type\":\"array\",\"values\":[]}",
+                "slots": "[46, 47, 48, 49, 50, 51, 52, 53, 54]",
+                "description_slots": "[55, 56, 57, 58, 59, 60, 61, 62, 63]"
+              },
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Вес\",\"parsingType\":\"PLAIN\"}}",
+                "name": "totalWeight",
+                "value_type": "number",
+                "is_required": "true",
+                "default_value": "{\"type\":\"number\",\"number\":0.0}",
+                "slot": 64,
+                "description_slot": 65
+              },
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Плавучесть\",\"parsingType\":\"PLAIN\"}}",
+                "name": "buoyant",
+                "value_type": "number",
+                "is_required": "true",
+                "default_value": "{\"type\":\"number\",\"number\":0.0}",
+                "slot": 66,
+                "description_slot": 67
+              }
+            ]
+          }
+        },
+        {
+          "name": "display_name",
+          "value": {
+            "type": "localized_text",
+            "data": "{\"translations\":{},\"fallback\":{\"rawText\":\"PhysFall: Движение\",\"parsingType\":\"PLAIN\"}}"
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:sand\"}"
+          }
+        },
+        {
+          "name": "display_description",
+          "value": {
+            "type": "localized_text",
+            "data": "{\"translations\":{},\"fallback\":{\"rawText\":\"Двигает кластер вниз или вверх\",\"parsingType\":\"PLAIN\"}}"
+          }
+        }
+      ],
+      "name": "PhysFall_Move"
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "ptype", "scope": "local" } },
+            { "name": "value", "value": { "type": "game_value", "game_value": "event_block", "selection": "null" } }
+          ]
+        },
+        {
+          "action": "if_variable_map_has_key",
+          "values": [
+            { "name": "map", "value": { "type": "variable", "variable": "phys.weights", "scope": "game" } },
+            { "name": "key", "value": { "type": "variable", "variable": "ptype", "scope": "local" } },
+            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+          ],
+          "operations": [
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PhysFall_Prepare", "parsing": "plain" } },
+                {
+                  "name": "args",
+                  "value": {
+                    "type": "map",
+                    "values": {
+                      "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
+                        "type": "game_value",
+                        "game_value": "event_block_location",
+                        "selection": "null"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_place_block"
+    },
+    {
+      "type": "event",
+      "position": 4,
+      "operations": [
+        {
+          "action": "set_variable_get_all_coordinates",
+          "values": [
+            { "name": "location", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } },
+            { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+            { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } },
+            { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+            { "name": "yaw", "value": {} },
+            { "name": "pitch", "value": {} }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+            { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+            { "name": "y", "value": { "type": "number", "number": "%math(%var_local(by) + 1)" } },
+            { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+            { "name": "yaw", "value": {} },
+            { "name": "pitch", "value": {} }
+          ]
+        },
+        {
+          "action": "set_variable_get_block_material",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "atype", "scope": "local" } },
+            { "name": "location", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+            { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
+          ]
+        },
+        {
+          "action": "if_variable_map_has_key",
+          "values": [
+            { "name": "map", "value": { "type": "variable", "variable": "phys.weights", "scope": "game" } },
+            { "name": "key", "value": { "type": "variable", "variable": "atype", "scope": "local" } },
+            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+          ],
+          "operations": [
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PhysFall_Prepare", "parsing": "plain" } },
+                {
+                  "name": "args",
+                  "value": {
+                    "type": "map",
+                    "values": {
+                      "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
+                        "type": "variable",
+                        "variable": "above",
+                        "scope": "local"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_break_block"
+    },
+    {
+      "type": "event",
+      "position": 5,
+      "operations": [
+        {
+          "action": "set_variable_get_all_coordinates",
+          "values": [
+            { "name": "location", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } },
+            { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+            { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } },
+            { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+            { "name": "yaw", "value": {} },
+            { "name": "pitch", "value": {} }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+            { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+            { "name": "y", "value": { "type": "number", "number": "%math(%var_local(by) + 1)" } },
+            { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+            { "name": "yaw", "value": {} },
+            { "name": "pitch", "value": {} }
+          ]
+        },
+        {
+          "action": "set_variable_get_block_material",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "atype", "scope": "local" } },
+            { "name": "location", "value": { "type": "variable", "variable": "above", "scope": "local" } },
+            { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
+          ]
+        },
+        {
+          "action": "if_variable_map_has_key",
+          "values": [
+            { "name": "map", "value": { "type": "variable", "variable": "phys.weights", "scope": "game" } },
+            { "name": "key", "value": { "type": "variable", "variable": "atype", "scope": "local" } },
+            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+          ],
+          "operations": [
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PhysFall_Prepare", "parsing": "plain" } },
+                {
+                  "name": "args",
+                  "value": {
+                    "type": "map",
+                    "values": {
+                      "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
+                        "type": "variable",
+                        "variable": "above",
+                        "scope": "local"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "block_break_block"
+    }
+  ]
+}
