@@ -364,6 +364,13 @@
                   ]
                 },
                 {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                    { "name": "value", "value": { "type": "number", "number": 0.0 } }
+                  ]
+                },
+                {
                   "action": "repeat_for_each_in_list",
                   "values": [
                     { "name": "index_variable", "value": { "type": "variable", "variable": "ci", "scope": "local" } },
