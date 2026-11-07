@@ -34,6 +34,14 @@
           { "name": "variable", "value": { "type": "variable", "variable": "phys.nextId", "scope": "game" } },
           { "name": "value", "value": { "type": "number", "number": 1 } }
         ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.p1", "scope": "game" } },
+          { "name": "value", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.p2", "scope": "game" } },
+          { "name": "value", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } }
+        ] },
         { "action": "set_variable_create_map", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
           { "name": "keys", "value": { "type": "array", "values": [] } },
@@ -596,8 +604,24 @@
           { "name": "variable", "value": { "type": "variable", "variable": "name", "scope": "local" } },
           { "name": "value", "value": { "type": "text", "text": "fb_%random_uuid%", "parsing": "plain" } }
         ] },
+        { "action": "set_variable_get_all_coordinates", "values": [
+          { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
+          { "name": "x", "value": { "type": "variable", "variable": "sx", "scope": "local" } },
+          { "name": "y", "value": { "type": "variable", "variable": "sy", "scope": "local" } },
+          { "name": "z", "value": { "type": "variable", "variable": "sz", "scope": "local" } },
+          { "name": "yaw", "value": {} },
+          { "name": "pitch", "value": {} }
+        ] },
+        { "action": "set_variable_set_all_coordinates", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "cl", "scope": "local" } },
+          { "name": "x", "value": { "type": "number", "number": "%math(%var_local(sx)-0.5)" } },
+          { "name": "y", "value": { "type": "number", "number": "%math(%var_local(sy)-0.5)" } },
+          { "name": "z", "value": { "type": "number", "number": "%math(%var_local(sz)-0.5)" } },
+          { "name": "yaw", "value": {} },
+          { "name": "pitch", "value": {} }
+        ] },
         { "action": "game_spawn_block_display", "values": [
-          { "name": "spawn_location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
+          { "name": "spawn_location", "value": { "type": "variable", "variable": "cl", "scope": "local" } },
           { "name": "custom_name", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } },
           { "name": "block", "value": { "type": "variable", "variable": "type", "scope": "line" } }
         ] },
@@ -872,86 +896,13 @@
               ],
               "operations": [
                 {
-                  "action": "repeat_for_each_in_list",
+                  "action": "call_function",
                   "values": [
-                    { "name": "index_variable", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
-                    { "name": "value_variable", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
-                    { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
-                  ],
-                  "operations": [
-                    { "action": "control_wait", "values": [
-                      { "name": "duration", "value": { "type": "number", "number": 1 } },
-                      { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
-                    ] },
-                    { "action": "set_variable_get_all_coordinates", "values": [
-                      { "name": "location", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
-                      { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
-                      { "name": "y", "value": { "type": "variable", "variable": "my", "scope": "local" } },
-                      { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
-                      { "name": "yaw", "value": {} },
-                      { "name": "pitch", "value": {} }
-                    ] },
-                    { "action": "set_variable_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "mk", "scope": "local" } },
-                      { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
-                    ] },
-                    { "action": "set_variable_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "nm2", "scope": "local" } },
-                      { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(mk))", "parsing": "plain" } }
-                    ] },
-                    { "action": "select_entity_by_name", "values": [
-                      { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } }
-                    ] },
-                    { "action": "set_variable_set_all_coordinates", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-                      { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
-                      { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_local(dy))" } },
-                      { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
-                      { "name": "yaw", "value": {} },
-                      { "name": "pitch", "value": {} }
-                    ] },
-                    { "action": "entity_teleport", "values": [
-                      { "name": "location", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-                      { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
-                    ] },
-                    { "action": "set_variable_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "nk2", "scope": "local" } },
-                      { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my)+%var_local(dy))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
-                    ] },
-                    { "action": "set_variable_set_list_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-                      { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-                      { "name": "number", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
-                      { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
-                    ] },
-                    { "action": "set_variable_remove_map_entry", "values": [
-                      { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-                      { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                      { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                      { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
-                      { "name": "values", "value": {} }
-                    ] },
-                    { "action": "set_variable_put_map_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                      { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                      { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
-                      { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
-                      { "name": "replaced_value", "value": {} }
-                    ] },
-                    { "action": "set_variable_remove_map_entry", "values": [
-                      { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-                      { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-                      { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-                      { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
-                      { "name": "values", "value": {} }
-                    ] },
-                    { "action": "set_variable_put_map_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-                      { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-                      { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
-                      { "name": "value", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
-                      { "name": "replaced_value", "value": {} }
-                    ] }
+                    { "name": "function_name", "value": { "type": "text", "text": "PR.move", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {
+                      "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "line" },
+                      "{\"type\":\"text\",\"text\":\"dy\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "dy", "scope": "local" }
+                    } } }
                   ]
                 },
                 { "action": "control_wait", "values": [
@@ -1213,111 +1164,18 @@
           ]
         },
         {
-          "action": "repeat_for_each_in_list",
+          "action": "call_function",
           "values": [
-            { "name": "index_variable", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
-            { "name": "value_variable", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
-            { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
-          ],
-          "operations": [
-            { "action": "control_wait", "values": [
-              { "name": "duration", "value": { "type": "number", "number": 1 } },
-              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
-            ] },
-            { "action": "set_variable_get_all_coordinates", "values": [
-              { "name": "location", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
-              { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
-              { "name": "y", "value": { "type": "variable", "variable": "oy", "scope": "local" } },
-              { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
-              { "name": "yaw", "value": {} },
-              { "name": "pitch", "value": {} }
-            ] },
-            { "action": "set_variable_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "ok", "scope": "local" } },
-              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
-            ] },
-            {
-              "action": "if_variable_equals",
-              "values": [
-                { "name": "compare", "value": { "type": "array", "values": [
-                  { "type": "number", "number": 1 }
-                ] } },
-                { "name": "value", "value": { "type": "variable", "variable": "axm", "scope": "local" } }
-              ],
-              "operations": [
-                { "action": "set_variable_value", "values": [
-                  { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
-                  { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_local(s)*(%var_local(ox)-%var_local(cx))/%var_local(maxd)))" } }
-                ] }
-              ],
-              "else": {
-                "action": "else",
-                "values": [],
-                "operations": [
-                  { "action": "set_variable_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
-                    { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_local(s)*(%var_local(oz)-%var_local(cz))/%var_local(maxd)))" } }
-                  ] }
-                ]
-              }
-            },
-            { "action": "set_variable_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } },
-              { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(ok))", "parsing": "plain" } }
-            ] },
-            { "action": "select_entity_by_name", "values": [
-              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }
-            ] },
-            { "action": "set_variable_set_all_coordinates", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-              { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
-              { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off))" } },
-              { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
-              { "name": "yaw", "value": {} },
-              { "name": "pitch", "value": {} }
-            ] },
-            { "action": "entity_teleport", "values": [
-              { "name": "location", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-              { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
-            ] },
-            { "action": "set_variable_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
-              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy)+%var_local(off))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
-            ] },
-            { "action": "set_variable_set_list_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-              { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-              { "name": "number", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
-              { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
-            ] },
-            { "action": "set_variable_remove_map_entry", "values": [
-              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-              { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
-              { "name": "values", "value": {} }
-            ] },
-            { "action": "set_variable_put_map_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-              { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-              { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
-              { "name": "replaced_value", "value": {} }
-            ] },
-            { "action": "set_variable_remove_map_entry", "values": [
-              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-              { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
-              { "name": "values", "value": {} }
-            ] },
-            { "action": "set_variable_put_map_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-              { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-              { "name": "value", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
-              { "name": "replaced_value", "value": {} }
-            ] }
+            { "name": "function_name", "value": { "type": "text", "text": "PR.tiltMove", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {
+              "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "line" },
+              "{\"type\":\"text\",\"text\":\"dir\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "dir", "scope": "line" },
+              "{\"type\":\"text\",\"text\":\"cx\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "cx", "scope": "local" },
+              "{\"type\":\"text\",\"text\":\"cz\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "cz", "scope": "local" },
+              "{\"type\":\"text\",\"text\":\"axm\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "axm", "scope": "local" },
+              "{\"type\":\"text\",\"text\":\"s\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "s", "scope": "local" },
+              "{\"type\":\"text\",\"text\":\"maxd\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "maxd", "scope": "local" }
+            } } }
           ]
         }
       ],
@@ -1331,6 +1189,443 @@
         { "name": "icon", "value": { "type": "item", "item": "{}" } }
       ],
       "name": "PR.tilt"
+    },
+    {
+      "type": "event",
+      "position": 8,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [
+              { "type": "text", "text": "left_click_block", "parsing": "plain" },
+              { "type": "text", "text": "right_click_block", "parsing": "plain" }
+            ] } },
+            { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
+          ],
+          "operations": [
+            {
+              "action": "if_game_event_item_equals",
+              "values": [
+                { "name": "items", "value": { "type": "array", "values": [
+                  { "type": "item", "item": "{id:\\\"minecraft:wooden_axe\\\",Count:1b}" }
+                ] } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "game_cancel_event", "values": [] },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "compare", "value": { "type": "array", "values": [
+                      { "type": "text", "text": "left_click_block", "parsing": "plain" }
+                    ] } },
+                    { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "phys.p1", "scope": "game" } },
+                      { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }
+                    ] },
+                    { "action": "player_send_message", "values": [
+                      { "name": "messages", "value": { "type": "array", "values": [
+                        { "type": "text", "text": "&aФизика: точка 1 установлена", "parsing": "legacy" }
+                      ] } }
+                    ] },
+                    { "action": "else", "values": [], "operations": [
+                      { "action": "set_variable_value", "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "phys.p2", "scope": "game" } },
+                        { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }
+                      ] },
+                      { "action": "player_send_message", "values": [
+                        { "name": "messages", "value": { "type": "array", "values": [
+                          { "type": "text", "text": "&aФизика: точка 2 установлена", "parsing": "legacy" }
+                        ] } }
+                      ] }
+                    ] }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "event",
+      "position": 9,
+      "operations": [
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [
+              { "type": "text", "text": "@physich", "parsing": "plain" }
+            ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PR.zone", "parsing": "plain" } },
+                { "name": "args", "value": { "type": "map", "values": {} } }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_chat"
+    },
+    {
+      "type": "function",
+      "position": 10,
+      "operations": [
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
+          { "name": "value", "value": { "type": "variable", "variable": "phys.nextId", "scope": "game" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.nextId", "scope": "game" } },
+          { "name": "value", "value": { "type": "number", "number": "%math(%var(phys.nextId)+1)" } }
+        ] },
+        { "action": "set_variable_create_list", "values": [
+          { "name": "values", "value": { "type": "array", "values": [] } },
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_local(gid).locs", "scope": "game" } }
+        ] },
+        {
+          "action": "repeat_on_grid",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "bl", "scope": "local" } },
+            { "name": "start", "value": { "type": "variable", "variable": "phys.p1", "scope": "game" } },
+            { "name": "end", "value": { "type": "variable", "variable": "phys.p2", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "control_wait", "values": [
+              { "name": "duration", "value": { "type": "number", "number": 1 } },
+              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+            ] },
+            { "action": "set_variable_get_block_material", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "ty", "scope": "local" } },
+              { "name": "location", "value": { "type": "variable", "variable": "bl", "scope": "local" } },
+              { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
+            ] },
+            {
+              "action": "if_variable_map_has_key",
+              "values": [
+                { "name": "map", "value": { "type": "variable", "variable": "phys.weights", "scope": "game" } },
+                { "name": "key", "value": { "type": "variable", "variable": "ty", "scope": "local" } },
+                { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                { "action": "set_variable_get_all_coordinates", "values": [
+                  { "name": "location", "value": { "type": "variable", "variable": "bl", "scope": "local" } },
+                  { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+                  { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } },
+                  { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+                  { "name": "yaw", "value": {} },
+                  { "name": "pitch", "value": {} }
+                ] },
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "bk", "scope": "local" } },
+                  { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(bx))),%math(floor(%var_local(by))),%math(floor(%var_local(bz)))", "parsing": "plain" } }
+                ] },
+                {
+                  "action": "if_variable_map_has_key",
+                  "values": [
+                    { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                    { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } },
+                    { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+                  ],
+                  "is_inverted": "true",
+                  "operations": [
+                    { "action": "game_set_block", "values": [
+                      { "name": "locations", "value": { "type": "array", "values": [
+                        { "type": "variable", "variable": "bl", "scope": "local" }
+                      ] } },
+                      { "name": "block", "value": { "type": "text", "text": "minecraft:air", "parsing": "plain" } },
+                      { "name": "update_blocks", "value": { "type": "enum", "enum": "FALSE" } }
+                    ] },
+                    { "action": "set_variable_append_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_local(gid).locs", "scope": "game" } },
+                      { "name": "values", "value": { "type": "array", "values": [
+                        { "type": "variable", "variable": "bl", "scope": "local" }
+                      ] } }
+                    ] },
+                    { "action": "set_variable_put_map_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                      { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                      { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } },
+                      { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
+                      { "name": "replaced_value", "value": {} }
+                    ] },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        { "name": "function_name", "value": { "type": "text", "text": "PR.spawn", "parsing": "plain" } },
+                        { "name": "args", "value": { "type": "map", "values": {
+                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "bl", "scope": "local" },
+                          "{\"type\":\"text\",\"text\":\"type\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "ty", "scope": "local" },
+                          "{\"type\":\"text\",\"text\":\"key\",\"parsing\":\"plain\"}": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" },
+                          "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
+                        } } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "PR.update", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {
+              "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
+            } } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "PR.tilt", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {
+              "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" },
+              "{\"type\":\"text\",\"text\":\"src\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "phys.p1", "scope": "game" },
+              "{\"type\":\"text\",\"text\":\"dir\",\"parsing\":\"plain\"}": { "type": "number", "number": -1 }
+            } } }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "PR.zone"
+    },
+    {
+      "type": "function",
+      "position": 11,
+      "operations": [
+        { "action": "control_wait", "values": [
+          { "name": "duration", "value": { "type": "number", "number": 1 } },
+          { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+        ] },
+        { "action": "set_variable_get_all_coordinates", "values": [
+          { "name": "location", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
+          { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+          { "name": "y", "value": { "type": "variable", "variable": "my", "scope": "local" } },
+          { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+          { "name": "yaw", "value": {} },
+          { "name": "pitch", "value": {} }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "mk", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "nm2", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(mk))", "parsing": "plain" } }
+        ] },
+        { "action": "select_entity_by_name", "values": [
+          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } }
+        ] },
+        { "action": "set_variable_set_all_coordinates", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
+          { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+          { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy))" } },
+          { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+          { "name": "yaw", "value": {} },
+          { "name": "pitch", "value": {} }
+        ] },
+        { "action": "set_variable_set_all_coordinates", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
+          { "name": "x", "value": { "type": "number", "number": "%math(%var_local(mx)-0.5)" } },
+          { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy)-0.5)" } },
+          { "name": "z", "value": { "type": "number", "number": "%math(%var_local(mz)-0.5)" } },
+          { "name": "yaw", "value": {} },
+          { "name": "pitch", "value": {} }
+        ] },
+        { "action": "entity_teleport", "values": [
+          { "name": "location", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
+          { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "nk2", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my)+%var_line(dy))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
+        ] },
+        { "action": "set_variable_set_list_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+          { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+          { "name": "number", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
+          { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
+        ] },
+        { "action": "set_variable_remove_map_entry", "values": [
+          { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+          { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
+          { "name": "values", "value": {} }
+        ] },
+        { "action": "set_variable_put_map_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+          { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
+          { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
+          { "name": "replaced_value", "value": {} }
+        ] },
+        { "action": "set_variable_remove_map_entry", "values": [
+          { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+          { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
+          { "name": "values", "value": {} }
+        ] },
+        { "action": "set_variable_put_map_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+          { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
+          { "name": "value", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
+          { "name": "replaced_value", "value": {} }
+        ] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"ID группы\",\"parsingType\":\"LEGACY\"}}", "name": "gid", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 0, "description_slot": 10 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Смещение по Y\",\"parsingType\":\"LEGACY\"}}", "name": "dy", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 1, "description_slot": 11 }
+        ] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "PR.move"
+    },
+    {
+      "type": "function",
+      "position": 12,
+      "operations": [
+      { "action": "control_wait", "values": [
+        { "name": "duration", "value": { "type": "number", "number": 1 } },
+        { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+      ] },
+      { "action": "set_variable_get_all_coordinates", "values": [
+        { "name": "location", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
+        { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
+        { "name": "y", "value": { "type": "variable", "variable": "oy", "scope": "local" } },
+        { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
+        { "name": "yaw", "value": {} },
+        { "name": "pitch", "value": {} }
+      ] },
+      { "action": "set_variable_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "ok", "scope": "local" } },
+        { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
+      ] },
+      {
+        "action": "if_variable_equals",
+        "values": [
+          { "name": "compare", "value": { "type": "array", "values": [
+            { "type": "number", "number": 1 }
+          ] } },
+          { "name": "value", "value": { "type": "variable", "variable": "axm", "scope": "line" } }
+        ],
+        "operations": [
+          { "action": "set_variable_value", "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
+            { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(ox)-%var_line(cx))/%var_line(maxd)))" } }
+          ] }
+        ],
+        "else": {
+          "action": "else",
+          "values": [],
+          "operations": [
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
+              { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(oz)-%var_line(cz))/%var_line(maxd)))" } }
+            ] }
+          ]
+        }
+      },
+      { "action": "set_variable_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } },
+        { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(ok))", "parsing": "plain" } }
+      ] },
+      { "action": "select_entity_by_name", "values": [
+        { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }
+      ] },
+      { "action": "set_variable_set_all_coordinates", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
+        { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
+        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off))" } },
+        { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
+        { "name": "yaw", "value": {} },
+        { "name": "pitch", "value": {} }
+      ] },
+      { "action": "set_variable_set_all_coordinates", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
+        { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)-0.5)" } },
+        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off)-0.5)" } },
+        { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)-0.5)" } },
+        { "name": "yaw", "value": {} },
+        { "name": "pitch", "value": {} }
+      ] },
+      { "action": "entity_teleport", "values": [
+        { "name": "location", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
+        { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
+      ] },
+      { "action": "set_variable_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
+        { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy)+%var_local(off))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
+      ] },
+      { "action": "set_variable_set_list_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+        { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+        { "name": "number", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
+        { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
+      ] },
+      { "action": "set_variable_remove_map_entry", "values": [
+        { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+        { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+        { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+        { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
+        { "name": "values", "value": {} }
+      ] },
+      { "action": "set_variable_put_map_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+        { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+        { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+        { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
+        { "name": "replaced_value", "value": {} }
+      ] },
+      { "action": "set_variable_remove_map_entry", "values": [
+        { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+        { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+        { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+        { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
+        { "name": "values", "value": {} }
+      ] },
+      { "action": "set_variable_put_map_value", "values": [
+        { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+        { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+        { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+        { "name": "value", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
+        { "name": "replaced_value", "value": {} }
+      ] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"ID группы\",\"parsingType\":\"LEGACY\"}}", "name": "gid", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 0, "description_slot": 10 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Направление: -1 вниз, 1 вверх\",\"parsingType\":\"LEGACY\"}}", "name": "dir", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 1, "description_slot": 11 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Центр X\",\"parsingType\":\"LEGACY\"}}", "name": "cx", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 2, "description_slot": 12 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Центр Z\",\"parsingType\":\"LEGACY\"}}", "name": "cz", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 3, "description_slot": 13 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Ось: 1 = X, 0 = Z\",\"parsingType\":\"LEGACY\"}}", "name": "axm", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 4, "description_slot": 14 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Знак наклона\",\"parsingType\":\"LEGACY\"}}", "name": "s", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 5, "description_slot": 15 },
+          { "type": "parameter", "type_key": "singular", "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Максимальная дистанция\",\"parsingType\":\"LEGACY\"}}", "name": "maxd", "value_type": "number", "is_required": "true", "default_value": "{}", "slot": 6, "description_slot": 16 }
+        ] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "PR.tiltMove"
     }
   ]
 }
