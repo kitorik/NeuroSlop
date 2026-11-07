@@ -397,14 +397,14 @@
               "action": "set_variable_value",
               "values": [
                 { "name": "variable", "value": { "type": "variable", "variable": "fbType", "scope": "local" } },
-                { "name": "value", "value": { "type": "text", "text": "%index_local(types, %var_local(si))%", "parsing": "plain" } }
+                { "name": "value", "value": { "type": "text", "text": "%index_local(types, %var_local(si))", "parsing": "plain" } }
               ]
             },
             {
               "action": "set_variable_value",
               "values": [
                 { "name": "variable", "value": { "type": "variable", "variable": "dname", "scope": "local" } },
-                { "name": "value", "value": { "type": "text", "text": "%var_local(fname)%_%var_local(si)%", "parsing": "plain" } }
+                { "name": "value", "value": { "type": "text", "text": "%var_local(fname)_%var_local(si)", "parsing": "plain" } }
               ]
             },
             {
@@ -681,7 +681,7 @@
                     {
                       "action": "select_add_entity_by_name",
                       "values": [
-                        { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(mi))%", "parsing": "plain" } }
+                        { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(mi))", "parsing": "plain" } }
                       ]
                     },
                     {
@@ -696,7 +696,7 @@
                 {
                   "action": "control_wait",
                   "values": [
-                    { "name": "duration", "value": { "type": "number", "number": "%math(round(clamp(5 - sqrt(totalWeight), 1, 5), 0))%" } },
+                    { "name": "duration", "value": { "type": "number", "number": "%math(round(clamp(5 - sqrt(totalWeight), 1, 5), 0))" } },
                     { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
                   ]
                 }
@@ -724,7 +724,7 @@
               "action": "set_variable_value",
               "values": [
                 { "name": "variable", "value": { "type": "variable", "variable": "btype", "scope": "local" } },
-                { "name": "value", "value": { "type": "text", "text": "%index_local(types, %var_local(li))%", "parsing": "plain" } }
+                { "name": "value", "value": { "type": "text", "text": "%index_local(types, %var_local(li))", "parsing": "plain" } }
               ]
             },
             {
@@ -742,7 +742,7 @@
             {
               "action": "select_add_entity_by_name",
               "values": [
-                { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(li))%", "parsing": "plain" } }
+                { "name": "name_or_uuid", "value": { "type": "text", "text": "%index_local(names, %var_local(li))", "parsing": "plain" } }
               ]
             },
             {
@@ -833,7 +833,7 @@
           "values": [
             { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "line" } },
             { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
-            { "name": "y", "value": { "type": "number", "number": "%math(%var_line(by) + 1)%" } },
+            { "name": "y", "value": { "type": "number", "number": "%math(%var_line(by) + 1)" } },
             { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
             { "name": "yaw", "value": {} },
             { "name": "pitch", "value": {} }
@@ -899,7 +899,7 @@
           "values": [
             { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "line" } },
             { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
-            { "name": "y", "value": { "type": "number", "number": "%math(%var_line(by) + 1)%" } },
+            { "name": "y", "value": { "type": "number", "number": "%math(%var_line(by) + 1)" } },
             { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
             { "name": "yaw", "value": {} },
             { "name": "pitch", "value": {} }
