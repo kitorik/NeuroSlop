@@ -64,29 +64,93 @@
       "type": "event",
       "position": 1,
       "operations": [
+        { "action": "set_variable_create_list", "values": [
+          { "name": "values", "value": { "type": "array", "values": [] } },
+          { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } }
+        ] },
         {
-          "action": "if_variable_map_has_key",
+          "action": "repeat_adjacently",
           "values": [
-            { "name": "map", "value": { "type": "variable", "variable": "phys.weights", "scope": "game" } },
-            { "name": "key", "value": { "type": "game_value", "game_value": "event_block", "selection": "null" } },
-            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+            { "name": "variable", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
+            { "name": "origin", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } },
+            { "name": "change_rotation", "value": { "type": "enum", "enum": "FALSE" } },
+            { "name": "pattern", "value": { "type": "enum", "enum": "CARDINAL" } }
           ],
           "operations": [
-            { "action": "game_cancel_event", "values": [] },
+            { "action": "set_variable_get_all_coordinates", "values": [
+              { "name": "location", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
+              { "name": "x", "value": { "type": "variable", "variable": "nx", "scope": "local" } },
+              { "name": "y", "value": { "type": "variable", "variable": "ny", "scope": "local" } },
+              { "name": "z", "value": { "type": "variable", "variable": "nz", "scope": "local" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(nx))),%math(floor(%var_local(ny))),%math(floor(%var_local(nz)))", "parsing": "plain" } }
+            ] },
+            {
+              "action": "if_variable_map_has_key",
+              "values": [
+                { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+                { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                { "action": "set_variable_get_map_value_single", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "ngid", "scope": "local" } },
+                  { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                  { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+                  { "name": "default_value", "value": { "type": "number", "number": -1 } }
+                ] },
+                {
+                  "action": "if_variable_list_contains_value",
+                  "values": [
+                    { "name": "list", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
+                    { "name": "values", "value": { "type": "array", "values": [
+                      { "type": "variable", "variable": "ngid", "scope": "local" }
+                    ] } },
+                    { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+                  ],
+                  "is_inverted": "true",
+                  "operations": [
+                    { "action": "set_variable_append_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
+                      { "name": "values", "value": { "type": "array", "values": [
+                        { "type": "variable", "variable": "ngid", "scope": "local" }
+                      ] } }
+                    ] }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            { "name": "index_variable", "value": { "type": "variable", "variable": "ui", "scope": "local" } },
+            { "name": "value_variable", "value": { "type": "variable", "variable": "ug", "scope": "local" } },
+            { "name": "list", "value": { "type": "variable", "variable": "upds", "scope": "local" } }
+          ],
+          "operations": [
+            { "action": "control_wait", "values": [
+              { "name": "duration", "value": { "type": "number", "number": 1 } },
+              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+            ] },
             {
               "action": "call_function",
               "values": [
-                { "name": "function_name", "value": { "type": "text", "text": "PR.place", "parsing": "plain" } },
+                { "name": "function_name", "value": { "type": "text", "text": "PR.update", "parsing": "plain" } },
                 { "name": "args", "value": { "type": "map", "values": {
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": { "type": "game_value", "game_value": "event_block_location", "selection": "null" },
-                  "{\"type\":\"text\",\"text\":\"type\",\"parsing\":\"plain\"}": { "type": "game_value", "game_value": "event_block", "selection": "null" }
+                  "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "ug", "scope": "local" }
                 } } }
               ]
             }
           ]
         }
       ],
-      "event": "player_place_block"
+      "event": "player_break_block"
     },
     {
       "type": "event",
@@ -178,103 +242,11 @@
           ]
         }
       ],
-      "event": "player_break_block"
-    },
-    {
-      "type": "event",
-      "position": 3,
-      "operations": [
-        { "action": "set_variable_create_list", "values": [
-          { "name": "values", "value": { "type": "array", "values": [] } },
-          { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } }
-        ] },
-        {
-          "action": "repeat_adjacently",
-          "values": [
-            { "name": "variable", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
-            { "name": "origin", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } },
-            { "name": "change_rotation", "value": { "type": "enum", "enum": "FALSE" } },
-            { "name": "pattern", "value": { "type": "enum", "enum": "CARDINAL" } }
-          ],
-          "operations": [
-            { "action": "set_variable_get_all_coordinates", "values": [
-              { "name": "location", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
-              { "name": "x", "value": { "type": "variable", "variable": "nx", "scope": "local" } },
-              { "name": "y", "value": { "type": "variable", "variable": "ny", "scope": "local" } },
-              { "name": "z", "value": { "type": "variable", "variable": "nz", "scope": "local" } },
-              { "name": "yaw", "value": {} },
-              { "name": "pitch", "value": {} }
-            ] },
-            { "action": "set_variable_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
-              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(nx))),%math(floor(%var_local(ny))),%math(floor(%var_local(nz)))", "parsing": "plain" } }
-            ] },
-            {
-              "action": "if_variable_map_has_key",
-              "values": [
-                { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-                { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
-              ],
-              "operations": [
-                { "action": "set_variable_get_map_value_single", "values": [
-                  { "name": "variable", "value": { "type": "variable", "variable": "ngid", "scope": "local" } },
-                  { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                  { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-                  { "name": "default_value", "value": { "type": "number", "number": -1 } }
-                ] },
-                {
-                  "action": "if_variable_list_contains_value",
-                  "values": [
-                    { "name": "list", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
-                    { "name": "values", "value": { "type": "array", "values": [
-                      { "type": "variable", "variable": "ngid", "scope": "local" }
-                    ] } },
-                    { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
-                  ],
-                  "is_inverted": "true",
-                  "operations": [
-                    { "action": "set_variable_append_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
-                      { "name": "values", "value": { "type": "array", "values": [
-                        { "type": "variable", "variable": "ngid", "scope": "local" }
-                      ] } }
-                    ] }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "repeat_for_each_in_list",
-          "values": [
-            { "name": "index_variable", "value": { "type": "variable", "variable": "ui", "scope": "local" } },
-            { "name": "value_variable", "value": { "type": "variable", "variable": "ug", "scope": "local" } },
-            { "name": "list", "value": { "type": "variable", "variable": "upds", "scope": "local" } }
-          ],
-          "operations": [
-            { "action": "control_wait", "values": [
-              { "name": "duration", "value": { "type": "number", "number": 1 } },
-              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
-            ] },
-            {
-              "action": "call_function",
-              "values": [
-                { "name": "function_name", "value": { "type": "text", "text": "PR.update", "parsing": "plain" } },
-                { "name": "args", "value": { "type": "map", "values": {
-                  "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "ug", "scope": "local" }
-                } } }
-              ]
-            }
-          ]
-        }
-      ],
       "event": "block_break_block"
     },
     {
       "type": "function",
-      "position": 4,
+      "position": 3,
       "operations": [
         { "action": "set_variable_get_all_coordinates", "values": [
           { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
@@ -598,7 +570,7 @@
     },
     {
       "type": "function",
-      "position": 5,
+      "position": 4,
       "operations": [
         { "action": "set_variable_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "name", "scope": "local" } },
@@ -661,7 +633,7 @@
     },
     {
       "type": "function",
-      "position": 6,
+      "position": 5,
       "operations": [
         { "action": "set_variable_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "steps", "scope": "local" } },
@@ -925,7 +897,7 @@
     },
     {
       "type": "function",
-      "position": 7,
+      "position": 6,
       "operations": [
         { "action": "set_variable_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "sx", "scope": "local" } },
@@ -1192,7 +1164,7 @@
     },
     {
       "type": "event",
-      "position": 8,
+      "position": 7,
       "operations": [
         {
           "action": "if_variable_equals",
@@ -1254,7 +1226,7 @@
     },
     {
       "type": "event",
-      "position": 9,
+      "position": 8,
       "operations": [
         {
           "action": "if_player_chat_message_equals",
@@ -1280,7 +1252,7 @@
     },
     {
       "type": "function",
-      "position": 10,
+      "position": 9,
       "operations": [
         { "action": "set_variable_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
@@ -1407,7 +1379,7 @@
     },
     {
       "type": "function",
-      "position": 11,
+      "position": 10,
       "operations": [
         {
           "action": "repeat_for_each_in_list",
@@ -1513,7 +1485,7 @@
     },
     {
       "type": "function",
-      "position": 12,
+      "position": 11,
       "operations": [
         {
           "action": "repeat_for_each_in_list",
