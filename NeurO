@@ -634,9 +634,21 @@
           { "name": "variable", "value": { "type": "variable", "variable": "name", "scope": "local" } },
           { "name": "value", "value": { "type": "text", "text": "fb_%random_uuid%", "parsing": "plain" } }
         ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "sn", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%var_local(name)_st", "parsing": "plain" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "hn", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%var_local(name)_sh", "parsing": "plain" } }
+        ] },
+        { "action": "set_variable_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "dn", "scope": "local" } },
+          { "name": "value", "value": { "type": "text", "text": "%var_local(name)_dp", "parsing": "plain" } }
+        ] },
         { "action": "game_spawn_armor_stand", "values": [
           { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
-          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } },
+          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(sn)", "parsing": "plain" } },
           { "name": "gravity", "value": { "type": "enum", "enum": "FALSE" } },
           { "name": "marker", "value": { "type": "enum", "enum": "FALSE" } },
           { "name": "small", "value": { "type": "enum", "enum": "FALSE" } },
@@ -654,7 +666,7 @@
           { "name": "mob", "value": { "type": "item", "item": "{id:\"minecraft:shulker\",Count:1b}" } },
           { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
           { "name": "health", "value": { "type": "number", "number": 1 } },
-          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } },
+          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(hn)", "parsing": "plain" } },
           { "name": "potion_effects", "value": {} },
           { "name": "main_hand", "value": { "type": "item", "item": "{}" } },
           { "name": "helmet", "value": { "type": "item", "item": "{}" } },
@@ -670,17 +682,17 @@
           { "name": "invisible", "value": { "type": "enum", "enum": "TRUE" } }
         ] },
         { "action": "entity_ride_entity", "values": [
-          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } }
+          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(sn)", "parsing": "plain" } }
         ] },
         { "action": "game_spawn_block_display", "values": [
           { "name": "spawn_location", "value": { "type": "variable", "variable": "loc", "scope": "line" } },
-          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } },
+          { "name": "custom_name", "value": { "type": "text", "text": "%var_local(dn)", "parsing": "plain" } },
           { "name": "block", "value": { "type": "variable", "variable": "type", "scope": "line" } }
         ] },
         { "action": "select_reset", "values": [] },
         { "action": "select_last_entity", "values": [] },
         { "action": "entity_ride_entity", "values": [
-          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } }
+          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(sn)", "parsing": "plain" } }
         ] },
         { "action": "set_variable_put_map_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
@@ -692,7 +704,14 @@
         { "action": "set_variable_put_map_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
           { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
-          { "name": "key", "value": { "type": "text", "text": "%var_local(name)", "parsing": "plain" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(sn)", "parsing": "plain" } },
+          { "name": "value", "value": { "type": "variable", "variable": "key", "scope": "line" } },
+          { "name": "replaced_value", "value": {} }
+        ] },
+        { "action": "set_variable_put_map_value", "values": [
+          { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+          { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(hn)", "parsing": "plain" } },
           { "name": "value", "value": { "type": "variable", "variable": "key", "scope": "line" } },
           { "name": "replaced_value", "value": {} }
         ] },
@@ -997,7 +1016,13 @@
                     ] },
                     { "action": "select_reset", "values": [] },
                     { "action": "select_add_entity_by_name", "values": [
-                      { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } }
+                      { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)_st", "parsing": "plain" } }
+                    ] },
+                    { "action": "select_add_entity_by_name", "values": [
+                      { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)_sh", "parsing": "plain" } }
+                    ] },
+                    { "action": "select_add_entity_by_name", "values": [
+                      { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)_dp", "parsing": "plain" } }
                     ] },
                     { "action": "set_variable_set_all_coordinates", "values": [
                       { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
@@ -1038,7 +1063,14 @@
                     { "action": "set_variable_put_map_value", "values": [
                       { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
                       { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
-                      { "name": "key", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
+                      { "name": "key", "value": { "type": "text", "text": "%var_local(nm2)_st", "parsing": "plain" } },
+                      { "name": "value", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
+                      { "name": "replaced_value", "value": {} }
+                    ] },
+                    { "action": "set_variable_put_map_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+                      { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+                      { "name": "key", "value": { "type": "text", "text": "%var_local(nm2)_sh", "parsing": "plain" } },
                       { "name": "value", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
                       { "name": "replaced_value", "value": {} }
                     ] },
@@ -1371,7 +1403,13 @@
             ] },
             { "action": "select_reset", "values": [] },
             { "action": "select_add_entity_by_name", "values": [
-              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }
+              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)_st", "parsing": "plain" } }
+            ] },
+            { "action": "select_add_entity_by_name", "values": [
+              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)_sh", "parsing": "plain" } }
+            ] },
+            { "action": "select_add_entity_by_name", "values": [
+              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)_dp", "parsing": "plain" } }
             ] },
             { "action": "set_variable_set_all_coordinates", "values": [
               { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
@@ -1412,7 +1450,14 @@
             { "action": "set_variable_put_map_value", "values": [
               { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
               { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
-              { "name": "key", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nm)_st", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+              { "name": "replaced_value", "value": {} }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.entLoc", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nm)_sh", "parsing": "plain" } },
               { "name": "value", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
               { "name": "replaced_value", "value": {} }
             ] },
@@ -1500,7 +1545,7 @@
           { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
           { "name": "variable", "value": { "type": "variable", "variable": "phys.entType", "scope": "game" } },
           { "name": "map", "value": { "type": "variable", "variable": "phys.entType", "scope": "game" } },
-          { "name": "key", "value": { "type": "variable", "variable": "name", "scope": "line" } },
+          { "name": "key", "value": { "type": "text", "text": "%var_local(bn)", "parsing": "plain" } },
           { "name": "values", "value": {} }
         ] },
         { "action": "set_variable_split_text", "values": [
