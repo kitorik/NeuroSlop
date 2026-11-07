@@ -1409,6 +1409,14 @@
       "type": "function",
       "position": 11,
       "operations": [
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            { "name": "index_variable", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
+            { "name": "value_variable", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
+            { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
+          ],
+          "operations": [
         { "action": "control_wait", "values": [
           { "name": "duration", "value": { "type": "number", "number": 1 } },
           { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
@@ -1490,6 +1498,8 @@
           { "name": "value", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
           { "name": "replaced_value", "value": {} }
         ] }
+          ]
+        }
       ],
       "values": [
         { "name": "parameters", "value": { "type": "array", "values": [
@@ -1505,6 +1515,14 @@
       "type": "function",
       "position": 12,
       "operations": [
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            { "name": "index_variable", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
+            { "name": "value_variable", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
+            { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
+          ],
+          "operations": [
       { "action": "control_wait", "values": [
         { "name": "duration", "value": { "type": "number", "number": 1 } },
         { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
@@ -1611,6 +1629,8 @@
         { "name": "value", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
         { "name": "replaced_value", "value": {} }
       ] }
+          ]
+        }
       ],
       "values": [
         { "name": "parameters", "value": { "type": "array", "values": [
