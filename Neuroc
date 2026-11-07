@@ -94,7 +94,8 @@
         {
           "action": "repeat_while",
           "values": [
-            { "name": "list", "value": { "type": "variable", "variable": "stack", "scope": "local" } }
+            { "name": "list", "value": { "type": "variable", "variable": "stack", "scope": "local" } },
+            { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
           ],
           "operations": [
             {
@@ -183,7 +184,7 @@
               "action": "set_variable_add",
               "values": [
                 { "name": "variable", "value": { "type": "variable", "variable": "totalWeight", "scope": "local" } },
-                { "name": "value", "value": { "type": "text", "text": "%entry(phys.weights, %var_local(t))%", "parsing": "plain" } }
+                { "name": "value", "value": { "type": "number", "number": "%math(%entry(phys.weights, %var_local(t)))" } }
               ]
             }
           ]
@@ -226,7 +227,7 @@
               "values": [
                 { "name": "variable", "value": { "type": "variable", "variable": "below", "scope": "local" } },
                 { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
-                { "name": "y", "value": { "type": "text", "text": "%math(%var_local(cy) - 1)", "parsing": "plain" } },
+                { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy) - 1)" } },
                 { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
                 { "name": "yaw", "value": {} },
                 { "name": "pitch", "value": {} }
@@ -386,7 +387,7 @@
                       "values": [
                         { "name": "variable", "value": { "type": "variable", "variable": "below", "scope": "local" } },
                         { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
-                        { "name": "y", "value": { "type": "text", "text": "%math(%var_local(cy) - 1)", "parsing": "plain" } },
+                        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy) - 1)" } },
                         { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
                         { "name": "yaw", "value": {} },
                         { "name": "pitch", "value": {} }
@@ -484,7 +485,7 @@
                           "values": [
                             { "name": "variable", "value": { "type": "variable", "variable": "newLoc", "scope": "local" } },
                             { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
-                            { "name": "y", "value": { "type": "text", "text": "%math(%var_local(my) - 1)", "parsing": "plain" } },
+                            { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my) - 1)" } },
                             { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
                             { "name": "yaw", "value": {} },
                             { "name": "pitch", "value": {} }
@@ -521,7 +522,7 @@
                     {
                       "action": "control_wait",
                       "values": [
-                        { "name": "duration", "value": { "type": "text", "text": "%math(round(clamp(5 - sqrt(totalWeight), 1, 5), 0))", "parsing": "plain" } },
+                        { "name": "duration", "value": { "type": "number", "number": "%math(round(clamp(5 - sqrt(totalWeight), 1, 5), 0))" } },
                         { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
                       ]
                     }
