@@ -44,18 +44,18 @@
         ] },
         { "action": "set_variable_create_map", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-          { "name": "keys", "value": { "type": "array", "values": [] } },
-          { "name": "values", "value": { "type": "array", "values": [] } }
+          { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "init", "parsing": "plain" } ] } },
+          { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }
         ] },
         { "action": "set_variable_create_map", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-          { "name": "keys", "value": { "type": "array", "values": [] } },
-          { "name": "values", "value": { "type": "array", "values": [] } }
+          { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "init", "parsing": "plain" } ] } },
+          { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "none", "parsing": "plain" } ] } }
         ] },
         { "action": "set_variable_create_map", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "phys.entW", "scope": "game" } },
-          { "name": "keys", "value": { "type": "array", "values": [] } },
-          { "name": "values", "value": { "type": "array", "values": [] } }
+          { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "init", "parsing": "plain" } ] } },
+          { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }
         ] }
       ],
       "event": "world_start"
