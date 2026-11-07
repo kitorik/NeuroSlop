@@ -93,13 +93,6 @@
           ]
         },
         {
-          "action": "set_variable_value",
-          "values": [
-            { "name": "variable", "value": { "type": "variable", "variable": "totalWeight", "scope": "local" } },
-            { "name": "value", "value": { "type": "number", "number": 0.0 } }
-          ]
-        },
-        {
           "action": "repeat_while",
           "values": [
             { "name": "list", "value": { "type": "variable", "variable": "stack", "scope": "local" } },
@@ -181,30 +174,6 @@
           "conditional": { "action": "if_variable_list_is_empty", "is_inverted": true }
         },
         {
-          "action": "repeat_for_each_in_list",
-          "values": [
-            { "name": "index_variable", "value": { "type": "variable", "variable": "twi", "scope": "local" } },
-            { "name": "value_variable", "value": { "type": "variable", "variable": "t", "scope": "local" } },
-            { "name": "list", "value": { "type": "variable", "variable": "types", "scope": "local" } }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_add",
-              "values": [
-                { "name": "variable", "value": { "type": "variable", "variable": "totalWeight", "scope": "local" } },
-                { "name": "value", "value": { "type": "number", "number": "%math(%entry(phys.weights, %var_local(t)))" } }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            { "name": "variable", "value": { "type": "variable", "variable": "avgWeight", "scope": "local" } },
-            { "name": "value", "value": { "type": "number", "number": "%math(totalWeight / %length_local(cluster))" } }
-          ]
-        },
-        {
           "action": "set_variable_value",
           "values": [
             { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
@@ -228,7 +197,7 @@
                 "type": "map",
                 "values": {
                   "{\"type\":\"text\",\"text\":\"cluster\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "cluster", "scope": "local" },
-                  "{\"type\":\"text\",\"text\":\"avgWeight\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "avgWeight", "scope": "local" }
+                  "{\"type\":\"text\",\"text\":\"avgWeight\",\"parsing\":\"plain\"}": { "type": "number", "number": 0.0 }
                 }
               }
             }
@@ -251,9 +220,7 @@
                     "type": "map",
                     "values": {
                       "{\"type\":\"text\",\"text\":\"cluster\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "cluster", "scope": "local" },
-                      "{\"type\":\"text\",\"text\":\"types\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "types", "scope": "local" },
-                      "{\"type\":\"text\",\"text\":\"buoyant\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "buoyant", "scope": "local" },
-                      "{\"type\":\"text\",\"text\":\"totalWeight\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "totalWeight", "scope": "local" }
+                      "{\"type\":\"text\",\"text\":\"types\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "types", "scope": "local" }
                     }
                   }
                 }
@@ -294,13 +261,6 @@
           "value": {
             "type": "item",
             "item": "{Count:1b,id:\"minecraft:sand\"}"
-          }
-        },
-        {
-          "name": "display_description",
-          "value": {
-            "type": "localized_text",
-            "data": "{\"translations\":{},\"fallback\":{\"rawText\":\"Ищет кластер и проверяет опору\",\"parsingType\":\"PLAIN\"}}"
           }
         }
       ]
@@ -366,19 +326,10 @@
                   ],
                   "operations": [
                     {
-                      "action": "if_variable_less",
+                      "action": "set_variable_value",
                       "values": [
-                        { "name": "value", "value": { "type": "variable", "variable": "avgWeight", "scope": "line" } },
-                        { "name": "compare", "value": { "type": "number", "number": "%var(phys.waterDensity)" } }
-                      ],
-                      "operations": [
-                        {
-                          "action": "set_variable_value",
-                          "values": [
-                            { "name": "variable", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
-                            { "name": "value", "value": { "type": "number", "number": 1.0 } }
-                          ]
-                        }
+                        { "name": "variable", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
+                        { "name": "value", "value": { "type": "number", "number": 1.0 } }
                       ]
                     }
                   ]
@@ -400,63 +351,6 @@
                           "values": [
                             { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
                             { "name": "value", "value": { "type": "number", "number": 1.0 } }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "action": "if_variable_equals",
-                  "values": [
-                    { "name": "value", "value": { "type": "variable", "variable": "buoyant", "scope": "local" } },
-                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1.0 } ] } }
-                  ],
-                  "operations": [
-                    {
-                      "action": "set_variable_set_all_coordinates",
-                      "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "above", "scope": "local" } },
-                        { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
-                        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy) + 1)" } },
-                        { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
-                        { "name": "yaw", "value": {} },
-                        { "name": "pitch", "value": {} }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_get_block_material",
-                      "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "aboveType", "scope": "local" } },
-                        { "name": "location", "value": { "type": "variable", "variable": "above", "scope": "local" } },
-                        { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
-                      ]
-                    },
-                    {
-                      "action": "if_variable_list_contains_value",
-                      "values": [
-                        { "name": "list", "value": { "type": "variable", "variable": "cluster", "scope": "line" } },
-                        { "name": "values", "value": { "type": "array", "values": [ { "type": "variable", "variable": "above", "scope": "local" } ] } },
-                        { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
-                      ],
-                      "is_inverted": "true",
-                      "operations": [
-                        {
-                          "action": "if_variable_text_starts_with",
-                          "values": [
-                            { "name": "value", "value": { "type": "variable", "variable": "aboveType", "scope": "local" } },
-                            { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "minecraft:water", "parsing": "plain" } ] } },
-                            { "name": "ignore_case", "value": { "type": "enum", "enum": "FALSE" } }
-                          ],
-                          "is_inverted": "true",
-                          "operations": [
-                            {
-                              "action": "set_variable_value",
-                              "values": [
-                                { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
-                                { "name": "value", "value": { "type": "number", "number": 1.0 } }
-                              ]
-                            }
                           ]
                         }
                       ]
@@ -602,9 +496,7 @@
                 "values": {
                   "{\"type\":\"text\",\"text\":\"cluster\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "cluster", "scope": "line" },
                   "{\"type\":\"text\",\"text\":\"types\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "types", "scope": "line" },
-                  "{\"type\":\"text\",\"text\":\"names\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "names", "scope": "local" },
-                  "{\"type\":\"text\",\"text\":\"totalWeight\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "totalWeight", "scope": "line" },
-                  "{\"type\":\"text\",\"text\":\"buoyant\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "buoyant", "scope": "line" }
+                  "{\"type\":\"text\",\"text\":\"names\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "names", "scope": "local" }
                 }
               }
             }
@@ -638,28 +530,6 @@
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
                 "slots": "[18, 19, 20, 21, 22, 23, 24, 25, 26]",
                 "description_slots": "[27, 28, 29, 30, 31, 32, 33, 34, 35]"
-              },
-              {
-                "type": "parameter",
-                "type_key": "singular",
-                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Плавучесть\",\"parsingType\":\"PLAIN\"}}",
-                "name": "buoyant",
-                "value_type": "number",
-                "is_required": "true",
-                "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 36,
-                "description_slot": 45
-              },
-              {
-                "type": "parameter",
-                "type_key": "singular",
-                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Вес\",\"parsingType\":\"PLAIN\"}}",
-                "name": "totalWeight",
-                "value_type": "number",
-                "is_required": "true",
-                "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 46,
-                "description_slot": 54
               }
             ]
           }
@@ -685,6 +555,37 @@
       "position": 4,
       "name": "PhysFall_Move",
       "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "totalWeight", "scope": "local" } },
+            { "name": "value", "value": { "type": "number", "number": 0.0 } }
+          ]
+        },
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            { "name": "index_variable", "value": { "type": "variable", "variable": "twi", "scope": "local" } },
+            { "name": "value_variable", "value": { "type": "variable", "variable": "t", "scope": "local" } },
+            { "name": "list", "value": { "type": "variable", "variable": "types", "scope": "line" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_add",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "totalWeight", "scope": "local" } },
+                { "name": "value", "value": { "type": "number", "number": "%math(%entry(phys.weights, %var_local(t)))" } }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "avgWeight", "scope": "local" } },
+            { "name": "value", "value": { "type": "number", "number": "%math(totalWeight / %length_local(cluster))" } }
+          ]
+        },
         {
           "action": "set_variable_value",
           "values": [
@@ -812,32 +713,10 @@
               ],
               "operations": [
                 {
-                  "action": "if_variable_equals",
+                  "action": "set_variable_value",
                   "values": [
-                    { "name": "value", "value": { "type": "variable", "variable": "buoyant", "scope": "line" } },
-                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1.0 } ] } }
-                  ],
-                  "operations": [
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "dy", "scope": "local" } },
-                        { "name": "value", "value": { "type": "number", "number": 1.0 } }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "action": "else",
-                  "values": [],
-                  "operations": [
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "dy", "scope": "local" } },
-                        { "name": "value", "value": { "type": "number", "number": -1.0 } }
-                      ]
-                    }
+                    { "name": "variable", "value": { "type": "variable", "variable": "dy", "scope": "local" } },
+                    { "name": "value", "value": { "type": "number", "number": -1.0 } }
                   ]
                 },
                 {
@@ -988,28 +867,6 @@
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
                 "slots": "[36, 37, 38, 39, 40, 41, 42, 43, 44]",
                 "description_slots": "[45, 46, 47, 48, 49, 50, 51, 52, 53]"
-              },
-              {
-                "type": "parameter",
-                "type_key": "singular",
-                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Вес\",\"parsingType\":\"PLAIN\"}}",
-                "name": "totalWeight",
-                "value_type": "number",
-                "is_required": "true",
-                "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 54,
-                "description_slot": 55
-              },
-              {
-                "type": "parameter",
-                "type_key": "singular",
-                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Плавучесть\",\"parsingType\":\"PLAIN\"}}",
-                "name": "buoyant",
-                "value_type": "number",
-                "is_required": "true",
-                "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 56,
-                "description_slot": 57
               }
             ]
           }
