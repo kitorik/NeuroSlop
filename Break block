@@ -1,0 +1,359 @@
+{
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.round", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.p1", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.p2", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } } ] },
+        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "dummy", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } } ] },
+        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "dummy", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } } ] },
+        { "action": "game_create_scoreboard", "values": [ { "name": "id", "value": { "type": "text", "text": "bb", "parsing": "plain" } }, { "name": "display_name", "value": { "type": "text", "text": "&6Ломай Блок+", "parsing": "legacy" } } ] },
+        { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "bb", "parsing": "plain" } }, { "name": "text", "value": { "type": "text", "text": "Ждём матч...", "parsing": "plain" } }, { "name": "score", "value": { "type": "number", "number": 0 } } ] }
+      ],
+      "event": "world_start"
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "left_click_block", "parsing": "plain" }, { "type": "text", "text": "right_click_block", "parsing": "plain" } ] } },
+            { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
+          ],
+          "operations": [
+            {
+              "action": "if_game_event_item_equals",
+              "values": [
+                { "name": "items", "value": { "type": "array", "values": [ { "type": "item", "item": "{id:\"minecraft:wooden_axe\",Count:1b}" } ] } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "game_cancel_event", "values": [] },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "left_click_block", "parsing": "plain" } ] } },
+                    { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.p1", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } } ] },
+                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Ломай блок: точка 1 установлена", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.p2", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } } ] },
+                        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Ломай блок: точка 2 установлена", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "operations": [
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@break", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.start", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@breakstop", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.stop", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@bb top", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.top", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@bb help", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6=== Ломай Блок+ ===", "parsing": "legacy" }, { "type": "text", "text": "&e@break &7— начать матч", "parsing": "legacy" }, { "type": "text", "text": "&e@breakstop &7— закончить матч", "parsing": "legacy" }, { "type": "text", "text": "&e@bb top &7— таблица лидеров", "parsing": "legacy" }, { "type": "text", "text": "&7Выдели арену деревянным топором: ЛКМ — точка 1, ПКМ — точка 2", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SEPARATE_LINES" } } ] }
+          ]
+        }
+      ],
+      "event": "player_chat"
+    },
+    {
+      "type": "function",
+      "position": 3,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cМатч уже идёт!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_end_thread", "values": [] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.round", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6&lЛОМАЙ БЛОК+", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&eЛомай блоки быстрее всех!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 60 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.round", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "BB.start"
+    },
+    {
+      "type": "function",
+      "position": 4,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cМатч не запущен. Пиши &e@break", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_end_thread", "values": [] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.token)+1)" } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6&lМАТЧ ОКОНЧЕН! &7Топ: &e@bb top", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "player_remove_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "bb_timer", "parsing": "plain" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "BB.stop"
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.token)+1)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.round", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.round)+1)" } } ] },
+        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "bb.p1", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "x1", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y1", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z1", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "bb.p2", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "x2", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y2", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z2", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rx", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(min(%var_local(x1),%var_local(x2))+random*(abs(%var_local(x2)-%var_local(x1))+1)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ry", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(min(%var_local(y1),%var_local(y2))+random*(abs(%var_local(y2)-%var_local(y1))+1)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rz", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(min(%var_local(z1),%var_local(z2))+random*(abs(%var_local(z2)-%var_local(z1))+1)))" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.blockLoc", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "rx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "ry", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "rz", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.key", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%var_local(rx),%var_local(ry),%var_local(rz)", "parsing": "plain" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rnd", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(random*10))" } } ] },
+        {
+          "action": "if_variable_less",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "rnd", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 6 } } ],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.mat", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "minecraft:iron_block", "parsing": "plain" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.pts", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_less",
+                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "rnd", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 9 } } ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.mat", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "minecraft:gold_block", "parsing": "plain" } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.pts", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 3 } } ] },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.mat", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "minecraft:redstone_block", "parsing": "plain" } } ] },
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.pts", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": -2 } } ] }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+            { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.round)%5)" } }
+          ],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.pts", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.pts)*2)" } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&4&lБЕЗУМНЫЙ РАУНД! Двойные очки, таймер вдвое короче!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "player_display_lightning", "values": [ { "name": "location", "value": { "type": "variable", "variable": "bb.blockLoc", "scope": "game" } } ] }
+          ]
+        },
+        { "action": "game_set_block", "values": [ { "name": "block", "value": { "type": "text", "text": "%var(bb.mat)", "parsing": "plain" } }, { "name": "locations", "value": { "type": "variable", "variable": "bb.blockLoc", "scope": "game" } }, { "name": "update_blocks", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Раунд &e%var(bb.round)&7: ломай &e%var(bb.mat)&7!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        {
+          "action": "controller_async_run",
+          "values": [],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.t", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.round)%5==0 ? 10 : 20)" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.ttok", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "bb.token", "scope": "game" } } ] },
+            {
+              "action": "repeat_while",
+              "values": [ { "name": "value", "value": { "type": "variable", "variable": "bb.t", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 0 } } ],
+              "conditional": { "action": "if_variable_greater_or_equals", "is_inverted": "false" },
+              "operations": [
+                { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 20 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "bb.token", "scope": "game" } ] } },
+                    { "name": "value", "value": { "type": "variable", "variable": "bb.ttok", "scope": "game" } }
+                  ],
+                  "is_inverted": "true",
+                  "operations": [
+                    { "action": "control_end_thread", "values": [] }
+                  ]
+                },
+                { "action": "select_all_players", "values": [] },
+                { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "bb_timer", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&6Блок сгорит через &e%var(bb.t) &6сек!", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(%var(bb.t)/20)" } }, { "name": "color", "value": { "type": "enum", "enum": "YELLOW" } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.t", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.t)-1)" } } ] }
+              ]
+            },
+            { "action": "game_set_block", "values": [ { "name": "block", "value": { "type": "text", "text": "minecraft:air", "parsing": "plain" } }, { "name": "locations", "value": { "type": "variable", "variable": "bb.blockLoc", "scope": "game" } }, { "name": "update_blocks", "value": { "type": "enum", "enum": "TRUE" } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cБлок сгорел дотла! Новый раунд...", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.round", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "BB.round"
+    },
+    {
+      "type": "function",
+      "position": 6,
+      "operations": [
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6=== Топ ломателей ===", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        {
+          "action": "repeat_for_each_map_entry",
+          "values": [ { "name": "key_variable", "value": { "type": "variable", "variable": "tk", "scope": "local" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "tv", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } } ],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "dummy", "parsing": "plain" } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "tk", "scope": "local" } }
+              ],
+              "operations": [
+                { "action": "control_skip_iteration", "values": [] }
+              ]
+            },
+            { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "bb", "parsing": "plain" } }, { "name": "text", "value": { "type": "variable", "variable": "tk", "scope": "local" } }, { "name": "score", "value": { "type": "variable", "variable": "tv", "scope": "local" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&e%var_local(tk)&7: &6%var_local(tv)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+          ]
+        },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_show_scoreboard", "values": [ { "name": "id", "value": { "type": "text", "text": "bb", "parsing": "plain" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "BB.top"
+    },
+    {
+      "type": "event",
+      "position": 7,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "bb.enabled", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }, { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bk", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(bx))),%math(floor(%var_local(by))),%math(floor(%var_local(bz)))", "parsing": "plain" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "%var(bb.key)", "parsing": "plain" } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "bk", "scope": "local" } }
+              ],
+              "operations": [
+                { "action": "game_cancel_event", "values": [] },
+                { "action": "game_set_block", "values": [ { "name": "block", "value": { "type": "text", "text": "minecraft:air", "parsing": "plain" } }, { "name": "locations", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }, { "name": "update_blocks", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                {
+                  "action": "if_variable_less",
+                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "bb.pts", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 0 } } ],
+                  "operations": [
+                    { "action": "game_create_explosion", "values": [ { "name": "location", "value": { "type": "variable", "variable": "bb.blockLoc", "scope": "game" } }, { "name": "power", "value": { "type": "number", "number": 0 } }, { "name": "name_or_uuid", "value": { "type": "text", "text": "%empty%", "parsing": "plain" } }, { "name": "fire", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "break_blocks", "value": { "type": "enum", "enum": "FALSE" } } ] },
+                    { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                    { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&4&lЛОВУШКА!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&cМинус очки и комбо!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+                    { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "number", "number": 0 } }, { "name": "replaced_value", "value": {} } ] },
+                    { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sc", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ns", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(sc)+%var(bb.pts))" } } ] },
+                    { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "ns", "scope": "local" } }, { "name": "replaced_value", "value": {} } ] },
+                    { "action": "select_all_players", "values": [] },
+                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&c%player% &7попался на ловушку! &4(-2)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cb", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cb2", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(cb)+1)" } } ] },
+                        { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.combo", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "cb2", "scope": "local" } }, { "name": "replaced_value", "value": {} } ] },
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "gained", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(bb.pts)+floor(%var_local(cb2)/3))" } } ] },
+                        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sc", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ns", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(sc)+%var_local(gained))" } } ] },
+                        { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "bb.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "ns", "scope": "local" } }, { "name": "replaced_value", "value": {} } ] },
+                        { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "bb", "parsing": "plain" } }, { "name": "text", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "score", "value": { "type": "variable", "variable": "ns", "scope": "local" } } ] },
+                        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                        { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&6Счёт: %var_local(ns) &7| Комбо: %var_local(cb2)", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                        { "action": "select_all_players", "values": [] },
+                        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&e%player% &7сломал блок! &6(+%var_local(gained))", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                      ]
+                    },
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "BB.round", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_break_block"
+    }
+  ]
+}
