@@ -276,8 +276,8 @@
                 "value_type": "location",
                 "is_required": "true",
                 "default_value": "{}",
-                "slot": 12,
-                "description_slot": 21
+                "slot": 0,
+                "description_slot": 9
               }
             ]
           }
@@ -294,13 +294,6 @@
           "value": {
             "type": "item",
             "item": "{Count:1b,id:\"minecraft:sand\"}"
-          }
-        },
-        {
-          "name": "display_description",
-          "value": {
-            "type": "localized_text",
-            "data": "{\"translations\":{},\"fallback\":{\"rawText\":\"Ищет кластер и проверяет опору\",\"parsingType\":\"PLAIN\"}}"
           }
         }
       ]
@@ -482,8 +475,8 @@
                 "value_type": "location",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[10, 11, 12, 13, 14, 15, 16, 17, 18]",
-                "description_slots": "[19, 20, 21, 22, 23, 24, 25, 26, 27]"
+                "slots": "[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+                "description_slots": "[9, 10, 11, 12, 13, 14, 15, 16, 17]"
               },
               {
                 "type": "parameter",
@@ -493,8 +486,8 @@
                 "value_type": "number",
                 "is_required": "true",
                 "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 64,
-                "description_slot": 65
+                "slot": 18,
+                "description_slot": 27
               }
             ]
           }
@@ -625,8 +618,8 @@
                 "value_type": "location",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[10, 11, 12, 13, 14, 15, 16, 17, 18]",
-                "description_slots": "[19, 20, 21, 22, 23, 24, 25, 26, 27]"
+                "slots": "[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+                "description_slots": "[9, 10, 11, 12, 13, 14, 15, 16, 17]"
               },
               {
                 "type": "parameter",
@@ -636,8 +629,8 @@
                 "value_type": "text",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[28, 29, 30, 31, 32, 33, 34, 35, 36]",
-                "description_slots": "[37, 38, 39, 40, 41, 42, 43, 44, 45]"
+                "slots": "[18, 19, 20, 21, 22, 23, 24, 25, 26]",
+                "description_slots": "[27, 28, 29, 30, 31, 32, 33, 34, 35]"
               },
               {
                 "type": "parameter",
@@ -647,8 +640,8 @@
                 "value_type": "number",
                 "is_required": "true",
                 "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 64,
-                "description_slot": 65
+                "slot": 36,
+                "description_slot": 45
               },
               {
                 "type": "parameter",
@@ -658,8 +651,8 @@
                 "value_type": "number",
                 "is_required": "true",
                 "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 66,
-                "description_slot": 67
+                "slot": 54,
+                "description_slot": 63
               }
             ]
           }
@@ -964,8 +957,8 @@
                 "value_type": "location",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[10, 11, 12, 13, 14, 15, 16, 17, 18]",
-                "description_slots": "[19, 20, 21, 22, 23, 24, 25, 26, 27]"
+                "slots": "[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+                "description_slots": "[9, 10, 11, 12, 13, 14, 15, 16, 17]"
               },
               {
                 "type": "parameter",
@@ -975,8 +968,8 @@
                 "value_type": "text",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[28, 29, 30, 31, 32, 33, 34, 35, 36]",
-                "description_slots": "[37, 38, 39, 40, 41, 42, 43, 44, 45]"
+                "slots": "[18, 19, 20, 21, 22, 23, 24, 25, 26]",
+                "description_slots": "[27, 28, 29, 30, 31, 32, 33, 34, 35]"
               },
               {
                 "type": "parameter",
@@ -986,8 +979,8 @@
                 "value_type": "text",
                 "is_required": "true",
                 "default_value": "{\"type\":\"array\",\"values\":[]}",
-                "slots": "[46, 47, 48, 49, 50, 51, 52, 53, 54]",
-                "description_slots": "[55, 56, 57, 58, 59, 60, 61, 62, 63]"
+                "slots": "[36, 37, 38, 39, 40, 41, 42, 43, 44]",
+                "description_slots": "[45, 46, 47, 48, 49, 50, 51, 52, 53]"
               },
               {
                 "type": "parameter",
@@ -997,8 +990,8 @@
                 "value_type": "number",
                 "is_required": "true",
                 "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 64,
-                "description_slot": 65
+                "slot": 54,
+                "description_slot": 63
               },
               {
                 "type": "parameter",
@@ -1008,8 +1001,8 @@
                 "value_type": "number",
                 "is_required": "true",
                 "default_value": "{\"type\":\"number\",\"number\":0.0}",
-                "slot": 66,
-                "description_slot": 67
+                "slot": 64,
+                "description_slot": 73
               }
             ]
           }
