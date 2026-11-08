@@ -1,0 +1,774 @@
+{
+  "name": "pvp-arena",
+  "display_name": "PVP Арена",
+  "description": "Мини-игра: ПКМ незеритовой звездой — вход на арену, Shift+ПКМ — выход на спавн. Игроки дерутся мечами; за фраги меч прокачивается по уровням (деревянный → каменный → железный → алмазный → незеритовый) с зачарованием «Острота». Уровень меча и фраги сохраняются между заходами. Точка арены — (0, 70, 0), поменяйте координаты в блоке «Телепортация» функции ARE.join под свою арену.",
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "event": "player_interact",
+      "operations": [
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "nether_star" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_player_is_sneaking",
+              "values": [],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.leave", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.join", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "event": "player_kill_player",
+      "operations": [
+        {
+          "action": "select_event_target",
+          "values": [ { "name": "selection_type", "value": { "type": "enum", "enum": "KILLER" } } ]
+        },
+        {
+          "action": "set_variable_increment",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "number", "value": { "type": "number", "number": 1 } }
+          ]
+        },
+        {
+          "action": "set_variable_increment",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "%player%_streak", "scope": "save" } },
+            { "name": "number", "value": { "type": "number", "number": 1 } }
+          ]
+        },
+        {
+          "action": "select_event_target",
+          "values": [ { "name": "selection_type", "value": { "type": "enum", "enum": "VICTIM" } } ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "%player%_streak", "scope": "save" } },
+            { "name": "value", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        { "action": "select_all_players", "values": [] },
+        {
+          "action": "player_send_message",
+          "values": [
+            { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&8[⚔] &b%killer% &7одолел &c%victim%&7!", "parsing": "legacy" } ] } },
+            { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+          ]
+        },
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%killer%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "player_heal",
+          "values": [ { "name": "heal", "value": { "type": "number", "number": 10 } } ]
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.experience_orb.pickup", "pitch": 1.2, "volume": 1 } },
+            { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "ARE.checkup", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {} } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "ARE.hud", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {} } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "event": "player_join",
+      "operations": [
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [ { "type": "text", "text": "&8&m----------&r\n&b&l⚔ PVP АРЕНА ⚔&r\n &7ПКМ &fнезеритовой звездой &7— выйти на арену.\n &7Фраги &f+1 &7к уровню меча: дерево → камень →\n &7железо → алмаз → незерит + острота.\n &7Присед + ПКМ звездой — вернуться на спавн.\n&8&m----------", "parsing": "legacy" } ]
+              }
+            },
+            { "name": "merging", "value": { "type": "enum", "enum": "SEPARATE_LINES" } }
+          ]
+        },
+        {
+          "action": "if_player_has_item",
+          "is_inverted": true,
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "nether_star" } },
+            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            {
+              "action": "player_give_items",
+              "values": [
+                { "name": "items", "value": { "type": "item", "item": "nether_star" } },
+                { "name": "amount", "value": { "type": "number", "number": 1 } }
+              ]
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7В инвентарь добавлена &fнезеритовая звезда &7— она открывает арену.", "parsing": "legacy" } ] } },
+                { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "event": "player_quit",
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "%player%_streak", "scope": "save" } },
+            { "name": "value", "value": { "type": "number", "number": 0 } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 4,
+      "name": "ARE.join",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "nether_star" } }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "if_variable_exists",
+          "is_inverted": true,
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+            { "name": "compare_type", "value": { "type": "enum", "enum": "ALL" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "value", "value": { "type": "number", "number": 0 } }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+                { "name": "value", "value": { "type": "number", "number": 0 } }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "%player%_streak", "scope": "save" } },
+                { "name": "value", "value": { "type": "number", "number": 0 } }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "player_set_inventory_kept",
+          "values": [ { "name": "kept", "value": { "type": "enum", "enum": "TRUE" } } ]
+        },
+        {
+          "action": "player_set_instant_respawn",
+          "values": [ { "name": "instant_respawn", "value": { "type": "enum", "enum": "TRUE" } } ]
+        },
+        { "action": "player_clear_potion_effects", "values": [] },
+        {
+          "action": "player_set_health",
+          "values": [ { "name": "health", "value": { "type": "number", "number": 20 } } ]
+        },
+        {
+          "action": "player_set_food",
+          "values": [
+            { "name": "food", "value": { "type": "number", "number": 20 } },
+            { "name": "mode", "value": { "type": "enum", "enum": "SET" } }
+          ]
+        },
+        {
+          "action": "player_teleport",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 0, "y": 70, "z": 0, "yaw": 0, "pitch": 0 } },
+            { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } },
+            { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } },
+            { "name": "dismount", "value": { "type": "enum", "enum": "FALSE" } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "ARE.checkup", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {} } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {} } }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            { "name": "function_name", "value": { "type": "text", "text": "ARE.hud", "parsing": "plain" } },
+            { "name": "args", "value": { "type": "map", "values": {} } }
+          ]
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "&b&l⚔ PVP АРЕНА", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "&7Фраги прокачивают твой меч!", "parsing": "legacy" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+            { "name": "stay", "value": { "type": "number", "number": 50 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+          ]
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.beacon.activate", "pitch": 1, "volume": 1 } },
+            { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }
+          ]
+        },
+        { "action": "select_all_players", "values": [] },
+        {
+          "action": "player_send_message",
+          "values": [
+            { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&8[⚔] &b%player% &7вошёл на арену!", "parsing": "legacy" } ] } },
+            { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "name": "ARE.leave",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "oak_pressure_plate" } }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "player_remove_boss_bar",
+          "values": [ { "name": "id", "value": { "type": "text", "text": "pvp", "parsing": "plain" } } ]
+        },
+        {
+          "action": "player_set_health",
+          "values": [ { "name": "health", "value": { "type": "number", "number": 20 } } ]
+        },
+        {
+          "action": "player_teleport",
+          "values": [
+            { "name": "location", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } },
+            { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } },
+            { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } },
+            { "name": "dismount", "value": { "type": "enum", "enum": "FALSE" } }
+          ]
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Ты вернулся на спавн. Меч сохранён: ур. &f%var_save(%player%_lvl)&7, фрагов: &f%var_save(%player%_kills)&7.", "parsing": "legacy" } ] } },
+            { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 6,
+      "name": "ARE.hud",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "red_dye" } }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "player_set_boss_bar",
+          "values": [
+            { "name": "id", "value": { "type": "text", "text": "pvp", "parsing": "plain" } },
+            { "name": "title", "value": { "type": "text", "text": "&c⚔ Арена &8| &7Меч: ур. &f%var_save(%player%_lvl) &8| &7Фраги: &f%var_save(%player%_kills) &8| &7Серия: &f%var_save(%player%_streak)", "parsing": "legacy" } },
+            { "name": "progress", "value": { "type": "number", "number": 100 } },
+            { "name": "color", "value": { "type": "enum", "enum": "RED" } },
+            { "name": "style", "value": { "type": "enum", "enum": "PROGRESS" } },
+            { "name": "sky_effect", "value": { "type": "enum", "enum": "NONE" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 7,
+      "name": "ARE.checkup",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "experience_bottle" } }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_greater_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 3 } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 1 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 1 } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.fanfare", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_greater_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 8 } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 2 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 2 } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.fanfare", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_greater_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 15 } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 3 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 3 } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.fanfare", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_greater_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 25 } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 4 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 4 } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.fanfare", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_greater_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_kills", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 40 } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 5 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 5 } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.upgrade", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "ARE.fanfare", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 8,
+      "name": "ARE.fanfare",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "firework_rocket" } }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "&6&lПРОКАЧКА!", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "&bТвой меч — ур. &f%var_save(%player%_lvl)!&r", "parsing": "legacy" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+            { "name": "stay", "value": { "type": "number", "number": 40 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+          ]
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6⚔ Меч увеличен до ур. &f%var_save(%player%_lvl)&6! Серия фрагов: &f%var_save(%player%_streak)", "parsing": "legacy" } ] } },
+            { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+          ]
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.player.levelup", "pitch": 1, "volume": 1 } },
+            { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 9,
+      "name": "ARE.upgrade",
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "netherite_sword" } }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ]
+        },
+        {
+          "action": "if_variable_less",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+            { "name": "compare", "value": { "type": "number", "number": 1 } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+                { "name": "value", "value": { "type": "item", "item": "wooden_sword" } }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                { "name": "compare", "value": { "type": "number", "number": 2 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+                    { "name": "value", "value": { "type": "item", "item": "stone_sword" } }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_less",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                    { "name": "compare", "value": { "type": "number", "number": 3 } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+                        { "name": "value", "value": { "type": "item", "item": "iron_sword" } }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_less",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "%player%_lvl", "scope": "save" } },
+                        { "name": "compare", "value": { "type": "number", "number": 4 } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+                            { "name": "value", "value": { "type": "item", "item": "diamond_sword" } }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+                            { "name": "value", "value": { "type": "item", "item": "netherite_sword" } }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_add_item_enchantment",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "item", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "enchantment", "value": { "type": "text", "text": "sharpness", "parsing": "plain" } },
+            { "name": "level", "value": { "type": "number", "number": "%math(%var_save(%player%_lvl) + 1)" } },
+            { "name": "enchantment_type", "value": { "type": "enum", "enum": "NORMAL" } }
+          ]
+        },
+        {
+          "action": "set_variable_set_item_unbreakable",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "item", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "unbreakable", "value": { "type": "enum", "enum": "TRUE" } }
+          ]
+        },
+        {
+          "action": "set_variable_set_item_lore",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "lore", "value": { "type": "text", "text": "&7Убийств: &f%var_save(%player%_kills)\n&7Серия: &f%var_save(%player%_streak)\n&8ПКМ звездой — вход на арену", "parsing": "legacy" } },
+            { "name": "item", "value": { "type": "variable", "variable": "sw", "scope": "local" } }
+          ]
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "text", "value": { "type": "text", "text": "&b⚔ Меч &7ур. &f%var_save(%player%_lvl)", "parsing": "legacy" } },
+            { "name": "item", "value": { "type": "variable", "variable": "sw", "scope": "local" } }
+          ]
+        },
+        {
+          "action": "player_set_slot_item",
+          "values": [
+            { "name": "item", "value": { "type": "variable", "variable": "sw", "scope": "local" } },
+            { "name": "slot", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        {
+          "action": "player_set_hotbar_slot",
+          "values": [ { "name": "slot", "value": { "type": "number", "number": 0 } } ]
+        }
+      ]
+    }
+  ]
+}
