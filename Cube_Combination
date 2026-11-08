@@ -292,35 +292,46 @@
           ]
         },
         {
-          "action": "call_function",
+          "action": "set_variable_value",
           "values": [
             {
-              "name": "function_name",
+              "name": "variable",
               "value": {
-                "type": "text",
-                "text": "CC.spawn_cube",
-                "parsing": "plain"
+                "type": "variable",
+                "variable": "cc_cid",
+                "scope": "local"
               }
             },
             {
-              "name": "args",
+              "name": "value",
               "value": {
-                "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "ice",
-                    "parsing": "plain"
-                  },
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                    "type": "location",
-                    "x": 5.5,
-                    "y": 64,
-                    "z": 5.5,
-                    "yaw": 0,
-                    "pitch": 0
-                  }
-                }
+                "type": "text",
+                "text": "ice",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 5.5,
+                "y": 64,
+                "z": 5.5,
+                "yaw": 0,
+                "pitch": 0
               }
             }
           ]
@@ -340,21 +351,52 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "stone",
-                    "parsing": "plain"
-                  },
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                    "type": "location",
-                    "x": -4.5,
-                    "y": 64,
-                    "z": 5.5,
-                    "yaw": 0,
-                    "pitch": 0
-                  }
-                }
+                "values": {}
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_cid",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "stone",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": -4.5,
+                "y": 64,
+                "z": 5.5,
+                "yaw": 0,
+                "pitch": 0
               }
             }
           ]
@@ -374,21 +416,52 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "wood",
-                    "parsing": "plain"
-                  },
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                    "type": "location",
-                    "x": 5.5,
-                    "y": 64,
-                    "z": -4.5,
-                    "yaw": 0,
-                    "pitch": 0
-                  }
-                }
+                "values": {}
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_cid",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "wood",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 5.5,
+                "y": 64,
+                "z": -4.5,
+                "yaw": 0,
+                "pitch": 0
               }
             }
           ]
@@ -408,21 +481,72 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "lava",
-                    "parsing": "plain"
-                  },
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                    "type": "location",
-                    "x": -5.5,
-                    "y": 64,
-                    "z": -5.5,
-                    "yaw": 0,
-                    "pitch": 0
-                  }
-                }
+                "values": {}
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_cid",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "lava",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": -5.5,
+                "y": 64,
+                "z": -5.5,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "CC.spawn_cube",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "args",
+              "value": {
+                "type": "map",
+                "values": {}
               }
             }
           ]
@@ -709,6 +833,69 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_vn",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "%selected%",
+                "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_it",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "game_value",
+                "game_value": "event_item",
+                "selection": "{\"type\":\"default\"}"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_pl",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "%player%",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
           "action": "call_function",
           "values": [
             {
@@ -723,23 +910,7 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"vn\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "%selected%",
-                    "parsing": "legacy"
-                  },
-                  "{\"type\":\"text\",\"text\":\"it\",\"parsing\":\"plain\"}": {
-                    "type": "game_value",
-                    "game_value": "event_item",
-                    "selection": "{\"type\":\"default\"}"
-                  },
-                  "{\"type\":\"text\",\"text\":\"pl\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "%player%",
-                    "parsing": "plain"
-                  }
-                }
+                "values": {}
               }
             }
           ]
@@ -1430,13 +1601,7 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "%var_local(cid)",
-                    "parsing": "legacy"
-                  }
-                }
+                "values": {}
               }
             }
           ]
@@ -1456,13 +1621,7 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "%var_local(cid)",
-                    "parsing": "legacy"
-                  }
-                }
+                "values": {}
               }
             }
           ]
@@ -1759,6 +1918,40 @@
                   }
                 }
               ]
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "cc_crystal_visual",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "cc_crystal_stand",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
             }
           ],
           "is_inverted": "false"
@@ -1794,7 +1987,7 @@
       ],
       "operations": [
         {
-          "action": "set_variable_value",
+          "action": "set_variable_create_map",
           "values": [
             {
               "name": "variable",
@@ -1805,257 +1998,565 @@
               }
             },
             {
-              "name": "value",
+              "name": "keys",
               "value": {
-                "type": "map",
-                "values": {
-                  "ice": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "water",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "leaves",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "stone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sand",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "copper",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "gold",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "emerald",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "obsidian",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "netherite",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "amethyst",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ender",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lapis",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "quartz",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "regen",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "haste",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boom",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword3",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "arrow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "helmet",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "chestplate",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_fire",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_light",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_poison",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_shard",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_repair",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "golden_apple",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "tnt",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "spawner",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boss_heart",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "star",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "pick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "axe",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "torch",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glass",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "brick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "snow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "slime",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "echo",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sculk",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bamboo",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:blue_ice\",tag:{cc_id:\"ice\",display:{Name:'{\"italic\":false,\"color\":\"#9dd8ff\",\"text\":\"Куб Льда\"}'}}}"
                   },
-                  "lava": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magma_block\",tag:{cc_id:\"lava\",display:{Name:'{\"italic\":false,\"color\":\"#ff7b00\",\"text\":\"Куб Магмы\"}'}}}"
                   },
-                  "water": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:prismarine\",tag:{cc_id:\"water\",display:{Name:'{\"italic\":false,\"color\":\"#35c6ff\",\"text\":\"Куб Воды\"}'}}}"
                   },
-                  "wood": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:oak_log\",tag:{cc_id:\"wood\",display:{Name:'{\"italic\":false,\"color\":\"#a07a4a\",\"text\":\"Куб Дерева\"}'}}}"
                   },
-                  "leaves": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:oak_leaves\",tag:{cc_id:\"leaves\",display:{Name:'{\"italic\":false,\"color\":\"#4caf50\",\"text\":\"Куб Листвы\"}'}}}"
                   },
-                  "stone": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:stone\",tag:{cc_id:\"stone\",display:{Name:'{\"italic\":false,\"color\":\"#a8a8a8\",\"text\":\"Куб Камня\"}'}}}"
                   },
-                  "sand": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sand\",tag:{cc_id:\"sand\",display:{Name:'{\"italic\":false,\"color\":\"#ffe58a\",\"text\":\"Куб Песка\"}'}}}"
                   },
-                  "coal": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:coal_block\",tag:{cc_id:\"coal\",display:{Name:'{\"italic\":false,\"color\":\"#303030\",\"text\":\"Куб Угля\"}'}}}"
                   },
-                  "copper": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:copper_block\",tag:{cc_id:\"copper\",display:{Name:'{\"italic\":false,\"color\":\"#e77c56\",\"text\":\"Куб Меди\"}'}}}"
                   },
-                  "iron": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:iron_block\",tag:{cc_id:\"iron\",display:{Name:'{\"italic\":false,\"color\":\"#d8d8d8\",\"text\":\"Куб Железа\"}'}}}"
                   },
-                  "gold": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:gold_block\",tag:{cc_id:\"gold\",display:{Name:'{\"italic\":false,\"color\":\"#ffe14d\",\"text\":\"Куб Золота\"}'}}}"
                   },
-                  "diamond": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:diamond_block\",tag:{cc_id:\"diamond\",display:{Name:'{\"italic\":false,\"color\":\"#4df0ff\",\"text\":\"Куб Алмаза\"}'}}}"
                   },
-                  "emerald": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:emerald_block\",tag:{cc_id:\"emerald\",display:{Name:'{\"italic\":false,\"color\":\"#37e05a\",\"text\":\"Куб Изумруда\"}'}}}"
                   },
-                  "obsidian": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:obsidian\",tag:{cc_id:\"obsidian\",display:{Name:'{\"italic\":false,\"color\":\"#3b1a6b\",\"text\":\"Куб Обсидиана\"}'}}}"
                   },
-                  "netherite": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:netherite_block\",tag:{cc_id:\"netherite\",display:{Name:'{\"italic\":false,\"color\":\"#4a3f43\",\"text\":\"Куб Незерита\"}'}}}"
                   },
-                  "amethyst": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:amethyst_block\",tag:{cc_id:\"amethyst\",display:{Name:'{\"italic\":false,\"color\":\"#a06cff\",\"text\":\"Куб Аметиста\"}'}}}"
                   },
-                  "ender": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:purpur_block\",tag:{cc_id:\"ender\",display:{Name:'{\"italic\":false,\"color\":\"#b06cd0\",\"text\":\"Куб Энда\"}'}}}"
                   },
-                  "lapis": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lapis_block\",tag:{cc_id:\"lapis\",display:{Name:'{\"italic\":false,\"color\":\"#2f5fe8\",\"text\":\"Куб Лаписа\"}'}}}"
                   },
-                  "redstone": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:redstone_block\",tag:{cc_id:\"redstone\",display:{Name:'{\"italic\":false,\"color\":\"#ff2222\",\"text\":\"Куб Редстоуна\"}'}}}"
                   },
-                  "quartz": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:quartz_block\",tag:{cc_id:\"quartz\",display:{Name:'{\"italic\":false,\"color\":\"#f2eade\",\"text\":\"Куб Кварца\"}'}}}"
                   },
-                  "glow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:glowstone\",tag:{cc_id:\"glow\",display:{Name:'{\"italic\":false,\"color\":\"#ffd966\",\"text\":\"Куб Света\"}'}}}"
                   },
-                  "speed": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:light_blue_concrete\",tag:{cc_id:\"speed\",display:{Name:'{\"italic\":false,\"color\":\"#63e0ff\",\"text\":\"Куб Скорости\"}'}}}"
                   },
-                  "speed2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:cyan_concrete\",tag:{cc_id:\"speed2\",display:{Name:'{\"italic\":false,\"color\":\"#37e0e0\",\"text\":\"Куб Скорости II\"}'}}}"
                   },
-                  "jump": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:pink_glazed_terracotta\",tag:{cc_id:\"jump\",display:{Name:'{\"italic\":false,\"color\":\"#ff8fd8\",\"text\":\"Куб Прыжка\"}'}}}"
                   },
-                  "jump2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magenta_glazed_terracotta\",tag:{cc_id:\"jump2\",display:{Name:'{\"italic\":false,\"color\":\"#e06cff\",\"text\":\"Куб Прыжка II\"}'}}}"
                   },
-                  "heal": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:pink_concrete\",tag:{cc_id:\"heal\",display:{Name:'{\"italic\":false,\"color\":\"#ff8fb8\",\"text\":\"Куб Лечения\"}'}}}"
                   },
-                  "heal2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:red_concrete\",tag:{cc_id:\"heal2\",display:{Name:'{\"italic\":false,\"color\":\"#ff5f7f\",\"text\":\"Куб Лечения II\"}'}}}"
                   },
-                  "regen": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magenta_concrete\",tag:{cc_id:\"regen\",display:{Name:'{\"italic\":false,\"color\":\"#d94dff\",\"text\":\"Куб Регенерации\"}'}}}"
                   },
-                  "haste": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:yellow_concrete\",tag:{cc_id:\"haste\",display:{Name:'{\"italic\":false,\"color\":\"#ffe94d\",\"text\":\"Куб Спешки\"}'}}}"
                   },
-                  "boom": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:red_wool\",tag:{cc_id:\"boom\",display:{Name:'{\"italic\":false,\"color\":\"#ff4444\",\"text\":\"Куб Взрыва\"}'}}}"
                   },
-                  "sword": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:gray_concrete\",tag:{cc_id:\"sword\",display:{Name:'{\"italic\":false,\"color\":\"#c0c0c0\",\"text\":\"Куб Меча\"}'}}}"
                   },
-                  "sword2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:polished_blackstone\",tag:{cc_id:\"sword2\",display:{Name:'{\"italic\":false,\"color\":\"#585858\",\"text\":\"Куб Меча II\"}'}}}"
                   },
-                  "sword3": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:white_concrete\",tag:{cc_id:\"sword3\",display:{Name:'{\"italic\":false,\"color\":\"#f0f0f0\",\"text\":\"Куб Меча III\"}'}}}"
                   },
-                  "bow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lime_concrete\",tag:{cc_id:\"bow\",display:{Name:'{\"italic\":false,\"color\":\"#7ce063\",\"text\":\"Куб Лука\"}'}}}"
                   },
-                  "arrow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:black_concrete\",tag:{cc_id:\"arrow\",display:{Name:'{\"italic\":false,\"color\":\"#333333\",\"text\":\"Куб Стрел\"}'}}}"
                   },
-                  "shield": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:orange_concrete\",tag:{cc_id:\"shield\",display:{Name:'{\"italic\":false,\"color\":\"#ffa54d\",\"text\":\"Куб Щита\"}'}}}"
                   },
-                  "shield2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:orange_terracotta\",tag:{cc_id:\"shield2\",display:{Name:'{\"italic\":false,\"color\":\"#c97a3d\",\"text\":\"Куб Щита II\"}'}}}"
                   },
-                  "helmet": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:cyan_concrete\",tag:{cc_id:\"helmet\",display:{Name:'{\"italic\":false,\"color\":\"#4de0e0\",\"text\":\"Куб Шлема\"}'}}}"
                   },
-                  "chestplate": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:green_concrete\",tag:{cc_id:\"chestplate\",display:{Name:'{\"italic\":false,\"color\":\"#63e063\",\"text\":\"Куб Нагрудника\"}'}}}"
                   },
-                  "coil_fire": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:netherrack\",tag:{cc_id:\"coil_fire\",display:{Name:'{\"italic\":false,\"color\":\"#a04040\",\"text\":\"Огненная Катушка\"}'}}}"
                   },
-                  "coil_ice": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:packed_ice\",tag:{cc_id:\"coil_ice\",display:{Name:'{\"italic\":false,\"color\":\"#bfe8ff\",\"text\":\"Ледяная Катушка\"}'}}}"
                   },
-                  "coil_light": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lightning_rod\",tag:{cc_id:\"coil_light\",display:{Name:'{\"italic\":false,\"color\":\"#e0e0ff\",\"text\":\"Громовая Катушка\"}'}}}"
                   },
-                  "coil_poison": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:moss_block\",tag:{cc_id:\"coil_poison\",display:{Name:'{\"italic\":false,\"color\":\"#6ea04d\",\"text\":\"Ядовитая Катушка\"}'}}}"
                   },
-                  "crystal_shard": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:light_gray_concrete\",tag:{cc_id:\"crystal_shard\",display:{Name:'{\"italic\":false,\"color\":\"#d9d9d9\",\"text\":\"Осколок Кристалла\"}'}}}"
                   },
-                  "crystal_repair": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sea_lantern\",tag:{cc_id:\"crystal_repair\",display:{Name:'{\"italic\":false,\"color\":\"#ccff99\",\"text\":\"Куб Ремонта\"}'}}}"
                   },
-                  "golden_apple": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:honey_block\",tag:{cc_id:\"golden_apple\",display:{Name:'{\"italic\":false,\"color\":\"#ffcc4d\",\"text\":\"Золотое Яблоко Куба\"}'}}}"
                   },
-                  "tnt": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:tnt\",tag:{cc_id:\"tnt\",display:{Name:'{\"italic\":false,\"color\":\"#ff6666\",\"text\":\"Куб Динамита\"}'}}}"
                   },
-                  "spawner": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:spawner\",tag:{cc_id:\"spawner\",display:{Name:'{\"italic\":false,\"color\":\"#4da64d\",\"text\":\"Куб Спавна\"}'}}}"
                   },
-                  "boss_heart": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:nether_wart_block\",tag:{cc_id:\"boss_heart\",display:{Name:'{\"italic\":false,\"color\":\"#8f2020\",\"text\":\"Сердце Разрушителя\"}'}}}"
                   },
-                  "star": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:white_glazed_terracotta\",tag:{cc_id:\"star\",display:{Name:'{\"italic\":false,\"color\":\"#ffffe0\",\"text\":\"Звёздный Куб\"}'}}}"
                   },
-                  "pick": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:smooth_stone\",tag:{cc_id:\"pick\",display:{Name:'{\"italic\":false,\"color\":\"#b8b8b8\",\"text\":\"Куб Кирки\"}'}}}"
                   },
-                  "axe": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:stripped_oak_log\",tag:{cc_id:\"axe\",display:{Name:'{\"italic\":false,\"color\":\"#d0a878\",\"text\":\"Куб Топора\"}'}}}"
                   },
-                  "torch": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:redstone_lamp\",tag:{cc_id:\"torch\",display:{Name:'{\"italic\":false,\"color\":\"#ffbb55\",\"text\":\"Куб Факела\"}'}}}"
                   },
-                  "glass": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:glass\",tag:{cc_id:\"glass\",display:{Name:'{\"italic\":false,\"color\":\"#e0f5ff\",\"text\":\"Куб Стекла\"}'}}}"
                   },
-                  "brick": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:bricks\",tag:{cc_id:\"brick\",display:{Name:'{\"italic\":false,\"color\":\"#b0603f\",\"text\":\"Куб Кирпича\"}'}}}"
                   },
-                  "snow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:snow_block\",tag:{cc_id:\"snow\",display:{Name:'{\"italic\":false,\"color\":\"#f0faff\",\"text\":\"Куб Снега\"}'}}}"
                   },
-                  "slime": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:slime_block\",tag:{cc_id:\"slime\",display:{Name:'{\"italic\":false,\"color\":\"#7ce063\",\"text\":\"Куб Слизи\"}'}}}"
                   },
-                  "echo": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:deepslate\",tag:{cc_id:\"echo\",display:{Name:'{\"italic\":false,\"color\":\"#5a5a6a\",\"text\":\"Куб Эха\"}'}}}"
                   },
-                  "sculk": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sculk\",tag:{cc_id:\"sculk\",display:{Name:'{\"italic\":false,\"color\":\"#1e3a4a\",\"text\":\"Куб Скалка\"}'}}}"
                   },
-                  "bamboo": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:bamboo_block\",tag:{cc_id:\"bamboo\",display:{Name:'{\"italic\":false,\"color\":\"#9ee063\",\"text\":\"Куб Бамбука\"}'}}}"
                   }
-                }
+                ]
               }
             }
           ]
         },
         {
-          "action": "set_variable_value",
+          "action": "set_variable_create_map",
           "values": [
             {
               "name": "variable",
@@ -2066,257 +2567,565 @@
               }
             },
             {
-              "name": "value",
+              "name": "keys",
               "value": {
-                "type": "map",
-                "values": {
-                  "ice": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "water",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "leaves",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "stone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sand",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "copper",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "gold",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "emerald",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "obsidian",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "netherite",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "amethyst",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ender",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lapis",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "quartz",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "regen",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "haste",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boom",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword3",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "arrow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "helmet",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "chestplate",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_fire",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_light",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_poison",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_shard",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_repair",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "golden_apple",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "tnt",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "spawner",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boss_heart",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "star",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "pick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "axe",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "torch",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glass",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "brick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "snow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "slime",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "echo",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sculk",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bamboo",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:blue_ice\"}"
                   },
-                  "lava": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magma_block\"}"
                   },
-                  "water": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:prismarine\"}"
                   },
-                  "wood": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:oak_log\"}"
                   },
-                  "leaves": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:oak_leaves\"}"
                   },
-                  "stone": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:stone\"}"
                   },
-                  "sand": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sand\"}"
                   },
-                  "coal": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:coal_block\"}"
                   },
-                  "copper": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:copper_block\"}"
                   },
-                  "iron": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:iron_block\"}"
                   },
-                  "gold": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:gold_block\"}"
                   },
-                  "diamond": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:diamond_block\"}"
                   },
-                  "emerald": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:emerald_block\"}"
                   },
-                  "obsidian": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:obsidian\"}"
                   },
-                  "netherite": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:netherite_block\"}"
                   },
-                  "amethyst": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:amethyst_block\"}"
                   },
-                  "ender": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:purpur_block\"}"
                   },
-                  "lapis": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lapis_block\"}"
                   },
-                  "redstone": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:redstone_block\"}"
                   },
-                  "quartz": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:quartz_block\"}"
                   },
-                  "glow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:glowstone\"}"
                   },
-                  "speed": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:light_blue_concrete\"}"
                   },
-                  "speed2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}"
                   },
-                  "jump": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:pink_glazed_terracotta\"}"
                   },
-                  "jump2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magenta_glazed_terracotta\"}"
                   },
-                  "heal": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:pink_concrete\"}"
                   },
-                  "heal2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:red_concrete\"}"
                   },
-                  "regen": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:magenta_concrete\"}"
                   },
-                  "haste": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}"
                   },
-                  "boom": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:red_wool\"}"
                   },
-                  "sword": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:gray_concrete\"}"
                   },
-                  "sword2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:polished_blackstone\"}"
                   },
-                  "sword3": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
                   },
-                  "bow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lime_concrete\"}"
                   },
-                  "arrow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:black_concrete\"}"
                   },
-                  "shield": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:orange_concrete\"}"
                   },
-                  "shield2": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:orange_terracotta\"}"
                   },
-                  "helmet": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}"
                   },
-                  "chestplate": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:green_concrete\"}"
                   },
-                  "coil_fire": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:netherrack\"}"
                   },
-                  "coil_ice": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:packed_ice\"}"
                   },
-                  "coil_light": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:lightning_rod\"}"
                   },
-                  "coil_poison": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:moss_block\"}"
                   },
-                  "crystal_shard": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:light_gray_concrete\"}"
                   },
-                  "crystal_repair": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sea_lantern\"}"
                   },
-                  "golden_apple": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:honey_block\"}"
                   },
-                  "tnt": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:tnt\"}"
                   },
-                  "spawner": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:spawner\"}"
                   },
-                  "boss_heart": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:nether_wart_block\"}"
                   },
-                  "star": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:white_glazed_terracotta\"}"
                   },
-                  "pick": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:smooth_stone\"}"
                   },
-                  "axe": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:stripped_oak_log\"}"
                   },
-                  "torch": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:redstone_lamp\"}"
                   },
-                  "glass": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:glass\"}"
                   },
-                  "brick": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:bricks\"}"
                   },
-                  "snow": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:snow_block\"}"
                   },
-                  "slime": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:slime_block\"}"
                   },
-                  "echo": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:deepslate\"}"
                   },
-                  "sculk": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:sculk\"}"
                   },
-                  "bamboo": {
+                  {
                     "type": "item",
                     "item": "{Count:1b,id:\"minecraft:bamboo_block\"}"
                   }
-                }
+                ]
               }
             }
           ]
         },
         {
-          "action": "set_variable_value",
+          "action": "set_variable_create_map",
           "values": [
             {
               "name": "variable",
@@ -2327,317 +3136,625 @@
               }
             },
             {
-              "name": "value",
+              "name": "keys",
               "value": {
-                "type": "map",
-                "values": {
-                  "ice": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "water",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "leaves",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "stone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sand",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "copper",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "gold",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "emerald",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "obsidian",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "netherite",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "amethyst",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ender",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lapis",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "quartz",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "regen",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "haste",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boom",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword3",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "arrow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield2",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "helmet",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "chestplate",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_fire",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_light",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coil_poison",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_shard",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_repair",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "golden_apple",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "tnt",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "spawner",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boss_heart",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "star",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "pick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "axe",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "torch",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glass",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "brick",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "snow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "slime",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "echo",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sculk",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bamboo",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
                     "type": "text",
                     "text": "Куб Льда",
                     "parsing": "plain"
                   },
-                  "lava": {
+                  {
                     "type": "text",
                     "text": "Куб Магмы",
                     "parsing": "plain"
                   },
-                  "water": {
+                  {
                     "type": "text",
                     "text": "Куб Воды",
                     "parsing": "plain"
                   },
-                  "wood": {
+                  {
                     "type": "text",
                     "text": "Куб Дерева",
                     "parsing": "plain"
                   },
-                  "leaves": {
+                  {
                     "type": "text",
                     "text": "Куб Листвы",
                     "parsing": "plain"
                   },
-                  "stone": {
+                  {
                     "type": "text",
                     "text": "Куб Камня",
                     "parsing": "plain"
                   },
-                  "sand": {
+                  {
                     "type": "text",
                     "text": "Куб Песка",
                     "parsing": "plain"
                   },
-                  "coal": {
+                  {
                     "type": "text",
                     "text": "Куб Угля",
                     "parsing": "plain"
                   },
-                  "copper": {
+                  {
                     "type": "text",
                     "text": "Куб Меди",
                     "parsing": "plain"
                   },
-                  "iron": {
+                  {
                     "type": "text",
                     "text": "Куб Железа",
                     "parsing": "plain"
                   },
-                  "gold": {
+                  {
                     "type": "text",
                     "text": "Куб Золота",
                     "parsing": "plain"
                   },
-                  "diamond": {
+                  {
                     "type": "text",
                     "text": "Куб Алмаза",
                     "parsing": "plain"
                   },
-                  "emerald": {
+                  {
                     "type": "text",
                     "text": "Куб Изумруда",
                     "parsing": "plain"
                   },
-                  "obsidian": {
+                  {
                     "type": "text",
                     "text": "Куб Обсидиана",
                     "parsing": "plain"
                   },
-                  "netherite": {
+                  {
                     "type": "text",
                     "text": "Куб Незерита",
                     "parsing": "plain"
                   },
-                  "amethyst": {
+                  {
                     "type": "text",
                     "text": "Куб Аметиста",
                     "parsing": "plain"
                   },
-                  "ender": {
+                  {
                     "type": "text",
                     "text": "Куб Энда",
                     "parsing": "plain"
                   },
-                  "lapis": {
+                  {
                     "type": "text",
                     "text": "Куб Лаписа",
                     "parsing": "plain"
                   },
-                  "redstone": {
+                  {
                     "type": "text",
                     "text": "Куб Редстоуна",
                     "parsing": "plain"
                   },
-                  "quartz": {
+                  {
                     "type": "text",
                     "text": "Куб Кварца",
                     "parsing": "plain"
                   },
-                  "glow": {
+                  {
                     "type": "text",
                     "text": "Куб Света",
                     "parsing": "plain"
                   },
-                  "speed": {
+                  {
                     "type": "text",
                     "text": "Куб Скорости",
                     "parsing": "plain"
                   },
-                  "speed2": {
+                  {
                     "type": "text",
                     "text": "Куб Скорости II",
                     "parsing": "plain"
                   },
-                  "jump": {
+                  {
                     "type": "text",
                     "text": "Куб Прыжка",
                     "parsing": "plain"
                   },
-                  "jump2": {
+                  {
                     "type": "text",
                     "text": "Куб Прыжка II",
                     "parsing": "plain"
                   },
-                  "heal": {
+                  {
                     "type": "text",
                     "text": "Куб Лечения",
                     "parsing": "plain"
                   },
-                  "heal2": {
+                  {
                     "type": "text",
                     "text": "Куб Лечения II",
                     "parsing": "plain"
                   },
-                  "regen": {
+                  {
                     "type": "text",
                     "text": "Куб Регенерации",
                     "parsing": "plain"
                   },
-                  "haste": {
+                  {
                     "type": "text",
                     "text": "Куб Спешки",
                     "parsing": "plain"
                   },
-                  "boom": {
+                  {
                     "type": "text",
                     "text": "Куб Взрыва",
                     "parsing": "plain"
                   },
-                  "sword": {
+                  {
                     "type": "text",
                     "text": "Куб Меча",
                     "parsing": "plain"
                   },
-                  "sword2": {
+                  {
                     "type": "text",
                     "text": "Куб Меча II",
                     "parsing": "plain"
                   },
-                  "sword3": {
+                  {
                     "type": "text",
                     "text": "Куб Меча III",
                     "parsing": "plain"
                   },
-                  "bow": {
+                  {
                     "type": "text",
                     "text": "Куб Лука",
                     "parsing": "plain"
                   },
-                  "arrow": {
+                  {
                     "type": "text",
                     "text": "Куб Стрел",
                     "parsing": "plain"
                   },
-                  "shield": {
+                  {
                     "type": "text",
                     "text": "Куб Щита",
                     "parsing": "plain"
                   },
-                  "shield2": {
+                  {
                     "type": "text",
                     "text": "Куб Щита II",
                     "parsing": "plain"
                   },
-                  "helmet": {
+                  {
                     "type": "text",
                     "text": "Куб Шлема",
                     "parsing": "plain"
                   },
-                  "chestplate": {
+                  {
                     "type": "text",
                     "text": "Куб Нагрудника",
                     "parsing": "plain"
                   },
-                  "coil_fire": {
+                  {
                     "type": "text",
                     "text": "Огненная Катушка",
                     "parsing": "plain"
                   },
-                  "coil_ice": {
+                  {
                     "type": "text",
                     "text": "Ледяная Катушка",
                     "parsing": "plain"
                   },
-                  "coil_light": {
+                  {
                     "type": "text",
                     "text": "Громовая Катушка",
                     "parsing": "plain"
                   },
-                  "coil_poison": {
+                  {
                     "type": "text",
                     "text": "Ядовитая Катушка",
                     "parsing": "plain"
                   },
-                  "crystal_shard": {
+                  {
                     "type": "text",
                     "text": "Осколок Кристалла",
                     "parsing": "plain"
                   },
-                  "crystal_repair": {
+                  {
                     "type": "text",
                     "text": "Куб Ремонта",
                     "parsing": "plain"
                   },
-                  "golden_apple": {
+                  {
                     "type": "text",
                     "text": "Золотое Яблоко Куба",
                     "parsing": "plain"
                   },
-                  "tnt": {
+                  {
                     "type": "text",
                     "text": "Куб Динамита",
                     "parsing": "plain"
                   },
-                  "spawner": {
+                  {
                     "type": "text",
                     "text": "Куб Спавна",
                     "parsing": "plain"
                   },
-                  "boss_heart": {
+                  {
                     "type": "text",
                     "text": "Сердце Разрушителя",
                     "parsing": "plain"
                   },
-                  "star": {
+                  {
                     "type": "text",
                     "text": "Звёздный Куб",
                     "parsing": "plain"
                   },
-                  "pick": {
+                  {
                     "type": "text",
                     "text": "Куб Кирки",
                     "parsing": "plain"
                   },
-                  "axe": {
+                  {
                     "type": "text",
                     "text": "Куб Топора",
                     "parsing": "plain"
                   },
-                  "torch": {
+                  {
                     "type": "text",
                     "text": "Куб Факела",
                     "parsing": "plain"
                   },
-                  "glass": {
+                  {
                     "type": "text",
                     "text": "Куб Стекла",
                     "parsing": "plain"
                   },
-                  "brick": {
+                  {
                     "type": "text",
                     "text": "Куб Кирпича",
                     "parsing": "plain"
                   },
-                  "snow": {
+                  {
                     "type": "text",
                     "text": "Куб Снега",
                     "parsing": "plain"
                   },
-                  "slime": {
+                  {
                     "type": "text",
                     "text": "Куб Слизи",
                     "parsing": "plain"
                   },
-                  "echo": {
+                  {
                     "type": "text",
                     "text": "Куб Эха",
                     "parsing": "plain"
                   },
-                  "sculk": {
+                  {
                     "type": "text",
                     "text": "Куб Скалка",
                     "parsing": "plain"
                   },
-                  "bamboo": {
+                  {
                     "type": "text",
                     "text": "Куб Бамбука",
                     "parsing": "plain"
                   }
-                }
+                ]
               }
             }
           ]
         },
         {
-          "action": "set_variable_value",
+          "action": "set_variable_create_map",
           "values": [
             {
               "name": "variable",
@@ -2648,246 +3765,489 @@
               }
             },
             {
-              "name": "value",
+              "name": "keys",
               "value": {
-                "type": "map",
-                "values": {
-                  "water|lava": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "water|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ice|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ice|water",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "snow|snow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sand|sand",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sand|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "wood|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "coal|coal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "copper|copper",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron|iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "gold|gold",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "diamond|diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "emerald|emerald",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "netherite|obsidian",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "amethyst|amethyst",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ender|ender",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "wood|wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron|wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword|coal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword|sword",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword2|diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sword|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "bow|wood",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron|gold",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "shield|diamond",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "helmet|iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "iron|ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "speed|speed",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "leaves|water",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "slime|ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "jump|jump",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "glow|snow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "heal|heal",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "water|glow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lava|glow",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "lava|obsidian",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone|iron",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone|lava",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone|ice",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "redstone|slime",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "quartz|amethyst",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "crystal_shard|crystal_shard",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "gold|leaves",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "star|star",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "boom|sand",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "leaves|leaves",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
                     "type": "text",
                     "text": "stone",
                     "parsing": "plain"
                   },
-                  "ice|lava": {
+                  {
                     "type": "text",
                     "text": "obsidian",
                     "parsing": "plain"
                   },
-                  "ice|water": {
+                  {
                     "type": "text",
                     "text": "snow",
                     "parsing": "plain"
                   },
-                  "snow|snow": {
+                  {
                     "type": "text",
                     "text": "ice",
                     "parsing": "plain"
                   },
-                  "sand|sand": {
+                  {
                     "type": "text",
                     "text": "glass",
                     "parsing": "plain"
                   },
-                  "sand|lava": {
+                  {
                     "type": "text",
                     "text": "brick",
                     "parsing": "plain"
                   },
-                  "wood|lava": {
+                  {
                     "type": "text",
                     "text": "coal",
                     "parsing": "plain"
                   },
-                  "coal|coal": {
+                  {
                     "type": "text",
                     "text": "copper",
                     "parsing": "plain"
                   },
-                  "copper|copper": {
+                  {
                     "type": "text",
                     "text": "iron",
                     "parsing": "plain"
                   },
-                  "iron|iron": {
+                  {
                     "type": "text",
                     "text": "gold",
                     "parsing": "plain"
                   },
-                  "gold|gold": {
+                  {
                     "type": "text",
                     "text": "diamond",
                     "parsing": "plain"
                   },
-                  "diamond|diamond": {
+                  {
                     "type": "text",
                     "text": "emerald",
                     "parsing": "plain"
                   },
-                  "emerald|emerald": {
+                  {
                     "type": "text",
                     "text": "netherite",
                     "parsing": "plain"
                   },
-                  "netherite|obsidian": {
+                  {
                     "type": "text",
                     "text": "amethyst",
                     "parsing": "plain"
                   },
-                  "amethyst|amethyst": {
+                  {
                     "type": "text",
                     "text": "ender",
                     "parsing": "plain"
                   },
-                  "ender|ender": {
+                  {
                     "type": "text",
                     "text": "star",
                     "parsing": "plain"
                   },
-                  "wood|wood": {
+                  {
                     "type": "text",
                     "text": "axe",
                     "parsing": "plain"
                   },
-                  "iron|wood": {
+                  {
                     "type": "text",
                     "text": "sword",
                     "parsing": "plain"
                   },
-                  "sword|coal": {
+                  {
                     "type": "text",
                     "text": "pick",
                     "parsing": "plain"
                   },
-                  "sword|sword": {
+                  {
                     "type": "text",
                     "text": "sword2",
                     "parsing": "plain"
                   },
-                  "sword2|diamond": {
+                  {
                     "type": "text",
                     "text": "sword3",
                     "parsing": "plain"
                   },
-                  "sword|lava": {
+                  {
                     "type": "text",
                     "text": "bow",
                     "parsing": "plain"
                   },
-                  "bow|wood": {
+                  {
                     "type": "text",
                     "text": "arrow",
                     "parsing": "plain"
                   },
-                  "iron|gold": {
+                  {
                     "type": "text",
                     "text": "shield",
                     "parsing": "plain"
                   },
-                  "shield|diamond": {
+                  {
                     "type": "text",
                     "text": "shield2",
                     "parsing": "plain"
                   },
-                  "iron|lava": {
+                  {
                     "type": "text",
                     "text": "helmet",
                     "parsing": "plain"
                   },
-                  "helmet|iron": {
+                  {
                     "type": "text",
                     "text": "chestplate",
                     "parsing": "plain"
                   },
-                  "iron|ice": {
+                  {
                     "type": "text",
                     "text": "speed",
                     "parsing": "plain"
                   },
-                  "speed|speed": {
+                  {
                     "type": "text",
                     "text": "speed2",
                     "parsing": "plain"
                   },
-                  "leaves|water": {
+                  {
                     "type": "text",
                     "text": "slime",
                     "parsing": "plain"
                   },
-                  "slime|ice": {
+                  {
                     "type": "text",
                     "text": "jump",
                     "parsing": "plain"
                   },
-                  "jump|jump": {
+                  {
                     "type": "text",
                     "text": "jump2",
                     "parsing": "plain"
                   },
-                  "glow|snow": {
+                  {
                     "type": "text",
                     "text": "heal",
                     "parsing": "plain"
                   },
-                  "heal|heal": {
+                  {
                     "type": "text",
                     "text": "heal2",
                     "parsing": "plain"
                   },
-                  "water|glow": {
+                  {
                     "type": "text",
                     "text": "regen",
                     "parsing": "plain"
                   },
-                  "lava|glow": {
+                  {
                     "type": "text",
                     "text": "haste",
                     "parsing": "plain"
                   },
-                  "lava|obsidian": {
+                  {
                     "type": "text",
                     "text": "boom",
                     "parsing": "plain"
                   },
-                  "redstone|iron": {
+                  {
                     "type": "text",
                     "text": "coil_light",
                     "parsing": "plain"
                   },
-                  "redstone|lava": {
+                  {
                     "type": "text",
                     "text": "coil_fire",
                     "parsing": "plain"
                   },
-                  "redstone|ice": {
+                  {
                     "type": "text",
                     "text": "coil_ice",
                     "parsing": "plain"
                   },
-                  "redstone|slime": {
+                  {
                     "type": "text",
                     "text": "coil_poison",
                     "parsing": "plain"
                   },
-                  "quartz|amethyst": {
+                  {
                     "type": "text",
                     "text": "crystal_shard",
                     "parsing": "plain"
                   },
-                  "crystal_shard|crystal_shard": {
+                  {
                     "type": "text",
                     "text": "crystal_repair",
                     "parsing": "plain"
                   },
-                  "gold|leaves": {
+                  {
                     "type": "text",
                     "text": "golden_apple",
                     "parsing": "plain"
                   },
-                  "star|star": {
+                  {
                     "type": "text",
                     "text": "spawner",
                     "parsing": "plain"
                   },
-                  "boom|sand": {
+                  {
                     "type": "text",
                     "text": "tnt",
                     "parsing": "plain"
                   },
-                  "leaves|leaves": {
+                  {
                     "type": "text",
                     "text": "bamboo",
                     "parsing": "plain"
                   }
-                }
+                ]
               }
             }
           ]
@@ -2974,23 +4334,7 @@
           "name": "parameters",
           "value": {
             "type": "array",
-            "values": [
-              {
-                "type": "text",
-                "text": "vn",
-                "parsing": "plain"
-              },
-              {
-                "type": "text",
-                "text": "it",
-                "parsing": "plain"
-              },
-              {
-                "type": "text",
-                "text": "pl",
-                "parsing": "plain"
-              }
-            ]
+            "values": []
           }
         },
         {
@@ -3024,7 +4368,7 @@
               "name": "item",
               "value": {
                 "type": "variable",
-                "variable": "it",
+                "variable": "cc_it",
                 "scope": "local"
               }
             },
@@ -3088,7 +4432,7 @@
               "name": "name_or_uuid",
               "value": {
                 "type": "text",
-                "text": "%var_local(vn)",
+                "text": "%var_local(cc_vn)",
                 "parsing": "legacy"
               }
             }
@@ -3501,7 +4845,7 @@
               "name": "name_or_uuid",
               "value": {
                 "type": "text",
-                "text": "%var_local(vn)",
+                "text": "%var_local(cc_vn)",
                 "parsing": "legacy"
               }
             }
@@ -3614,6 +4958,48 @@
           "values": []
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_cid",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "%var_local(res)",
+                "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "cc_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "gloc",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
           "action": "call_function",
           "values": [
             {
@@ -3628,18 +5014,7 @@
               "name": "args",
               "value": {
                 "type": "map",
-                "values": {
-                  "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                    "type": "text",
-                    "text": "%var_local(res)",
-                    "parsing": "legacy"
-                  },
-                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                    "type": "variable",
-                    "variable": "gloc",
-                    "scope": "local"
-                  }
-                }
+                "values": {}
               }
             }
           ]
@@ -3651,7 +5026,7 @@
               "name": "name_or_uuid",
               "value": {
                 "type": "text",
-                "text": "%var_local(pl)",
+                "text": "%var_local(cc_pl)",
                 "parsing": "legacy"
               }
             }
@@ -3715,18 +5090,7 @@
           "name": "parameters",
           "value": {
             "type": "array",
-            "values": [
-              {
-                "type": "text",
-                "text": "cid",
-                "parsing": "plain"
-              },
-              {
-                "type": "text",
-                "text": "loc",
-                "parsing": "plain"
-              }
-            ]
+            "values": []
           }
         },
         {
@@ -3789,7 +5153,7 @@
               "name": "key",
               "value": {
                 "type": "variable",
-                "variable": "cid",
+                "variable": "cc_cid",
                 "scope": "local"
               }
             },
@@ -3814,7 +5178,7 @@
               "name": "location",
               "value": {
                 "type": "variable",
-                "variable": "loc",
+                "variable": "cc_loc",
                 "scope": "local"
               }
             },
@@ -3889,7 +5253,7 @@
               "name": "value",
               "value": {
                 "type": "text",
-                "text": "%var_local(cid)",
+                "text": "%var_local(cc_cid)",
                 "parsing": "legacy"
               }
             }
@@ -3930,7 +5294,7 @@
               "name": "key",
               "value": {
                 "type": "variable",
-                "variable": "cid",
+                "variable": "cc_cid",
                 "scope": "local"
               }
             },
@@ -3955,7 +5319,7 @@
               "name": "location",
               "value": {
                 "type": "variable",
-                "variable": "loc",
+                "variable": "cc_loc",
                 "scope": "local"
               }
             },
@@ -4016,6 +5380,48 @@
           "values": []
         },
         {
+          "action": "entity_set_display_scale",
+          "values": [
+            {
+              "name": "scale_vector",
+              "value": {
+                "type": "vector",
+                "x": 0.3125,
+                "y": 0.3125,
+                "z": 0.3125
+              }
+            },
+            {
+              "name": "mode",
+              "value": {
+                "type": "enum",
+                "enum": "SET"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_display_translation",
+          "values": [
+            {
+              "name": "translation_vector",
+              "value": {
+                "type": "vector",
+                "x": 0.34375,
+                "y": 0.34375,
+                "z": 0.34375
+              }
+            },
+            {
+              "name": "mode",
+              "value": {
+                "type": "enum",
+                "enum": "SET"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_despawning",
           "values": [
             {
@@ -4034,7 +5440,7 @@
               "name": "location",
               "value": {
                 "type": "variable",
-                "variable": "loc",
+                "variable": "cc_loc",
                 "scope": "local"
               }
             },
@@ -4109,7 +5515,7 @@
               "name": "value",
               "value": {
                 "type": "text",
-                "text": "%var_local(cid)",
+                "text": "%var_local(cc_cid)",
                 "parsing": "legacy"
               }
             }
@@ -4157,6 +5563,96 @@
         }
       ],
       "operations": [
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            {
+              "name": "helmet",
+              "value": {}
+            },
+            {
+              "name": "chestplate",
+              "value": {}
+            },
+            {
+              "name": "leggings",
+              "value": {}
+            },
+            {
+              "name": "boots",
+              "value": {}
+            },
+            {
+              "name": "right_hand",
+              "value": {}
+            },
+            {
+              "name": "left_hand",
+              "value": {}
+            },
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "marker",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "small",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "show_arms",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "base_plate",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "invisible",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "location",
+                "x": 0.5,
+                "y": 64,
+                "z": 0.5,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "custom_name",
+              "value": {
+                "type": "text",
+                "text": "cc_crystal_stand",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
         {
           "action": "game_spawn_mob",
           "values": [
@@ -4223,6 +5719,18 @@
                 "type": "text",
                 "text": "1",
                 "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_ai",
+          "values": [
+            {
+              "name": "ai",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
               }
             }
           ]
@@ -4309,6 +5817,45 @@
               }
             }
           ]
+        },
+        {
+          "action": "entity_ride_entity",
+          "values": [
+            {
+              "name": "name_or_uuid",
+              "value": {
+                "type": "text",
+                "text": "cc_crystal_stand",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "select_mob_by_name",
+          "values": [
+            {
+              "name": "name_or_uuid",
+              "value": {
+                "type": "text",
+                "text": "cc_crystal",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_ride_entity",
+          "values": [
+            {
+              "name": "name_or_uuid",
+              "value": {
+                "type": "text",
+                "text": "cc_crystal_stand",
+                "parsing": "plain"
+              }
+            }
+          ]
         }
       ],
       "position": 11
@@ -4321,13 +5868,7 @@
           "name": "parameters",
           "value": {
             "type": "array",
-            "values": [
-              {
-                "type": "text",
-                "text": "cid",
-                "parsing": "plain"
-              }
-            ]
+            "values": []
           }
         },
         {
@@ -5363,13 +6904,7 @@
           "name": "parameters",
           "value": {
             "type": "array",
-            "values": [
-              {
-                "type": "text",
-                "text": "cid",
-                "parsing": "plain"
-              }
-            ]
+            "values": []
           }
         },
         {
@@ -6384,7 +7919,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -6405,7 +7940,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -6457,18 +7992,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
@@ -6542,7 +8066,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -6563,7 +8087,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -6615,18 +8139,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
@@ -6700,7 +8213,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -6721,7 +8234,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -6773,18 +8286,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
@@ -6858,7 +8360,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -6879,7 +8381,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -6931,18 +8433,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
@@ -7016,7 +8507,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -7037,7 +8528,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -7089,18 +8580,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
@@ -7174,7 +8654,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bid",
+                        "variable": "cc_cid",
                         "scope": "local"
                       }
                     },
@@ -7195,7 +8675,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "sloc",
+                        "variable": "cc_loc",
                         "scope": "local"
                       }
                     },
@@ -7247,18 +8727,7 @@
                       "name": "args",
                       "value": {
                         "type": "map",
-                        "values": {
-                          "{\"type\":\"text\",\"text\":\"cid\",\"parsing\":\"plain\"}": {
-                            "type": "text",
-                            "text": "%var_local(bid)",
-                            "parsing": "legacy"
-                          },
-                          "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": {
-                            "type": "variable",
-                            "variable": "sloc",
-                            "scope": "local"
-                          }
-                        }
+                        "values": {}
                       }
                     }
                   ]
