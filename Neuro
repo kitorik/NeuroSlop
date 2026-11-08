@@ -112,7 +112,7 @@
                     ] } },
                     { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
                   ],
-                  "is_inverted": "true",
+                  "is_inverted": true,
                   "operations": [
                     { "action": "set_variable_append_value", "values": [
                       { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
@@ -204,7 +204,7 @@
                     ] } },
                     { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
                   ],
-                  "is_inverted": "true",
+                  "is_inverted": true,
                   "operations": [
                     { "action": "set_variable_append_value", "values": [
                       { "name": "variable", "value": { "type": "variable", "variable": "upds", "scope": "local" } },
@@ -323,7 +323,7 @@
                     ] } },
                     { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
                   ],
-                  "is_inverted": "true",
+                  "is_inverted": true,
                   "operations": [
                     { "action": "set_variable_append_value", "values": [
                       { "name": "variable", "value": { "type": "variable", "variable": "gids", "scope": "local" } },
@@ -385,177 +385,177 @@
                 } } }
               ]
             }
-          ],
-          "else": {
-            "action": "else",
-            "values": [],
-            "operations": [
-              { "action": "set_variable_get_list_value", "values": [
-                { "name": "variable", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
-                { "name": "list", "value": { "type": "variable", "variable": "gids", "scope": "local" } },
-                { "name": "number", "value": { "type": "number", "number": 0 } },
-                { "name": "default_value", "value": { "type": "number", "number": -1 } }
-              ] },
-              { "action": "set_variable_put_map_value", "values": [
-                { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                { "name": "key", "value": { "type": "text", "text": "%var_local(pk)", "parsing": "plain" } },
-                { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
-                { "name": "replaced_value", "value": {} }
-              ] },
-              { "action": "set_variable_create_list", "values": [
-                { "name": "values", "value": { "type": "array", "values": [
-                  { "type": "text", "text": "%var_local(pk)", "parsing": "plain" }
-                ] } },
-                { "name": "variable", "value": { "type": "variable", "variable": "claimed", "scope": "local" } }
-              ] },
-              { "action": "set_variable_create_list", "values": [
-                { "name": "values", "value": { "type": "array", "values": [
-                  { "type": "variable", "variable": "loc", "scope": "line" }
-                ] } },
-                { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } }
-              ] },
-              { "action": "set_variable_create_list", "values": [
-                { "name": "values", "value": { "type": "array", "values": [] } },
-                { "name": "variable", "value": { "type": "variable", "variable": "comp", "scope": "local" } }
-              ] },
-              {
-                "action": "repeat_while",
-                "values": [
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            { "action": "set_variable_get_list_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
+              { "name": "list", "value": { "type": "variable", "variable": "gids", "scope": "local" } },
+              { "name": "number", "value": { "type": "number", "number": 0 } },
+              { "name": "default_value", "value": { "type": "number", "number": -1 } }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(pk)", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
+              { "name": "replaced_value", "value": {} }
+            ] },
+            { "action": "set_variable_create_list", "values": [
+              { "name": "values", "value": { "type": "array", "values": [
+                { "type": "text", "text": "%var_local(pk)", "parsing": "plain" }
+              ] } },
+              { "name": "variable", "value": { "type": "variable", "variable": "claimed", "scope": "local" } }
+            ] },
+            { "action": "set_variable_create_list", "values": [
+              { "name": "values", "value": { "type": "array", "values": [
+                { "type": "variable", "variable": "loc", "scope": "line" }
+              ] } },
+              { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } }
+            ] },
+            { "action": "set_variable_create_list", "values": [
+              { "name": "values", "value": { "type": "array", "values": [] } },
+              { "name": "variable", "value": { "type": "variable", "variable": "comp", "scope": "local" } }
+            ] },
+            {
+              "action": "repeat_while",
+              "values": [
+                { "name": "list", "value": { "type": "variable", "variable": "q", "scope": "local" } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "conditional": { "action": "if_variable_list_is_empty", "is_inverted": true },
+              "operations": [
+                { "action": "set_variable_remove_list_value_at_index", "values": [
+                  { "name": "removed_value", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
+                  { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } },
                   { "name": "list", "value": { "type": "variable", "variable": "q", "scope": "local" } },
-                  { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
-                ],
-                "conditional": { "action": "if_variable_list_is_empty", "is_inverted": "true" },
-                "operations": [
-                  { "action": "set_variable_remove_list_value_at_index", "values": [
-                    { "name": "removed_value", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
-                    { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } },
-                    { "name": "list", "value": { "type": "variable", "variable": "q", "scope": "local" } },
-                    { "name": "index", "value": { "type": "number", "number": 0 } }
-                  ] },
-                  { "action": "set_variable_append_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "comp", "scope": "local" } },
-                    { "name": "values", "value": { "type": "array", "values": [
-                      { "type": "variable", "variable": "cur", "scope": "local" }
-                    ] } }
-                  ] },
-                  { "action": "set_variable_get_all_coordinates", "values": [
-                    { "name": "location", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
-                    { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
-                    { "name": "y", "value": { "type": "variable", "variable": "cy", "scope": "local" } },
-                    { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
-                    { "name": "yaw", "value": {} },
-                    { "name": "pitch", "value": {} }
-                  ] },
-                  { "action": "set_variable_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "ck", "scope": "local" } },
-                    { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(cx))),%math(floor(%var_local(cy))),%math(floor(%var_local(cz)))", "parsing": "plain" } }
-                  ] },
-                  { "action": "set_variable_put_map_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                    { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                    { "name": "key", "value": { "type": "text", "text": "%var_local(ck)", "parsing": "plain" } },
-                    { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
-                    { "name": "replaced_value", "value": {} }
-                  ] },
-                  {
-                    "action": "repeat_adjacently",
-                    "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
-                      { "name": "origin", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
-                      { "name": "change_rotation", "value": { "type": "enum", "enum": "FALSE" } },
-                      { "name": "pattern", "value": { "type": "enum", "enum": "CARDINAL" } }
-                    ],
-                    "operations": [
-                      { "action": "set_variable_get_all_coordinates", "values": [
-                        { "name": "location", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
-                        { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
-                        { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } },
-                        { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
-                        { "name": "yaw", "value": {} },
-                        { "name": "pitch", "value": {} }
-                      ] },
-                      { "action": "set_variable_value", "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "bk", "scope": "local" } },
-                        { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(bx))),%math(floor(%var_local(by))),%math(floor(%var_local(bz)))", "parsing": "plain" } }
-                      ] },
-                      {
-                        "action": "if_variable_map_has_key",
-                        "values": [
-                          { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-                          { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } },
-                          { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
-                        ],
-                        "operations": [
-                          {
-                            "action": "if_variable_list_contains_value",
-                            "values": [
-                              { "name": "list", "value": { "type": "variable", "variable": "claimed", "scope": "local" } },
+                  { "name": "index", "value": { "type": "number", "number": 0 } }
+                ] },
+                { "action": "set_variable_append_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "comp", "scope": "local" } },
+                  { "name": "values", "value": { "type": "array", "values": [
+                    { "type": "variable", "variable": "cur", "scope": "local" }
+                  ] } }
+                ] },
+                { "action": "set_variable_get_all_coordinates", "values": [
+                  { "name": "location", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
+                  { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } },
+                  { "name": "y", "value": { "type": "variable", "variable": "cy", "scope": "local" } },
+                  { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } },
+                  { "name": "yaw", "value": {} },
+                  { "name": "pitch", "value": {} }
+                ] },
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "ck", "scope": "local" } },
+                  { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(cx))),%math(floor(%var_local(cy))),%math(floor(%var_local(cz)))", "parsing": "plain" } }
+                ] },
+                { "action": "set_variable_put_map_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                  { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                  { "name": "key", "value": { "type": "text", "text": "%var_local(ck)", "parsing": "plain" } },
+                  { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "local" } },
+                  { "name": "replaced_value", "value": {} }
+                ] },
+                {
+                  "action": "repeat_adjacently",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
+                    { "name": "origin", "value": { "type": "variable", "variable": "cur", "scope": "local" } },
+                    { "name": "change_rotation", "value": { "type": "enum", "enum": "FALSE" } },
+                    { "name": "pattern", "value": { "type": "enum", "enum": "CARDINAL" } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_get_all_coordinates", "values": [
+                      { "name": "location", "value": { "type": "variable", "variable": "nb", "scope": "local" } },
+                      { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "local" } },
+                      { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "local" } },
+                      { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "local" } },
+                      { "name": "yaw", "value": {} },
+                      { "name": "pitch", "value": {} }
+                    ] },
+                    { "action": "set_variable_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "bk", "scope": "local" } },
+                      { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(bx))),%math(floor(%var_local(by))),%math(floor(%var_local(bz)))", "parsing": "plain" } }
+                    ] },
+                    {
+                      "action": "if_variable_map_has_key",
+                      "values": [
+                        { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+                        { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } },
+                        { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_list_contains_value",
+                          "values": [
+                            { "name": "list", "value": { "type": "variable", "variable": "claimed", "scope": "local" } },
+                            { "name": "values", "value": { "type": "array", "values": [
+                              { "type": "text", "text": "%var_local(bk)", "parsing": "plain" }
+                            ] } },
+                            { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
+                          ],
+                          "is_inverted": true,
+                          "operations": [
+                            { "action": "set_variable_append_value", "values": [
+                              { "name": "variable", "value": { "type": "variable", "variable": "claimed", "scope": "local" } },
                               { "name": "values", "value": { "type": "array", "values": [
                                 { "type": "text", "text": "%var_local(bk)", "parsing": "plain" }
-                              ] } },
-                              { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
-                            ],
-                            "is_inverted": "true",
-                            "operations": [
-                              { "action": "set_variable_append_value", "values": [
-                                { "name": "variable", "value": { "type": "variable", "variable": "claimed", "scope": "local" } },
-                                { "name": "values", "value": { "type": "array", "values": [
-                                  { "type": "text", "text": "%var_local(bk)", "parsing": "plain" }
-                                ] } }
-                              ] },
-                              { "action": "set_variable_append_value", "values": [
-                                { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } },
-                                { "name": "values", "value": { "type": "array", "values": [
-                                  { "type": "variable", "variable": "nb", "scope": "local" }
-                                ] } }
-                              ] }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              { "action": "set_variable_value", "values": [
-                { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_local(gid).locs", "scope": "game" } },
-                { "name": "value", "value": { "type": "variable", "variable": "comp", "scope": "local" } }
-              ] },
-              {
-                "action": "call_function",
-                "values": [
-                  { "name": "function_name", "value": { "type": "text", "text": "PR.spawn", "parsing": "plain" } },
-                  { "name": "args", "value": { "type": "map", "values": {
-                    "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "loc", "scope": "line" },
-                    "{\"type\":\"text\",\"text\":\"type\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "type", "scope": "line" },
-                    "{\"type\":\"text\",\"text\":\"key\",\"parsing\":\"plain\"}": { "type": "text", "text": "%var_local(pk)", "parsing": "plain" },
-                    "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
-                  } } }
-                ]
-              },
-              {
-                "action": "call_function",
-                "values": [
-                  { "name": "function_name", "value": { "type": "text", "text": "PR.tilt", "parsing": "plain" } },
-                  { "name": "args", "value": { "type": "map", "values": {
-                    "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" },
-                    "{\"type\":\"text\",\"text\":\"src\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "loc", "scope": "line" },
-                    "{\"type\":\"text\",\"text\":\"dir\",\"parsing\":\"plain\"}": { "type": "number", "number": -1 }
-                  } } }
-                ]
-              },
-              {
-                "action": "call_function",
-                "values": [
-                  { "name": "function_name", "value": { "type": "text", "text": "PR.update", "parsing": "plain" } },
-                  { "name": "args", "value": { "type": "map", "values": {
-                    "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
-                  } } }
-                ]
-              }
-            ]
-          }
+                              ] } }
+                            ] },
+                            { "action": "set_variable_append_value", "values": [
+                              { "name": "variable", "value": { "type": "variable", "variable": "q", "scope": "local" } },
+                              { "name": "values", "value": { "type": "array", "values": [
+                                { "type": "variable", "variable": "nb", "scope": "local" }
+                              ] } }
+                            ] }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_local(gid).locs", "scope": "game" } },
+              { "name": "value", "value": { "type": "variable", "variable": "comp", "scope": "local" } }
+            ] },
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PR.spawn", "parsing": "plain" } },
+                { "name": "args", "value": { "type": "map", "values": {
+                  "{\"type\":\"text\",\"text\":\"loc\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "loc", "scope": "line" },
+                  "{\"type\":\"text\",\"text\":\"type\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "type", "scope": "line" },
+                  "{\"type\":\"text\",\"text\":\"key\",\"parsing\":\"plain\"}": { "type": "text", "text": "%var_local(pk)", "parsing": "plain" },
+                  "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
+                } } }
+              ]
+            },
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PR.tilt", "parsing": "plain" } },
+                { "name": "args", "value": { "type": "map", "values": {
+                  "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" },
+                  "{\"type\":\"text\",\"text\":\"src\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "loc", "scope": "line" },
+                  "{\"type\":\"text\",\"text\":\"dir\",\"parsing\":\"plain\"}": { "type": "number", "number": -1 }
+                } } }
+              ]
+            },
+            {
+              "action": "call_function",
+              "values": [
+                { "name": "function_name", "value": { "type": "text", "text": "PR.update", "parsing": "plain" } },
+                { "name": "args", "value": { "type": "map", "values": {
+                  "{\"type\":\"text\",\"text\":\"gid\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "gid", "scope": "local" }
+                } } }
+              ]
+            }
+          ]
         }
       ],
       "values": [
@@ -651,7 +651,7 @@
             ] } },
             { "name": "value", "value": { "type": "variable", "variable": "supported", "scope": "local" } }
           ],
-          "conditional": { "action": "if_variable_equals", "is_inverted": "false" },
+          "conditional": { "action": "if_variable_equals", "is_inverted": false },
           "operations": [
             { "action": "set_variable_increment", "values": [
               { "name": "variable", "value": { "type": "variable", "variable": "steps", "scope": "local" } },
@@ -759,7 +759,7 @@
                         ] } },
                         { "name": "value", "value": { "type": "variable", "variable": "bgid", "scope": "local" } }
                       ],
-                      "is_inverted": "true",
+                      "is_inverted": true,
                       "operations": [
                         { "action": "set_variable_value", "values": [
                           { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
@@ -767,54 +767,55 @@
                         ] }
                       ]
                     }
-                  ],
-                  "else": {
-                    "action": "else",
-                    "values": [],
-                    "operations": [
-                      { "action": "set_variable_get_block_material", "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "bm", "scope": "local" } },
-                        { "name": "location", "value": { "type": "variable", "variable": "bel", "scope": "local" } },
-                        { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
-                      ] },
-                      {
-                        "action": "if_variable_equals",
-                        "values": [
-                          { "name": "compare", "value": { "type": "array", "values": [
-                            { "type": "text", "text": "minecraft:air", "parsing": "plain" }
-                          ] } },
-                          { "name": "value", "value": { "type": "variable", "variable": "bm", "scope": "local" } }
-                        ],
-                        "operations": [
-                          { "action": "set_variable_value", "values": [
-                            { "name": "variable", "value": { "type": "variable", "variable": "allWet", "scope": "local" } },
-                            { "name": "value", "value": { "type": "number", "number": 0 } }
-                          ] }
-                        ],
-                        "else": {
-                          "action": "else",
-                          "values": [],
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    { "action": "set_variable_get_block_material", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "bm", "scope": "local" } },
+                      { "name": "location", "value": { "type": "variable", "variable": "bel", "scope": "local" } },
+                      { "name": "value_type", "value": { "type": "enum", "enum": "ID" } }
+                    ] },
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        { "name": "compare", "value": { "type": "array", "values": [
+                          { "type": "text", "text": "minecraft:air", "parsing": "plain" }
+                        ] } },
+                        { "name": "value", "value": { "type": "variable", "variable": "bm", "scope": "local" } }
+                      ],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [
+                          { "name": "variable", "value": { "type": "variable", "variable": "allWet", "scope": "local" } },
+                          { "name": "value", "value": { "type": "number", "number": 0 } }
+                        ] }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_equals",
+                          "values": [
+                            { "name": "compare", "value": { "type": "array", "values": [
+                              { "type": "text", "text": "minecraft:water", "parsing": "plain" }
+                            ] } },
+                            { "name": "value", "value": { "type": "variable", "variable": "bm", "scope": "local" } }
+                          ],
+                          "is_inverted": true,
                           "operations": [
-                            {
-                              "action": "if_variable_not_equals",
-                              "values": [
-                                { "name": "compare", "value": { "type": "array", "values": [
-                                  { "type": "text", "text": "minecraft:water", "parsing": "plain" }
-                                ] } },
-                                { "name": "value", "value": { "type": "variable", "variable": "bm", "scope": "local" } }
-                              ],
-                              "operations": [
-                                { "action": "set_variable_value", "values": [
-                                  { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
-                                  { "name": "value", "value": { "type": "number", "number": 1 } }
-                                ] }
-                              ]
-                            }
+                            { "action": "set_variable_value", "values": [
+                              { "name": "variable", "value": { "type": "variable", "variable": "supported", "scope": "local" } },
+                              { "name": "value", "value": { "type": "number", "number": 1 } }
+                            ] }
                           ]
                         }
-                      }
-                    ]
-                  }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -984,17 +985,17 @@
               { "name": "variable", "value": { "type": "variable", "variable": "axm", "scope": "local" } },
               { "name": "value", "value": { "type": "number", "number": 1 } }
             ] }
-          ],
-          "else": {
-            "action": "else",
-            "values": [],
-            "operations": [
-              { "action": "set_variable_value", "values": [
-                { "name": "variable", "value": { "type": "variable", "variable": "axm", "scope": "local" } },
-                { "name": "value", "value": { "type": "number", "number": 0 } }
-              ] }
-            ]
-          }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "axm", "scope": "local" } },
+              { "name": "value", "value": { "type": "number", "number": 0 } }
+            ] }
+          ]
         },
         {
           "action": "if_variable_equals",
@@ -1016,48 +1017,48 @@
                   { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
                   { "name": "value", "value": { "type": "number", "number": 1 } }
                 ] }
-              ],
-              "else": {
-                "action": "else",
-                "values": [],
-                "operations": [
-                  { "action": "set_variable_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
-                    { "name": "value", "value": { "type": "number", "number": -1 } }
-                  ] }
-                ]
-              }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": -1 } }
+                ] }
+              ]
             }
-          ],
-          "else": {
-            "action": "else",
-            "values": [],
-            "operations": [
-              {
-                "action": "if_variable_greater_or_equals",
-                "values": [
-                  { "name": "value", "value": { "type": "number", "number": "%math(%var_local(uz)-%var_local(cz))" } },
-                  { "name": "compare", "value": { "type": "number", "number": 0 } }
-                ],
-                "operations": [
-                  { "action": "set_variable_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
-                    { "name": "value", "value": { "type": "number", "number": 1 } }
-                  ] }
-                ],
-                "else": {
-                  "action": "else",
-                  "values": [],
-                  "operations": [
-                    { "action": "set_variable_value", "values": [
-                      { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
-                      { "name": "value", "value": { "type": "number", "number": -1 } }
-                    ] }
-                  ]
-                }
-              }
-            ]
-          }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_greater_or_equals",
+              "values": [
+                { "name": "value", "value": { "type": "number", "number": "%math(%var_local(uz)-%var_local(cz))" } },
+                { "name": "compare", "value": { "type": "number", "number": 0 } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": 1 } }
+                ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "s", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": -1 } }
+                ] }
+              ]
+            }
+          ]
         },
         { "action": "set_variable_value", "values": [
           { "name": "variable", "value": { "type": "variable", "variable": "maxd", "scope": "local" } },
@@ -1096,17 +1097,17 @@
                   { "name": "variable", "value": { "type": "variable", "variable": "d", "scope": "local" } },
                   { "name": "value", "value": { "type": "number", "number": "%math(abs(%var_local(tx2)-%var_local(cx)))" } }
                 ] }
-              ],
-              "else": {
-                "action": "else",
-                "values": [],
-                "operations": [
-                  { "action": "set_variable_value", "values": [
-                    { "name": "variable", "value": { "type": "variable", "variable": "d", "scope": "local" } },
-                    { "name": "value", "value": { "type": "number", "number": "%math(abs(%var_local(tz2)-%var_local(cz)))" } }
-                  ] }
-                ]
-              }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "d", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": "%math(abs(%var_local(tz2)-%var_local(cz)))" } }
+                ] }
+              ]
             },
             {
               "action": "if_variable_greater",
@@ -1203,17 +1204,21 @@
                       { "name": "messages", "value": { "type": "array", "values": [
                         { "type": "text", "text": "&aФизика: точка 1 установлена", "parsing": "legacy" }
                       ] } }
+                    ] }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [
+                      { "name": "variable", "value": { "type": "variable", "variable": "phys.p2", "scope": "game" } },
+                      { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }
                     ] },
-                    { "action": "else", "values": [], "operations": [
-                      { "action": "set_variable_value", "values": [
-                        { "name": "variable", "value": { "type": "variable", "variable": "phys.p2", "scope": "game" } },
-                        { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }
-                      ] },
-                      { "action": "player_send_message", "values": [
-                        { "name": "messages", "value": { "type": "array", "values": [
-                          { "type": "text", "text": "&aФизика: точка 2 установлена", "parsing": "legacy" }
-                        ] } }
-                      ] }
+                    { "action": "player_send_message", "values": [
+                      { "name": "messages", "value": { "type": "array", "values": [
+                        { "type": "text", "text": "&aФизика: точка 2 установлена", "parsing": "legacy" }
+                      ] } }
                     ] }
                   ]
                 }
@@ -1310,7 +1315,7 @@
                     { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } },
                     { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } }
                   ],
-                  "is_inverted": "true",
+                  "is_inverted": true,
                   "operations": [
                     { "action": "game_set_block", "values": [
                       { "name": "locations", "value": { "type": "array", "values": [
@@ -1389,87 +1394,87 @@
             { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
           ],
           "operations": [
-        { "action": "control_wait", "values": [
-          { "name": "duration", "value": { "type": "number", "number": 1 } },
-          { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
-        ] },
-        { "action": "set_variable_get_all_coordinates", "values": [
-          { "name": "location", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
-          { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
-          { "name": "y", "value": { "type": "variable", "variable": "my", "scope": "local" } },
-          { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
-          { "name": "yaw", "value": {} },
-          { "name": "pitch", "value": {} }
-        ] },
-        { "action": "set_variable_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "mk", "scope": "local" } },
-          { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
-        ] },
-        { "action": "set_variable_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "nm2", "scope": "local" } },
-          { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(mk))", "parsing": "plain" } }
-        ] },
-        { "action": "select_entity_by_name", "values": [
-          { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } }
-        ] },
-        { "action": "set_variable_set_all_coordinates", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-          { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
-          { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy))" } },
-          { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
-          { "name": "yaw", "value": {} },
-          { "name": "pitch", "value": {} }
-        ] },
-        { "action": "set_variable_set_all_coordinates", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
-          { "name": "x", "value": { "type": "number", "number": "%math(%var_local(mx)-0.5)" } },
-          { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy)-0.5)" } },
-          { "name": "z", "value": { "type": "number", "number": "%math(%var_local(mz)-0.5)" } },
-          { "name": "yaw", "value": {} },
-          { "name": "pitch", "value": {} }
-        ] },
-        { "action": "entity_teleport", "values": [
-          { "name": "location", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
-          { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
-        ] },
-        { "action": "set_variable_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "nk2", "scope": "local" } },
-          { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my)+%var_line(dy))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
-        ] },
-        { "action": "set_variable_set_list_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-          { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-          { "name": "number", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
-          { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
-        ] },
-        { "action": "set_variable_remove_map_entry", "values": [
-          { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-          { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-          { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-          { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
-          { "name": "values", "value": {} }
-        ] },
-        { "action": "set_variable_put_map_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-          { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-          { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
-          { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
-          { "name": "replaced_value", "value": {} }
-        ] },
-        { "action": "set_variable_remove_map_entry", "values": [
-          { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-          { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-          { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-          { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
-          { "name": "values", "value": {} }
-        ] },
-        { "action": "set_variable_put_map_value", "values": [
-          { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-          { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-          { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
-          { "name": "value", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
-          { "name": "replaced_value", "value": {} }
-        ] }
+            { "action": "control_wait", "values": [
+              { "name": "duration", "value": { "type": "number", "number": 1 } },
+              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+            ] },
+            { "action": "set_variable_get_all_coordinates", "values": [
+              { "name": "location", "value": { "type": "variable", "variable": "el2", "scope": "local" } },
+              { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+              { "name": "y", "value": { "type": "variable", "variable": "my", "scope": "local" } },
+              { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "mk", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
+            ] },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nm2", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(mk))", "parsing": "plain" } }
+            ] },
+            { "action": "select_entity_by_name", "values": [
+              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } }
+            ] },
+            { "action": "set_variable_set_all_coordinates", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
+              { "name": "x", "value": { "type": "variable", "variable": "mx", "scope": "local" } },
+              { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy))" } },
+              { "name": "z", "value": { "type": "variable", "variable": "mz", "scope": "local" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "set_variable_set_all_coordinates", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
+              { "name": "x", "value": { "type": "number", "number": "%math(%var_local(mx)-0.5)" } },
+              { "name": "y", "value": { "type": "number", "number": "%math(%var_local(my)+%var_line(dy)-0.5)" } },
+              { "name": "z", "value": { "type": "number", "number": "%math(%var_local(mz)-0.5)" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "entity_teleport", "values": [
+              { "name": "location", "value": { "type": "variable", "variable": "cl2", "scope": "local" } },
+              { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
+            ] },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nk2", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(mx))),%math(floor(%var_local(my)+%var_line(dy))),%math(floor(%var_local(mz)))", "parsing": "plain" } }
+            ] },
+            { "action": "set_variable_set_list_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+              { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+              { "name": "number", "value": { "type": "variable", "variable": "i2", "scope": "local" } },
+              { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
+            ] },
+            { "action": "set_variable_remove_map_entry", "values": [
+              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
+              { "name": "values", "value": {} }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
+              { "name": "replaced_value", "value": {} }
+            ] },
+            { "action": "set_variable_remove_map_entry", "values": [
+              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(mk)", "parsing": "plain" } },
+              { "name": "values", "value": {} }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nk2)", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "text", "text": "%var_local(nm2)", "parsing": "plain" } },
+              { "name": "replaced_value", "value": {} }
+            ] }
           ]
         }
       ],
@@ -1495,112 +1500,112 @@
             { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } }
           ],
           "operations": [
-      { "action": "control_wait", "values": [
-        { "name": "duration", "value": { "type": "number", "number": 1 } },
-        { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
-      ] },
-      { "action": "set_variable_get_all_coordinates", "values": [
-        { "name": "location", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
-        { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
-        { "name": "y", "value": { "type": "variable", "variable": "oy", "scope": "local" } },
-        { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
-        { "name": "yaw", "value": {} },
-        { "name": "pitch", "value": {} }
-      ] },
-      { "action": "set_variable_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "ok", "scope": "local" } },
-        { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
-      ] },
-      {
-        "action": "if_variable_equals",
-        "values": [
-          { "name": "compare", "value": { "type": "array", "values": [
-            { "type": "number", "number": 1 }
-          ] } },
-          { "name": "value", "value": { "type": "variable", "variable": "axm", "scope": "line" } }
-        ],
-        "operations": [
-          { "action": "set_variable_value", "values": [
-            { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
-            { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(ox)-%var_line(cx))/%var_line(maxd)))" } }
-          ] }
-        ],
-        "else": {
-          "action": "else",
-          "values": [],
-          "operations": [
+            { "action": "control_wait", "values": [
+              { "name": "duration", "value": { "type": "number", "number": 1 } },
+              { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+            ] },
+            { "action": "set_variable_get_all_coordinates", "values": [
+              { "name": "location", "value": { "type": "variable", "variable": "el3", "scope": "local" } },
+              { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
+              { "name": "y", "value": { "type": "variable", "variable": "oy", "scope": "local" } },
+              { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
             { "action": "set_variable_value", "values": [
-              { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
-              { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(oz)-%var_line(cz))/%var_line(maxd)))" } }
+              { "name": "variable", "value": { "type": "variable", "variable": "ok", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
+            ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [
+                  { "type": "number", "number": 1 }
+                ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "axm", "scope": "line" } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(ox)-%var_line(cx))/%var_line(maxd)))" } }
+                ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "set_variable_value", "values": [
+                  { "name": "variable", "value": { "type": "variable", "variable": "off", "scope": "local" } },
+                  { "name": "value", "value": { "type": "number", "number": "%math(round(%var_line(dir)*%var_line(s)*(%var_local(oz)-%var_line(cz))/%var_line(maxd)))" } }
+                ] }
+              ]
+            },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(ok))", "parsing": "plain" } }
+            ] },
+            { "action": "select_entity_by_name", "values": [
+              { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }
+            ] },
+            { "action": "set_variable_set_all_coordinates", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
+              { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
+              { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off))" } },
+              { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "set_variable_set_all_coordinates", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
+              { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)-0.5)" } },
+              { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off)-0.5)" } },
+              { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)-0.5)" } },
+              { "name": "yaw", "value": {} },
+              { "name": "pitch", "value": {} }
+            ] },
+            { "action": "entity_teleport", "values": [
+              { "name": "location", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
+              { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
+            ] },
+            { "action": "set_variable_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
+              { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy)+%var_local(off))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
+            ] },
+            { "action": "set_variable_set_list_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+              { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
+              { "name": "number", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
+              { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
+            ] },
+            { "action": "set_variable_remove_map_entry", "values": [
+              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
+              { "name": "values", "value": {} }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
+              { "name": "replaced_value", "value": {} }
+            ] },
+            { "action": "set_variable_remove_map_entry", "values": [
+              { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
+              { "name": "values", "value": {} }
+            ] },
+            { "action": "set_variable_put_map_value", "values": [
+              { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
+              { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
+              { "name": "value", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
+              { "name": "replaced_value", "value": {} }
             ] }
-          ]
-        }
-      },
-      { "action": "set_variable_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } },
-        { "name": "value", "value": { "type": "text", "text": "%entry(phys.locEnt, %var_local(ok))", "parsing": "plain" } }
-      ] },
-      { "action": "select_entity_by_name", "values": [
-        { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }
-      ] },
-      { "action": "set_variable_set_all_coordinates", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "nl", "scope": "local" } },
-        { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } },
-        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off))" } },
-        { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } },
-        { "name": "yaw", "value": {} },
-        { "name": "pitch", "value": {} }
-      ] },
-      { "action": "set_variable_set_all_coordinates", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
-        { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)-0.5)" } },
-        { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)+%var_local(off)-0.5)" } },
-        { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)-0.5)" } },
-        { "name": "yaw", "value": {} },
-        { "name": "pitch", "value": {} }
-      ] },
-      { "action": "entity_teleport", "values": [
-        { "name": "location", "value": { "type": "variable", "variable": "cl3", "scope": "local" } },
-        { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }
-      ] },
-      { "action": "set_variable_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "nk", "scope": "local" } },
-        { "name": "value", "value": { "type": "text", "text": "%math(floor(%var_local(ox))),%math(floor(%var_local(oy)+%var_local(off))),%math(floor(%var_local(oz)))", "parsing": "plain" } }
-      ] },
-      { "action": "set_variable_set_list_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-        { "name": "list", "value": { "type": "variable", "variable": "phys.g%var_line(gid).locs", "scope": "game" } },
-        { "name": "number", "value": { "type": "variable", "variable": "i3", "scope": "local" } },
-        { "name": "value", "value": { "type": "variable", "variable": "nl", "scope": "local" } }
-      ] },
-      { "action": "set_variable_remove_map_entry", "values": [
-        { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-        { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-        { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-        { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
-        { "name": "values", "value": {} }
-      ] },
-      { "action": "set_variable_put_map_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-        { "name": "map", "value": { "type": "variable", "variable": "phys.map", "scope": "game" } },
-        { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-        { "name": "value", "value": { "type": "variable", "variable": "gid", "scope": "line" } },
-        { "name": "replaced_value", "value": {} }
-      ] },
-      { "action": "set_variable_remove_map_entry", "values": [
-        { "name": "removed_value", "value": { "type": "variable", "variable": "dum", "scope": "local" } },
-        { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-        { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-        { "name": "key", "value": { "type": "text", "text": "%var_local(ok)", "parsing": "plain" } },
-        { "name": "values", "value": {} }
-      ] },
-      { "action": "set_variable_put_map_value", "values": [
-        { "name": "variable", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-        { "name": "map", "value": { "type": "variable", "variable": "phys.locEnt", "scope": "game" } },
-        { "name": "key", "value": { "type": "text", "text": "%var_local(nk)", "parsing": "plain" } },
-        { "name": "value", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } },
-        { "name": "replaced_value", "value": {} }
-      ] }
           ]
         }
       ],
