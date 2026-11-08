@@ -4,23 +4,18 @@
       "type": "event",
       "position": 0,
       "operations": [
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.z1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.z2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.crystal", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1000 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.isl", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.floor", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 64 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.p1", "scope": "game" } }, { "name": "value", "value": { "type": "location", "x": -12, "y": 64, "z": -12, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.p2", "scope": "game" } }, { "name": "value", "value": { "type": "location", "x": 12, "y": 64, "z": 12, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "zz", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt", "parsing": "plain" } ] } } ] },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "zz", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt", "parsing": "plain" } ] } } ] },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.iscube", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt", "parsing": "plain" }, { "type": "text", "text": "cobblestone", "parsing": "plain" }, { "type": "text", "text": "iron_block", "parsing": "plain" }, { "type": "text", "text": "gold_block", "parsing": "plain" }, { "type": "text", "text": "diamond_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block", "parsing": "plain" }, { "type": "text", "text": "sand", "parsing": "plain" }, { "type": "text", "text": "mud", "parsing": "plain" }, { "type": "text", "text": "moss_block", "parsing": "plain" }, { "type": "text", "text": "oak_log", "parsing": "plain" }, { "type": "text", "text": "red_wool", "parsing": "plain" }, { "type": "text", "text": "blue_wool", "parsing": "plain" }, { "type": "text", "text": "green_wool", "parsing": "plain" }, { "type": "text", "text": "white_wool", "parsing": "plain" }, { "type": "text", "text": "copper_block", "parsing": "plain" }, { "type": "text", "text": "cut_copper", "parsing": "plain" }, { "type": "text", "text": "ice", "parsing": "plain" }, { "type": "text", "text": "magma_block", "parsing": "plain" }, { "type": "text", "text": "obsidian", "parsing": "plain" }, { "type": "text", "text": "glass", "parsing": "plain" }, { "type": "text", "text": "blast_furnace", "parsing": "plain" }, { "type": "text", "text": "campfire", "parsing": "plain" }, { "type": "text", "text": "pointed_dripstone", "parsing": "plain" }, { "type": "text", "text": "stone_bricks", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 }, { "type": "number", "number": 1 } ] } } ] },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.rec", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt+dirt", "parsing": "plain" }, { "type": "text", "text": "cobblestone+cobblestone", "parsing": "plain" }, { "type": "text", "text": "iron_block+iron_block", "parsing": "plain" }, { "type": "text", "text": "gold_block+gold_block", "parsing": "plain" }, { "type": "text", "text": "diamond_block+diamond_block", "parsing": "plain" }, { "type": "text", "text": "sand+sand", "parsing": "plain" }, { "type": "text", "text": "dirt+sand", "parsing": "plain" }, { "type": "text", "text": "sand+dirt", "parsing": "plain" }, { "type": "text", "text": "mud+green_wool", "parsing": "plain" }, { "type": "text", "text": "green_wool+mud", "parsing": "plain" }, { "type": "text", "text": "cobblestone+campfire", "parsing": "plain" }, { "type": "text", "text": "campfire+cobblestone", "parsing": "plain" }, { "type": "text", "text": "ice+magma_block", "parsing": "plain" }, { "type": "text", "text": "magma_block+ice", "parsing": "plain" }, { "type": "text", "text": "oak_log+red_wool", "parsing": "plain" }, { "type": "text", "text": "red_wool+oak_log", "parsing": "plain" }, { "type": "text", "text": "wooden_sword+pointed_dripstone", "parsing": "plain" }, { "type": "text", "text": "pointed_dripstone+wooden_sword", "parsing": "plain" }, { "type": "text", "text": "wooden_sword+gold_block", "parsing": "plain" }, { "type": "text", "text": "gold_block+wooden_sword", "parsing": "plain" }, { "type": "text", "text": "iron_block+gold_block", "parsing": "plain" }, { "type": "text", "text": "gold_block+iron_block", "parsing": "plain" }, { "type": "text", "text": "iron_block+blast_furnace", "parsing": "plain" }, { "type": "text", "text": "blast_furnace+iron_block", "parsing": "plain" }, { "type": "text", "text": "iron_sword+diamond_block", "parsing": "plain" }, { "type": "text", "text": "diamond_block+iron_sword", "parsing": "plain" }, { "type": "text", "text": "diamond_sword+netherite_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block+diamond_sword", "parsing": "plain" }, { "type": "text", "text": "gold_block+copper_block", "parsing": "plain" }, { "type": "text", "text": "copper_block+gold_block", "parsing": "plain" }, { "type": "text", "text": "cut_copper+blue_wool", "parsing": "plain" }, { "type": "text", "text": "blue_wool+cut_copper", "parsing": "plain" }, { "type": "text", "text": "cut_copper+green_wool", "parsing": "plain" }, { "type": "text", "text": "green_wool+cut_copper", "parsing": "plain" }, { "type": "text", "text": "cut_copper+red_wool", "parsing": "plain" }, { "type": "text", "text": "red_wool+cut_copper", "parsing": "plain" }, { "type": "text", "text": "cut_copper+white_wool", "parsing": "plain" }, { "type": "text", "text": "white_wool+cut_copper", "parsing": "plain" }, { "type": "text", "text": "iron_helmet+netherite_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block+iron_helmet", "parsing": "plain" }, { "type": "text", "text": "iron_chestplate+netherite_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block+iron_chestplate", "parsing": "plain" }, { "type": "text", "text": "iron_leggings+netherite_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block+iron_leggings", "parsing": "plain" }, { "type": "text", "text": "iron_boots+netherite_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block+iron_boots", "parsing": "plain" }, { "type": "text", "text": "oak_log+oak_log", "parsing": "plain" }, { "type": "text", "text": "obsidian+obsidian", "parsing": "plain" }, { "type": "text", "text": "stone_bricks+stone_bricks", "parsing": "plain" }, { "type": "text", "text": "glass+glass", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "cobblestone", "parsing": "plain" }, { "type": "text", "text": "iron_block", "parsing": "plain" }, { "type": "text", "text": "gold_block", "parsing": "plain" }, { "type": "text", "text": "diamond_block", "parsing": "plain" }, { "type": "text", "text": "netherite_block", "parsing": "plain" }, { "type": "text", "text": "glass", "parsing": "plain" }, { "type": "text", "text": "mud", "parsing": "plain" }, { "type": "text", "text": "mud", "parsing": "plain" }, { "type": "text", "text": "moss_block", "parsing": "plain" }, { "type": "text", "text": "moss_block", "parsing": "plain" }, { "type": "text", "text": "stone_bricks", "parsing": "plain" }, { "type": "text", "text": "stone_bricks", "parsing": "plain" }, { "type": "text", "text": "obsidian", "parsing": "plain" }, { "type": "text", "text": "obsidian", "parsing": "plain" }, { "type": "text", "text": "wooden_sword", "parsing": "plain" }, { "type": "text", "text": "wooden_sword", "parsing": "plain" }, { "type": "text", "text": "mace", "parsing": "plain" }, { "type": "text", "text": "mace", "parsing": "plain" }, { "type": "text", "text": "golden_sword", "parsing": "plain" }, { "type": "text", "text": "golden_sword", "parsing": "plain" }, { "type": "text", "text": "blast_furnace", "parsing": "plain" }, { "type": "text", "text": "blast_furnace", "parsing": "plain" }, { "type": "text", "text": "iron_sword", "parsing": "plain" }, { "type": "text", "text": "iron_sword", "parsing": "plain" }, { "type": "text", "text": "diamond_sword", "parsing": "plain" }, { "type": "text", "text": "diamond_sword", "parsing": "plain" }, { "type": "text", "text": "netherite_sword", "parsing": "plain" }, { "type": "text", "text": "netherite_sword", "parsing": "plain" }, { "type": "text", "text": "cut_copper", "parsing": "plain" }, { "type": "text", "text": "cut_copper", "parsing": "plain" }, { "type": "text", "text": "iron_helmet", "parsing": "plain" }, { "type": "text", "text": "iron_helmet", "parsing": "plain" }, { "type": "text", "text": "iron_chestplate", "parsing": "plain" }, { "type": "text", "text": "iron_chestplate", "parsing": "plain" }, { "type": "text", "text": "iron_leggings", "parsing": "plain" }, { "type": "text", "text": "iron_leggings", "parsing": "plain" }, { "type": "text", "text": "iron_boots", "parsing": "plain" }, { "type": "text", "text": "iron_boots", "parsing": "plain" }, { "type": "text", "text": "netherite_helmet", "parsing": "plain" }, { "type": "text", "text": "netherite_helmet", "parsing": "plain" }, { "type": "text", "text": "netherite_chestplate", "parsing": "plain" }, { "type": "text", "text": "netherite_chestplate", "parsing": "plain" }, { "type": "text", "text": "netherite_leggings", "parsing": "plain" }, { "type": "text", "text": "netherite_leggings", "parsing": "plain" }, { "type": "text", "text": "netherite_boots", "parsing": "plain" }, { "type": "text", "text": "netherite_boots", "parsing": "plain" }, { "type": "text", "text": "s:platform", "parsing": "plain" }, { "type": "text", "text": "s:spire", "parsing": "plain" }, { "type": "text", "text": "s:tower", "parsing": "plain" }, { "type": "text", "text": "s:obelisk", "parsing": "plain" } ] } } ] },
-        { "action": "select_all_players", "values": [] },
-        { "action": "player_set_world_border", "values": [ { "name": "center", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "size", "value": { "type": "number", "number": 1024 } }, { "name": "warning", "value": { "type": "number", "number": 32 } } ] },
-        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.island", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.crystal","scope":"game"}},{"name":"value","value":{"type":"number","number":1000}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.isl","scope":"game"}},{"name":"value","value":{"type":"number","number":0}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.floor","scope":"game"}},{"name":"value","value":{"type":"number","number":64}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.p1","scope":"game"}},{"name":"value","value":{"type":"location","x":-12,"y":64,"z":-12,"yaw":0,"pitch":0}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.p2","scope":"game"}},{"name":"value","value":{"type":"location","x":12,"y":64,"z":12,"yaw":0,"pitch":0}}]},
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"zz","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"text","text":"dirt","parsing":"plain"}]}}]},
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"zz","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"text","text":"dirt","parsing":"plain"}]}}]},
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.iscube","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"dirt","parsing":"plain"},{"type":"text","text":"cobblestone","parsing":"plain"},{"type":"text","text":"iron_block","parsing":"plain"},{"type":"text","text":"gold_block","parsing":"plain"},{"type":"text","text":"diamond_block","parsing":"plain"},{"type":"text","text":"netherite_block","parsing":"plain"},{"type":"text","text":"sand","parsing":"plain"},{"type":"text","text":"mud","parsing":"plain"},{"type":"text","text":"moss_block","parsing":"plain"},{"type":"text","text":"oak_log","parsing":"plain"},{"type":"text","text":"red_wool","parsing":"plain"},{"type":"text","text":"blue_wool","parsing":"plain"},{"type":"text","text":"green_wool","parsing":"plain"},{"type":"text","text":"white_wool","parsing":"plain"},{"type":"text","text":"copper_block","parsing":"plain"},{"type":"text","text":"cut_copper","parsing":"plain"},{"type":"text","text":"ice","parsing":"plain"},{"type":"text","text":"magma_block","parsing":"plain"},{"type":"text","text":"obsidian","parsing":"plain"},{"type":"text","text":"glass","parsing":"plain"},{"type":"text","text":"blast_furnace","parsing":"plain"},{"type":"text","text":"campfire","parsing":"plain"},{"type":"text","text":"pointed_dripstone","parsing":"plain"},{"type":"text","text":"stone_bricks","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1},{"type":"number","number":1}]}}]},
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.rec","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"dirt+dirt","parsing":"plain"},{"type":"text","text":"cobblestone+cobblestone","parsing":"plain"},{"type":"text","text":"iron_block+iron_block","parsing":"plain"},{"type":"text","text":"gold_block+gold_block","parsing":"plain"},{"type":"text","text":"diamond_block+diamond_block","parsing":"plain"},{"type":"text","text":"sand+sand","parsing":"plain"},{"type":"text","text":"dirt+sand","parsing":"plain"},{"type":"text","text":"sand+dirt","parsing":"plain"},{"type":"text","text":"mud+green_wool","parsing":"plain"},{"type":"text","text":"green_wool+mud","parsing":"plain"},{"type":"text","text":"cobblestone+campfire","parsing":"plain"},{"type":"text","text":"campfire+cobblestone","parsing":"plain"},{"type":"text","text":"ice+magma_block","parsing":"plain"},{"type":"text","text":"magma_block+ice","parsing":"plain"},{"type":"text","text":"oak_log+red_wool","parsing":"plain"},{"type":"text","text":"red_wool+oak_log","parsing":"plain"},{"type":"text","text":"wooden_sword+pointed_dripstone","parsing":"plain"},{"type":"text","text":"pointed_dripstone+wooden_sword","parsing":"plain"},{"type":"text","text":"wooden_sword+gold_block","parsing":"plain"},{"type":"text","text":"gold_block+wooden_sword","parsing":"plain"},{"type":"text","text":"iron_block+gold_block","parsing":"plain"},{"type":"text","text":"gold_block+iron_block","parsing":"plain"},{"type":"text","text":"iron_block+blast_furnace","parsing":"plain"},{"type":"text","text":"blast_furnace+iron_block","parsing":"plain"},{"type":"text","text":"iron_sword+diamond_block","parsing":"plain"},{"type":"text","text":"diamond_block+iron_sword","parsing":"plain"},{"type":"text","text":"diamond_sword+netherite_block","parsing":"plain"},{"type":"text","text":"netherite_block+diamond_sword","parsing":"plain"},{"type":"text","text":"gold_block+copper_block","parsing":"plain"},{"type":"text","text":"copper_block+gold_block","parsing":"plain"},{"type":"text","text":"cut_copper+blue_wool","parsing":"plain"},{"type":"text","text":"blue_wool+cut_copper","parsing":"plain"},{"type":"text","text":"cut_copper+green_wool","parsing":"plain"},{"type":"text","text":"green_wool+cut_copper","parsing":"plain"},{"type":"text","text":"cut_copper+red_wool","parsing":"plain"},{"type":"text","text":"red_wool+cut_copper","parsing":"plain"},{"type":"text","text":"cut_copper+white_wool","parsing":"plain"},{"type":"text","text":"white_wool+cut_copper","parsing":"plain"},{"type":"text","text":"iron_helmet+netherite_block","parsing":"plain"},{"type":"text","text":"netherite_block+iron_helmet","parsing":"plain"},{"type":"text","text":"iron_chestplate+netherite_block","parsing":"plain"},{"type":"text","text":"netherite_block+iron_chestplate","parsing":"plain"},{"type":"text","text":"iron_leggings+netherite_block","parsing":"plain"},{"type":"text","text":"netherite_block+iron_leggings","parsing":"plain"},{"type":"text","text":"iron_boots+netherite_block","parsing":"plain"},{"type":"text","text":"netherite_block+iron_boots","parsing":"plain"},{"type":"text","text":"oak_log+oak_log","parsing":"plain"},{"type":"text","text":"obsidian+obsidian","parsing":"plain"},{"type":"text","text":"stone_bricks+stone_bricks","parsing":"plain"},{"type":"text","text":"glass+glass","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"text","text":"cobblestone","parsing":"plain"},{"type":"text","text":"iron_block","parsing":"plain"},{"type":"text","text":"gold_block","parsing":"plain"},{"type":"text","text":"diamond_block","parsing":"plain"},{"type":"text","text":"netherite_block","parsing":"plain"},{"type":"text","text":"glass","parsing":"plain"},{"type":"text","text":"mud","parsing":"plain"},{"type":"text","text":"mud","parsing":"plain"},{"type":"text","text":"moss_block","parsing":"plain"},{"type":"text","text":"moss_block","parsing":"plain"},{"type":"text","text":"stone_bricks","parsing":"plain"},{"type":"text","text":"stone_bricks","parsing":"plain"},{"type":"text","text":"obsidian","parsing":"plain"},{"type":"text","text":"obsidian","parsing":"plain"},{"type":"text","text":"wooden_sword","parsing":"plain"},{"type":"text","text":"wooden_sword","parsing":"plain"},{"type":"text","text":"mace","parsing":"plain"},{"type":"text","text":"mace","parsing":"plain"},{"type":"text","text":"golden_sword","parsing":"plain"},{"type":"text","text":"golden_sword","parsing":"plain"},{"type":"text","text":"blast_furnace","parsing":"plain"},{"type":"text","text":"blast_furnace","parsing":"plain"},{"type":"text","text":"iron_sword","parsing":"plain"},{"type":"text","text":"iron_sword","parsing":"plain"},{"type":"text","text":"diamond_sword","parsing":"plain"},{"type":"text","text":"diamond_sword","parsing":"plain"},{"type":"text","text":"netherite_sword","parsing":"plain"},{"type":"text","text":"netherite_sword","parsing":"plain"},{"type":"text","text":"cut_copper","parsing":"plain"},{"type":"text","text":"cut_copper","parsing":"plain"},{"type":"text","text":"iron_helmet","parsing":"plain"},{"type":"text","text":"iron_helmet","parsing":"plain"},{"type":"text","text":"iron_chestplate","parsing":"plain"},{"type":"text","text":"iron_chestplate","parsing":"plain"},{"type":"text","text":"iron_leggings","parsing":"plain"},{"type":"text","text":"iron_leggings","parsing":"plain"},{"type":"text","text":"iron_boots","parsing":"plain"},{"type":"text","text":"iron_boots","parsing":"plain"},{"type":"text","text":"netherite_helmet","parsing":"plain"},{"type":"text","text":"netherite_helmet","parsing":"plain"},{"type":"text","text":"netherite_chestplate","parsing":"plain"},{"type":"text","text":"netherite_chestplate","parsing":"plain"},{"type":"text","text":"netherite_leggings","parsing":"plain"},{"type":"text","text":"netherite_leggings","parsing":"plain"},{"type":"text","text":"netherite_boots","parsing":"plain"},{"type":"text","text":"netherite_boots","parsing":"plain"},{"type":"text","text":"s:platform","parsing":"plain"},{"type":"text","text":"s:spire","parsing":"plain"},{"type":"text","text":"s:tower","parsing":"plain"},{"type":"text","text":"s:obelisk","parsing":"plain"}]}}]},
+        {"action":"select_all_players","values":[]},
+        {"action":"player_set_world_border","values":[{"name":"center","value":{"type":"location","x":0,"y":64,"z":0,"yaw":0,"pitch":0}},{"name":"size","value":{"type":"number","number":1024}},{"name":"warning","value":{"type":"number","number":32}}]},
+        {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.island","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
       ],
       "event": "world_start"
     },
@@ -28,7 +23,7 @@
       "type": "event",
       "position": 1,
       "operations": [
-        { "action": "player_set_world_border", "values": [ { "name": "center", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "size", "value": { "type": "number", "number": 1024 } }, { "name": "warning", "value": { "type": "number", "number": 32 } } ] }
+        {"action":"player_set_world_border","values":[{"name":"center","value":{"type":"location","x":0,"y":64,"z":0,"yaw":0,"pitch":0}},{"name":"size","value":{"type":"number","number":1024}},{"name":"warning","value":{"type":"number","number":32}}]}
       ],
       "event": "player_join"
     },
@@ -38,39 +33,30 @@
       "operations": [
         {
           "action": "if_variable_equals",
-          "values": [
-            { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "left_click_block", "parsing": "plain" }, { "type": "text", "text": "right_click_block", "parsing": "plain" } ] } },
-            { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
-          ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"left_click_block","parsing":"plain"},{"type":"text","text":"right_click_block","parsing":"plain"}]}},{"name":"value","value":{"type":"game_value","game_value":"event_interaction","selection":"null"}}],
           "operations": [
             {
               "action": "if_game_event_item_equals",
-              "values": [
-                { "name": "items", "value": { "type": "array", "values": [ { "type": "item", "item": "{Count:1b,id:\"minecraft:wooden_axe\"}" } ] } },
-                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
-              ],
+              "values": [{"name":"items","value":{"type":"array","values":[{"type":"item","item":"{Count:1b,id:\"minecraft:wooden_axe\"}"}]}},{"name":"comparison_mode","value":{"type":"enum","enum":"TYPE_ONLY"}}],
               "operations": [
                 {
                   "action": "if_variable_equals",
-                  "values": [
-                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "left_click_block", "parsing": "plain" } ] } },
-                    { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
-                  ],
+                  "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"left_click_block","parsing":"plain"}]}},{"name":"value","value":{"type":"game_value","game_value":"event_interaction","selection":"null"}}],
                   "operations": [
-                    { "action": "game_cancel_event", "values": [] },
-                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.p1", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } } ] },
-                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.z1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
-                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Cube Combination: &eугол 1 арены установлен", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                    {"action":"game_cancel_event","values":[]},
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.p1","scope":"game"}},{"name":"value","value":{"type":"game_value","game_value":"event_block_location","selection":"null"}}]},
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.z1","scope":"game"}},{"name":"value","value":{"type":"number","number":1}}]},
+                    {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Cube Combination: &eугол 1 арены установлен","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
                   ]
                 },
                 {
                   "action": "else",
                   "values": [],
                   "operations": [
-                    { "action": "game_cancel_event", "values": [] },
-                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.p2", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } } ] },
-                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.z2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
-                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Cube Combination: &eугол 2 арены установлен", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                    {"action":"game_cancel_event","values":[]},
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.p2","scope":"game"}},{"name":"value","value":{"type":"game_value","game_value":"event_block_location","selection":"null"}}]},
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.z2","scope":"game"}},{"name":"value","value":{"type":"number","number":1}}]},
+                    {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Cube Combination: &eугол 2 арены установлен","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
                   ]
                 }
               ]
@@ -86,24 +72,21 @@
       "operations": [
         {
           "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "item", "item": "{Count:1b,id:\"minecraft:mace\"}" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
-          ],
+          "values": [{"name":"items","value":{"type":"array","values":[{"type":"item","item":"{Count:1b,id:\"minecraft:mace\"}"}]}},{"name":"comparison_mode","value":{"type":"enum","enum":"TYPE_ONLY"}}],
           "operations": [
-            { "action": "game_cancel_event", "values": [] },
+            {"action":"game_cancel_event","values":[]},
             {
               "action": "if_player_is_sneaking",
               "values": [],
               "operations": [
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.stop", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.stop","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
               ]
             },
             {
               "action": "else",
               "values": [],
               "operations": [
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.start", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.start","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
               ]
             }
           ]
@@ -115,44 +98,44 @@
       "type": "function",
       "position": 4,
       "operations": [
-        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:smooth_stone\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -14, "y": 63, "z": -14, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 14, "y": 63, "z": 14, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:grass_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -13, "y": 64, "z": -13, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 13, "y": 64, "z": 13, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:smooth_stone\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -1, "y": 65, "z": -1, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 1, "y": 65, "z": 1, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -1, "y": 64, "z": -34, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 1, "y": 64, "z": -14, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": 14, "y": 64, "z": -1, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 34, "y": 64, "z": 1, "yaw": 0, "pitch": 0 } } ] },
-        { "action": "game_spawn_block_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": -0.5, "y": 66, "z": -0.5, "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_crysd", "parsing": "plain" } }, { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:diamond_block\"}" } } ] },
-        { "action": "select_reset", "values": [] },
-        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_crysd", "parsing": "plain" } } ] },
-        { "action": "entity_set_display_scale", "values": [ { "name": "scale_vector", "value": { "type": "vector", "x": 1.3, "y": 1.3, "z": 1.3 } }, { "name": "mode", "value": { "type": "enum", "enum": "SET" } } ] },
-        { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": 0, "y": 69.5, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_cryst", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "SPACES" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&b&l◈ КРИСТАЛЛ ◈", "parsing": "legacy" } } ] },
-        { "action": "game_spawn_mob", "values": [ { "name": "mob", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:shulker\"}" } }, { "name": "location", "value": { "type": "location", "x": 0.5, "y": 65, "z": 0.5, "yaw": 0, "pitch": 0 } }, { "name": "health", "value": { "type": "number", "number": 500 } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_crys", "parsing": "plain" } }, { "name": "potion_effects", "value": { "type": "potion", "potion": "minecraft:invisibility", "amplifier": 0, "duration": -1 } }, { "name": "main_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "helmet", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "chestplate", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "leggings", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "boots", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "off_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "natural_equipment", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "entity_give_potion_effects", "values": [ { "name": "potions", "value": { "type": "potion", "potion": "minecraft:invisibility", "amplifier": 0, "duration": -1 } }, { "name": "overwrite", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "show_icon", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "particle_mode", "value": { "type": "enum", "enum": "NONE" } } ] },
-        { "action": "entity_set_ai", "values": [ { "name": "ai", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "entity_set_aware", "values": [ { "name": "aware", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.isl", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] }
+        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:smooth_stone\"}"}},{"name":"pos_1","value":{"type":"location","x":-14,"y":63,"z":-14,"yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":14,"y":63,"z":14,"yaw":0,"pitch":0}}]},
+        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:grass_block\"}"}},{"name":"pos_1","value":{"type":"location","x":-13,"y":64,"z":-13,"yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":13,"y":64,"z":13,"yaw":0,"pitch":0}}]},
+        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:smooth_stone\"}"}},{"name":"pos_1","value":{"type":"location","x":-1,"y":65,"z":-1,"yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":1,"y":65,"z":1,"yaw":0,"pitch":0}}]},
+        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:oak_planks\"}"}},{"name":"pos_1","value":{"type":"location","x":-1,"y":64,"z":-34,"yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":1,"y":64,"z":-14,"yaw":0,"pitch":0}}]},
+        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:oak_planks\"}"}},{"name":"pos_1","value":{"type":"location","x":14,"y":64,"z":-1,"yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":34,"y":64,"z":1,"yaw":0,"pitch":0}}]},
+        {"action":"game_spawn_block_display","values":[{"name":"spawn_location","value":{"type":"location","x":-0.5,"y":66,"z":-0.5,"yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"cc_crysd","parsing":"plain"}},{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:diamond_block\"}"}}]},
+        {"action":"select_reset","values":[]},
+        {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"cc_crysd","parsing":"plain"}}]},
+        {"action":"entity_set_display_scale","values":[{"name":"scale_vector","value":{"type":"vector","x":1.3,"y":1.3,"z":1.3}},{"name":"mode","value":{"type":"enum","enum":"SET"}}]},
+        {"action":"game_spawn_text_display","values":[{"name":"spawn_location","value":{"type":"location","x":0,"y":69.5,"z":0,"yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"cc_cryst","parsing":"plain"}},{"name":"merging_mode","value":{"type":"enum","enum":"SPACES"}},{"name":"displayed_text","value":{"type":"text","text":"&b&l◈ КРИСТАЛЛ ◈","parsing":"legacy"}}]},
+        {"action":"game_spawn_mob","values":[{"name":"mob","value":{"type":"item","item":"{Count:1b,id:\"minecraft:shulker\"}"}},{"name":"location","value":{"type":"location","x":0.5,"y":65,"z":0.5,"yaw":0,"pitch":0}},{"name":"health","value":{"type":"number","number":500}},{"name":"custom_name","value":{"type":"text","text":"cc_crys","parsing":"plain"}},{"name":"potion_effects","value":{"type":"potion","potion":"minecraft:invisibility","amplifier":0,"duration":-1}},{"name":"main_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"helmet","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"chestplate","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"leggings","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"boots","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"off_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"natural_equipment","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"entity_give_potion_effects","values":[{"name":"potions","value":{"type":"potion","potion":"minecraft:invisibility","amplifier":0,"duration":-1}},{"name":"overwrite","value":{"type":"enum","enum":"TRUE"}},{"name":"show_icon","value":{"type":"enum","enum":"FALSE"}},{"name":"particle_mode","value":{"type":"enum","enum":"NONE"}}]},
+        {"action":"entity_set_ai","values":[{"name":"ai","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"entity_set_aware","values":[{"name":"aware","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.isl","scope":"game"}},{"name":"value","value":{"type":"number","number":1}}]}
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.island"
+      "name": "CC.island",
+      "values": [{"name":"parameters","value":{"type":"array","values":[]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "function",
       "position": 5,
       "operations": [
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
-        { "action": "select_all_players", "values": [] },
-        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6CUBE COMBINATION", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&fСкрещивай кубы и защити Кристалл!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 60 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&eПКМ по кубу &7- подобрать. &eQ &7- кинуть. Попади кубом в другой куб, чтобы скрестить их!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Цепочка кубов: &7земля+земля=булыжник, булыжник+булыжник=железо, железо+железо=золото, золото+золото=алмаз, алмаз+алмаз=незерит", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Оружие и броня: &7красная шерсть+дерево=дубина, дубина+шип=БУЛАВА, железо+горн=железный меч, бронза+шерсть=броня, броня+незерит=незеритовая. Лёд+магма=обсидиан", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Структуры: &7дерево+дерево=платформа, обсидиан+обсидиан=шпиль, камень.кирпичи+камень.кирпичи=башня, стекло+стекло=обелиск", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Боссы по мостам: &7север - Cube Destroyer, Pyro, Poseidon. восток - Raider Brute, Hammerdom, Cryo, Forsaken's Blade, Twin Envoys, затем THE ROTTEN. Защищайте Кристалл!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.player.levelup", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] },
-        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.spawn", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
-        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.bosses", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
-        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.guard", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.state","scope":"game"}},{"name":"value","value":{"type":"number","number":1}}]},
+        {"action":"select_all_players","values":[]},
+        {"action":"player_send_title","values":[{"name":"title","value":{"type":"text","text":"&6CUBE COMBINATION","parsing":"legacy"}},{"name":"subtitle","value":{"type":"text","text":"&fСкрещивай кубы и защити Кристалл!","parsing":"legacy"}},{"name":"fade_in","value":{"type":"number","number":10}},{"name":"stay","value":{"type":"number","number":60}},{"name":"fade_out","value":{"type":"number","number":10}}]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&eПКМ по кубу &7- подобрать. &eQ &7- кинуть. Попади кубом в другой куб, чтобы скрестить их!","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Цепочка кубов: &7земля+земля=булыжник, булыжник+булыжник=железо, железо+железо=золото, золото+золото=алмаз, алмаз+алмаз=незерит","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Оружие и броня: &7красная шерсть+дерево=дубина, дубина+шип=БУЛАВА, железо+горн=железный меч, бронза+шерсть=броня, броня+незерит=незеритовая. Лёд+магма=обсидиан","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Структуры: &7дерево+дерево=платформа, обсидиан+обсидиан=шпиль, камень.кирпичи+камень.кирпичи=башня, стекло+стекло=обелиск","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&6Боссы по мостам: &7север - Cube Destroyer, Pyro, Poseidon. восток - Raider Brute, Hammerdom, Cryo, Forsaken's Blade, Twin Envoys, затем THE ROTTEN. Защищайте Кристалл!","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+        {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.player.levelup","pitch":1,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]},
+        {"action":"start_process","values":[{"name":"process_name","value":{"type":"text","text":"CC.spawn","parsing":"plain"}},{"name":"target_mode","value":{"type":"enum","enum":"NO_TARGET"}},{"name":"local_variables_mode","value":{"type":"enum","enum":"DONT_COPY"}},{"name":"args","value":{"type":"map","values":{}}}]},
+        {"action":"start_process","values":[{"name":"process_name","value":{"type":"text","text":"CC.bosses","parsing":"plain"}},{"name":"target_mode","value":{"type":"enum","enum":"NO_TARGET"}},{"name":"local_variables_mode","value":{"type":"enum","enum":"DONT_COPY"}},{"name":"args","value":{"type":"map","values":{}}}]},
+        {"action":"start_process","values":[{"name":"process_name","value":{"type":"text","text":"CC.guard","parsing":"plain"}},{"name":"target_mode","value":{"type":"enum","enum":"NO_TARGET"}},{"name":"local_variables_mode","value":{"type":"enum","enum":"DONT_COPY"}},{"name":"args","value":{"type":"map","values":{}}}]}
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.begin"
+      "name": "CC.begin",
+      "values": [{"name":"parameters","value":{"type":"array","values":[]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "function",
@@ -160,35 +143,35 @@
       "operations": [
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}},{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}}],
           "operations": [
-            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cИгра уже запущена. Шифт + ПКМ булавой = стоп", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-            { "action": "control_end_thread", "values": [] }
+            {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&cИгра уже запущена. Шифт + ПКМ булавой = стоп","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+            {"action":"control_end_thread","values":[]}
           ]
         },
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.z1", "scope": "game" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}},{"name":"value","value":{"type":"variable","variable":"cc.z1","scope":"game"}}],
           "operations": [
             {
               "action": "if_variable_equals",
-              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.z2", "scope": "game" } } ],
+              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}},{"name":"value","value":{"type":"variable","variable":"cc.z2","scope":"game"}}],
               "operations": [
-                { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cc.p1", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "x1", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y1", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z1", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "w1", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "pc1", "scope": "local" } } ] },
-                { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cc.p2", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "x2", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y2", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z2", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "w2", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "pc2", "scope": "local" } } ] },
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.floor", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(y1) < %var_local(y2) ? %var_local(y1) : %var_local(y2))" } } ] },
-                { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "am", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(floor((%var_local(x1)+%var_local(x2))/2) - 3)" } }, { "name": "y", "value": { "type": "variable", "variable": "cc.floor", "scope": "game" } }, { "name": "z", "value": { "type": "number", "number": "%math(floor((%var_local(z1)+%var_local(z2))/2) - 3)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ap", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(floor((%var_local(x1)+%var_local(x2))/2) + 3)" } }, { "name": "y", "value": { "type": "variable", "variable": "cc.floor", "scope": "game" } }, { "name": "z", "value": { "type": "number", "number": "%math(floor((%var_local(z1)+%var_local(z2))/2) + 3)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:smooth_stone\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "am", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "ap", "scope": "local" } } ] },
-                { "action": "game_set_block", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:campfire\"}" } }, { "name": "locations", "value": { "type": "array", "values": [ { "type": "location", "x": "%math(floor((%var_local(x1)+%var_local(x2))/2))", "y": "%var(cc.floor)", "z": "%math(floor((%var_local(z1)+%var_local(z2))/2))", "yaw": 0, "pitch": 0 } ] } } ] },
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.begin", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cc.p1","scope":"game"}},{"name":"x","value":{"type":"variable","variable":"x1","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"y1","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"z1","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"w1","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"pc1","scope":"local"}}]},
+                {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cc.p2","scope":"game"}},{"name":"x","value":{"type":"variable","variable":"x2","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"y2","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"z2","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"w2","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"pc2","scope":"local"}}]},
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.floor","scope":"game"}},{"name":"value","value":{"type":"number","number":"%math(%var_local(y1) < %var_local(y2) ? %var_local(y1) : %var_local(y2))"}}]},
+                {"action":"set_variable_set_all_coordinates","values":[{"name":"variable","value":{"type":"variable","variable":"am","scope":"local"}},{"name":"x","value":{"type":"number","number":"%math(floor((%var_local(x1)+%var_local(x2))/2) - 3)"}},{"name":"y","value":{"type":"variable","variable":"cc.floor","scope":"game"}},{"name":"z","value":{"type":"number","number":"%math(floor((%var_local(z1)+%var_local(z2))/2) - 3)"}},{"name":"yaw","value":{"type":"number","number":0}},{"name":"pitch","value":{"type":"number","number":0}}]},
+                {"action":"set_variable_set_all_coordinates","values":[{"name":"variable","value":{"type":"variable","variable":"ap","scope":"local"}},{"name":"x","value":{"type":"number","number":"%math(floor((%var_local(x1)+%var_local(x2))/2) + 3)"}},{"name":"y","value":{"type":"variable","variable":"cc.floor","scope":"game"}},{"name":"z","value":{"type":"number","number":"%math(floor((%var_local(z1)+%var_local(z2))/2) + 3)"}},{"name":"yaw","value":{"type":"number","number":0}},{"name":"pitch","value":{"type":"number","number":0}}]},
+                {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:smooth_stone\"}"}},{"name":"pos_1","value":{"type":"variable","variable":"am","scope":"local"}},{"name":"pos_2","value":{"type":"variable","variable":"ap","scope":"local"}}]},
+                {"action":"game_set_block","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:campfire\"}"}},{"name":"locations","value":{"type":"array","values":[{"type":"location","x":"%math(floor((%var_local(x1)+%var_local(x2))/2))","y":"%var(cc.floor)","z":"%math(floor((%var_local(z1)+%var_local(z2))/2))","yaw":0,"pitch":0}]}}]},
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.begin","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
               ]
             },
             {
               "action": "else",
               "values": [],
               "operations": [
-                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cВыдели второй угол деревянным топором (ПКМ)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&cВыдели второй угол деревянным топором (ПКМ)","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
               ]
             }
           ]
@@ -199,17 +182,17 @@
           "operations": [
             {
               "action": "if_variable_equals",
-              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.isl", "scope": "game" } } ],
+              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":0}]}},{"name":"value","value":{"type":"variable","variable":"cc.isl","scope":"game"}}],
               "operations": [
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.island", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.island","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
               ]
             },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.begin", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+            {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.begin","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]}
           ]
         }
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.start"
+      "name": "CC.start",
+      "values": [{"name":"parameters","value":{"type":"array","values":[]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "function",
@@ -217,65 +200,65 @@
       "operations": [
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":0}]}},{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}}],
           "operations": [
-            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cИгра не запущена", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-            { "action": "control_end_thread", "values": [] }
+            {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&cИгра не запущена","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+            {"action":"control_end_thread","values":[]}
           ]
         },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.state","scope":"game"}},{"name":"value","value":{"type":"number","number":0}}]},
         {
           "action": "repeat_for_each_map_entry",
-          "values": [ { "name": "key_variable", "value": { "type": "variable", "variable": "k", "scope": "local" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "v", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } } ],
+          "values": [{"name":"key_variable","value":{"type":"variable","variable":"k","scope":"local"}},{"name":"value_variable","value":{"type":"variable","variable":"v","scope":"local"}},{"name":"map","value":{"type":"variable","variable":"cc.cubes","scope":"game"}}],
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
-            { "action": "select_reset", "values": [] },
-            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(k)", "parsing": "plain" } } ] },
-            { "action": "entity_remove", "values": [] }
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":1}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
+            {"action":"select_reset","values":[]},
+            {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(k)","parsing":"plain"}}]},
+            {"action":"entity_remove","values":[]}
           ]
         },
         {
           "action": "repeat_for_each_map_entry",
-          "values": [ { "name": "key_variable", "value": { "type": "variable", "variable": "k", "scope": "local" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "v", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } } ],
+          "values": [{"name":"key_variable","value":{"type":"variable","variable":"k","scope":"local"}},{"name":"value_variable","value":{"type":"variable","variable":"v","scope":"local"}},{"name":"map","value":{"type":"variable","variable":"cc.bosses","scope":"game"}}],
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
-            { "action": "select_reset", "values": [] },
-            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(k)", "parsing": "plain" } } ] },
-            { "action": "entity_remove", "values": [] }
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":1}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
+            {"action":"select_reset","values":[]},
+            {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(k)","parsing":"plain"}}]},
+            {"action":"entity_remove","values":[]}
           ]
         },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "zz", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt", "parsing": "plain" } ] } } ] },
-        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "zz", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "dirt", "parsing": "plain" } ] } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.crystal", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1000 } } ] },
-        { "action": "select_all_players", "values": [] },
-        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cCube Combination остановлен, кубы и боссы убраны", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"zz","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"text","text":"dirt","parsing":"plain"}]}}]},
+        {"action":"set_variable_create_map","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"keys","value":{"type":"array","values":[{"type":"text","text":"zz","parsing":"plain"}]}},{"name":"values","value":{"type":"array","values":[{"type":"text","text":"dirt","parsing":"plain"}]}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.count","scope":"game"}},{"name":"value","value":{"type":"number","number":0}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bwave","scope":"game"}},{"name":"value","value":{"type":"number","number":0}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.crystal","scope":"game"}},{"name":"value","value":{"type":"number","number":1000}}]},
+        {"action":"select_all_players","values":[]},
+        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&cCube Combination остановлен, кубы и боссы убраны","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.stop"
+      "name": "CC.stop",
+      "values": [{"name":"parameters","value":{"type":"array","values":[]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "function",
       "position": 8,
       "operations": [
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "uid", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%random_uuid%", "parsing": "plain" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "cc_%var_local(uid)", "parsing": "plain" } } ] },
-        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "lx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "ly", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "lz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "lw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "lp", "scope": "local" } } ] },
-        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "dl", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(lx)-0.5)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(ly)-0.5)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(lz)-0.5)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "game_spawn_block_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "dl", "scope": "local" } }, { "name": "custom_name", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }, { "name": "block", "value": { "type": "item", "item": "%var_local(tier)" } } ] },
-        { "action": "game_spawn_mob", "values": [ { "name": "mob", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:shulker\"}" } }, { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "local" } }, { "name": "health", "value": { "type": "number", "number": 100 } }, { "name": "custom_name", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }, { "name": "potion_effects", "value": { "type": "potion", "potion": "minecraft:invisibility", "amplifier": 0, "duration": -1 } }, { "name": "main_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "helmet", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "chestplate", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "leggings", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "boots", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "off_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "natural_equipment", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "entity_give_potion_effects", "values": [ { "name": "potions", "value": { "type": "potion", "potion": "minecraft:invisibility", "amplifier": 0, "duration": -1 } }, { "name": "overwrite", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "show_icon", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "particle_mode", "value": { "type": "enum", "enum": "NONE" } } ] },
-        { "action": "entity_set_ai", "values": [ { "name": "ai", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "entity_set_aware", "values": [ { "name": "aware", "value": { "type": "enum", "enum": "FALSE" } } ] },
-        { "action": "entity_set_custom_tag", "values": [ { "name": "name", "value": { "type": "text", "text": "cck", "parsing": "plain" } }, { "name": "value", "value": { "type": "text", "text": "1", "parsing": "plain" } } ] },
-        { "action": "entity_set_custom_tag", "values": [ { "name": "name", "value": { "type": "text", "text": "tier", "parsing": "plain" } }, { "name": "value", "value": { "type": "text", "text": "%var_local(tier)", "parsing": "plain" } } ] },
-        { "action": "game_spawn_armor_stand", "values": [ { "name": "helmet", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "chestplate", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "leggings", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "boots", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "right_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "left_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "gravity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "marker", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "small", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "show_arms", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "base_plate", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "invisible", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "local" } }, { "name": "custom_name", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } } ] },
-        { "action": "set_variable_set_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "tier", "scope": "local" } } ] },
-        { "action": "set_variable_increment", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "number", "value": { "type": "number", "number": 1 } } ] }
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"uid","scope":"local"}},{"name":"value","value":{"type":"text","text":"%random_uuid%","parsing":"plain"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"nm","scope":"local"}},{"name":"value","value":{"type":"text","text":"cc_%var_local(uid)","parsing":"plain"}}]},
+        {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"loc","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"lx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"ly","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"lz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"lw","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"lp","scope":"local"}}]},
+        {"action":"set_variable_set_all_coordinates","values":[{"name":"variable","value":{"type":"variable","variable":"dl","scope":"local"}},{"name":"x","value":{"type":"number","number":"%math(%var_local(lx)-0.5)"}},{"name":"y","value":{"type":"number","number":"%math(%var_local(ly)-0.5)"}},{"name":"z","value":{"type":"number","number":"%math(%var_local(lz)-0.5)"}},{"name":"yaw","value":{"type":"number","number":0}},{"name":"pitch","value":{"type":"number","number":0}}]},
+        {"action":"game_spawn_block_display","values":[{"name":"spawn_location","value":{"type":"variable","variable":"dl","scope":"local"}},{"name":"custom_name","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}},{"name":"block","value":{"type":"item","item":"{Count:1b,id:\\\"minecraft:%var_local(tier)\\\"}"}}]},
+        {"action":"game_spawn_mob","values":[{"name":"mob","value":{"type":"item","item":"{Count:1b,id:\"minecraft:shulker\"}"}},{"name":"location","value":{"type":"variable","variable":"loc","scope":"local"}},{"name":"health","value":{"type":"number","number":100}},{"name":"custom_name","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}},{"name":"potion_effects","value":{"type":"potion","potion":"minecraft:invisibility","amplifier":0,"duration":-1}},{"name":"main_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"helmet","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"chestplate","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"leggings","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"boots","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"off_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"natural_equipment","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"entity_give_potion_effects","values":[{"name":"potions","value":{"type":"potion","potion":"minecraft:invisibility","amplifier":0,"duration":-1}},{"name":"overwrite","value":{"type":"enum","enum":"TRUE"}},{"name":"show_icon","value":{"type":"enum","enum":"FALSE"}},{"name":"particle_mode","value":{"type":"enum","enum":"NONE"}}]},
+        {"action":"entity_set_ai","values":[{"name":"ai","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"entity_set_aware","values":[{"name":"aware","value":{"type":"enum","enum":"FALSE"}}]},
+        {"action":"entity_set_custom_tag","values":[{"name":"name","value":{"type":"text","text":"cck","parsing":"plain"}},{"name":"value","value":{"type":"text","text":"1","parsing":"plain"}}]},
+        {"action":"entity_set_custom_tag","values":[{"name":"name","value":{"type":"text","text":"tier","parsing":"plain"}},{"name":"value","value":{"type":"text","text":"%var_local(tier)","parsing":"plain"}}]},
+        {"action":"game_spawn_armor_stand","values":[{"name":"helmet","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"chestplate","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"leggings","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"boots","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"right_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"left_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"gravity","value":{"type":"enum","enum":"FALSE"}},{"name":"marker","value":{"type":"enum","enum":"TRUE"}},{"name":"small","value":{"type":"enum","enum":"TRUE"}},{"name":"show_arms","value":{"type":"enum","enum":"FALSE"}},{"name":"base_plate","value":{"type":"enum","enum":"FALSE"}},{"name":"invisible","value":{"type":"enum","enum":"TRUE"}},{"name":"location","value":{"type":"variable","variable":"loc","scope":"local"}},{"name":"custom_name","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}}]},
+        {"action":"set_variable_set_map_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"map","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"key","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}},{"name":"value","value":{"type":"variable","variable":"tier","scope":"local"}}]},
+        {"action":"set_variable_increment","values":[{"name":"variable","value":{"type":"variable","variable":"cc.count","scope":"game"}},{"name":"number","value":{"type":"number","number":1}}]}
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [ { "type": "text", "text": "type: Text, name: tier" }, { "type": "text", "text": "type: Location, name: loc" } ] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.new_cube"
+      "name": "CC.new_cube",
+      "values": [{"name":"parameters","value":{"type":"array","values":[{"type":"text","text":"type: Text, name: tier"},{"type":"text","text":"type: Location, name: loc"}]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "event",
@@ -283,26 +266,26 @@
       "operations": [
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":0}]}},{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}}],
           "operations": [
-            { "action": "control_end_thread", "values": [] }
+            {"action":"control_end_thread","values":[]}
           ]
         },
         {
           "action": "if_entity_has_custom_tag",
-          "values": [ { "name": "tag", "value": { "type": "text", "text": "cck", "parsing": "plain" } }, { "name": "tag_value", "value": { "type": "text", "text": "1", "parsing": "plain" } }, { "name": "compare_type", "value": { "type": "enum", "enum": "EQUALS" } } ],
+          "values": [{"name":"tag","value":{"type":"text","text":"cck","parsing":"plain"}},{"name":"tag_value","value":{"type":"text","text":"1","parsing":"plain"}},{"name":"compare_type","value":{"type":"enum","enum":"EQUALS"}}],
           "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "entity_get_custom_tag", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "t", "scope": "local" } }, { "name": "name", "value": { "type": "text", "text": "tier", "parsing": "plain" } }, { "name": "default", "value": { "type": "text", "text": "dirt", "parsing": "plain" } } ] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } }, { "name": "value", "value": { "type": "game_value", "game_value": "name", "selection": "{\"type\":\"default\"}" } } ] },
-            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
-            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "%var_local(t)" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
-            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.item.pickup", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] },
-            { "action": "select_reset", "values": [] },
-            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } } ] },
-            { "action": "entity_remove", "values": [] },
-            { "action": "set_variable_remove_map_entry", "values": [ { "name": "removed_value", "value": { "type": "variable", "variable": "junk", "scope": "local" } }, { "name": "variable", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }, { "name": "values", "value": {} } ] },
-            { "action": "set_variable_decrement", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "number", "value": { "type": "number", "number": 1 } } ] }
+            {"action":"game_cancel_event","values":[]},
+            {"action":"entity_get_custom_tag","values":[{"name":"variable","value":{"type":"variable","variable":"t","scope":"local"}},{"name":"name","value":{"type":"text","text":"tier","parsing":"plain"}},{"name":"default","value":{"type":"text","text":"dirt","parsing":"plain"}}]},
+            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"nm","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"name","selection":"{\"type\":\"default\"}"}}]},
+            {"action":"select_player_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%player%","parsing":"plain"}}]},
+            {"action":"player_give_items","values":[{"name":"items","value":{"type":"item","item":"{Count:1b,id:\\\"minecraft:%var_local(t)\\\"}"}},{"name":"amount","value":{"type":"number","number":1}}]},
+            {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.item.pickup","pitch":1,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]},
+            {"action":"select_reset","values":[]},
+            {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}}]},
+            {"action":"entity_remove","values":[]},
+            {"action":"set_variable_remove_map_entry","values":[{"name":"removed_value","value":{"type":"variable","variable":"junk","scope":"local"}},{"name":"variable","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"map","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"key","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}},{"name":"values","value":{}}]},
+            {"action":"set_variable_decrement","values":[{"name":"variable","value":{"type":"variable","variable":"cc.count","scope":"game"}},{"name":"number","value":{"type":"number","number":1}}]}
           ]
         }
       ],
@@ -314,20 +297,17 @@
       "operations": [
         {
           "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "item", "item": "{Count:1b,id:\"minecraft:dirt\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:cobblestone\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:gold_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:diamond_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:netherite_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:sand\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:mud\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:moss_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_log\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:red_wool\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_wool\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:green_wool\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:white_wool\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:copper_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:cut_copper\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:ice\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:magma_block\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:obsidian\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:glass\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:blast_furnace\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:campfire\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:pointed_dripstone\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:stone_bricks\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:wooden_sword\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:golden_sword\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_sword\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:diamond_sword\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:netherite_sword\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_helmet\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_chestplate\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_leggings\"}" }, { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_boots\"}" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
-          ],
+          "values": [{"name":"items","value":{"type":"array","values":[{"type":"item","item":"{Count:1b,id:\"minecraft:dirt\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:cobblestone\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:gold_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:diamond_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:netherite_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:sand\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:mud\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:moss_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:oak_log\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:red_wool\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:blue_wool\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:green_wool\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:white_wool\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:copper_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:cut_copper\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:ice\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:magma_block\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:obsidian\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:glass\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:blast_furnace\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:campfire\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:pointed_dripstone\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:stone_bricks\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:wooden_sword\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:golden_sword\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_sword\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:diamond_sword\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:netherite_sword\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_helmet\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_chestplate\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_leggings\"}"},{"type":"item","item":"{Count:1b,id:\"minecraft:iron_boots\"}"}]}},{"name":"comparison_mode","value":{"type":"enum","enum":"TYPE_ONLY"}}],
           "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "game_value", "game_value": "event_item", "selection": "null" } } ] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "uid", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%random_uuid%", "parsing": "plain" } } ] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tn", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "cct_%var_local(uid)", "parsing": "plain" } } ] },
-            { "action": "game_spawn_item", "values": [ { "name": "item", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "location", "value": { "type": "game_value", "game_value": "eye_location", "selection": "{\"type\":\"default\"}" } }, { "name": "custom_name", "value": { "type": "text", "text": "%var_local(tn)", "parsing": "plain" } }, { "name": "apply_motion", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "can_mob_pickup", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "can_player_pickup", "value": { "type": "enum", "enum": "TRUE" } } ] },
-            { "action": "set_variable_multiply_vector", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "vv", "scope": "local" } }, { "name": "vector", "value": { "type": "game_value", "game_value": "direction_of_view", "selection": "{\"type\":\"default\"}" } }, { "name": "multiplier", "value": { "type": "number", "number": 1.5 } } ] },
-            { "action": "entity_set_location", "values": [ { "name": "velocity", "value": { "type": "variable", "variable": "vv", "scope": "local" } }, { "name": "increment", "value": { "type": "enum", "enum": "FALSE" } } ] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pl", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
-            { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.track", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+            {"action":"game_cancel_event","values":[]},
+            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"event_item","selection":"null"}}]},
+            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"uid","scope":"local"}},{"name":"value","value":{"type":"text","text":"%random_uuid%","parsing":"plain"}}]},
+            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tn","scope":"local"}},{"name":"value","value":{"type":"text","text":"cct_%var_local(uid)","parsing":"plain"}}]},
+            {"action":"game_spawn_item","values":[{"name":"item","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"location","value":{"type":"game_value","game_value":"eye_location","selection":"{\"type\":\"default\"}"}},{"name":"custom_name","value":{"type":"text","text":"%var_local(tn)","parsing":"plain"}},{"name":"apply_motion","value":{"type":"enum","enum":"FALSE"}},{"name":"can_mob_pickup","value":{"type":"enum","enum":"FALSE"}},{"name":"can_player_pickup","value":{"type":"enum","enum":"TRUE"}}]},
+            {"action":"set_variable_multiply_vector","values":[{"name":"variable","value":{"type":"variable","variable":"vv","scope":"local"}},{"name":"vector","value":{"type":"game_value","game_value":"direction_of_view","selection":"{\"type\":\"default\"}"}},{"name":"multiplier","value":{"type":"number","number":1.5}}]},
+            {"action":"entity_set_location","values":[{"name":"velocity","value":{"type":"variable","variable":"vv","scope":"local"}},{"name":"increment","value":{"type":"enum","enum":"FALSE"}}]},
+            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"pl","scope":"local"}},{"name":"value","value":{"type":"text","text":"%player%","parsing":"plain"}}]},
+            {"action":"start_process","values":[{"name":"process_name","value":{"type":"text","text":"CC.track","parsing":"plain"}},{"name":"target_mode","value":{"type":"enum","enum":"NO_TARGET"}},{"name":"local_variables_mode","value":{"type":"enum","enum":"COPY"}},{"name":"args","value":{"type":"map","values":{}}}]}
           ]
         }
       ],
@@ -337,26 +317,28 @@
       "type": "process",
       "position": 11,
       "operations": [
-        { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 40 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+        {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":40}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
         {
           "action": "repeat_forever",
           "values": [],
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 30 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":30}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
             {
               "action": "if_variable_greater_or_equals",
-              "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 30 } } ],
+              "values": [{"name":"value","value":{"type":"variable","variable":"cc.count","scope":"game"}},{"name":"compare","value":{"type":"number","number":30}}],
               "is_inverted": "true",
               "operations": [
-                { "action": "set_variable_random_location", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rl", "scope": "local" } }, { "name": "location_1", "value": { "type": "variable", "variable": "cc.p1", "scope": "game" } }, { "name": "location_2", "value": { "type": "variable", "variable": "cc.p2", "scope": "game" } }, { "name": "integer", "value": { "type": "enum", "enum": "TRUE" } } ] },
-                { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "rl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "rx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "ry", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "rz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "rw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "rp", "scope": "local" } } ] },
-                { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "rx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "cc.floor", "scope": "game" } }, { "name": "z", "value": { "type": "variable", "variable": "rz", "scope": "local" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%random%" } } ] },
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "cobblestone", "parsing": "plain" } } ] },
+                {"action":"set_variable_random_location","values":[{"name":"variable","value":{"type":"variable","variable":"rl","scope":"local"}},{"name":"location_1","value":{"type":"variable","variable":"cc.p1","scope":"game"}},{"name":"location_2","value":{"type":"variable","variable":"cc.p2","scope":"game"}},{"name":"integer","value":{"type":"enum","enum":"TRUE"}}]},
+                {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"rl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"rx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"ry","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"rz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"rw","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"rp","scope":"local"}}]},
+                {"action":"set_variable_set_all_coordinates","values":[{"name":"variable","value":{"type":"variable","variable":"sl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"rx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"cc.floor","scope":"game"}},{"name":"z","value":{"type":"variable","variable":"rz","scope":"local"}},{"name":"yaw","value":{"type":"number","number":0}},{"name":"pitch","value":{"type":"number","number":0}}]},
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"value","value":{"type":"number","number":"%random%"}}]},
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"cobblestone","parsing":"plain"}}]},
                 {
                   "action": "if_variable_less",
-                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.2 } } ],
-                  "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "dirt", "parsing": "plain" } } ] } ]
+                  "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.2}}],
+                  "operations": [
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"dirt","parsing":"plain"}}]}
+                  ]
                 },
                 {
                   "action": "else",
@@ -364,8 +346,10 @@
                   "operations": [
                     {
                       "action": "if_variable_less",
-                      "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.32 } } ],
-                      "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "sand", "parsing": "plain" } } ] } ]
+                      "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.32}}],
+                      "operations": [
+                        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"sand","parsing":"plain"}}]}
+                      ]
                     },
                     {
                       "action": "else",
@@ -373,8 +357,10 @@
                       "operations": [
                         {
                           "action": "if_variable_less",
-                          "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.44 } } ],
-                          "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "oak_log", "parsing": "plain" } } ] } ]
+                          "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.44}}],
+                          "operations": [
+                            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"oak_log","parsing":"plain"}}]}
+                          ]
                         },
                         {
                           "action": "else",
@@ -382,8 +368,10 @@
                           "operations": [
                             {
                               "action": "if_variable_less",
-                              "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.52 } } ],
-                              "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "red_wool", "parsing": "plain" } } ] } ]
+                              "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.52}}],
+                              "operations": [
+                                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"red_wool","parsing":"plain"}}]}
+                              ]
                             },
                             {
                               "action": "else",
@@ -391,8 +379,10 @@
                               "operations": [
                                 {
                                   "action": "if_variable_less",
-                                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.6 } } ],
-                                  "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "blue_wool", "parsing": "plain" } } ] } ]
+                                  "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.6}}],
+                                  "operations": [
+                                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"blue_wool","parsing":"plain"}}]}
+                                  ]
                                 },
                                 {
                                   "action": "else",
@@ -400,8 +390,10 @@
                                   "operations": [
                                     {
                                       "action": "if_variable_less",
-                                      "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.68 } } ],
-                                      "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "green_wool", "parsing": "plain" } } ] } ]
+                                      "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.68}}],
+                                      "operations": [
+                                        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"green_wool","parsing":"plain"}}]}
+                                      ]
                                     },
                                     {
                                       "action": "else",
@@ -409,8 +401,10 @@
                                       "operations": [
                                         {
                                           "action": "if_variable_less",
-                                          "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.74 } } ],
-                                          "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "copper_block", "parsing": "plain" } } ] } ]
+                                          "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.74}}],
+                                          "operations": [
+                                            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"copper_block","parsing":"plain"}}]}
+                                          ]
                                         },
                                         {
                                           "action": "else",
@@ -418,8 +412,10 @@
                                           "operations": [
                                             {
                                               "action": "if_variable_less",
-                                              "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.79 } } ],
-                                              "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "ice", "parsing": "plain" } } ] } ]
+                                              "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.79}}],
+                                              "operations": [
+                                                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"ice","parsing":"plain"}}]}
+                                              ]
                                             },
                                             {
                                               "action": "else",
@@ -427,8 +423,10 @@
                                               "operations": [
                                                 {
                                                   "action": "if_variable_less",
-                                                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.84 } } ],
-                                                  "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "campfire", "parsing": "plain" } } ] } ]
+                                                  "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.84}}],
+                                                  "operations": [
+                                                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"campfire","parsing":"plain"}}]}
+                                                  ]
                                                 },
                                                 {
                                                   "action": "else",
@@ -436,8 +434,10 @@
                                                   "operations": [
                                                     {
                                                       "action": "if_variable_less",
-                                                      "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.88 } } ],
-                                                      "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "white_wool", "parsing": "plain" } } ] } ]
+                                                      "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.88}}],
+                                                      "operations": [
+                                                        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"white_wool","parsing":"plain"}}]}
+                                                      ]
                                                     },
                                                     {
                                                       "action": "else",
@@ -445,8 +445,10 @@
                                                       "operations": [
                                                         {
                                                           "action": "if_variable_less",
-                                                          "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.92 } } ],
-                                                          "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "pointed_dripstone", "parsing": "plain" } } ] } ]
+                                                          "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.92}}],
+                                                          "operations": [
+                                                            {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"pointed_dripstone","parsing":"plain"}}]}
+                                                          ]
                                                         },
                                                         {
                                                           "action": "else",
@@ -454,8 +456,10 @@
                                                           "operations": [
                                                             {
                                                               "action": "if_variable_less",
-                                                              "values": [ { "name": "value", "value": { "type": "variable", "variable": "r", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 0.96 } } ],
-                                                              "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "magma_block", "parsing": "plain" } } ] } ]
+                                                              "values": [{"name":"value","value":{"type":"variable","variable":"r","scope":"local"}},{"name":"compare","value":{"type":"number","number":0.96}}],
+                                                              "operations": [
+                                                                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"value","value":{"type":"text","text":"magma_block","parsing":"plain"}}]}
+                                                              ]
                                                             }
                                                           ]
                                                         }
@@ -479,7 +483,7 @@
                     }
                   ]
                 },
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.new_cube", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "tier": { "type": "variable", "variable": "tt", "scope": "local" }, "loc": { "type": "variable", "variable": "sl", "scope": "local" } } } } ] }
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.new_cube","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"tier":{"type":"variable","variable":"tt","scope":"local"},"loc":{"type":"variable","variable":"sl","scope":"local"}}}}]}
               ]
             }
           ]
@@ -493,37 +497,37 @@
       "operations": [
         {
           "action": "repeat_while",
-          "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } } ],
-          "conditional": { "action": "if_variable_equals", "is_inverted": "false" },
+          "values": [{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}},{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}}],
+          "conditional": {"action":"if_variable_equals","is_inverted":"false"},
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 2 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
-            { "action": "select_reset", "values": [] },
-            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(tn)", "parsing": "plain" } } ] },
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":2}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
+            {"action":"select_reset","values":[]},
+            {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(tn)","parsing":"plain"}}]},
             {
               "action": "if_entity_exists",
               "values": [],
               "is_inverted": "true",
               "operations": [
-                { "action": "control_end_thread", "values": [] }
+                {"action":"control_end_thread","values":[]}
               ]
             },
             {
               "action": "repeat_for_each_map_entry",
-              "values": [ { "name": "key_variable", "value": { "type": "variable", "variable": "cn", "scope": "local" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "cv", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } } ],
+              "values": [{"name":"key_variable","value":{"type":"variable","variable":"cn","scope":"local"}},{"name":"value_variable","value":{"type":"variable","variable":"cv","scope":"local"}},{"name":"map","value":{"type":"variable","variable":"cc.cubes","scope":"game"}}],
               "operations": [
                 {
                   "action": "if_entity_exists",
                   "values": [],
                   "is_inverted": "true",
                   "operations": [
-                    { "action": "control_end_thread", "values": [] }
+                    {"action":"control_end_thread","values":[]}
                   ]
                 },
                 {
                   "action": "if_entity_collides_with_entity",
-                  "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(cn)", "parsing": "plain" } }, { "name": "check_type", "value": { "type": "enum", "enum": "OVERLAPS" } } ],
+                  "values": [{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(cn)","parsing":"plain"}},{"name":"check_type","value":{"type":"enum","enum":"OVERLAPS"}}],
                   "operations": [
-                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.merge", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "cube": { "type": "variable", "variable": "cn", "scope": "local" }, "throw": { "type": "variable", "variable": "tn", "scope": "local" }, "tt": { "type": "variable", "variable": "tt", "scope": "local" }, "pl": { "type": "variable", "variable": "pl", "scope": "local" } } } } ] }
+                    {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.merge","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"cube":{"type":"variable","variable":"cn","scope":"local"},"throw":{"type":"variable","variable":"tn","scope":"local"},"tt":{"type":"variable","variable":"tt","scope":"local"},"pl":{"type":"variable","variable":"pl","scope":"local"}}}}]}
                   ]
                 }
               ]
@@ -538,20 +542,20 @@
                   "operations": [
                     {
                       "action": "if_variable_map_has_key",
-                      "values": [ { "name": "map", "value": { "type": "variable", "variable": "cc.iscube", "scope": "game" } }, { "name": "key", "value": { "type": "variable", "variable": "tt", "scope": "local" } }, { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } } ],
+                      "values": [{"name":"map","value":{"type":"variable","variable":"cc.iscube","scope":"game"}},{"name":"key","value":{"type":"variable","variable":"tt","scope":"local"}},{"name":"check_mode","value":{"type":"enum","enum":"ANY"}}],
                       "operations": [
-                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "il", "scope": "local" } }, { "name": "value", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"current\"}" } } ] },
-                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.new_cube", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "tier": { "type": "variable", "variable": "tt", "scope": "local" }, "loc": { "type": "variable", "variable": "il", "scope": "local" } } } } ] },
-                        { "action": "select_reset", "values": [] },
-                        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(tn)", "parsing": "plain" } } ] },
-                        { "action": "entity_remove", "values": [] }
+                        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"il","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"current\"}"}}]},
+                        {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.new_cube","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"tier":{"type":"variable","variable":"tt","scope":"local"},"loc":{"type":"variable","variable":"il","scope":"local"}}}}]},
+                        {"action":"select_reset","values":[]},
+                        {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(tn)","parsing":"plain"}}]},
+                        {"action":"entity_remove","values":[]}
                       ]
                     },
                     {
                       "action": "else",
                       "values": [],
                       "operations": [
-                        { "action": "control_end_thread", "values": [] }
+                        {"action":"control_end_thread","values":[]}
                       ]
                     }
                   ]
@@ -567,44 +571,44 @@
       "type": "function",
       "position": 13,
       "operations": [
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "uid", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%random_uuid%", "parsing": "plain" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "nm", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "ccb_%var_local(uid)", "parsing": "plain" } } ] },
-        { "action": "game_spawn_mob", "values": [ { "name": "mob", "value": { "type": "item", "item": "%var_local(mob)" } }, { "name": "location", "value": { "type": "variable", "variable": "loc", "scope": "local" } }, { "name": "health", "value": { "type": "variable", "variable": "hp", "scope": "local" } }, { "name": "custom_name", "value": { "type": "text", "text": "&4&l%var_local(disp)", "parsing": "legacy" } }, { "name": "potion_effects", "value": { "type": "potion", "potion": "minecraft:fire_resistance", "amplifier": 0, "duration": -1 } }, { "name": "main_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "helmet", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "chestplate", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "leggings", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "boots", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "off_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "natural_equipment", "value": { "type": "enum", "enum": "TRUE" } } ] },
-        { "action": "select_reset", "values": [] },
-        { "action": "select_add_last_mob", "values": [] },
-        { "action": "entity_set_custom_tag", "values": [ { "name": "name", "value": { "type": "text", "text": "ccb", "parsing": "plain" } }, { "name": "value", "value": { "type": "text", "text": "1", "parsing": "plain" } } ] },
-        { "action": "set_variable_set_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%var_local(nm)", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "disp", "scope": "local" } } ] },
-        { "action": "select_all_players", "values": [] },
-        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&4⚠ %var_local(disp)!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&cЗащищайте Кристалл!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 50 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
-        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.ender_dragon.growl", "pitch": 0.6, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] }
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"uid","scope":"local"}},{"name":"value","value":{"type":"text","text":"%random_uuid%","parsing":"plain"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"nm","scope":"local"}},{"name":"value","value":{"type":"text","text":"ccb_%var_local(uid)","parsing":"plain"}}]},
+        {"action":"game_spawn_mob","values":[{"name":"mob","value":{"type":"item","item":"{Count:1b,id:\\\"minecraft:%var_local(mob)\\\"}"}},{"name":"location","value":{"type":"variable","variable":"loc","scope":"local"}},{"name":"health","value":{"type":"variable","variable":"hp","scope":"local"}},{"name":"custom_name","value":{"type":"text","text":"&4&l%var_local(disp)","parsing":"legacy"}},{"name":"potion_effects","value":{"type":"potion","potion":"minecraft:fire_resistance","amplifier":0,"duration":-1}},{"name":"main_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"helmet","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"chestplate","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"leggings","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"boots","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"off_hand","value":{"type":"item","item":"{Count:1b,id:\"minecraft:air\"}"}},{"name":"natural_equipment","value":{"type":"enum","enum":"TRUE"}}]},
+        {"action":"select_reset","values":[]},
+        {"action":"select_add_last_mob","values":[]},
+        {"action":"entity_set_custom_tag","values":[{"name":"name","value":{"type":"text","text":"ccb","parsing":"plain"}},{"name":"value","value":{"type":"text","text":"1","parsing":"plain"}}]},
+        {"action":"set_variable_set_map_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"map","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"key","value":{"type":"text","text":"%var_local(nm)","parsing":"plain"}},{"name":"value","value":{"type":"variable","variable":"disp","scope":"local"}}]},
+        {"action":"select_all_players","values":[]},
+        {"action":"player_send_title","values":[{"name":"title","value":{"type":"text","text":"&4⚠ %var_local(disp)!","parsing":"legacy"}},{"name":"subtitle","value":{"type":"text","text":"&cЗащищайте Кристалл!","parsing":"legacy"}},{"name":"fade_in","value":{"type":"number","number":5}},{"name":"stay","value":{"type":"number","number":50}},{"name":"fade_out","value":{"type":"number","number":10}}]},
+        {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.ender_dragon.growl","pitch":0.6,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]}
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [ { "type": "text", "text": "type: Text, name: mob" }, { "type": "text", "text": "type: Number, name: hp" }, { "type": "text", "text": "type: Text, name: disp" }, { "type": "text", "text": "type: Location, name: loc" } ] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.boss"
+      "name": "CC.boss",
+      "values": [{"name":"parameters","value":{"type":"array","values":[{"type":"text","text":"type: Text, name: mob"},{"type":"text","text":"type: Number, name: hp"},{"type":"text","text":"type: Text, name: disp"},{"type":"text","text":"type: Location, name: loc"}]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     },
     {
       "type": "process",
       "position": 14,
       "operations": [
-        { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1200 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+        {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":1200}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
         {
           "action": "repeat_while",
-          "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } } ],
-          "conditional": { "action": "if_variable_equals", "is_inverted": "false" },
+          "values": [{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}},{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}}],
+          "conditional": {"action":"if_variable_equals","is_inverted":"false"},
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1800 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
-            { "action": "set_variable_increment", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } }, { "name": "number", "value": { "type": "number", "number": 1 } } ] },
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":1800}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
+            {"action":"set_variable_increment","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bwave","scope":"game"}},{"name":"number","value":{"type":"number","number":1}}]},
             {
               "action": "if_variable_equals",
-              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 10 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":10}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
               "operations": [
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] }
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cc.bwave","scope":"game"}},{"name":"value","value":{"type":"number","number":1}}]}
               ]
             },
             {
               "action": "if_variable_equals",
-              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
               "operations": [
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "iron_golem", "parsing": "plain" }, "hp": { "type": "number", "number": 2320 }, "disp": { "type": "text", "text": "Cube Destroyer", "parsing": "plain" }, "loc": { "type": "location", "x": 0, "y": 65, "z": -33, "yaw": 0, "pitch": 0 } } } } ] }
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"iron_golem","parsing":"plain"},"hp":{"type":"number","number":2320},"disp":{"type":"text","text":"Cube Destroyer","parsing":"plain"},"loc":{"type":"location","x":0,"y":65,"z":-33,"yaw":0,"pitch":0}}}}]}
               ]
             },
             {
@@ -613,9 +617,9 @@
               "operations": [
                 {
                   "action": "if_variable_equals",
-                  "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 2 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                  "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":2}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                   "operations": [
-                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "blaze", "parsing": "plain" }, "hp": { "type": "number", "number": 1500 }, "disp": { "type": "text", "text": "Pyro", "parsing": "plain" }, "loc": { "type": "location", "x": 0, "y": 65, "z": -33, "yaw": 0, "pitch": 0 } } } } ] }
+                    {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"blaze","parsing":"plain"},"hp":{"type":"number","number":1500},"disp":{"type":"text","text":"Pyro","parsing":"plain"},"loc":{"type":"location","x":0,"y":65,"z":-33,"yaw":0,"pitch":0}}}}]}
                   ]
                 },
                 {
@@ -624,9 +628,9 @@
                   "operations": [
                     {
                       "action": "if_variable_equals",
-                      "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 3 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                      "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":3}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                       "operations": [
-                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "drowned", "parsing": "plain" }, "hp": { "type": "number", "number": 3000 }, "disp": { "type": "text", "text": "Poseidon", "parsing": "plain" }, "loc": { "type": "location", "x": 0, "y": 65, "z": -33, "yaw": 0, "pitch": 0 } } } } ] }
+                        {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"drowned","parsing":"plain"},"hp":{"type":"number","number":3000},"disp":{"type":"text","text":"Poseidon","parsing":"plain"},"loc":{"type":"location","x":0,"y":65,"z":-33,"yaw":0,"pitch":0}}}}]}
                       ]
                     },
                     {
@@ -635,9 +639,9 @@
                       "operations": [
                         {
                           "action": "if_variable_equals",
-                          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 4 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":4}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                           "operations": [
-                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "vindicator", "parsing": "plain" }, "hp": { "type": "number", "number": 2000 }, "disp": { "type": "text", "text": "Raider Brute", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": 0, "yaw": 0, "pitch": 0 } } } } ] }
+                            {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"vindicator","parsing":"plain"},"hp":{"type":"number","number":2000},"disp":{"type":"text","text":"Raider Brute","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":0,"yaw":0,"pitch":0}}}}]}
                           ]
                         },
                         {
@@ -646,9 +650,9 @@
                           "operations": [
                             {
                               "action": "if_variable_equals",
-                              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 5 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":5}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                               "operations": [
-                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "ravager", "parsing": "plain" }, "hp": { "type": "number", "number": 2500 }, "disp": { "type": "text", "text": "Hammerdom", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": 0, "yaw": 0, "pitch": 0 } } } } ] }
+                                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"ravager","parsing":"plain"},"hp":{"type":"number","number":2500},"disp":{"type":"text","text":"Hammerdom","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":0,"yaw":0,"pitch":0}}}}]}
                               ]
                             },
                             {
@@ -657,9 +661,9 @@
                               "operations": [
                                 {
                                   "action": "if_variable_equals",
-                                  "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 6 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                                  "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":6}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                                   "operations": [
-                                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "stray", "parsing": "plain" }, "hp": { "type": "number", "number": 1800 }, "disp": { "type": "text", "text": "Cryo", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": 0, "yaw": 0, "pitch": 0 } } } } ] }
+                                    {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"stray","parsing":"plain"},"hp":{"type":"number","number":1800},"disp":{"type":"text","text":"Cryo","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":0,"yaw":0,"pitch":0}}}}]}
                                   ]
                                 },
                                 {
@@ -668,9 +672,9 @@
                                   "operations": [
                                     {
                                       "action": "if_variable_equals",
-                                      "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 7 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                                      "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":7}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                                       "operations": [
-                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "wither_skeleton", "parsing": "plain" }, "hp": { "type": "number", "number": 2000 }, "disp": { "type": "text", "text": "The Forsaken's Blade", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": 0, "yaw": 0, "pitch": 0 } } } } ] }
+                                        {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"wither_skeleton","parsing":"plain"},"hp":{"type":"number","number":2000},"disp":{"type":"text","text":"The Forsaken's Blade","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":0,"yaw":0,"pitch":0}}}}]}
                                       ]
                                     },
                                     {
@@ -679,10 +683,10 @@
                                       "operations": [
                                         {
                                           "action": "if_variable_equals",
-                                          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 8 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                                          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":8}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                                           "operations": [
-                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "evoker", "parsing": "plain" }, "hp": { "type": "number", "number": 1200 }, "disp": { "type": "text", "text": "Twin Envoy I", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": -2, "yaw": 0, "pitch": 0 } } } } ] },
-                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "evoker", "parsing": "plain" }, "hp": { "type": "number", "number": 1200 }, "disp": { "type": "text", "text": "Twin Envoy II", "parsing": "plain" }, "loc": { "type": "location", "x": 33, "y": 65, "z": 2, "yaw": 0, "pitch": 0 } } } } ] }
+                                            {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"evoker","parsing":"plain"},"hp":{"type":"number","number":1200},"disp":{"type":"text","text":"Twin Envoy I","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":-2,"yaw":0,"pitch":0}}}}]},
+                                            {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"evoker","parsing":"plain"},"hp":{"type":"number","number":1200},"disp":{"type":"text","text":"Twin Envoy II","parsing":"plain"},"loc":{"type":"location","x":33,"y":65,"z":2,"yaw":0,"pitch":0}}}}]}
                                           ]
                                         },
                                         {
@@ -691,9 +695,9 @@
                                           "operations": [
                                             {
                                               "action": "if_variable_equals",
-                                              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 9 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "cc.bwave", "scope": "game" } } ],
+                                              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":9}]}},{"name":"value","value":{"type":"variable","variable":"cc.bwave","scope":"game"}}],
                                               "operations": [
-                                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.boss", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "mob": { "type": "text", "text": "zoglin", "parsing": "plain" }, "hp": { "type": "number", "number": 4000 }, "disp": { "type": "text", "text": "THE ROTTEN", "parsing": "plain" }, "loc": { "type": "location", "x": 0, "y": 66, "z": 0, "yaw": 0, "pitch": 0 } } } } ] }
+                                                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.boss","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"mob":{"type":"text","text":"zoglin","parsing":"plain"},"hp":{"type":"number","number":4000},"disp":{"type":"text","text":"THE ROTTEN","parsing":"plain"},"loc":{"type":"location","x":0,"y":66,"z":0,"yaw":0,"pitch":0}}}}]}
                                               ]
                                             }
                                           ]
@@ -723,26 +727,31 @@
       "operations": [
         {
           "action": "repeat_while",
-          "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.state", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } } ],
-          "conditional": { "action": "if_variable_equals", "is_inverted": "false" },
+          "values": [{"name":"value","value":{"type":"variable","variable":"cc.state","scope":"game"}},{"name":"compare","value":{"type":"array","values":[{"type":"number","number":1}]}}],
+          "conditional": {"action":"if_variable_equals","is_inverted":"false"},
           "operations": [
-            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 20 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {"action":"control_wait","values":[{"name":"duration","value":{"type":"number","number":20}},{"name":"time_unit","value":{"type":"enum","enum":"TICKS"}}]},
             {
               "action": "repeat_for_each_map_entry",
-              "values": [ { "name": "key_variable", "value": { "type": "variable", "variable": "bk", "scope": "local" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "bv", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } } ],
+              "values": [{"name":"key_variable","value":{"type":"variable","variable":"bk","scope":"local"}},{"name":"value_variable","value":{"type":"variable","variable":"bv","scope":"local"}},{"name":"map","value":{"type":"variable","variable":"cc.bosses","scope":"game"}}],
               "operations": [
-                { "action": "select_reset", "values": [] },
-                { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } } ] },
+                {"action":"select_reset","values":[]},
+                {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(bk)","parsing":"plain"}}]},
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bhp","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"current_health","selection":"{\"type\":\"default\"}"}}]},
+                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bmax","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"max_health","selection":"{\"type\":\"default\"}"}}]},
+                {"action":"select_all_players","values":[]},
+                {"action":"player_set_boss_bar","values":[{"name":"id","value":{"type":"text","text":"ccb","parsing":"plain"}},{"name":"title","value":{"type":"text","text":"&4&l%var_local(bv) &8« %var_local(bhp)/%var_local(bmax) HP »","parsing":"legacy"}},{"name":"progress","value":{"type":"number","number":"%math(%var_local(bhp)*100/%var_local(bmax))"}},{"name":"color","value":{"type":"enum","enum":"RED"}},{"name":"style","value":{"type":"enum","enum":"NOTCHED_10"}}]},
                 {
                   "action": "if_entity_exists",
                   "values": [],
                   "is_inverted": "true",
                   "operations": [
-                    { "action": "set_variable_remove_map_entry", "values": [ { "name": "removed_value", "value": { "type": "variable", "variable": "junk", "scope": "local" } }, { "name": "variable", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.bosses", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%var_local(bk)", "parsing": "plain" } }, { "name": "values", "value": {} } ] },
-                    { "action": "select_all_players", "values": [] },
-                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&aБосс &e%var_local(bv) &aповержен! Все получают золотые яблоки", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-                    { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:golden_apple\"}" } }, { "name": "amount", "value": { "type": "number", "number": 2 } } ] },
-                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.player.levelup", "pitch": 1.5, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] }
+                    {"action":"set_variable_remove_map_entry","values":[{"name":"removed_value","value":{"type":"variable","variable":"junk","scope":"local"}},{"name":"variable","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"map","value":{"type":"variable","variable":"cc.bosses","scope":"game"}},{"name":"key","value":{"type":"text","text":"%var_local(bk)","parsing":"plain"}},{"name":"values","value":{}}]},
+                    {"action":"select_all_players","values":[]},
+                    {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&aБосс &e%var_local(bv) &aповержен! Все получают золотые яблоки","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]},
+                    {"action":"player_give_items","values":[{"name":"items","value":{"type":"item","item":"{Count:1b,id:\"minecraft:golden_apple\"}"}},{"name":"amount","value":{"type":"number","number":2}}]},
+                    {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.player.levelup","pitch":1.5,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]},
+                    {"action":"player_remove_boss_bar","values":[{"name":"id","value":{"type":"text","text":"ccb","parsing":"plain"}}]}
                   ]
                 },
                 {
@@ -751,11 +760,11 @@
                   "operations": [
                     {
                       "action": "if_entity_collides_with_entity",
-                      "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_crys", "parsing": "plain" } }, { "name": "check_type", "value": { "type": "enum", "enum": "OVERLAPS" } } ],
+                      "values": [{"name":"name_or_uuid","value":{"type":"text","text":"cc_crys","parsing":"plain"}},{"name":"check_type","value":{"type":"enum","enum":"OVERLAPS"}}],
                       "operations": [
-                        { "action": "set_variable_decrement", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.crystal", "scope": "game" } }, { "name": "number", "value": { "type": "number", "number": 5 } } ] },
-                        { "action": "select_all_players", "values": [] },
-                        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&c⚠ Кристалл под атакой!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Здоровье кристалла: &e%var(cc.crystal)", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 2 } }, { "name": "stay", "value": { "type": "number", "number": 15 } }, { "name": "fade_out", "value": { "type": "number", "number": 5 } } ] }
+                        {"action":"set_variable_decrement","values":[{"name":"variable","value":{"type":"variable","variable":"cc.crystal","scope":"game"}},{"name":"number","value":{"type":"number","number":5}}]},
+                        {"action":"select_all_players","values":[]},
+                        {"action":"player_send_title","values":[{"name":"title","value":{"type":"text","text":"&c⚠ Кристалл под атакой!","parsing":"legacy"}},{"name":"subtitle","value":{"type":"text","text":"&7Здоровье кристалла: &e%var(cc.crystal)","parsing":"legacy"}},{"name":"fade_in","value":{"type":"number","number":2}},{"name":"stay","value":{"type":"number","number":15}},{"name":"fade_out","value":{"type":"number","number":5}}]}
                       ]
                     }
                   ]
@@ -764,14 +773,14 @@
             },
             {
               "action": "if_variable_greater_or_equals",
-              "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.crystal", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 1 } } ],
+              "values": [{"name":"value","value":{"type":"variable","variable":"cc.crystal","scope":"game"}},{"name":"compare","value":{"type":"number","number":1}}],
               "is_inverted": "true",
               "operations": [
-                { "action": "select_all_players", "values": [] },
-                { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&4💀 КРИСТАЛЛ РАЗРУШЕН", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&cИгра окончена...", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 100 } }, { "name": "fade_out", "value": { "type": "number", "number": 20 } } ] },
-                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.ender_dragon.death", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] },
-                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.stop", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
-                { "action": "control_end_thread", "values": [] }
+                {"action":"select_all_players","values":[]},
+                {"action":"player_send_title","values":[{"name":"title","value":{"type":"text","text":"&4💀 КРИСТАЛЛ РАЗРУШЕН","parsing":"legacy"}},{"name":"subtitle","value":{"type":"text","text":"&cИгра окончена...","parsing":"legacy"}},{"name":"fade_in","value":{"type":"number","number":10}},{"name":"stay","value":{"type":"number","number":100}},{"name":"fade_out","value":{"type":"number","number":20}}]},
+                {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.ender_dragon.death","pitch":1,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]},
+                {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.stop","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{}}}]},
+                {"action":"control_end_thread","values":[]}
               ]
             }
           ]
@@ -783,35 +792,35 @@
       "type": "function",
       "position": 16,
       "operations": [
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ct", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%entry(cc.cubes, %var_local(cube))", "parsing": "plain" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "n", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%entry(cc.rec, %var_local(tt)+%var_local(ct))", "parsing": "plain" } } ] },
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"ct","scope":"local"}},{"name":"value","value":{"type":"text","text":"%entry(cc.cubes, %var_local(cube))","parsing":"plain"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"n","scope":"local"}},{"name":"value","value":{"type":"text","text":"%entry(cc.rec, %var_local(tt)+%var_local(ct))","parsing":"plain"}}]},
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }, { "name": "value", "value": { "type": "variable", "variable": "n", "scope": "local" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"number","number":0}]}},{"name":"value","value":{"type":"variable","variable":"n","scope":"local"}}],
           "operations": [
-            { "action": "control_end_thread", "values": [] }
+            {"action":"control_end_thread","values":[]}
           ]
         },
-        { "action": "select_reset", "values": [] },
-        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(cube)", "parsing": "plain" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cl", "scope": "local" } }, { "name": "value", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"current\"}" } } ] },
-        { "action": "entity_remove", "values": [] },
-        { "action": "set_variable_remove_map_entry", "values": [ { "name": "removed_value", "value": { "type": "variable", "variable": "junk", "scope": "local" } }, { "name": "variable", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.cubes", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%var_local(cube)", "parsing": "plain" } }, { "name": "values", "value": {} } ] },
-        { "action": "set_variable_decrement", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.count", "scope": "game" } }, { "name": "number", "value": { "type": "number", "number": 1 } } ] },
-        { "action": "select_reset", "values": [] },
-        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(throw)", "parsing": "plain" } } ] },
-        { "action": "entity_remove", "values": [] },
-        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var_local(pl)", "parsing": "plain" } } ] },
-        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.anvil.use", "pitch": 1.5, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "uid", "scope": "local" } }, { "name": "value", "value": { "type": "text", "text": "%random_uuid%", "parsing": "plain" } } ] },
+        {"action":"select_reset","values":[]},
+        {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(cube)","parsing":"plain"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"cl","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"current\"}"}}]},
+        {"action":"entity_remove","values":[]},
+        {"action":"set_variable_remove_map_entry","values":[{"name":"removed_value","value":{"type":"variable","variable":"junk","scope":"local"}},{"name":"variable","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"map","value":{"type":"variable","variable":"cc.cubes","scope":"game"}},{"name":"key","value":{"type":"text","text":"%var_local(cube)","parsing":"plain"}},{"name":"values","value":{}}]},
+        {"action":"set_variable_decrement","values":[{"name":"variable","value":{"type":"variable","variable":"cc.count","scope":"game"}},{"name":"number","value":{"type":"number","number":1}}]},
+        {"action":"select_reset","values":[]},
+        {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(throw)","parsing":"plain"}}]},
+        {"action":"entity_remove","values":[]},
+        {"action":"select_player_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(pl)","parsing":"plain"}}]},
+        {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:block.anvil.use","pitch":1.5,"volume":1}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]},
+        {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"uid","scope":"local"}},{"name":"value","value":{"type":"text","text":"%random_uuid%","parsing":"plain"}}]},
         {
           "action": "if_variable_equals",
-          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "s:platform", "parsing": "plain" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "n", "scope": "local" } } ],
+          "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"s:platform","parsing":"plain"}]}},{"name":"value","value":{"type":"variable","variable":"n","scope":"local"}}],
           "operations": [
-            { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "cy", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "cw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "cp", "scope": "local" } } ] },
-            { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": "%math(%var_local(cx)-1)", "y": "%var_local(cy)", "z": "%math(%var_local(cz)-1)", "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": "%math(%var_local(cx)+1)", "y": "%var_local(cy)", "z": "%math(%var_local(cz)+1)", "yaw": 0, "pitch": 0 } } ] },
-            { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": "%var_local(cx)", "y": "%math(%var_local(cy)+3)", "z": "%var_local(cz)", "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "ccs_%var_local(uid)", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "SPACES" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&6🏗 Платформа", "parsing": "legacy" } } ] },
-            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bПостроена структура: &eПлатформа", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+            {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"cx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"cy","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"cz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"cw","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"cp","scope":"local"}}]},
+            {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:oak_planks\"}"}},{"name":"pos_1","value":{"type":"location","x":"%math(%var_local(cx)-1)","y":"%var_local(cy)","z":"%math(%var_local(cz)-1)","yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":"%math(%var_local(cx)+1)","y":"%var_local(cy)","z":"%math(%var_local(cz)+1)","yaw":0,"pitch":0}}]},
+            {"action":"game_spawn_text_display","values":[{"name":"spawn_location","value":{"type":"location","x":"%var_local(cx)","y":"%math(%var_local(cy)+3)","z":"%var_local(cz)","yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"ccs_%var_local(uid)","parsing":"plain"}},{"name":"merging_mode","value":{"type":"enum","enum":"SPACES"}},{"name":"displayed_text","value":{"type":"text","text":"&6🏗 Платформа","parsing":"legacy"}}]},
+            {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&bПостроена структура: &eПлатформа","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
           ]
         },
         {
@@ -820,12 +829,12 @@
           "operations": [
             {
               "action": "if_variable_equals",
-              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "s:spire", "parsing": "plain" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "n", "scope": "local" } } ],
+              "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"s:spire","parsing":"plain"}]}},{"name":"value","value":{"type":"variable","variable":"n","scope":"local"}}],
               "operations": [
-                { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "sx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "sy", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "sz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "sw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "sp", "scope": "local" } } ] },
-                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:obsidian\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": "%var_local(sx)", "y": "%var_local(sy)", "z": "%var_local(sz)", "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": "%var_local(sx)", "y": "%math(%var_local(sy)+5)", "z": "%var_local(sz)", "yaw": 0, "pitch": 0 } } ] },
-                { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": "%var_local(sx)", "y": "%math(%var_local(sy)+7)", "z": "%var_local(sz)", "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "ccs_%var_local(uid)", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "SPACES" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&5🌀 Обсидиановый шпиль", "parsing": "legacy" } } ] },
-                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bПостроена структура: &eОбсидиановый шпиль", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"sx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"sy","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"sz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"sw","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"sp","scope":"local"}}]},
+                {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:obsidian\"}"}},{"name":"pos_1","value":{"type":"location","x":"%var_local(sx)","y":"%var_local(sy)","z":"%var_local(sz)","yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":"%var_local(sx)","y":"%math(%var_local(sy)+5)","z":"%var_local(sz)","yaw":0,"pitch":0}}]},
+                {"action":"game_spawn_text_display","values":[{"name":"spawn_location","value":{"type":"location","x":"%var_local(sx)","y":"%math(%var_local(sy)+7)","z":"%var_local(sz)","yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"ccs_%var_local(uid)","parsing":"plain"}},{"name":"merging_mode","value":{"type":"enum","enum":"SPACES"}},{"name":"displayed_text","value":{"type":"text","text":"&5🌀 Обсидиановый шпиль","parsing":"legacy"}}]},
+                {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&bПостроена структура: &eОбсидиановый шпиль","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
               ]
             },
             {
@@ -834,13 +843,13 @@
               "operations": [
                 {
                   "action": "if_variable_equals",
-                  "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "s:tower", "parsing": "plain" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "n", "scope": "local" } } ],
+                  "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"s:tower","parsing":"plain"}]}},{"name":"value","value":{"type":"variable","variable":"n","scope":"local"}}],
                   "operations": [
-                    { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "tx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "ty", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "tz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "tw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "tp", "scope": "local" } } ] },
-                    { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:stone_bricks\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": "%math(%var_local(tx)-1)", "y": "%var_local(ty)", "z": "%math(%var_local(tz)-1)", "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": "%math(%var_local(tx)+1)", "y": "%var_local(ty)", "z": "%math(%var_local(tz)+1)", "yaw": 0, "pitch": 0 } } ] },
-                    { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:stone_bricks\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": "%var_local(tx)", "y": "%math(%var_local(ty)+1)", "z": "%var_local(tz)", "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": "%var_local(tx)", "y": "%math(%var_local(ty)+5)", "z": "%var_local(tz)", "yaw": 0, "pitch": 0 } } ] },
-                    { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": "%var_local(tx)", "y": "%math(%var_local(ty)+7)", "z": "%var_local(tz)", "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "ccs_%var_local(uid)", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "SPACES" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&f⚔ Сторожевая башня", "parsing": "legacy" } } ] },
-                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bПостроена структура: &eСторожевая башня", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                    {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"tx","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"ty","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"tz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"tw","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"tp","scope":"local"}}]},
+                    {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:stone_bricks\"}"}},{"name":"pos_1","value":{"type":"location","x":"%math(%var_local(tx)-1)","y":"%var_local(ty)","z":"%math(%var_local(tz)-1)","yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":"%math(%var_local(tx)+1)","y":"%var_local(ty)","z":"%math(%var_local(tz)+1)","yaw":0,"pitch":0}}]},
+                    {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:stone_bricks\"}"}},{"name":"pos_1","value":{"type":"location","x":"%var_local(tx)","y":"%math(%var_local(ty)+1)","z":"%var_local(tz)","yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":"%var_local(tx)","y":"%math(%var_local(ty)+5)","z":"%var_local(tz)","yaw":0,"pitch":0}}]},
+                    {"action":"game_spawn_text_display","values":[{"name":"spawn_location","value":{"type":"location","x":"%var_local(tx)","y":"%math(%var_local(ty)+7)","z":"%var_local(tz)","yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"ccs_%var_local(uid)","parsing":"plain"}},{"name":"merging_mode","value":{"type":"enum","enum":"SPACES"}},{"name":"displayed_text","value":{"type":"text","text":"&f⚔ Сторожевая башня","parsing":"legacy"}}]},
+                    {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&bПостроена структура: &eСторожевая башня","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
                   ]
                 },
                 {
@@ -849,13 +858,13 @@
                   "operations": [
                     {
                       "action": "if_variable_equals",
-                      "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "s:obelisk", "parsing": "plain" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "n", "scope": "local" } } ],
+                      "values": [{"name":"compare","value":{"type":"array","values":[{"type":"text","text":"s:obelisk","parsing":"plain"}]}},{"name":"value","value":{"type":"variable","variable":"n","scope":"local"}}],
                       "operations": [
-                        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cl", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "ox", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "oy", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "oz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "ow", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "op", "scope": "local" } } ] },
-                        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:obsidian\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": "%var_local(ox)", "y": "%var_local(oy)", "z": "%var_local(oz)", "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": "%var_local(ox)", "y": "%math(%var_local(oy)+2)", "z": "%var_local(oz)", "yaw": 0, "pitch": 0 } } ] },
-                        { "action": "game_spawn_block_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": "%var_local(ox)", "y": "%math(%var_local(oy)+3)", "z": "%var_local(oz)", "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "ccs_%var_local(uid)", "parsing": "plain" } }, { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:glass\"}" } } ] },
-                        { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "location", "x": "%var_local(ox)", "y": "%math(%var_local(oy)+5)", "z": "%var_local(oz)", "yaw": 0, "pitch": 0 } }, { "name": "custom_name", "value": { "type": "text", "text": "ccst_%var_local(uid)", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "SPACES" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&b◈ Обелиск", "parsing": "legacy" } } ] },
-                        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bПостроена структура: &eОбелиск", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                        {"action":"set_variable_get_all_coordinates","values":[{"name":"location","value":{"type":"variable","variable":"cl","scope":"local"}},{"name":"x","value":{"type":"variable","variable":"ox","scope":"local"}},{"name":"y","value":{"type":"variable","variable":"oy","scope":"local"}},{"name":"z","value":{"type":"variable","variable":"oz","scope":"local"}},{"name":"yaw","value":{"type":"variable","variable":"ow","scope":"local"}},{"name":"pitch","value":{"type":"variable","variable":"op","scope":"local"}}]},
+                        {"action":"game_set_region","values":[{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:obsidian\"}"}},{"name":"pos_1","value":{"type":"location","x":"%var_local(ox)","y":"%var_local(oy)","z":"%var_local(oz)","yaw":0,"pitch":0}},{"name":"pos_2","value":{"type":"location","x":"%var_local(ox)","y":"%math(%var_local(oy)+2)","z":"%var_local(oz)","yaw":0,"pitch":0}}]},
+                        {"action":"game_spawn_block_display","values":[{"name":"spawn_location","value":{"type":"location","x":"%var_local(ox)","y":"%math(%var_local(oy)+3)","z":"%var_local(oz)","yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"ccs_%var_local(uid)","parsing":"plain"}},{"name":"block","value":{"type":"item","item":"{Count:1b,id:\"minecraft:glass\"}"}}]},
+                        {"action":"game_spawn_text_display","values":[{"name":"spawn_location","value":{"type":"location","x":"%var_local(ox)","y":"%math(%var_local(oy)+5)","z":"%var_local(oz)","yaw":0,"pitch":0}},{"name":"custom_name","value":{"type":"text","text":"ccst_%var_local(uid)","parsing":"plain"}},{"name":"merging_mode","value":{"type":"enum","enum":"SPACES"}},{"name":"displayed_text","value":{"type":"text","text":"&b◈ Обелиск","parsing":"legacy"}}]},
+                        {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&bПостроена структура: &eОбелиск","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
                       ]
                     },
                     {
@@ -864,19 +873,19 @@
                       "operations": [
                         {
                           "action": "if_variable_map_has_key",
-                          "values": [ { "name": "map", "value": { "type": "variable", "variable": "cc.iscube", "scope": "game" } }, { "name": "key", "value": { "type": "variable", "variable": "n", "scope": "local" } }, { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } } ],
+                          "values": [{"name":"map","value":{"type":"variable","variable":"cc.iscube","scope":"game"}},{"name":"key","value":{"type":"variable","variable":"n","scope":"local"}},{"name":"check_mode","value":{"type":"enum","enum":"ANY"}}],
                           "operations": [
-                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.new_cube", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "tier": { "type": "variable", "variable": "n", "scope": "local" }, "loc": { "type": "variable", "variable": "cl", "scope": "local" } } } } ] },
-                            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&dСкрещено! &7Новый куб: &e%var_local(n)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                            {"action":"call_function","values":[{"name":"function_name","value":{"type":"text","text":"CC.new_cube","parsing":"plain"}},{"name":"args","value":{"type":"map","values":{"tier":{"type":"variable","variable":"n","scope":"local"},"loc":{"type":"variable","variable":"cl","scope":"local"}}}}]},
+                            {"action":"player_send_message","values":[{"name":"messages","value":{"type":"array","values":[{"type":"text","text":"&dСкрещено! &7Новый куб: &e%var_local(n)","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"SPACES"}}]}
                           ]
                         },
                         {
                           "action": "else",
                           "values": [],
                           "operations": [
-                            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "%var_local(n)" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
-                            { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&5%var_local(n)!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&fСкрещивание удалось!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 50 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
-                            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.ender_dragon_death", "pitch": 2, "volume": 0.5 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "{\"type\":\"default\"}" } } ] }
+                            {"action":"player_give_items","values":[{"name":"items","value":{"type":"item","item":"{Count:1b,id:\\\"minecraft:%var_local(n)\\\"}"}},{"name":"amount","value":{"type":"number","number":1}}]},
+                            {"action":"player_send_title","values":[{"name":"title","value":{"type":"text","text":"&5%var_local(n)!","parsing":"legacy"}},{"name":"subtitle","value":{"type":"text","text":"&fСкрещивание удалось!","parsing":"legacy"}},{"name":"fade_in","value":{"type":"number","number":10}},{"name":"stay","value":{"type":"number","number":50}},{"name":"fade_out","value":{"type":"number","number":10}}]},
+                            {"action":"player_play_sound","values":[{"name":"sound","value":{"type":"sound","sound":"minecraft:entity.ender_dragon_death","pitch":2,"volume":0.5}},{"name":"location","value":{"type":"game_value","game_value":"location","selection":"{\"type\":\"default\"}"}}]}
                           ]
                         }
                       ]
@@ -888,8 +897,8 @@
           ]
         }
       ],
-      "values": [ { "name": "parameters", "value": { "type": "array", "values": [ { "type": "text", "text": "type: Text, name: cube" }, { "type": "text", "text": "type: Text, name: throw" }, { "type": "text", "text": "type: Text, name: tt" }, { "type": "text", "text": "type: Text, name: pl" } ] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
-      "name": "CC.merge"
+      "name": "CC.merge",
+      "values": [{"name":"parameters","value":{"type":"array","values":[{"type":"text","text":"type: Text, name: cube"},{"type":"text","text":"type: Text, name: throw"},{"type":"text","text":"type: Text, name: tt"},{"type":"text","text":"type: Text, name: pl"}]}},{"name":"is_hidden","value":{"type":"enum","enum":"TRUE"}},{"name":"icon","value":{"type":"item","item":"{}"}}]
     }
   ]
 }
