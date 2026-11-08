@@ -1,0 +1,537 @@
+{
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.wave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.lastPlayer", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%empty%", "parsing": "plain" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } } ] },
+        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.score", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "dummy", "parsing": "plain" } ] } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } } ] },
+        { "action": "game_create_scoreboard", "values": [ { "name": "id", "value": { "type": "text", "text": "cc", "parsing": "plain" } }, { "name": "display_name", "value": { "type": "text", "text": "&6Cube Combination", "parsing": "legacy" } } ] },
+        { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "cc", "parsing": "plain" } }, { "name": "text", "value": { "type": "text", "text": "Волна", "parsing": "plain" } }, { "name": "score", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.genIslands", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ],
+      "event": "world_start"
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.lastPlayer", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6=== Cube Combination ===", "parsing": "legacy" }, { "type": "text", "text": "&e@cube &7— начать игру", "parsing": "legacy" }, { "type": "text", "text": "&e@combine &7— скомбинировать 2 куба", "parsing": "legacy" }, { "type": "text", "text": "&e@cubestop &7— закончить игру", "parsing": "legacy" }, { "type": "text", "text": "&7Собирай кубы, комбинируй оружие и выживай в волнах!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SEPARATE_LINES" } } ] }
+      ],
+      "event": "player_join"
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "operations": [
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@cube", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.start", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@cubestop", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.stop", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@combine", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.combine", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "chat_messages", "value": { "type": "array", "values": [ { "type": "text", "text": "@cc help", "parsing": "plain" } ] } },
+            { "name": "ignore_case", "value": { "type": "enum", "enum": "TRUE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6=== Cube Combination ===", "parsing": "legacy" }, { "type": "text", "text": "&e@cube &7— начать игру (острова генерируются сами)", "parsing": "legacy" }, { "type": "text", "text": "&e@combine &7или ПКМ по изумрудному столу — комбинировать", "parsing": "legacy" }, { "type": "text", "text": "&e@cubestop &7— закончить игру", "parsing": "legacy" }, { "type": "text", "text": "&7Кубы: &cкрасный &7→ меч, &9синий &7→ лук, &eжёлтый &7→ золотые яблоки, &aзелёный &7→ броня", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SEPARATE_LINES" } } ] }
+          ]
+        }
+      ],
+      "event": "player_chat"
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "right_click_block", "parsing": "plain" } ] } },
+            { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }
+          ],
+          "operations": [
+            {
+              "action": "if_game_event_block_equals",
+              "values": [
+                { "name": "blocks", "value": { "type": "item", "item": "emerald_block" } },
+                { "name": "locations", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } }
+              ],
+              "operations": [
+                { "action": "game_cancel_event", "values": [] },
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.combine", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "event",
+      "position": 4,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "kr", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(random*4))" } } ] },
+        {
+          "action": "if_variable_less",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "kr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 1 } } ],
+          "operations": [
+            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "red_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_less",
+                  "values": [ { "name": "value", "value": { "type": "variable", "variable": "kr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 2 } } ],
+                  "operations": [
+                    { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "blue_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_less",
+                          "values": [ { "name": "value", "value": { "type": "variable", "variable": "kr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 3 } } ],
+                          "operations": [
+                            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "yellow_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "green_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ks", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "kns", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(ks)+1)" } } ] },
+        { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.score", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.score", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "kns", "scope": "local" } }, { "name": "replaced_value", "value": {} } ] },
+        { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "cc", "parsing": "plain" } }, { "name": "text", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "score", "value": { "type": "variable", "variable": "kns", "scope": "local" } } ] },
+        { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&6+1 куб &7| Убито: %var_local(kns)", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ],
+      "event": "player_kill_mob"
+    },
+    {
+      "type": "event",
+      "position": 5,
+      "operations": [
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cТы пал в бою! &7Собери кубы, скомбинируй оружие (@combine) и мсти!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ],
+      "event": "player_death"
+    },
+    {
+      "type": "function",
+      "position": 6,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cИгра уже идёт! Пиши &e@cubestop&c, чтобы закончить.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_end_thread", "values": [] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.wave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(cc.token)+1)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.lastPlayer", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6&lCUBE COMBINATION", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&eСобирай кубы, комбинируй, выживай!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 60 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Острова сгенерированы! Первая волна через 15 секунд...", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.spawner", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "CC.waves", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.start"
+    },
+    {
+      "type": "function",
+      "position": 7,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cИгра не запущена. Пиши &e@cube", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_end_thread", "values": [] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(cc.token)+1)" } } ] },
+        { "action": "select_all_mobs", "values": [] },
+        { "action": "entity_remove", "values": [] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_remove_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "cc_wave", "parsing": "plain" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6&lCUBE COMBINATION ОКОНЧЕНА! &7Очки на скорборде.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.stop"
+    },
+    {
+      "type": "function",
+      "position": 8,
+      "operations": [
+        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "cx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "cy", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "cz", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%var_local(cx)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%var_local(cy)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%var_local(cz)" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "p1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(cx)-8)" } }, { "name": "y", "value": { "type": "number", "number": "%var_local(cy)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(cz)-8)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "p2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(cx)+8)" } }, { "name": "y", "value": { "type": "number", "number": "%var_local(cy)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(cz)+8)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "grass_block" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "p1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "p2", "scope": "local" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "p3", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(cx)-7)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy)-1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(cz)-7)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "p4", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(cx)+7)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy)-3)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(cz)+7)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "dirt" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "p3", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "p4", "scope": "local" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "tbl", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%var_local(cx)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(cy)+1)" } }, { "name": "z", "value": { "type": "number", "number": "%var_local(cz)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+        { "action": "game_set_block", "values": [ { "name": "block", "value": { "type": "item", "item": "emerald_block" } }, { "name": "locations", "value": { "type": "variable", "variable": "tbl", "scope": "local" } }, { "name": "update_blocks", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        {
+          "action": "repeat_multi_times",
+          "values": [ { "name": "variable", "value": { "type": "variable", "variable": "i", "scope": "local" } }, { "name": "amount", "value": { "type": "number", "number": 6 } } ],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ox", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(round(%var_local(cx)+(random-0.5)*100))" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "oy", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(cy)+round((random-0.5)*16))" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "oz", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(round(%var_local(cz)+(random-0.5)*100))" } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "a1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)-3)" } }, { "name": "y", "value": { "type": "number", "number": "%var_local(oy)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)-3)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "a2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)+3)" } }, { "name": "y", "value": { "type": "number", "number": "%var_local(oy)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)+3)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "grass_block" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "a1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "a2", "scope": "local" } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "b1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)-2)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)-1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)-2)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "b2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var_local(ox)+2)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var_local(oy)-2)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var_local(oz)+2)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "dirt" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "b1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "b2", "scope": "local" } } ] }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.genIslands"
+    },
+    {
+      "type": "function",
+      "position": 9,
+      "operations": [
+        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        {
+          "action": "if_player_has_item_at_least",
+          "values": [
+            { "name": "item", "value": { "type": "item", "item": "red_concrete" } },
+            { "name": "count", "value": { "type": "number", "number": 2 } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "set_variable_set_item_amount", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rm", "scope": "local" } }, { "name": "item", "value": { "type": "item", "item": "red_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 2 } } ] },
+            { "action": "player_remove_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "rm", "scope": "local" } } ] },
+            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "diamond_sword" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+            { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&c&lКЛИНОК ЯРОСТИ", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&72 красных куба &8→ &bалмазный меч", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.anvil.use", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } } ] },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_player_has_item_at_least",
+                  "values": [
+                    { "name": "item", "value": { "type": "item", "item": "blue_concrete" } },
+                    { "name": "count", "value": { "type": "number", "number": 2 } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_set_item_amount", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rm", "scope": "local" } }, { "name": "item", "value": { "type": "item", "item": "blue_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 2 } } ] },
+                    { "action": "player_remove_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "rm", "scope": "local" } } ] },
+                    { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "bow" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+                    { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "arrow" } }, { "name": "amount", "value": { "type": "number", "number": 16 } } ] },
+                    { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&9&lКУБИЧЕСКИЙ ЛУК", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&72 синих куба &8→ &9лук + стрелы", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.anvil.use", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } } ] },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_player_has_item_at_least",
+                          "values": [
+                            { "name": "item", "value": { "type": "item", "item": "yellow_concrete" } },
+                            { "name": "count", "value": { "type": "number", "number": 2 } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            { "action": "set_variable_set_item_amount", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rm", "scope": "local" } }, { "name": "item", "value": { "type": "item", "item": "yellow_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 2 } } ] },
+                            { "action": "player_remove_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "rm", "scope": "local" } } ] },
+                            { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "golden_apple" } }, { "name": "amount", "value": { "type": "number", "number": 3 } } ] },
+                            { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&e&lКУБ ЗДОРОВЬЯ", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&72 жёлтых куба &8→ &e3 золотых яблока", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+                            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.anvil.use", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } } ] },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                {
+                                  "action": "if_player_has_item_at_least",
+                                  "values": [
+                                    { "name": "item", "value": { "type": "item", "item": "green_concrete" } },
+                                    { "name": "count", "value": { "type": "number", "number": 2 } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    { "action": "set_variable_set_item_amount", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rm", "scope": "local" } }, { "name": "item", "value": { "type": "item", "item": "green_concrete" } }, { "name": "amount", "value": { "type": "number", "number": 2 } } ] },
+                                    { "action": "player_remove_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "rm", "scope": "local" } } ] },
+                                    { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "iron_chestplate" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+                                    { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&a&lКУБ-БРОНЯ", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&72 зелёных куба &8→ &aжелезный нагрудник", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+                                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.anvil.use", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.center", "scope": "game" } } ] },
+                                    {
+                                      "action": "else",
+                                      "values": [],
+                                      "operations": [
+                                        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cНужно 2 одинаковых куба для комбинации! &7(@cc help)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.combine"
+    },
+    {
+      "type": "function",
+      "position": 10,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 15 } } ] },
+        {
+          "action": "repeat_while",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "cc.t", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 0 } } ],
+          "conditional": { "action": "if_variable_greater_or_equals", "is_inverted": "false" },
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 20 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "cc_wave", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&6Волна %math(%var(cc.wave)+1) через &e%var(cc.t) &6сек!", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(%var(cc.t)*100/15)" } }, { "name": "color", "value": { "type": "enum", "enum": "YELLOW" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(cc.t)-1)" } } ] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.wave", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(cc.wave)+1)" } } ] },
+        { "action": "game_set_scoreboard_score", "values": [ { "name": "id", "value": { "type": "text", "text": "cc", "parsing": "plain" } }, { "name": "text", "value": { "type": "text", "text": "Волна", "parsing": "plain" } }, { "name": "score", "value": { "type": "number", "number": "%var(cc.wave)" } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&4&lВОЛНА %var(cc.wave)", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&cКубы приближаются!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.waveIntermission"
+    },
+    {
+      "type": "function",
+      "position": 11,
+      "operations": [
+        {
+          "action": "repeat_multi_times",
+          "values": [ { "name": "variable", "value": { "type": "variable", "variable": "m", "scope": "local" } }, { "name": "amount", "value": { "type": "number", "number": "%math(3+%var(cc.wave))" } } ],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 3 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ex", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var(cc.cx)-8+random*17))" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "ez", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var(cc.cz)-8+random*17))" } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "mloc", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "ex", "scope": "local" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(cc.cy)+1)" } }, { "name": "z", "value": { "type": "variable", "variable": "ez", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "game_spawn_mob", "values": [ { "name": "mob", "value": { "type": "item", "item": "zombie" } }, { "name": "location", "value": { "type": "variable", "variable": "mloc", "scope": "local" } }, { "name": "health", "value": { "type": "number", "number": "%math(10+%var(cc.wave)*4)" } }, { "name": "custom_name", "value": { "type": "text", "text": "&cКуб-враг", "parsing": "legacy" } }, { "name": "potion_effects", "value": {} }, { "name": "main_hand", "value": {} }, { "name": "helmet", "value": {} }, { "name": "chestplate", "value": {} }, { "name": "leggings", "value": {} }, { "name": "boots", "value": {} }, { "name": "off_hand", "value": {} }, { "name": "natural_equipment", "value": { "type": "enum", "enum": "FALSE" } } ] },
+            { "action": "select_last_mob", "values": [] },
+            { "action": "entity_set_target", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(cc.lastPlayer)", "parsing": "plain" } } ] }
+          ]
+        },
+        { "action": "set_variable_remainder", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.wmod", "scope": "game" } }, { "name": "dividend", "value": { "type": "variable", "variable": "cc.wave", "scope": "game" } }, { "name": "divisor", "value": { "type": "number", "number": 5 } }, { "name": "remainder_mode", "value": { "type": "enum", "enum": "REMAINDER" } } ] },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+            { "name": "value", "value": { "type": "variable", "variable": "cc.wmod", "scope": "game" } }
+          ],
+          "operations": [
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "bloc", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%var(cc.cx)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(cc.cy)+1)" } }, { "name": "z", "value": { "type": "number", "number": "%var(cc.cz)" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "game_spawn_mob", "values": [ { "name": "mob", "value": { "type": "item", "item": "zombie" } }, { "name": "location", "value": { "type": "variable", "variable": "bloc", "scope": "local" } }, { "name": "health", "value": { "type": "number", "number": "%math(80+%var(cc.wave)*10)" } }, { "name": "custom_name", "value": { "type": "text", "text": "&4&lБОСС-КУБ", "parsing": "legacy" } }, { "name": "potion_effects", "value": {} }, { "name": "main_hand", "value": { "type": "item", "item": "iron_sword" } }, { "name": "helmet", "value": {} }, { "name": "chestplate", "value": { "type": "item", "item": "diamond_chestplate" } }, { "name": "leggings", "value": {} }, { "name": "boots", "value": {} }, { "name": "off_hand", "value": {} }, { "name": "natural_equipment", "value": { "type": "enum", "enum": "FALSE" } } ] },
+            { "action": "select_last_mob", "values": [] },
+            { "action": "entity_set_target", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(cc.lastPlayer)", "parsing": "plain" } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&4&lБОСС-КУБ ПОЯВИЛСЯ! &cУбей его ради больших наград!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&4&lБОСС-ВОЛНА!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&cБосс-куб с боссбаром не сдастся легко", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "name": "CC.spawnWave"
+    },
+    {
+      "type": "process",
+      "position": 12,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.stok", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.token", "scope": "game" } } ] },
+        {
+          "action": "repeat_forever",
+          "values": [],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 4 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "SECONDS" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "cc.token", "scope": "game" } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "cc.stok", "scope": "game" } }
+              ],
+              "is_inverted": "true",
+              "operations": [
+                { "action": "control_end_thread", "values": [] }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }
+              ],
+              "operations": [
+                { "action": "control_end_thread", "values": [] }
+              ]
+            },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sr", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(random*4))" } } ] },
+            {
+              "action": "if_variable_less",
+              "values": [ { "name": "value", "value": { "type": "variable", "variable": "sr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 1 } } ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "red_concrete" } } ] },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_less",
+                      "values": [ { "name": "value", "value": { "type": "variable", "variable": "sr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 2 } } ],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "blue_concrete" } } ] },
+                        {
+                          "action": "else",
+                          "values": [],
+                          "operations": [
+                            {
+                              "action": "if_variable_less",
+                              "values": [ { "name": "value", "value": { "type": "variable", "variable": "sr", "scope": "local" } }, { "name": "compare", "value": { "type": "number", "number": 3 } } ],
+                              "operations": [
+                                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "yellow_concrete" } } ] },
+                                {
+                                  "action": "else",
+                                  "values": [],
+                                  "operations": [
+                                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "green_concrete" } } ] }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sx", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var(cc.cx)-8+random*17))" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sz", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var(cc.cz)-8+random*17))" } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "sloc", "scope": "local" } }, { "name": "x", "value": { "type": "variable", "variable": "sx", "scope": "local" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(cc.cy)+1)" } }, { "name": "z", "value": { "type": "variable", "variable": "sz", "scope": "local" } }, { "name": "yaw", "value": {} }, { "name": "pitch", "value": {} } ] },
+            { "action": "game_spawn_item", "values": [ { "name": "item", "value": { "type": "variable", "variable": "cc.cube", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "sloc", "scope": "local" } }, { "name": "custom_name", "value": { "type": "text", "text": "&fКуб", "parsing": "legacy" } }, { "name": "apply_motion", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "can_mob_pickup", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "can_player_pickup", "value": { "type": "enum", "enum": "TRUE" } } ] }
+          ]
+        }
+      ],
+      "name": "CC.spawner"
+    },
+    {
+      "type": "process",
+      "position": 13,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.wtok", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.token", "scope": "game" } } ] },
+        {
+          "action": "repeat_forever",
+          "values": [],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "cc.token", "scope": "game" } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "cc.wtok", "scope": "game" } }
+              ],
+              "is_inverted": "true",
+              "operations": [
+                { "action": "control_end_thread", "values": [] }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+                { "name": "value", "value": { "type": "variable", "variable": "cc.started", "scope": "game" } }
+              ],
+              "operations": [
+                { "action": "control_end_thread", "values": [] }
+              ]
+            },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.waveIntermission", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.spawnWave", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        }
+      ],
+      "name": "CC.waves"
+    }
+  ]
+}
