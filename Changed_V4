@@ -1,4 +1,7 @@
 {
+  "name": "Changed",
+  "display_name": "Changed: Побег от слизи",
+  "description": "Мини-игра в духе Changed: код строит арену-лабораторию (глубинный сланец, плачущий обсидиан, фиолетовое стекло), слизь спавнится в случайных точках арены. Каждое касание отнимает человечность. Вторая волна на 30-й секунде. Продержись 60 секунд!",
   "handlers": [
     {
       "type": "event",
@@ -260,46 +263,6 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "dx",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(floor(random*15)-7)"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "dz",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(floor(random*15)-7)"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
                 "variable": "ploc",
                 "scope": "local"
               }
@@ -363,54 +326,6 @@
                 "type": "variable",
                 "variable": "pt",
                 "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "sp",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)+%var_local(dx))"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(ly))"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)+%var_local(dz))"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
               }
             }
           ]
@@ -546,6 +461,626 @@
               "name": "variable",
               "value": {
                 "type": "variable",
+                "variable": "b1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)-12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)-12)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b2",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)+12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)-12)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{id:\"minecraft:crying_obsidian\",Count:1b}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "b1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "b2",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b3",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)-12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)+12)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b4",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)+12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)+12)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{id:\"minecraft:crying_obsidian\",Count:1b}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "b3",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "b4",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b5",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)-12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)-11)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b6",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)-12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)+11)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{id:\"minecraft:crying_obsidian\",Count:1b}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "b5",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "b6",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b7",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)+12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)-11)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "b8",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)+12)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)+11)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{id:\"minecraft:crying_obsidian\",Count:1b}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "b7",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "b8",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "c1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)-1)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)-1)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "c2",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lx)+1)"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(ly)-1)"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(lz)+1)"
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{id:\"minecraft:sea_lantern\",Count:1b}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "c1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "c2",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
                 "variable": "w1",
                 "scope": "local"
               }
@@ -1042,7 +1577,7 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "a3",
+                "variable": "r1",
                 "scope": "local"
               }
             },
@@ -1090,7 +1625,7 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "a4",
+                "variable": "r2",
                 "scope": "local"
               }
             },
@@ -1132,497 +1667,37 @@
           ]
         },
         {
-          "action": "set_variable_set_all_coordinates",
+          "action": "set_variable_random_location",
           "values": [
             {
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "l1",
+                "variable": "sp",
                 "scope": "local"
               }
             },
             {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)-11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)-11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
+              "name": "location_1",
               "value": {
                 "type": "variable",
-                "variable": "l2",
+                "variable": "r1",
                 "scope": "local"
               }
             },
             {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)-11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)-11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "game_set_region",
-          "values": [
-            {
-              "name": "block",
-              "value": {
-                "type": "item",
-                "item": "{id:\"minecraft:sea_lantern\",Count:1b}"
-              }
-            },
-            {
-              "name": "pos_1",
+              "name": "location_2",
               "value": {
                 "type": "variable",
-                "variable": "l1",
+                "variable": "r2",
                 "scope": "local"
               }
             },
             {
-              "name": "pos_2",
+              "name": "integer",
               "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)+11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)-11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)+11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)-11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "game_set_region",
-          "values": [
-            {
-              "name": "block",
-              "value": {
-                "type": "item",
-                "item": "{id:\"minecraft:sea_lantern\",Count:1b}"
-              }
-            },
-            {
-              "name": "pos_1",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "pos_2",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)-11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)+11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)-11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)+11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "game_set_region",
-          "values": [
-            {
-              "name": "block",
-              "value": {
-                "type": "item",
-                "item": "{id:\"minecraft:sea_lantern\",Count:1b}"
-              }
-            },
-            {
-              "name": "pos_1",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "pos_2",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)+11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)+11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "x",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lx)+11)"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "number",
-                "number": "%var_local(ly)"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(lz)+11)"
-              }
-            },
-            {
-              "name": "yaw",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "pitch",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            }
-          ]
-        },
-        {
-          "action": "game_set_region",
-          "values": [
-            {
-              "name": "block",
-              "value": {
-                "type": "item",
-                "item": "{id:\"minecraft:sea_lantern\",Count:1b}"
-              }
-            },
-            {
-              "name": "pos_1",
-              "value": {
-                "type": "variable",
-                "variable": "l1",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "pos_2",
-              "value": {
-                "type": "variable",
-                "variable": "l2",
-                "scope": "local"
+                "type": "enum",
+                "enum": "TRUE"
               }
             }
           ]
@@ -1726,6 +1801,42 @@
           ]
         },
         {
+          "action": "set_variable_random_location",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "location_1",
+              "value": {
+                "type": "variable",
+                "variable": "r1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "location_2",
+              "value": {
+                "type": "variable",
+                "variable": "r2",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "integer",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            }
+          ]
+        },
+        {
           "action": "game_spawn_mob",
           "values": [
             {
@@ -1819,6 +1930,42 @@
               "value": {
                 "type": "enum",
                 "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_random_location",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "location_1",
+              "value": {
+                "type": "variable",
+                "variable": "r1",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "location_2",
+              "value": {
+                "type": "variable",
+                "variable": "r2",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "integer",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
               }
             }
           ]
@@ -3490,6 +3637,5 @@
         }
       ]
     }
-  ],
-  "description": "Мини-игра в духе Changed: код строит арену-лабораторию, тёмная слизь охотится за игроком. Каждое касание отнимает остатки человечности. Вторая волна на 30-й секунде. Продержись 60 секунд — и не дай себя поглотить."
+  ]
 }
