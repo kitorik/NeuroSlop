@@ -737,10 +737,6 @@
               "operations": [
                 {"action":"select_reset","values":[]},
                 {"action":"select_entity_by_name","values":[{"name":"name_or_uuid","value":{"type":"text","text":"%var_local(bk)","parsing":"plain"}}]},
-                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bhp","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"current_health","selection":"{\"type\":\"default\"}"}}]},
-                {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bmax","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"max_health","selection":"{\"type\":\"default\"}"}}]},
-                {"action":"select_all_players","values":[]},
-                {"action":"player_set_boss_bar","values":[{"name":"id","value":{"type":"text","text":"ccb","parsing":"plain"}},{"name":"title","value":{"type":"text","text":"&4&l%var_local(bv) &8« %var_local(bhp)/%var_local(bmax) HP »","parsing":"legacy"}},{"name":"progress","value":{"type":"number","number":"%math(%var_local(bhp)*100/%var_local(bmax))"}},{"name":"color","value":{"type":"enum","enum":"RED"}},{"name":"style","value":{"type":"enum","enum":"NOTCHED_10"}}]},
                 {
                   "action": "if_entity_exists",
                   "values": [],
@@ -758,6 +754,10 @@
                   "action": "else",
                   "values": [],
                   "operations": [
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bhp","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"current_health","selection":"{\"type\":\"default\"}"}}]},
+                    {"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"bmax","scope":"local"}},{"name":"value","value":{"type":"game_value","game_value":"max_health","selection":"{\"type\":\"default\"}"}}]},
+                    {"action":"select_all_players","values":[]},
+                    {"action":"player_set_boss_bar","values":[{"name":"id","value":{"type":"text","text":"ccb","parsing":"plain"}},{"name":"title","value":{"type":"text","text":"&4&l%var_local(bv) &8« %var_local(bhp)/%var_local(bmax) HP »","parsing":"legacy"}},{"name":"progress","value":{"type":"number","number":"%math(%var_local(bhp)*100/%var_local(bmax))"}},{"name":"color","value":{"type":"enum","enum":"RED"}},{"name":"style","value":{"type":"enum","enum":"NOTCHED_10"}}]},
                     {
                       "action": "if_entity_collides_with_entity",
                       "values": [{"name":"name_or_uuid","value":{"type":"text","text":"cc_crys","parsing":"plain"}},{"name":"check_type","value":{"type":"enum","enum":"OVERLAPS"}}],
