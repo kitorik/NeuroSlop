@@ -149,7 +149,7 @@
             {
               "action": "player_give_items",
               "values": [
-                { "name": "items", "value": { "type": "item", "item": "nether_star" } },
+                { "name": "items", "value": { "type": "item", "item": "NETHER_STAR" } },
                 { "name": "amount", "value": { "type": "number", "number": 1 } }
               ]
             },
