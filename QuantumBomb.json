@@ -1,0 +1,186 @@
+{
+  "name": "QuantumBomb",
+  "display_name": "Квантова Бомба",
+  "description": "Mini-game: hot-potato with a twist — pass the bomb by punching a player, but the bomb also QUANTUM-TELEPORTS to a random alive player mid-round. Last survivor wins. Start: RMB with a mace.",
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "operations": [
+        {
+          "action": "if_game_event_item_equals",
+          "values": [ { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\\\"minecraft:mace\\\"}" } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } } ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_variable_equals",
+              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "qb.running", "scope": "game" } ] } }, { "name": "value", "value": { "type": "number", "number": 1 } } ],
+              "is_inverted": "true",
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "QB.start", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cКвантова Бомба вже грає! Дочекайся кінця.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "function",
+      "position": 1,
+      "operations": [
+        { "action": "select_all_players", "values": [] },
+        { "action": "set_variable_create_list", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } }, { "name": "values", "value": { "type": "array", "values": [] } } ] },
+        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "QB.join", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "FOR_EACH_IN_SELECTION" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 10 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+        { "action": "set_variable_get_list_length", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.pcount", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } } ] },
+        {
+          "action": "if_variable_less",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "qb.pcount", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 2 } } ],
+          "operations": [
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cПотрібно мінімум 2 гравці для Квантової Бомби!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_end_thread", "values": [] }
+          ]
+        },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(qb.token)+1)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.running", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.round", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&5&lКВАНТОВА БОМБА!&r &7Передавай бомбу ударом по гравцю — але вона й сама телепортується!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "QB.round", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\\\"minecraft:tnt\\\"}" } } ],
+      "name": "QB.start"
+    },
+    {
+      "type": "process",
+      "position": 2,
+      "operations": [
+        { "action": "set_variable_append_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "%player%", "parsing": "plain" } ] } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\\\"minecraft:tnt\\\"}" } } ],
+      "name": "QB.join"
+    },
+    {
+      "type": "process",
+      "position": 3,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.rtok", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "qb.token", "scope": "game" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.maxf", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(max(12 + floor(random*8) - min(%var(qb.round)-1, 5), 7))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.fuse", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "qb.maxf", "scope": "game" } } ] },
+        { "action": "set_variable_get_list_random_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } } ] },
+        { "action": "select_all_players", "values": [] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&5Раунд &d%var(qb.round)&5: бомба у &d%var(qb.holder)&5! Тікай або передавай!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        {
+          "action": "repeat_while",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "qb.fuse", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 0 } } ],
+          "conditional": { "action": "if_variable_greater_or_equals", "is_inverted": "false" },
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 20 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "qb.token", "scope": "game" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "qb.rtok", "scope": "game" } } ],
+              "is_inverted": "true",
+              "operations": [
+                { "action": "control_end_thread", "values": [] }
+              ]
+            },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "qb_bar", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&cБомба у %var(qb.holder) — вибух через %var(qb.fuse) с", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(%var(qb.fuse)*100/%var(qb.maxf))" } }, { "name": "color", "value": { "type": "enum", "enum": "RED" } }, { "name": "style", "value": { "type": "enum", "enum": "NOTCHED_10" } }, { "name": "sky_effect", "value": { "type": "enum", "enum": "NONE" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.r", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(random)" } } ] },
+            {
+              "action": "if_variable_less",
+              "values": [ { "name": "value", "value": { "type": "variable", "variable": "qb.r", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 0.12 } } ],
+              "operations": [
+                { "action": "set_variable_get_list_random_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.nh", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } } ] },
+                {
+                  "action": "if_variable_equals",
+                  "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "qb.nh", "scope": "game" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } } ],
+                  "is_inverted": "true",
+                  "operations": [
+                    { "action": "select_all_players", "values": [] },
+                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&dКвантовий стрибок! Бомба телепортувалася до &l%var(qb.nh)&r&d!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.enderman.teleport", "pitch": 1.5, "volume": 1.0 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "qb.nh", "scope": "game" } } ] }
+                  ]
+                }
+              ]
+            },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.fuse", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(qb.fuse)-1)" } } ] }
+          ]
+        },
+        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(qb.holder)", "parsing": "plain" } } ] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&c&lБУМ!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Бомба вибухнула... Ти вибуваєш!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+        { "action": "game_create_explosion", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }, { "name": "power", "value": { "type": "number", "number": 2 } }, { "name": "name_or_uuid", "value": { "type": "text", "text": "%empty%", "parsing": "plain" } }, { "name": "fire", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "break_blocks", "value": { "type": "enum", "enum": "FALSE" } } ] },
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Тебе вибухнуло. Спостерігай за рештою!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "set_variable_remove_list_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } }, { "name": "remove_mode", "value": { "type": "enum", "enum": "FIRST" } } ] },
+        { "action": "set_variable_get_list_length", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.pcount", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } } ] },
+        {
+          "action": "if_variable_less",
+          "values": [ { "name": "value", "value": { "type": "variable", "variable": "qb.pcount", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 2 } } ],
+          "operations": [
+            { "action": "set_variable_get_list_random_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.win", "scope": "game" } }, { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } } ] },
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(qb.win)", "parsing": "plain" } } ] },
+            { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6&lПЕРЕМОГА!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&fТи пережив усі квантові вибухи!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 60 } }, { "name": "fade_out", "value": { "type": "number", "number": 20 } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6&l%var(qb.win) &r&eпереміг у Квантовій Бомбі!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } } ] },
+            { "action": "player_remove_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "qb_bar", "parsing": "plain" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.running", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(qb.token)+1)" } } ] }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.round", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(qb.round)+1)" } } ] },
+            { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "QB.round", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\\\"minecraft:tnt\\\"}" } } ],
+      "name": "QB.round"
+    },
+    {
+      "type": "event",
+      "position": 4,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "qb.running", "scope": "game" } ] } }, { "name": "value", "value": { "type": "number", "number": 1 } } ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [ { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "%player%", "parsing": "plain" } ] } }, { "name": "value", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } } ],
+              "operations": [
+                {
+                  "action": "if_variable_list_contains_value",
+                  "values": [ { "name": "list", "value": { "type": "variable", "variable": "qb.alive", "scope": "game" } }, { "name": "values", "value": { "type": "array", "values": [ { "type": "text", "text": "%victim%", "parsing": "plain" } ] } }, { "name": "check_mode", "value": { "type": "enum", "enum": "ANY" } } ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "qb.holder", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%victim%", "parsing": "plain" } } ] },
+                    { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%victim%", "parsing": "plain" } } ] },
+                    { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&c&lБОМБА ТВОЯ!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Швидко передавай її далі!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 5 } }, { "name": "stay", "value": { "type": "number", "number": 30 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.tnt.primed", "pitch": 2.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } } ] },
+                    { "action": "select_all_players", "values": [] },
+                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&c%player% &7передав бомбу &c%victim%&7!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_damage_entity"
+    }
+  ]
+}
