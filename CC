@@ -1,0 +1,1158 @@
+{
+  "name": "CubeCombination",
+  "display_name": "Cube Combination",
+  "description": "Altar mini-game inspired by Cube Combination (Roblox): throw two cubes onto the display altar and they fuse into a new block. Three base cubes (blue, green, red concrete) branch into a 16-recipe color tree up to the Nether Star. Build: right-click with a blaze rod. Remove: right-click with a netherite pickaxe.",
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "operations": [
+        {
+          "action": "set_variable_create_map",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "cc.crafts", "scope": "game" } },
+            { "name": "keys", "value": { "type": "array", "values": [] } },
+            { "name": "values", "value": { "type": "array", "values": [] } }
+          ]
+        }
+      ],
+      "event": "world_start"
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "operations": [
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blaze_rod\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_variable_greater",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.built", "scope": "game" } },
+                { "name": "compare", "value": { "type": "number", "number": 0 } }
+              ],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&eАлтарь уже построен. &7Снести его — клик незеритовой киркой.", "parsing": "legacy" } ] } },
+                    { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "CC.build", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:netherite_pickaxe\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_variable_greater",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.built", "scope": "game" } },
+                { "name": "compare", "value": { "type": "number", "number": 0 } }
+              ],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    { "name": "function_name", "value": { "type": "text", "text": "CC.destroy", "parsing": "plain" } },
+                    { "name": "args", "value": { "type": "map", "values": {} } }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Алтарь ещё не построен.", "parsing": "legacy" } ] } },
+                    { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "operations": [
+        {
+          "action": "if_variable_greater",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.built", "scope": "game" } },
+            { "name": "compare", "value": { "type": "number", "number": 0 } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "cc.throw", "scope": "game" } },
+                { "name": "value", "value": { "type": "game_value", "game_value": "event_item", "selection": "null" } }
+              ]
+            },
+            {
+              "action": "if_variable_item_is_block",
+              "values": [
+                { "name": "item", "value": { "type": "variable", "variable": "cc.throw", "scope": "game" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_location_is_near",
+                  "values": [
+                    { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } },
+                    { "name": "radius", "value": { "type": "number", "number": 5 } },
+                    { "name": "check", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } },
+                    { "name": "shape", "value": { "type": "enum", "enum": "CUBE" } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "call_function",
+                      "values": [
+                        { "name": "function_name", "value": { "type": "text", "text": "CC.input", "parsing": "plain" } },
+                        { "name": "args", "value": { "type": "map", "values": {} } }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_drop_item"
+    },
+    {
+      "type": "function",
+      "position": 3,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.built", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "value", "value": { "type": "game_value", "game_value": "location", "selection": "null" } } ] },
+        { "action": "set_variable_align_location", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "rotation_mode", "value": { "type": "enum", "enum": "KEEP" } }, { "name": "coordinates_mode", "value": { "type": "enum", "enum": "ALL" } }, { "name": "align_mode", "value": { "type": "enum", "enum": "BLOCK_CENTER" } } ] },
+        { "action": "set_variable_shift_location_in_direction", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "shift", "value": { "type": "number", "number": 4 } }, { "name": "direction", "value": { "type": "enum", "enum": "FORWARD" } } ] },
+        { "action": "set_variable_align_location", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } }, { "name": "rotation_mode", "value": { "type": "enum", "enum": "KEEP" } }, { "name": "coordinates_mode", "value": { "type": "enum", "enum": "ALL" } }, { "name": "align_mode", "value": { "type": "enum", "enum": "BLOCK_CENTER" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } } ] },
+        { "action": "set_variable_shift_coordinate", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } }, { "name": "distance", "value": { "type": "number", "number": 1 } }, { "name": "type", "value": { "type": "enum", "enum": "Y" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } } ] },
+        { "action": "set_variable_shift_coordinate", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } }, { "name": "distance", "value": { "type": "number", "number": 1 } }, { "name": "type", "value": { "type": "enum", "enum": "Z" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } } ] },
+        { "action": "set_variable_shift_location_on_vector", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } }, { "name": "vector", "value": { "type": "vector", "x": 0, "y": 1.8, "z": 0 } }, { "name": "length", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.d1", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } } ] },
+        { "action": "set_variable_align_location", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.d1", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.d1", "scope": "game" } }, { "name": "rotation_mode", "value": { "type": "enum", "enum": "KEEP" } }, { "name": "coordinates_mode", "value": { "type": "enum", "enum": "ALL" } }, { "name": "align_mode", "value": { "type": "enum", "enum": "CORNER" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.d2", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } } ] },
+        { "action": "set_variable_align_location", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.d2", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.d2", "scope": "game" } }, { "name": "rotation_mode", "value": { "type": "enum", "enum": "KEEP" } }, { "name": "coordinates_mode", "value": { "type": "enum", "enum": "ALL" } }, { "name": "align_mode", "value": { "type": "enum", "enum": "CORNER" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t1", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } } ] },
+        { "action": "set_variable_shift_location_on_vector", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t1", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.t1", "scope": "game" } }, { "name": "vector", "value": { "type": "vector", "x": 0, "y": 1.5, "z": 0 } }, { "name": "length", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t2", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } } ] },
+        { "action": "set_variable_shift_location_on_vector", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.t2", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.t2", "scope": "game" } }, { "name": "vector", "value": { "type": "vector", "x": 0, "y": 1.5, "z": 0 } }, { "name": "length", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.info", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } } ] },
+        { "action": "set_variable_shift_location_on_vector", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.info", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.info", "scope": "game" } }, { "name": "vector", "value": { "type": "vector", "x": 0, "y": 0.9, "z": 0 } }, { "name": "length", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.plat1", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s1", "scope": "game" } } ] },
+        { "action": "set_variable_shift_coordinate", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.plat1", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.plat1", "scope": "game" } }, { "name": "distance", "value": { "type": "number", "number": -1 } }, { "name": "type", "value": { "type": "enum", "enum": "Y" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.plat2", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.s2", "scope": "game" } } ] },
+        { "action": "set_variable_shift_coordinate", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.plat2", "scope": "game" } }, { "name": "location", "value": { "type": "variable", "variable": "cc.plat2", "scope": "game" } }, { "name": "distance", "value": { "type": "number", "number": -1 } }, { "name": "type", "value": { "type": "enum", "enum": "Y" } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:chiseled_stone_bricks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "cc.plat1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "cc.plat2", "scope": "game" } } ] },
+        { "action": "game_spawn_block_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.d1", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_slot1", "parsing": "plain" } }, { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "game_spawn_block_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.d2", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_slot2", "parsing": "plain" } }, { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "game_spawn_item_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_out", "parsing": "plain" } }, { "name": "displayed_item", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:barrier\"}" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_out", "parsing": "plain" } } ] },
+        { "action": "entity_set_display_scale", "values": [ { "name": "scale_vector", "value": { "type": "vector", "x": 1.5, "y": 1.5, "z": 1.5 } }, { "name": "mode", "value": { "type": "enum", "enum": "SET" } } ] },
+        { "action": "entity_set_display_billboard", "values": [ { "name": "billboard_type", "value": { "type": "enum", "enum": "CENTER" } } ] },
+        { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.t1", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_text1", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 1 (пусто)", "parsing": "legacy" } } ] },
+        { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.t2", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_text2", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 2 (пусто)", "parsing": "legacy" } } ] },
+        { "action": "game_spawn_text_display", "values": [ { "name": "spawn_location", "value": { "type": "variable", "variable": "cc.info", "scope": "game" } }, { "name": "custom_name", "value": { "type": "text", "text": "cc_info", "parsing": "plain" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } }, { "name": "displayed_text", "value": { "type": "text", "text": "&6Брось 2 куба! &7База: &bсиний&7/&aзелёный&7/&cкрасный", "parsing": "legacy" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&eАлтарь создан! &7Бросайте кубы — они засчитаются в слоты.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.player.levelup", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.base", "scope": "game" } } ] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:chiseled_stone_bricks\"}" } }
+      ],
+      "name": "CC.build"
+    },
+    {
+      "type": "function",
+      "position": 4,
+      "operations": [
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot1", "parsing": "plain" } } ] },
+        { "action": "select_add_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot2", "parsing": "plain" } } ] },
+        { "action": "select_add_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text1", "parsing": "plain" } } ] },
+        { "action": "select_add_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text2", "parsing": "plain" } } ] },
+        { "action": "select_add_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_out", "parsing": "plain" } } ] },
+        { "action": "select_add_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_info", "parsing": "plain" } } ] },
+        { "action": "entity_remove", "values": [] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "cc.plat1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "cc.plat2", "scope": "game" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.built", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&eАлтарь удалён.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:netherite_pickaxe\"}" } }
+      ],
+      "name": "CC.destroy"
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "operations": [
+        {
+          "action": "if_variable_greater",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } },
+            { "name": "compare", "value": { "type": "number", "number": 0 } }
+          ],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.throw", "scope": "game" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot1", "parsing": "plain" } } ] },
+            { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_stained_glass\"}" } } ] },
+            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text1", "parsing": "plain" } } ] },
+            { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&eСлот 1: куб принят", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&aКуб принят в слот 1.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_greater",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } },
+                { "name": "compare", "value": { "type": "number", "number": 0 } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.throw", "scope": "game" } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+                { "action": "game_cancel_event", "values": [] },
+                { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot2", "parsing": "plain" } } ] },
+                { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_stained_glass\"}" } } ] },
+                { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text2", "parsing": "plain" } } ] },
+                { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&eСлот 2: куб принят", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6Пара собрана — синтез...", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.resolve", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Алтарь занят — дождитесь результата.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } }
+      ],
+      "name": "CC.input"
+    },
+    {
+      "type": "function",
+      "position": 6,
+      "operations": [
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.matchA", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.resolve"
+    },
+    {
+      "type": "function",
+      "position": 7,
+      "operations": [
+        {
+          "action": "if_variable_item_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_blue_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Голубой куб", "parsing": "plain" } } } } ] }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Лаймовый куб", "parsing": "plain" } } } } ] }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Оранжевый куб", "parsing": "plain" } } } } ] }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Бирюзовый куб", "parsing": "plain" } } } } ] }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Бирюзовый куб", "parsing": "plain" } } } } ] }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "action": "else",
+                          "values": [],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Жёлтый куб", "parsing": "plain" } } } } ] }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Жёлтый куб", "parsing": "plain" } } } } ] }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "action": "else",
+                                  "values": [],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        {
+                                          "action": "if_variable_item_equals",
+                                          "values": [
+                                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+                                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                          ],
+                                          "operations": [
+                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Фиолетовый куб", "parsing": "plain" } } } } ] }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "action": "else",
+                                      "values": [],
+                                      "operations": [
+                                        {
+                                          "action": "if_variable_item_equals",
+                                          "values": [
+                                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blue_concrete\"}" } },
+                                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                          ],
+                                          "operations": [
+                                            {
+                                              "action": "if_variable_item_equals",
+                                              "values": [
+                                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } },
+                                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                              ],
+                                              "operations": [
+                                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Фиолетовый куб", "parsing": "plain" } } } } ] }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "action": "else",
+                                          "values": [],
+                                          "operations": [
+                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.matchB", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.matchA"
+    },
+    {
+      "type": "function",
+      "position": 8,
+      "operations": [
+        {
+          "action": "if_variable_item_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_blue_concrete\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Белый куб", "parsing": "plain" } } } } ] }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_blue_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Белый куб", "parsing": "plain" } } } } ] }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:magenta_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Пурпурный куб", "parsing": "plain" } } } } ] }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:magenta_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Пурпурный куб", "parsing": "plain" } } } } ] }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:brown_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Коричневый куб", "parsing": "plain" } } } } ] }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "action": "else",
+                          "values": [],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:cyan_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:brown_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Коричневый куб", "parsing": "plain" } } } } ] }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:magenta_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Розовый куб", "parsing": "plain" } } } } ] }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "action": "else",
+                                  "values": [],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        {
+                                          "action": "if_variable_item_equals",
+                                          "values": [
+                                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:magenta_concrete\"}" } },
+                                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                          ],
+                                          "operations": [
+                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Розовый куб", "parsing": "plain" } } } } ] }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "action": "else",
+                                      "values": [],
+                                      "operations": [
+                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.matchC", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.matchB"
+    },
+    {
+      "type": "function",
+      "position": 9,
+      "operations": [
+        {
+          "action": "if_variable_item_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_gray_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Светло-серый куб", "parsing": "plain" } } } } ] }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:purple_concrete\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_gray_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Светло-серый куб", "parsing": "plain" } } } } ] }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:brown_concrete\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:black_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Чёрный куб", "parsing": "plain" } } } } ] }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_item_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" } },
+                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:brown_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:black_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Чёрный куб", "parsing": "plain" } } } } ] }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_item_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_gray_concrete\"}" } },
+                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                          ],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:black_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:gray_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Серый куб", "parsing": "plain" } } } } ] }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "action": "else",
+                          "values": [],
+                          "operations": [
+                            {
+                              "action": "if_variable_item_equals",
+                              "values": [
+                                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:black_concrete\"}" } },
+                                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                              ],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:light_gray_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:gray_concrete\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Серый куб", "parsing": "plain" } } } } ] }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                {
+                                  "action": "if_variable_item_equals",
+                                  "values": [
+                                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:gray_concrete\"}" } },
+                                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                  ],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:glowstone\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Светящийся куб", "parsing": "plain" } } } } ] }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "action": "else",
+                                  "values": [],
+                                  "operations": [
+                                    {
+                                      "action": "if_variable_item_equals",
+                                      "values": [
+                                        { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                                        { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:pink_concrete\"}" } },
+                                        { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                      ],
+                                      "operations": [
+                                        {
+                                          "action": "if_variable_item_equals",
+                                          "values": [
+                                            { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                                            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:gray_concrete\"}" } },
+                                            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                                          ],
+                                          "operations": [
+                                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:glowstone\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Светящийся куб", "parsing": "plain" } } } } ] }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "action": "else",
+                                      "values": [],
+                                      "operations": [
+                                        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.matchD", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.matchC"
+    },
+    {
+      "type": "function",
+      "position": 10,
+      "operations": [
+        {
+          "action": "if_variable_item_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+            { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:glowstone\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:glowstone\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:sea_lantern\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Морской фонарь", "parsing": "plain" } } } } ] }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_item_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } },
+                { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:sea_lantern\"}" } },
+                { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_item_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:sea_lantern\"}" } },
+                    { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+                  ],
+                  "operations": [
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.craft", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"result\",\"parsing\":\"plain\"}": { "type": "item", "item": "{Count:1b,id:\"minecraft:nether_star\"}" }, "{\"type\":\"text\",\"text\":\"name\",\"parsing\":\"plain\"}": { "type": "text", "text": "Звезда Незера", "parsing": "plain" } } } } ] }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "CC.noRecipe", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.matchD"
+    },
+    {
+      "type": "function",
+      "position": 11,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot1", "parsing": "plain" } } ] },
+        { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot2", "parsing": "plain" } } ] },
+        { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text1", "parsing": "plain" } } ] },
+        { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 1 (пусто)", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text2", "parsing": "plain" } } ] },
+        { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 2 (пусто)", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_out", "parsing": "plain" } } ] },
+        { "action": "entity_set_item_display_item", "values": [ { "name": "displayed_item", "value": { "type": "variable", "variable": "result", "scope": "line" } } ] },
+        { "action": "entity_set_display_scale", "values": [ { "name": "scale_vector", "value": { "type": "vector", "x": 1.6, "y": 1.6, "z": 1.6 } }, { "name": "mode", "value": { "type": "enum", "enum": "SET" } } ] },
+        { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "result", "scope": "line" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6&lНовый куб!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&f%var_line(name)", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 40 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.player.levelup", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } } ] },
+        { "action": "player_display_particle", "values": [ { "name": "particle", "value": { "type": "particle", "particle_type": "enchant", "count": 25, "first_spread": 0.5, "second_spread": 0.5, "size": 1 } }, { "name": "location", "value": { "type": "variable", "variable": "cc.out", "scope": "game" } } ] },
+        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.tr", "scope": "local" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.crafts", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.tr", "scope": "local" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var_local(cc.tr) + 1)" } } ] },
+        { "action": "set_variable_put_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.crafts", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "cc.crafts", "scope": "game" } }, { "name": "key", "value": { "type": "text", "text": "%player%", "parsing": "plain" } }, { "name": "value", "value": { "type": "variable", "variable": "cc.tr", "scope": "local" } }, { "name": "replaced_value", "value": {} } ] },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "cc.tr", "scope": "local" } },
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 10 } ] } }
+          ],
+          "operations": [
+            { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&d&lПродвинутое поколение! &7Алтарь усилен.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+          ]
+        },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&e%player% &7создал: &f%var_line(name)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "control_end_thread", "values": [] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [
+          { "type": "parameter", "type_key": "singular", "name": "result", "value_type": "item", "is_required": "true", "default_value": "{}", "slot": 0, "description_slot": 9, "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Result\",\"parsingType\":\"LEGACY\"}}" },
+          { "type": "parameter", "type_key": "singular", "name": "name", "value_type": "text", "is_required": "true", "default_value": "{}", "slot": 1, "description_slot": 10, "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Name\",\"parsingType\":\"LEGACY\"}}" }
+        ] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:nether_star\"}" } }
+      ],
+      "name": "CC.craft"
+    },
+    {
+      "type": "function",
+      "position": 12,
+      "operations": [
+        { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "cc.cube1", "scope": "game" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "cc.cube2", "scope": "game" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill1", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cc.fill2", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot1", "parsing": "plain" } } ] },
+        { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_slot2", "parsing": "plain" } } ] },
+        { "action": "entity_set_block_display_block", "values": [ { "name": "displayed_block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_stained_glass\"}" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text1", "parsing": "plain" } } ] },
+        { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 1 (пусто)", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+        { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "cc_text2", "parsing": "plain" } } ] },
+        { "action": "entity_set_text_display_text", "values": [ { "name": "displayed_text", "value": { "type": "text", "text": "&aСлот 2 (пусто)", "parsing": "legacy" } }, { "name": "merging_mode", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&7Эти кубы не плавятся... &cвозвращены.", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+        { "action": "control_end_thread", "values": [] }
+      ],
+      "values": [
+        { "name": "parameters", "value": { "type": "array", "values": [] } },
+        { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } },
+        { "name": "icon", "value": { "type": "item", "item": "{}" } }
+      ],
+      "name": "CC.noRecipe"
+    }
+  ]
+}
