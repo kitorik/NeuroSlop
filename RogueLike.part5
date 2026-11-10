@@ -743,7 +743,7 @@
                       "value": {
                         "type": "map",
                         "values": {
-                          "pl": {
+                          "{\"type\":\"text\",\"text\":\"pl\",\"parsing\":\"plain\"}": {
                             "type": "text",
                             "text": "%player%",
                             "parsing": "plain"
