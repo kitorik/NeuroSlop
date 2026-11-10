@@ -1,24 +1,26 @@
 {
   "name": "Auto_park",
-  "display_name": "Auto Park v2.0.1 — бесконечный паркур",
-  "description": "v2.0.1. Бесконечный генератор паркура, 5 уровней сложности. Старт: ПКМ с часами -> меню с маркером и сложностями. У каждого игрока своя полоса-чанк по Z, между полосами пустая пропасть в 1 чанк (защита от пересечения паркуров). Трасса не выходит за границы мира (32 чанка во все стороны от спавна): у края по X направление отзеркаливается. Дошёл до дальнего края карты -> медаль Паркурщика (сохраняется, выдаётся при каждом заходе, защищена от дюпа: нельзя выкинуть, дубликаты удаляются).",
+  "display_name": "Auto Park v2.1.0 — бесконечный паркур",
+  "description": "v2.1.0. Бесконечный генератор паркура, 5 уровней сложности. Старт: ПКМ с часами -> меню. Маркер (слот сверху): ЛКМ - сложность ниже, ПКМ - сложность выше. Кнопка СТАРТ - слот под маркером. Чанки в центре мира (0 0 0) не трогаются: старт в 3 чанках от спавна, полосы идут с отступом. У каждого игрока своя полоса по Z, между полосами пропасть в 1 чанк. У края по X трасса отзеркаливается. Медаль Паркурщика за дальний край: сохраняется, выдаётся при каждом заходе, анти-дюп.",
   "handlers": [
     {
       "type": "event",
       "position": 0,
       "operations": [
         { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "spawn_location", "selection": "null" } }, { "name": "x", "value": { "type": "variable", "variable": "wx", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "wy", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "wz", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "wyaw", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "wpit", "scope": "local" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.sx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(wx))" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.z", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(wz))" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.xmax", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(wx) + 504)" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.xmin", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(wx) - 504)" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.m1", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\",tag:{display:{Name:'{\"italic\":false,\"color\":\"white\",\"text\":\"Сложность 1 — Прогулка\"}',Lore:['{\"color\":\"gray\",\"text\":\"Проливы 2-3, платформы 3x3\"}']}}}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.m2", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\",tag:{display:{Name:'{\"italic\":false,\"color\":\"green\",\"text\":\"Сложность 2 — Новичок\"}',Lore:['{\"color\":\"gray\",\"text\":\"Проливы 2-4, дрейф в сторону\"}']}}}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.m3", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\",tag:{display:{Name:'{\"italic\":false,\"color\":\"yellow\",\"text\":\"Сложность 3 — Средняя\"}',Lore:['{\"color\":\"gray\",\"text\":\"Проливы 3-4, платформы 1-2\"}']}}}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.m4", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\",tag:{display:{Name:'{\"italic\":false,\"color\":\"gold\",\"text\":\"Сложность 4 — Сложная\"}',Lore:['{\"color\":\"gray\",\"text\":\"Проливы 3-5, спуски до -4\"}']}}}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.m5", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\",tag:{display:{Name:'{\"italic\":false,\"color\":\"red\",\"text\":\"Сложность 5 — Кошмар\"}',Lore:['{\"color\":\"gray\",\"text\":\"Проливы 3-6, микроплатформы 1x1\"}']}}}" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер\"}',Lore:['{\"color\":\"gray\",\"text\":\"Выбери сложность паркура (1-5)\"}','{\"color\":\"gray\",\"text\":\"Часы = это меню\"}']}}}" } } ] },
-        { "action": "set_variable_set_item_custom_tag", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.medal", "scope": "game" } }, { "name": "item", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:sunflower\",tag:{display:{Name:'{\"italic\":false,\"color\":\"gold\",\"text\":\"Медаль Паркурщика\"}',Lore:['{\"color\":\"yellow\",\"text\":\"За путь через всю карту!»}']}}}" } }, { "name": "tag_name", "value": { "type": "text", "text": "pk_medal", "parsing": "plain" } }, { "name": "tag_value", "value": { "type": "text", "text": "1", "parsing": "plain" } } ] }
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.sx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var_local(wx)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.sy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var_local(wy)) - 1)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.z", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var_local(wz)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.xmax", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var_local(wx)) + 504)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.xmin", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(%var_local(wx)) - 504)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk1", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер: сложность 1 — Прогулка\"}',Lore:['{\"color\":\"gray\",\"text\":\"ЛКМ: сложность ниже\"}','{\"color\":\"gray\",\"text\":\"ПКМ: сложность выше\"}','{\"color\":\"gray\",\"text\":\"Кнопка СТАРТ — слот снизу\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk2", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер: сложность 2 — Новичок\"}',Lore:['{\"color\":\"gray\",\"text\":\"ЛКМ: сложность ниже\"}','{\"color\":\"gray\",\"text\":\"ПКМ: сложность выше\"}','{\"color\":\"gray\",\"text\":\"Кнопка СТАРТ — слот снизу\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk3", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер: сложность 3 — Средняя\"}',Lore:['{\"color\":\"gray\",\"text\":\"ЛКМ: сложность ниже\"}','{\"color\":\"gray\",\"text\":\"ПКМ: сложность выше\"}','{\"color\":\"gray\",\"text\":\"Кнопка СТАРТ — слот снизу\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk4", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер: сложность 4 — Сложная\"}',Lore:['{\"color\":\"gray\",\"text\":\"ЛКМ: сложность ниже\"}','{\"color\":\"gray\",\"text\":\"ПКМ: сложность выше\"}','{\"color\":\"gray\",\"text\":\"Кнопка СТАРТ — слот снизу\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.mk5", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:recovery_compass\",tag:{display:{Name:'{\"italic\":false,\"color\":\"aqua\",\"text\":\"Маркер: сложность 5 — Кошмар\"}',Lore:['{\"color\":\"gray\",\"text\":\"ЛКМ: сложность ниже\"}','{\"color\":\"gray\",\"text\":\"ПКМ: сложность выше\"}','{\"color\":\"gray\",\"text\":\"Кнопка СТАРТ — слот снизу\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.go", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:emerald_block\",tag:{display:{Name:'{\"italic\":false,\"color\":\"green\",\"bold\":true,\"text\":\"СТАРТ ПАРКУРА\"}',Lore:['{\"color\":\"gray\",\"text\":\"Нажми, чтобы начать\"}']}}}" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.fl", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\",tag:{display:{Name:'{\"italic\":false,\"color\":\"gray\",\"text\":\" \"}'}}}" } } ] },
+        { "action": "set_variable_set_item_custom_tag", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pkw.medal", "scope": "game" } }, { "name": "item", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:sunflower\",tag:{display:{Name:'{\"italic\":false,\"color\":\"gold\",\"text\":\"Медаль Паркурщика\"}',Lore:['{\"color\":\"yellow\",\"text\":\"За путь через всю карту!\"}']}}}" } }, { "name": "tag_name", "value": { "type": "text", "text": "pk_medal", "parsing": "plain" } }, { "name": "tag_value", "value": { "type": "text", "text": "1", "parsing": "plain" } } ] }
       ],
       "event": "world_start"
     },
@@ -35,7 +37,19 @@
           "operations": [
             { "action": "game_cancel_event", "values": [] },
             { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
-            { "action": "player_show_inventory_menu", "values": [ { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m1", "scope": "game" }, { "type": "variable", "variable": "pkw.m2", "scope": "game" }, { "type": "variable", "variable": "pkw.m3", "scope": "game" }, { "type": "variable", "variable": "pkw.m4", "scope": "game" }, { "type": "variable", "variable": "pkw.m5", "scope": "game" }, {}, {}, {}, { "type": "variable", "variable": "pkw.mk", "scope": "game" } ] } }, { "name": "name", "value": { "type": "text", "text": "&8Выбери сложность паркура", "parsing": "legacy" } }, { "name": "custom_id", "value": { "type": "text", "text": "pk_menu", "parsing": "plain" } }, { "name": "inventory_type", "value": { "type": "enum", "enum": "CHEST" } } ] }
+            {
+              "action": "if_variable_exists",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "is_inverted": true,
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] }
+              ]
+            },
+            { "action": "player_show_inventory_menu", "values": [ { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.mk1", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.go", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" }, { "type": "variable", "variable": "pkw.fl", "scope": "game" } ] } }, { "name": "name", "value": { "type": "text", "text": "&8Парк: маркер = сложность, снизу СТАРТ", "parsing": "legacy" } }, { "name": "custom_id", "value": { "type": "text", "text": "pk_menu", "parsing": "plain" } }, { "name": "inventory_type", "value": { "type": "enum", "enum": "CHEST" } } ] },
+            { "action": "player_set_inventory_menu_item", "values": [ { "name": "item", "value": { "type": "variable", "variable": "pkw.mk%var(%player_uuid%_pkdiff)", "scope": "game" } }, { "name": "slot", "value": { "type": "number", "number": 13 } } ] }
           ]
         }
       ],
@@ -48,76 +62,64 @@
         {
           "action": "if_game_event_item_equals",
           "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.mk", "scope": "game" } ] } },
+            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.mk1", "scope": "game" }, { "type": "variable", "variable": "pkw.mk2", "scope": "game" }, { "type": "variable", "variable": "pkw.mk3", "scope": "game" }, { "type": "variable", "variable": "pkw.mk4", "scope": "game" }, { "type": "variable", "variable": "pkw.mk5", "scope": "game" } ] } },
             { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "game_value", "game_value": "event_inventory_click_type", "selection": "null" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "RIGHT", "parsing": "plain" }, { "type": "text", "text": "right", "parsing": "plain" } ] } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(min(%var(%player_uuid%_pkdiff) + 1, 5))" } } ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "game_value", "game_value": "event_inventory_click_type", "selection": "null" } },
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "LEFT", "parsing": "plain" }, { "type": "text", "text": "left", "parsing": "plain" } ] } },
+                    { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(max(%var(%player_uuid%_pkdiff) - 1, 1))" } } ] }
+                  ]
+                }
+              ]
+            },
+            { "action": "player_set_inventory_menu_item", "values": [ { "name": "item", "value": { "type": "variable", "variable": "pkw.mk%var(%player_uuid%_pkdiff)", "scope": "game" } }, { "name": "slot", "value": { "type": "number", "number": 13 } } ] },
+            { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bСложность: &f%var(%player_uuid%_pkdiff)&b/5", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+          ]
+        },
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.go", "scope": "game" } ] } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "player_close_inventory", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.fl", "scope": "game" } ] } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
           ],
           "operations": [
             { "action": "game_cancel_event", "values": [] }
-          ]
-        },
-        {
-          "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m1", "scope": "game" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
-          ],
-          "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "player_close_inventory", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
-          ]
-        },
-        {
-          "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m2", "scope": "game" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
-          ],
-          "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "player_close_inventory", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 2 } } ] },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
-          ]
-        },
-        {
-          "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m3", "scope": "game" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
-          ],
-          "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "player_close_inventory", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 3 } } ] },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
-          ]
-        },
-        {
-          "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m4", "scope": "game" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
-          ],
-          "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "player_close_inventory", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 4 } } ] },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
-          ]
-        },
-        {
-          "action": "if_game_event_item_equals",
-          "values": [
-            { "name": "items", "value": { "type": "array", "values": [ { "type": "variable", "variable": "pkw.m5", "scope": "game" } ] } },
-            { "name": "comparison_mode", "value": { "type": "enum", "enum": "IGNORE_STACK_SIZE" } }
-          ],
-          "operations": [
-            { "action": "game_cancel_event", "values": [] },
-            { "action": "player_close_inventory", "values": [] },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdiff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 5 } } ] },
-            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.choose", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
           ]
         }
       ],
@@ -145,7 +147,7 @@
               "operations": [
                 { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
                 { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
                 { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cПадение! Возврат на чекпоинт", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
               ]
             },
@@ -194,7 +196,7 @@
                                 { "action": "player_clear_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "pkw.medal", "scope": "game" } } ] },
                                 { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "variable", "variable": "pkw.medal", "scope": "game" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
                                 { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6Медаль Паркурщика!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Ты дошёл до дальнего края карты!", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 60 } }, { "name": "fade_out", "value": { "type": "number", "number": 20 } } ] },
-                                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } } ] }
+                                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1, "volume": 1 } }, { "name": "location", "value": { "type": "game_value", "game_value": "event_new_location", "selection": "null" } } ] }
                               ]
                             }
                           ]
@@ -242,7 +244,7 @@
           "operations": [
             { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
             { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-            { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "rp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+            { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "rp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
             { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bВозврат на паркур!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
           ]
         }
@@ -364,11 +366,11 @@
         { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdir", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
         { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkchk", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
         { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkscore", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }, { "name": "x", "value": { "type": "variable", "variable": "x", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "wy", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "wp", "scope": "local" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.sx))" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(y) - 1)" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.z) + %var_save(%player_uuid%_pklane) * 32)" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pksx0", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.sx))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkz0", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.z) + (%var_save(%player_uuid%_pklane) + 1) * 32)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.sx) + 48)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.sy))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkz0))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pksx0", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pkw.sx) + 48)" } } ] },
         { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx) - 1)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz) - 1)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
         { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx) + 1)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz) + 1)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
         { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:stone_bricks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "l2", "scope": "local" } } ] },
@@ -376,7 +378,7 @@
         { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.gen", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
         { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.gen", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
         { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
-        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
         { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&aПарк запущен!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Сложность %var(%player_uuid%_pkdiff)/5 — часы снова откроют меню", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 50 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
         { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "pk_%player_uuid%", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&bПарк &7| Очки: &f%var(%player_uuid%_pkscore) &7| Сложность &f%var(%player_uuid%_pkdiff)&7/5", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(wrap(%var(%player_uuid%_pkscore), 0, 100))" } }, { "name": "color", "value": { "type": "enum", "enum": "BLUE" } }, { "name": "style", "value": { "type": "enum", "enum": "NOTCHED_10" } }, { "name": "sky_effect", "value": { "type": "enum", "enum": "NONE" } } ] }
       ],
@@ -469,7 +471,7 @@
         { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkdir", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pknx) > %var(pkw.xmax) ? -1 : (%var(%player_uuid%_pknx) < %var(pkw.xmin) ? 1 : %var(%player_uuid%_pkdir)))" } } ] },
         { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx) + %var(%player_uuid%_pkdir) * %var(%player_uuid%_pkgap))" } } ] },
         { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkdy))" } } ] },
-        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(clamp(%var(%player_uuid%_pkpz) + %var(%player_uuid%_pkdz), %var(pkw.z) + %var_save(%player_uuid%_pklane) * 32 - 6, %var(pkw.z) + %var_save(%player_uuid%_pklane) * 32 + 6))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "%player_uuid%_pkpz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(clamp(%var(%player_uuid%_pkpz) + %var(%player_uuid%_pkdz), %var(%player_uuid%_pkz0) - 6, %var(%player_uuid%_pkz0) + 6))" } } ] },
         { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx) - floor(%var(%player_uuid%_pks) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz) - floor(%var(%player_uuid%_pks) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
         { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpx) + floor(%var(%player_uuid%_pks) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpy))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(%player_uuid%_pkpz) + floor(%var(%player_uuid%_pks) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
         { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "variable", "variable": "%player_uuid%_pkblock", "scope": "game" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "l2", "scope": "local" } } ] }
