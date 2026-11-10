@@ -1,7 +1,7 @@
 {
   "name": "Farm",
   "display_name": "Ферма: Побег от Стража",
-  "description": "Stealth run in Little Nightmares style. The Guard studies his map (safe to move, but the hay wall is chasing you), then turns around (freeze or sneak in the crops to hide). Green progress boss bar shows how far you are from the barn. Timer counts down, the Guard turns more often as you progress. Start: RMB with an iron hoe. EDIT coordinate literals marked START / FIELD / FINISH / GUARD / MAP-LOOK.",
+  "description": "Stealth run in Little Nightmares style on a GENERATED 2D side-view farm: fields, haystacks, houses, fences and a red barn at the finish. Map length is controlled by the farm.length game variable (default 60). The Guard studies his map, then turns; sneak (shift) in the crops to hide. A hay wall chases from behind. Green boss bar shows progress. First player to finish is announced in chat. Start: RMB with an iron hoe.",
   "handlers": [
     {
       "type": "event",
@@ -29,15 +29,114 @@
                 { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.token) + 1)" } } ] },
                 { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.guard", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "farmguard_%random_uuid%", "parsing": "plain" } } ] },
                 { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.fails", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.time", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 60 } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.maxtime", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 60 } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.time", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "farm.maxtime", "scope": "game" } } ] },
                 { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.progress", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
-                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.wall", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": -6 } } ] },
                 { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.walltick", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+                {
+                  "action": "if_variable_less",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "farm.length", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "number", "number": 10 } }
+                  ],
+                  "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.length", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 60 } } ] } ]
+                },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.sx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": -6 } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.wall", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.sx) - 6)" } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.gx", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.sx) + floor(%var(farm.length) / 2))" } } ] },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.a1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.sx", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 0 } },
+                    { "name": "z", "value": { "type": "number", "number": -2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.a2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length))" } },
+                    { "name": "y", "value": { "type": "number", "number": 0 } },
+                    { "name": "z", "value": { "type": "number", "number": 2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.fin1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) - 3)" } },
+                    { "name": "y", "value": { "type": "number", "number": 0 } },
+                    { "name": "z", "value": { "type": "number", "number": -2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.fin2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 1)" } },
+                    { "name": "y", "value": { "type": "number", "number": 0 } },
+                    { "name": "z", "value": { "type": "number", "number": 2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.sx", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": 0 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.gloc", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.gx", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.gmap", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.gx) + 30)" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.gfield", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.gx) - 30)" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -2 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
                 {
                   "action": "game_spawn_mob",
                   "values": [
                     { "name": "mob", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_golem\"}" } },
-                    { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -8, "yaw": 0, "pitch": 0 } },
+                    { "name": "location", "value": { "type": "variable", "variable": "farm.gloc", "scope": "game" } },
                     { "name": "health", "value": { "type": "number", "number": 100 } },
                     { "name": "custom_name", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } },
                     { "name": "main_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:filled_map\"}" } }
@@ -47,19 +146,20 @@
                 { "action": "entity_set_ai", "values": [ { "name": "ai", "value": { "type": "enum", "enum": "FALSE" } } ] },
                 { "action": "entity_set_invulnerable", "values": [ { "name": "invulnerable", "value": { "type": "enum", "enum": "TRUE" } } ] },
                 { "action": "entity_set_custom_name_visibility", "values": [ { "name": "visibility", "value": { "type": "enum", "enum": "FALSE" } } ] },
-                { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -30, "yaw": 0, "pitch": 0 } } ] },
+                { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "variable", "variable": "farm.gmap", "scope": "game" } } ] },
                 { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
                 {
                   "action": "player_send_title",
                   "values": [
                     { "name": "title", "value": { "type": "text", "text": "&6&lФЕРМА", "parsing": "legacy" } },
-                    { "name": "subtitle", "value": { "type": "text", "text": "&fБеги в амбар! Страж обернётся — &7шифт&f в грядках прячет тебя. &cНе отставай от стены сена!", "parsing": "legacy" } },
+                    { "name": "subtitle", "value": { "type": "text", "text": "&fБеги в амбар! Страж обернётся — &7шифт&f прячет тебя. &cНе отставай от стены сена!", "parsing": "legacy" } },
                     { "name": "fade_in", "value": { "type": "number", "number": 10 } },
                     { "name": "stay", "value": { "type": "number", "number": 80 } },
                     { "name": "fade_out", "value": { "type": "number", "number": 15 } }
                   ]
                 },
-                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.bell.use", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.bell.use", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } } ] },
+                { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "Farm.build", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
                 { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "Farm.guard", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
                 { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "Farm.hud", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
               ]
@@ -71,6 +171,326 @@
     {
       "type": "function",
       "position": 1,
+      "name": "Farm.build",
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "operations": [
+        { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.c1", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + 2)" } },
+            { "name": "y", "value": { "type": "number", "number": 60 } },
+            { "name": "z", "value": { "type": "number", "number": -5 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.c2", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 8)" } },
+            { "name": "y", "value": { "type": "number", "number": 85 } },
+            { "name": "z", "value": { "type": "number", "number": 5 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        { "action": "game_clear_region", "values": [ { "name": "pos_1", "value": { "type": "variable", "variable": "farm.c1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.c2", "scope": "game" } } ] },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.g1", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) - 6)" } },
+            { "name": "y", "value": { "type": "number", "number": 63 } },
+            { "name": "z", "value": { "type": "number", "number": -3 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.g2", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 7)" } },
+            { "name": "y", "value": { "type": "number", "number": 63 } },
+            { "name": "z", "value": { "type": "number", "number": 3 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:grass_block\"}" } },
+            { "name": "pos_1", "value": { "type": "variable", "variable": "farm.g1", "scope": "game" } },
+            { "name": "pos_2", "value": { "type": "variable", "variable": "farm.g2", "scope": "game" } }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+            { "name": "start", "value": { "type": "number", "number": 0 } },
+            { "name": "end", "value": { "type": "variable", "variable": "farm.length", "scope": "game" } },
+            { "name": "interval", "value": { "type": "number", "number": 6 } }
+          ],
+          "operations": [
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": 1 } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.seg", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(wrap(floor(%var(farm.i) / 6), 0, 4))" } } ] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.seg", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -4 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 2)" } },
+                    { "name": "y", "value": { "type": "number", "number": 65 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:hay_block\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:pumpkin\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.seg", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -4 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 4)" } },
+                    { "name": "y", "value": { "type": "number", "number": 67 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                    { "name": "y", "value": { "type": "number", "number": 68 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:dark_oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.seg", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 2 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -4 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:farmland\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                    { "name": "y", "value": { "type": "number", "number": 65 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:carved_pumpkin\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.seg", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 3 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -4 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                    { "name": "y", "value": { "type": "number", "number": 64 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_fence\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 2)" } },
+                    { "name": "y", "value": { "type": "number", "number": 65 } },
+                    { "name": "z", "value": { "type": "number", "number": -4 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                    { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 3)" } },
+                    { "name": "y", "value": { "type": "number", "number": 65 } },
+                    { "name": "z", "value": { "type": "number", "number": -3 } },
+                    { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                    { "name": "pitch", "value": { "type": "number", "number": 0 } }
+                  ]
+                },
+                { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lantern\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+                { "name": "x", "value": { "type": "variable", "variable": "farm.i", "scope": "game" } },
+                { "name": "y", "value": { "type": "number", "number": 64 } },
+                { "name": "z", "value": { "type": "number", "number": 3 } },
+                { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                { "name": "pitch", "value": { "type": "number", "number": 0 } }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+                { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.i) + 5)" } },
+                { "name": "y", "value": { "type": "number", "number": 64 } },
+                { "name": "z", "value": { "type": "number", "number": 3 } },
+                { "name": "yaw", "value": { "type": "number", "number": 0 } },
+                { "name": "pitch", "value": { "type": "number", "number": 0 } }
+              ]
+            },
+            { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:oak_fence\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 3)" } },
+            { "name": "y", "value": { "type": "number", "number": 64 } },
+            { "name": "z", "value": { "type": "number", "number": -3 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 6)" } },
+            { "name": "y", "value": { "type": "number", "number": 70 } },
+            { "name": "z", "value": { "type": "number", "number": 3 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:spruce_planks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } },
+            { "name": "x", "value": { "type": "number", "number": "%math(%var(farm.sx) + %var(farm.length) + 7)" } },
+            { "name": "y", "value": { "type": "number", "number": 71 } },
+            { "name": "z", "value": { "type": "number", "number": 3 } },
+            { "name": "yaw", "value": { "type": "number", "number": 0 } },
+            { "name": "pitch", "value": { "type": "number", "number": 0 } }
+          ]
+        },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:dark_oak_planks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "farm.b1", "scope": "game" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "farm.b2", "scope": "game" } } ] }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 2,
       "name": "Farm.guard",
       "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
       "operations": [
@@ -94,7 +514,7 @@
             },
             { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.face", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
             { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
-            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -30, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "variable", "variable": "farm.gmap", "scope": "game" } } ] },
             { "action": "select_all_players", "values": [] },
             { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&aСтраж изучает карту… &7беги! Шифт в грядках = невидим", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
             { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": "%math(round((60 + random*60) * (1 - %var(farm.progress)*0.6)))" } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
@@ -109,10 +529,10 @@
             },
             { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.face", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
             { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
-            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 10, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "variable", "variable": "farm.gfield", "scope": "game" } } ] },
             { "action": "select_all_players", "values": [] },
             { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&c&l⚠ СТРАЖ ОГЛЯДЫВАЕТСЯ! &7Замри или спрячься в грядках!", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
-            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.warden.heartbeat", "pitch": 1.5, "volume": 0.8 } }, { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.warden.heartbeat", "pitch": 1.5, "volume": 0.8 } }, { "name": "location", "value": { "type": "variable", "variable": "farm.gloc", "scope": "game" } } ] },
             { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": "%math(round((30 + random*30) * (1 - %var(farm.progress)*0.5)))" } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] }
           ]
         }
@@ -120,7 +540,7 @@
     },
     {
       "type": "function",
-      "position": 2,
+      "position": 3,
       "name": "Farm.hud",
       "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
       "operations": [
@@ -168,7 +588,7 @@
                 { "name": "pitch", "value": { "type": "variable", "variable": "farm.ppitch", "scope": "game" } }
               ]
             },
-            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.progress", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(clamp((%var(farm.px) - 0) / 50, 0, 1))" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.progress", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(clamp((%var(farm.px) - %var(farm.sx)) / %var(farm.length), 0, 1))" } } ] },
             {
               "action": "player_set_boss_bar",
               "values": [
@@ -239,7 +659,7 @@
     },
     {
       "type": "function",
-      "position": 3,
+      "position": 4,
       "name": "Farm.stop",
       "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
       "operations": [
@@ -249,7 +669,7 @@
         { "action": "entity_remove", "values": [] },
         { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.player)", "parsing": "plain" } } ] },
         { "action": "player_remove_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "farm_bar", "parsing": "plain" } } ] },
-        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
         {
           "action": "player_send_title",
           "values": [
@@ -260,12 +680,12 @@
             { "name": "fade_out", "value": { "type": "number", "number": 20 } }
           ]
         },
-        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.iron_golem.death", "pitch": 0.7, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] }
+        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.iron_golem.death", "pitch": 0.7, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } } ] }
       ]
     },
     {
       "type": "event",
-      "position": 4,
+      "position": 5,
       "event": "player_move",
       "operations": [
         {
@@ -278,8 +698,8 @@
             {
               "action": "if_player_in_area",
               "values": [
-                { "name": "location_1", "value": { "type": "location", "x": 45, "y": 0, "z": -2, "yaw": 0, "pitch": 0 } },
-                { "name": "location_2", "value": { "type": "location", "x": 50, "y": 0, "z": 2, "yaw": 0, "pitch": 0 } },
+                { "name": "location_1", "value": { "type": "variable", "variable": "farm.fin1", "scope": "game" } },
+                { "name": "location_2", "value": { "type": "variable", "variable": "farm.fin2", "scope": "game" } },
                 { "name": "ignore_y_axis", "value": { "type": "enum", "enum": "TRUE" } },
                 { "name": "intersect_type", "value": { "type": "enum", "enum": "POINT" } },
                 { "name": "check_type", "value": { "type": "enum", "enum": "CONTAINS" } }
@@ -295,14 +715,30 @@
                   "action": "player_send_title",
                   "values": [
                     { "name": "title", "value": { "type": "text", "text": "&6&lПОБЕГ УДАЛСЯ!", "parsing": "legacy" } },
-                    { "name": "subtitle", "value": { "type": "text", "text": "&fТы добрался до амбара. Ошибок: &e%var(farm.fails)&f, время: &e%var(farm.time)&fс", "parsing": "legacy" } },
+                    { "name": "subtitle", "value": { "type": "text", "text": "&fОшибок: &e%var(farm.fails)&f, время: &e%math(%var(farm.maxtime) - %var(farm.time))&fс", "parsing": "legacy" } },
                     { "name": "fade_in", "value": { "type": "number", "number": 10 } },
                     { "name": "stay", "value": { "type": "number", "number": 70 } },
                     { "name": "fade_out", "value": { "type": "number", "number": 20 } }
                   ]
                 },
                 { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:golden_carrot\"}" } }, { "name": "amount", "value": { "type": "number", "number": 3 } } ] },
-                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 47, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] }
+                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "farm.fin2", "scope": "game" } } ] },
+                { "action": "select_all_players", "values": [] },
+                { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&e%player% &7прошёл Ферму за &e%math(%var(farm.maxtime) - %var(farm.time))&7с!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "farm.winner", "scope": "save" } },
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } }
+                  ],
+                  "operations": [
+                    { "action": "select_all_players", "values": [] },
+                    { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&6&l🏆 &e%player% &6— ПЕРВЫЙ, кто прошёл Ферму!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.winner", "scope": "save" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.winnername", "scope": "save" } }, { "name": "value", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.winnertime", "scope": "save" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.maxtime) - %var(farm.time))" } } ] }
+                  ]
+                }
               ]
             }
           ]
@@ -311,7 +747,7 @@
     },
     {
       "type": "event",
-      "position": 5,
+      "position": 6,
       "event": "player_move",
       "operations": [
         {
@@ -331,8 +767,8 @@
                 {
                   "action": "if_player_in_area",
                   "values": [
-                    { "name": "location_1", "value": { "type": "location", "x": 0, "y": 0, "z": -2, "yaw": 0, "pitch": 0 } },
-                    { "name": "location_2", "value": { "type": "location", "x": 50, "y": 0, "z": 2, "yaw": 0, "pitch": 0 } },
+                    { "name": "location_1", "value": { "type": "variable", "variable": "farm.a1", "scope": "game" } },
+                    { "name": "location_2", "value": { "type": "variable", "variable": "farm.a2", "scope": "game" } },
                     { "name": "ignore_y_axis", "value": { "type": "enum", "enum": "TRUE" } },
                     { "name": "intersect_type", "value": { "type": "enum", "enum": "POINT" } },
                     { "name": "check_type", "value": { "type": "enum", "enum": "CONTAINS" } }
@@ -344,8 +780,8 @@
                       "values": [],
                       "operations": [
                         { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
-                        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
-                        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.iron_golem.attack", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+                        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                        { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.iron_golem.attack", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "variable", "variable": "farm.start", "scope": "game" } } ] },
                         {
                           "action": "player_send_title",
                           "values": [
