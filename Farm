@@ -1,0 +1,212 @@
+{
+  "name": "Farm",
+  "display_name": "Ферма: Побег от Стража",
+  "description": "Stealth run in Little Nightmares style (red light / green light). The Guard studies his map (safe to move), then turns around (freeze or get caught and teleported back). Reach the barn to win. Start: RMB with an iron hoe. EDIT the coordinate literals marked EDIT-START / EDIT-FIELD / EDIT-FINISH / EDIT-GUARD.",
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "event": "player_interact",
+      "operations": [
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_hoe\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_variable_equals",
+              "is_inverted": "true",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.state", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.state", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.token) + 1)" } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.guard", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "farmguard_%random_uuid%", "parsing": "plain" } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.fails", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+                {
+                  "action": "game_spawn_mob",
+                  "values": [
+                    { "name": "mob", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:iron_golem\"}" } },
+                    { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -8, "yaw": 0, "pitch": 0 } },
+                    { "name": "health", "value": { "type": "number", "number": 100 } },
+                    { "name": "custom_name", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } },
+                    { "name": "main_hand", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:filled_map\"}" } }
+                  ]
+                },
+                { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
+                { "action": "entity_set_ai", "values": [ { "name": "ai", "value": { "type": "enum", "enum": "FALSE" } } ] },
+                { "action": "entity_set_invulnerable", "values": [ { "name": "invulnerable", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                { "action": "entity_set_custom_name_visibility", "values": [ { "name": "visibility", "value": { "type": "enum", "enum": "FALSE" } } ] },
+                { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -30, "yaw": 0, "pitch": 0 } } ] },
+                { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                {
+                  "action": "player_send_title",
+                  "values": [
+                    { "name": "title", "value": { "type": "text", "text": "&6&lФЕРМА", "parsing": "legacy" } },
+                    { "name": "subtitle", "value": { "type": "text", "text": "&fСтраж изучает карту — беги, пока он не обернулся!", "parsing": "legacy" } },
+                    { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+                    { "name": "stay", "value": { "type": "number", "number": 60 } },
+                    { "name": "fade_out", "value": { "type": "number", "number": 15 } }
+                  ]
+                },
+                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:block.bell.use", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+                { "action": "start_process", "values": [ { "name": "process_name", "value": { "type": "text", "text": "Farm.guard", "parsing": "plain" } }, { "name": "target_mode", "value": { "type": "enum", "enum": "NO_TARGET" } }, { "name": "local_variables_mode", "value": { "type": "enum", "enum": "DONT_COPY" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 1,
+      "name": "Farm.guard",
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{}" } } ],
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.ttok", "scope": "game" } }, { "name": "value", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } } ] },
+        {
+          "action": "repeat_while",
+          "values": [
+            { "name": "value", "value": { "type": "number", "number": 1 } },
+            { "name": "compare", "value": { "type": "number", "number": 1 } }
+          ],
+          "conditional": { "action": "if_variable_equals", "is_inverted": "false" },
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "is_inverted": "true",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "farm.ttok", "scope": "game" } ] } }
+              ],
+              "operations": [ { "action": "control_end_thread", "values": [] } ]
+            },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.face", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
+            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": -30, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&aСтраж изучает карту… &7(можно двигаться)", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": "%math(60 + random*60)" } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] },
+            {
+              "action": "if_variable_equals",
+              "is_inverted": "true",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "variable", "variable": "farm.ttok", "scope": "game" } ] } }
+              ],
+              "operations": [ { "action": "control_end_thread", "values": [] } ]
+            },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.face", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+            { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
+            { "action": "entity_face_location", "values": [ { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 10, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "select_all_players", "values": [] },
+            { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "text", "text": "&c&l⚠ СТРАЖ ОГЛЯДЫВАЕТСЯ! &7Замри!", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] },
+            { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.warden.heartbeat", "pitch": 1.5, "volume": 0.8 } }, { "name": "location", "value": { "type": "location", "x": 25, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+            { "action": "control_wait", "values": [ { "name": "duration", "value": { "type": "number", "number": "%math(30 + random*30)" } }, { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "event": "player_move",
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "farm.state", "scope": "game" } },
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }
+          ],
+          "operations": [
+            {
+              "action": "if_player_in_area",
+              "values": [
+                { "name": "location_1", "value": { "type": "location", "x": 45, "y": 0, "z": -2, "yaw": 0, "pitch": 0 } },
+                { "name": "location_2", "value": { "type": "location", "x": 50, "y": 0, "z": 2, "yaw": 0, "pitch": 0 } },
+                { "name": "ignore_y_axis", "value": { "type": "enum", "enum": "TRUE" } },
+                { "name": "intersect_type", "value": { "type": "enum", "enum": "POINT" } },
+                { "name": "check_type", "value": { "type": "enum", "enum": "CONTAINS" } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.state", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.token", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.token) + 1)" } } ] },
+                { "action": "select_entity_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(farm.guard)", "parsing": "plain" } } ] },
+                { "action": "entity_remove", "values": [] },
+                { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                {
+                  "action": "player_send_title",
+                  "values": [
+                    { "name": "title", "value": { "type": "text", "text": "&6&lПОБЕГ УДАЛСЯ!", "parsing": "legacy" } },
+                    { "name": "subtitle", "value": { "type": "text", "text": "&fТы добрался до амбара. Ошибок: &e%var(farm.fails)", "parsing": "legacy" } },
+                    { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+                    { "name": "stay", "value": { "type": "number", "number": 70 } },
+                    { "name": "fade_out", "value": { "type": "number", "number": 20 } }
+                  ]
+                },
+                { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:golden_carrot\"}" } }, { "name": "amount", "value": { "type": "number", "number": 3 } } ] },
+                { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:ui.toast.challenge_complete", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 47, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "event": "player_move",
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "farm.state", "scope": "game" } },
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "farm.face", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } }
+              ],
+              "operations": [
+                {
+                  "action": "if_player_in_area",
+                  "values": [
+                    { "name": "location_1", "value": { "type": "location", "x": 0, "y": 0, "z": -2, "yaw": 0, "pitch": 0 } },
+                    { "name": "location_2", "value": { "type": "location", "x": 50, "y": 0, "z": 2, "yaw": 0, "pitch": 0 } },
+                    { "name": "ignore_y_axis", "value": { "type": "enum", "enum": "TRUE" } },
+                    { "name": "intersect_type", "value": { "type": "enum", "enum": "POINT" } },
+                    { "name": "check_type", "value": { "type": "enum", "enum": "CONTAINS" } }
+                  ],
+                  "operations": [
+                    { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                    { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                    { "action": "player_play_sound", "values": [ { "name": "sound", "value": { "type": "sound", "sound": "minecraft:entity.iron_golem.attack", "pitch": 1.0, "volume": 1.0 } }, { "name": "location", "value": { "type": "location", "x": 0, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } } ] },
+                    {
+                      "action": "player_send_title",
+                      "values": [
+                        { "name": "title", "value": { "type": "text", "text": "&c&lПОЙМАН!", "parsing": "legacy" } },
+                        { "name": "subtitle", "value": { "type": "text", "text": "&fСтраж заметил движение. Назад к воротам!", "parsing": "legacy" } },
+                        { "name": "fade_in", "value": { "type": "number", "number": 5 } },
+                        { "name": "stay", "value": { "type": "number", "number": 40 } },
+                        { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+                      ]
+                    },
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "farm.fails", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(farm.fails) + 1)" } } ] }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
