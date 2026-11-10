@@ -1,0 +1,357 @@
+{
+  "name": "Auto_park",
+  "display_name": "Auto Park — бесконечный паркур",
+  "description": "Бесконечный генератор паркура с 5 уровнями сложности (от прогулки до кошмара). Старт: ПКМ с блейз-родом. Пока идёт игра — ПКМ с блейз-родом переключает сложность 1..5 (цвет платформ меняется). Прыжки — классика Minecraft-паркура: обычные, вверх (+1), вниз (с увеличенной дистанцией), с боковым смещением. При падении игрок возвращается на последний чекпоинт, генерация бесконечная вперёд по X, старые платформы позади автоматически удаляются. Игра однопользовательская (один активный забег).",
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "operations": [
+        {
+          "action": "if_game_event_item_equals",
+          "values": [
+            { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blaze_rod\"}" } },
+            { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }
+          ],
+          "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "pk.active", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "pk.target", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "%player%", "parsing": "plain" } ] } },
+                    { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+                  ],
+                  "operations": [
+                    { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.diff", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                    { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cПарк уже идёт! Игрок: &f%var(pk.target)", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.start", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_interact"
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "pk.active", "scope": "game" } },
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+            { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "pk.target", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "%player%", "parsing": "plain" } ] } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                { "action": "set_variable_get_coordinate", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "fy", "scope": "local" } }, { "name": "location", "value": { "type": "game_value", "game_value": "event_new_location", "selection": "null" } }, { "name": "type", "value": { "type": "enum", "enum": "Y" } } ] },
+                {
+                  "action": "if_variable_less",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "fy", "scope": "local" } },
+                    { "name": "compare", "value": { "type": "number", "number": "%math(%var(pk.py) - 20)" } }
+                  ],
+                  "operations": [
+                    { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                    { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+                    { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                    { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&cПадение! Возврат на чекпоинт", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "locmin", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) - floor(%var(pk.s) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) - floor(%var(pk.s) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+                    { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "locmax", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) + floor(%var(pk.s) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) + floor(%var(pk.s) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+                    {
+                      "action": "if_variable_location_in_range",
+                      "values": [
+                        { "name": "value", "value": { "type": "game_value", "game_value": "event_new_location", "selection": "null" } },
+                        { "name": "min", "value": { "type": "variable", "variable": "locmin", "scope": "local" } },
+                        { "name": "max", "value": { "type": "variable", "variable": "locmax", "scope": "local" } },
+                        { "name": "border_handling", "value": { "type": "enum", "enum": "BLOCK" } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "pk.chk", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 0 } ] } },
+                            { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+                          ],
+                          "operations": [
+                            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.chk", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+                            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.gen", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "if_variable_equals",
+                          "values": [
+                            { "name": "value", "value": { "type": "variable", "variable": "pk.chk", "scope": "game" } },
+                            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+                            { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+                          ],
+                          "operations": [
+                            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.chk", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_move"
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "pk.active", "scope": "game" } },
+            { "name": "compare", "value": { "type": "array", "values": [ { "type": "number", "number": 1 } ] } },
+            { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "pk.target", "scope": "game" } },
+                { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "%player%", "parsing": "plain" } ] } },
+                { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } }
+              ],
+              "operations": [
+                { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+                { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+                { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "rp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+                { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&bВозврат на паркур!", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_respawn"
+    },
+    {
+      "type": "function",
+      "position": 3,
+      "operations": [
+        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.target", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.active", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.score", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.chk", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_get_all_coordinates", "values": [ { "name": "location", "value": { "type": "game_value", "game_value": "location", "selection": "null" } }, { "name": "x", "value": { "type": "variable", "variable": "x", "scope": "local" } }, { "name": "y", "value": { "type": "variable", "variable": "y", "scope": "local" } }, { "name": "z", "value": { "type": "variable", "variable": "z", "scope": "local" } }, { "name": "yaw", "value": { "type": "variable", "variable": "wy", "scope": "local" } }, { "name": "pitch", "value": { "type": "variable", "variable": "wp", "scope": "local" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.px", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(x))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.py", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(y) - 1)" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.pz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(z))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.sx0", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(floor(x))" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) - 1)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) - 1)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) + 1)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) + 1)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:stone_bricks\"}" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "l2", "scope": "local" } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.block", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.gen", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.gen", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) + 1)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "cp", "scope": "local" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&aПарк запущен!", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7ПКМ с блейз-родом — сменить сложность (1-5)", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 50 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] },
+        { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "pk_bar", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&bПарк &7| Очки: &f%var(pk.score) &7| Сложность &f%var(pk.diff)&7/5", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(wrap(%var(pk.score), 0, 100))" } }, { "name": "color", "value": { "type": "enum", "enum": "BLUE" } }, { "name": "style", "value": { "type": "enum", "enum": "NOTCHED_10" } }, { "name": "sky_effect", "value": { "type": "enum", "enum": "NONE" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blaze_rod\"}" } } ],
+      "name": "PK.start"
+    },
+    {
+      "type": "function",
+      "position": 4,
+      "operations": [
+        {
+          "action": "if_variable_less_or_equals",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } },
+            { "name": "compare", "value": { "type": "number", "number": 1 } }
+          ],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" } } ] }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_less_or_equals",
+              "values": [
+                { "name": "value", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } },
+                { "name": "compare", "value": { "type": "number", "number": 2 } }
+              ],
+              "operations": [
+                { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\"}" } } ] }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "if_variable_less_or_equals",
+                  "values": [
+                    { "name": "value", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } },
+                    { "name": "compare", "value": { "type": "number", "number": 3 } }
+                  ],
+                  "operations": [
+                    { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:yellow_concrete\"}" } } ] }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_less_or_equals",
+                      "values": [
+                        { "name": "value", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } },
+                        { "name": "compare", "value": { "type": "number", "number": 4 } }
+                      ],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:orange_concrete\"}" } } ] }
+                      ]
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "value", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } } ] }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" } } ],
+      "name": "PK.block"
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.dy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(-3 + floor(random * 5) + (%var(pk.diff) >= 4 ? -1 : 0))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.dy", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.py) < 12 ? abs(%var(pk.dy)) : (%var(pk.py) > 200 ? -abs(%var(pk.dy)) : %var(pk.dy)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.gap", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.dy) == 1 ? 2 : (%var(pk.diff) <= 2 ? 2 : 3) + floor(random * (min(4 + max(0, -%var(pk.dy)) - (%var(pk.diff) <= 2 ? 1 : 0), 6) - (%var(pk.diff) <= 2 ? 2 : 3) + 1)))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.dz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.diff) <= 2 ? floor(random * 3) - 1 : floor(random * 5) - 2)" } } ] },
+        { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.px", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.gap))" } } ] },
+        { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.py", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.dy))" } } ] },
+        { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.pz", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.dz))" } } ] },
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.s", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(clamp(4 - %var(pk.diff) + floor(random * 2), 1, 3))" } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) - floor(%var(pk.s) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) - floor(%var(pk.s) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l2", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) + floor(%var(pk.s) / 2))" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py))" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) + floor(%var(pk.s) / 2))" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "variable", "variable": "pk.block", "scope": "game" } }, { "name": "pos_1", "value": { "type": "variable", "variable": "l1", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "l2", "scope": "local" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_concrete\"}" } } ],
+      "name": "PK.step"
+    },
+    {
+      "type": "function",
+      "position": 6,
+      "operations": [
+        {
+          "action": "repeat_multi_times",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "i", "scope": "local" } },
+            { "name": "amount", "value": { "type": "number", "number": 4 } }
+          ],
+          "operations": [
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.step", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+          ]
+        },
+        {
+          "action": "if_variable_greater",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "pk.px", "scope": "game" } },
+            { "name": "compare", "value": { "type": "number", "number": "%math(%var(pk.sx0) + 50)" } }
+          ],
+          "operations": [
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l3", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) - 60)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) - 30)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) - 25)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "l4", "scope": "local" } }, { "name": "x", "value": { "type": "number", "number": "%math(%var(pk.px) - 25)" } }, { "name": "y", "value": { "type": "number", "number": "%math(%var(pk.py) + 20)" } }, { "name": "z", "value": { "type": "number", "number": "%math(%var(pk.pz) + 25)" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "game_clear_region", "values": [ { "name": "pos_1", "value": { "type": "variable", "variable": "l3", "scope": "local" } }, { "name": "pos_2", "value": { "type": "variable", "variable": "l4", "scope": "local" } } ] }
+          ]
+        },
+        { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.score", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 4 } } ] },
+        {
+          "action": "if_variable_greater",
+          "values": [
+            { "name": "value", "value": { "type": "variable", "variable": "pk.score", "scope": "game" } },
+            { "name": "compare", "value": { "type": "variable", "variable": "pk.best", "scope": "save" } }
+          ],
+          "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.best", "scope": "save" } }, { "name": "value", "value": { "type": "variable", "variable": "pk.score", "scope": "game" } } ] }
+          ]
+        },
+        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%var(pk.target)", "parsing": "plain" } } ] },
+        { "action": "player_set_boss_bar", "values": [ { "name": "id", "value": { "type": "text", "text": "pk_bar", "parsing": "plain" } }, { "name": "title", "value": { "type": "text", "text": "&bПарк &7| Очки: &f%var(pk.score) &7| Рекорд: &6%var_save(pk.best) &7| Сложность &f%var(pk.diff)&7/5", "parsing": "legacy" } }, { "name": "progress", "value": { "type": "number", "number": "%math(wrap(%var(pk.score), 0, 100))" } }, { "name": "color", "value": { "type": "enum", "enum": "BLUE" } }, { "name": "style", "value": { "type": "enum", "enum": "NOTCHED_10" } }, { "name": "sky_effect", "value": { "type": "enum", "enum": "NONE" } } ] },
+        { "action": "player_send_action_bar", "values": [ { "name": "messages", "value": { "type": "array", "values": [ { "type": "text", "text": "&a+4 очка! Сложность: %var(pk.diff)/5", "parsing": "legacy" } ] } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:red_concrete\"}" } } ],
+      "name": "PK.gen"
+    },
+    {
+      "type": "function",
+      "position": 7,
+      "operations": [
+        { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "pk.diff", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": "%math(%var(pk.diff) >= 5 ? 1 : %var(pk.diff) + 1)" } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "PK.block", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] },
+        { "action": "select_player_by_name", "values": [ { "name": "name_or_uuid", "value": { "type": "text", "text": "%player%", "parsing": "plain" } } ] },
+        { "action": "player_send_title", "values": [ { "name": "title", "value": { "type": "text", "text": "&6Сложность: %var(pk.diff)/5", "parsing": "legacy" } }, { "name": "subtitle", "value": { "type": "text", "text": "&7Новые платформы станут другим цветом", "parsing": "legacy" } }, { "name": "fade_in", "value": { "type": "number", "number": 10 } }, { "name": "stay", "value": { "type": "number", "number": 30 } }, { "name": "fade_out", "value": { "type": "number", "number": 10 } } ] }
+      ],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "TRUE" } }, { "name": "icon", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:blaze_rod\"}" } } ],
+      "name": "PK.diff"
+    }
+  ]
+}
