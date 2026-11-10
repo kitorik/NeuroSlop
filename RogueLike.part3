@@ -1,0 +1,1330 @@
+{
+  "handlers": [
+    {
+      "type": "function",
+      "position": 8,
+      "name": "PF.scan",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:spyglass\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "repeat_on_grid",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfL",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "variable",
+                "variable": "pfScanMin",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "variable",
+                "variable": "pfScanMax",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "if_game_block_equals",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfL",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "blocks",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:green_wool\"}"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLx",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfL",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLy",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfL",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Y"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLz",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfL",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Z"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLx)"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLy - 1)"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLz)"
+                      }
+                    },
+                    {
+                      "name": "yaw",
+                      "value": {}
+                    },
+                    {
+                      "name": "pitch",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_block_data",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignTxt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "tag_name",
+                      "value": {
+                        "type": "text",
+                        "text": "front_text",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_remove_text",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignTxt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "text",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignTxt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "remove",
+                      "value": {
+                        "type": "text",
+                        "text": "[^0-9-]",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "regex",
+                      "value": {
+                        "type": "enum",
+                        "enum": "TRUE"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSignTxt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfMin",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(min(8, max(1, 1 + floor(pfRoomsN / 4))))"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_random_number",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfCnt",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "min",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfMin)"
+                          }
+                        },
+                        {
+                          "name": "max",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfMin + 2)"
+                          }
+                        },
+                        {
+                          "name": "integer",
+                          "value": {
+                            "type": "enum",
+                            "enum": "TRUE"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "is_inverted": false
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_text_contains",
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfSignTxt",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "text",
+                            "text": "-",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "ignore_case",
+                          "value": {
+                            "type": "enum",
+                            "enum": "FALSE"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_split_text",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfParts",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "text",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfSignTxt",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "delimiter",
+                              "value": {
+                                "type": "text",
+                                "text": "-",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_get_list_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfN",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "list",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfParts",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "number",
+                              "value": {
+                                "type": "number",
+                                "number": 0
+                              }
+                            },
+                            {
+                              "name": "default_value",
+                              "value": {
+                                "type": "number",
+                                "number": 0
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_get_list_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfM",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "list",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfParts",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "number",
+                              "value": {
+                                "type": "number",
+                                "number": 1
+                              }
+                            },
+                            {
+                              "name": "default_value",
+                              "value": {
+                                "type": "number",
+                                "number": 0
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_random_number",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfCnt",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "min",
+                              "value": {
+                                "type": "number",
+                                "number": "%math(pfN)"
+                              }
+                            },
+                            {
+                              "name": "max",
+                              "value": {
+                                "type": "number",
+                                "number": "%math(pfM)"
+                              }
+                            },
+                            {
+                              "name": "integer",
+                              "value": {
+                                "type": "enum",
+                                "enum": "TRUE"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "is_inverted": false
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfCnt",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": "%math(pfSignTxt)"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLx + 0.5)"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLy + 1)"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLz + 0.5)"
+                      }
+                    },
+                    {
+                      "name": "yaw",
+                      "value": {}
+                    },
+                    {
+                      "name": "pitch",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnPts",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "pfSpawnLoc",
+                            "scope": "line"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnCnt",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "pfCnt",
+                            "scope": "line"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawned",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "number",
+                            "number": 0
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "is_inverted": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 9,
+      "name": "PF.listener",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Ник игрока\",\"parsingType\":\"PLAIN\"}}",
+                "name": "pl",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{}",
+                "slot": 0,
+                "description_slot": 9
+              }
+            ]
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:note_block\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [
+            {
+              "name": "name_or_uuid",
+              "value": {
+                "type": "text",
+                "text": "%var_line(pl)",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_block_material",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfStand",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "game_value",
+                "game_value": "block_beneath",
+                "selection": "{\"type\":\"default\"}"
+              }
+            },
+            {
+              "name": "value_type",
+              "value": {
+                "type": "enum",
+                "enum": "ID"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_text_contains",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfStand",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "text",
+                "text": "green_wool",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "ignore_case",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "player_play_sound",
+              "values": [
+                {
+                  "name": "sound",
+                  "value": {
+                    "type": "sound",
+                    "sound": "minecraft:entity.zombie.ambient",
+                    "pitch": 0.6,
+                    "volume": 1
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "game_value",
+                    "game_value": "location",
+                    "selection": "{\"type\":\"default\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_send_action_bar",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&c⚔ Боевая зона! Зомби близко...",
+                        "parsing": "legacy"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SPACES"
+                  }
+                }
+              ]
+            }
+          ],
+          "is_inverted": false
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_variable_text_contains",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfStand",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "text",
+                    "text": "gold_block",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfPx",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "location",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_put_map_value",
+                  "values": [
+                    {
+                      "name": "removed_value",
+                      "value": {}
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfResp",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "map",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfResp",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "key",
+                      "value": {
+                        "type": "text",
+                        "text": "%var_line(pl)",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfPx)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_play_sound",
+                  "values": [
+                    {
+                      "name": "sound",
+                      "value": {
+                        "type": "sound",
+                        "sound": "minecraft:block.note_block.chime",
+                        "pitch": 1.2,
+                        "volume": 1
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "location",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_send_action_bar",
+                  "values": [
+                    {
+                      "name": "messages",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "&6✔ Чекпоинт сохранён!",
+                            "parsing": "legacy"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "merging",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SPACES"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "is_inverted": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 10,
+      "name": "PF.gate",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:iron_bars\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfGateClosed",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfBehind",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ]
+            },
+            {
+              "action": "repeat_for_each_in_list",
+              "values": [
+                {
+                  "name": "index_variable",
+                  "value": {}
+                },
+                {
+                  "name": "value_variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pl",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "list",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfPlayers",
+                    "scope": "game"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "select_player_by_name",
+                  "values": [
+                    {
+                      "name": "name_or_uuid",
+                      "value": {
+                        "type": "text",
+                        "text": "%var_line(pl)",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfPfx",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "location",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_less",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfPfx)"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfGateX - 1.5)"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfBehind",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfBehind + 1)"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "is_inverted": false
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfBehind",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 0
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_greater",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfFrontX",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfGateX - 3)"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "game_clear_region",
+                      "values": [
+                        {
+                          "name": "pos_1",
+                          "value": {
+                            "type": "location",
+                            "x": "%math(pfGateX)",
+                            "y": 65,
+                            "z": 0,
+                            "yaw": 0,
+                            "pitch": 0
+                          }
+                        },
+                        {
+                          "name": "pos_2",
+                          "value": {
+                            "type": "location",
+                            "x": "%math(pfGateX)",
+                            "y": 88,
+                            "z": 0,
+                            "yaw": 0,
+                            "pitch": 0
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfGateClosed",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 0
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_all_players",
+                      "values": []
+                    },
+                    {
+                      "action": "player_send_message",
+                      "values": [
+                        {
+                          "name": "messages",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "&a✔ Чекпоинт пройден! Все игроки в сборе.",
+                                "parsing": "legacy"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "merging",
+                          "value": {
+                            "type": "enum",
+                            "enum": "SPACES"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_play_sound",
+                      "values": [
+                        {
+                          "name": "sound",
+                          "value": {
+                            "type": "sound",
+                            "sound": "minecraft:block.note_block.pling",
+                            "pitch": 1.5,
+                            "volume": 1
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "game_value",
+                            "game_value": "location",
+                            "selection": "{\"type\":\"default\"}"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "is_inverted": false
+                }
+              ],
+              "is_inverted": false
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    }
+  ]
+}
