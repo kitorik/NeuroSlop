@@ -1,0 +1,1384 @@
+{
+  "handlers": [
+    {
+      "type": "function",
+      "position": 11,
+      "name": "PF.shift",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:piston\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfS",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(floor(pfFrontX - 24.5))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_less",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfS",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfS",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "is_inverted": false
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfScore",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(pfScore + pfS)"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfGenX",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(pfGenX - pfS)"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfGateClosed",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfGateX",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(pfGateX - pfS)"
+                  }
+                }
+              ]
+            }
+          ],
+          "is_inverted": false
+        },
+        {
+          "action": "set_variable_create_list",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfNPts",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": []
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_list",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfNCnt",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": []
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_list",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfNDone",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": []
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_list_length",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpN",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "list",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpawnPts",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfI",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": "%math(pfSpN - 1)"
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_list_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfDone",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "list",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfSpawned",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(pfI)"
+                  }
+                },
+                {
+                  "name": "default_value",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfDone",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 0
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_list_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "list",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnPts",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfI)"
+                      }
+                    },
+                    {
+                      "name": "default_value",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_all_coordinates",
+                  "values": [
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSx",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSy",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSz",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "yaw",
+                      "value": {}
+                    },
+                    {
+                      "name": "pitch",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfSx - pfS)"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfSy)"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfSz)"
+                      }
+                    },
+                    {
+                      "name": "yaw",
+                      "value": {}
+                    },
+                    {
+                      "name": "pitch",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_list_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfC",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "list",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnCnt",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfI)"
+                      }
+                    },
+                    {
+                      "name": "default_value",
+                      "value": {
+                        "type": "number",
+                        "number": 0
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfNPts",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "pfLoc",
+                            "scope": "line"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfNCnt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "pfC",
+                            "scope": "line"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_append_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfNDone",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "values",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "number",
+                            "number": 0
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "is_inverted": false
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpawnPts",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfNPts",
+                "scope": "line"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpawnCnt",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfNCnt",
+                "scope": "line"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpawned",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfNDone",
+                "scope": "line"
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            {
+              "name": "index_variable",
+              "value": {}
+            },
+            {
+              "name": "value_variable",
+              "value": {
+                "type": "variable",
+                "variable": "pl",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "list",
+              "value": {
+                "type": "variable",
+                "variable": "pfPlayers",
+                "scope": "game"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "select_player_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "%var_line(pl)",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_all_coordinates",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "game_value",
+                    "game_value": "location",
+                    "selection": "{\"type\":\"default\"}"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfTx",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfTy",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfTz",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {}
+                },
+                {
+                  "name": "pitch",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "action": "player_teleport",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "location",
+                    "x": "%math(pfTx - pfS)",
+                    "y": "%math(pfTy)",
+                    "z": "%math(pfTz)",
+                    "yaw": 0,
+                    "pitch": 0
+                  }
+                },
+                {
+                  "name": "keep_rotation",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                },
+                {
+                  "name": "keep_velocity",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                },
+                {
+                  "name": "dismount",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_map_keys",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "map",
+              "value": {
+                "type": "variable",
+                "variable": "pfResp",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_for_each_in_list",
+          "values": [
+            {
+              "name": "index_variable",
+              "value": {}
+            },
+            {
+              "name": "value_variable",
+              "value": {
+                "type": "variable",
+                "variable": "k",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "list",
+              "value": {
+                "type": "variable",
+                "variable": "pfRk",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_get_map_value_single",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfRv",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "map",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfResp",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "key",
+                  "value": {
+                    "type": "text",
+                    "text": "%var_line(k)",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "default_value",
+                  "value": {
+                    "type": "number",
+                    "number": 2.5
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_put_map_value",
+              "values": [
+                {
+                  "name": "removed_value",
+                  "value": {}
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfResp",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "map",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfResp",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "key",
+                  "value": {
+                    "type": "text",
+                    "text": "%var_line(k)",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(pfRv - pfS)"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "game_clear_region",
+          "values": [
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 0,
+                "y": 55,
+                "z": -1,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": "%math(pfS - 1)",
+                "y": 95,
+                "z": 1,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 12,
+      "name": "PF.zombies",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:zombie_head\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "set_variable_get_list_length",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpN",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "list",
+              "value": {
+                "type": "variable",
+                "variable": "pfSpawnPts",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfI",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": "%math(pfSpN - 1)"
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_list_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfDone",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "list",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfSpawned",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(pfI)"
+                  }
+                },
+                {
+                  "name": "default_value",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfDone",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 0
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_list_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "list",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfSpawnPts",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfI)"
+                      }
+                    },
+                    {
+                      "name": "default_value",
+                      "value": {}
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLx",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfLoc",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_less",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfLx)"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfFrontX + 22)"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_get_list_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfCnt",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "list",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfSpawnCnt",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "number",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfI)"
+                          }
+                        },
+                        {
+                          "name": "default_value",
+                          "value": {
+                            "type": "number",
+                            "number": 0
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "repeat_multi_times",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfZ",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "amount",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfCnt)"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "game_spawn_mob",
+                          "values": [
+                            {
+                              "name": "mob",
+                              "value": {
+                                "type": "item",
+                                "item": "{Count:1b,id:\"minecraft:zombie\"}"
+                              }
+                            },
+                            {
+                              "name": "location",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfLoc",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "custom_name",
+                              "value": {
+                                "type": "text",
+                                "text": "pfz",
+                                "parsing": "plain"
+                              }
+                            },
+                            {
+                              "name": "health",
+                              "value": {
+                                "type": "number",
+                                "number": 20
+                              }
+                            },
+                            {
+                              "name": "natural_equipment",
+                              "value": {
+                                "type": "enum",
+                                "enum": "TRUE"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_set_list_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfSpawned",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "list",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pfSpawned",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "number",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfI)"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 1
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "is_inverted": false
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "if_variable_less",
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfLx)"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "number",
+                            "number": "%math(pfFrontX - 40)"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_set_list_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfSpawned",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "list",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pfSpawned",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "number",
+                              "value": {
+                                "type": "number",
+                                "number": "%math(pfI)"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 1
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "is_inverted": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
