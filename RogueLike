@@ -1,8 +1,8 @@
-RogueLike — 2D-платформер (JustMc Creative+, JSON-модуль)
+RogueLike — 2D-платформер (JustMc Creative+, JSON-модуль). Код обновлён до актуальной версии навыка JAI (3.0.1).
 
-Полный файл (~95 КБ) не влезал в одну загрузку, поэтому модуль разбит на 5 части: RogueLike.part1 ... RogueLike.part5.
+Модуль разбит на 5 части: RogueLike.part1 ... RogueLike.part5 (полный файл ~95 КБ не влезал в одну загрузку).
 Каждая часть — валидный JSON вида { "handlers": [...] }.
 
-Сборка: из каждой части возьмите массив "handlers" и склейте их по порядку part1 + part2 + ... в один файл { "handlers": [ ...все 15 хендлеров... ] }, затем импортируйте в JustMc.
+Сборка: из каждой части возьмите массив "handlers" и склейте по порядку part1 + part2 + ... в один файл { "handlers": [ ...все 15 хендлеров... ] }, затем импортируйте в JustMc.
 
 Состав: события world_start / player_join / player_right_click / player_rotate / world_stop; функции PF.start, PF.stop, PF.room, PF.scan, PF.listener, PF.gate, PF.shift, PF.zombies; процессы PF.gen, PF.cam.
