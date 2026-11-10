@@ -1,0 +1,1326 @@
+{
+  "handlers": [
+    {
+      "type": "event",
+      "position": 0,
+      "event": "world_start",
+      "operations": [
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:stone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2000,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2011,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_clear_region",
+          "values": [
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2005,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2006,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:green_wool\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2010,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2010,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:oak_sign\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2010,
+                "y": 99,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2010,
+                "y": 99,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:stone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2012,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2021,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_clear_region",
+          "values": [
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2014,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2015,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_clear_region",
+          "values": [
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2018,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2019,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:stone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2022,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2033,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:oak_planks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2026,
+                "y": 101,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2027,
+                "y": 101,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "game_clear_region",
+          "values": [
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "location",
+                "x": 2030,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "location",
+                "x": 2031,
+                "y": 100,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRA1",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2000,
+                "y": 99,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRA2",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2011,
+                "y": 103,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRB1",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2012,
+                "y": 99,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRB2",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2021,
+                "y": 103,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRC1",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2022,
+                "y": 99,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRC2",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "location",
+                "x": 2033,
+                "y": 103,
+                "z": 200,
+                "yaw": 0,
+                "pitch": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_map_from_values",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfMA",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "keys",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "c1",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "c2",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "pfRA1",
+                    "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "pfRA2",
+                    "scope": "game"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_map_from_values",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfMB",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "keys",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "c1",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "c2",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "pfRB1",
+                    "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "pfRB2",
+                    "scope": "game"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_map_from_values",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfMC",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "keys",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "c1",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "c2",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "pfRC1",
+                    "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "pfRC2",
+                    "scope": "game"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_create_map_from_values",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pfRooms",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "keys",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "roomA",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "roomB",
+                    "parsing": "plain"
+                  },
+                  {
+                    "type": "text",
+                    "text": "roomC",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "pfMA",
+                    "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "pfMB",
+                    "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "pfMC",
+                    "scope": "game"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "select_all_players",
+          "values": []
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&b2D-Платформер загружен! &8» &7ПКМ удочкой — старт/стоп, ПКМ пером (левая рука) в воздухе — двойной прыжок",
+                    "parsing": "legacy"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "merging",
+              "value": {
+                "type": "enum",
+                "enum": "SPACES"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 1,
+      "event": "player_join",
+      "operations": [
+        {
+          "action": "player_set_equipment",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:carrot_on_a_stick\"}"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "enum",
+                "enum": "HAND"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_set_equipment",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:feather\"}"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "enum",
+                "enum": "OFF_HAND"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_set_slot_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:stone_sword\"}"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfActive",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "player_set_world_border",
+              "values": [
+                {
+                  "name": "center",
+                  "value": {
+                    "type": "location",
+                    "x": 24,
+                    "y": 65,
+                    "z": 0.5,
+                    "yaw": 0,
+                    "pitch": 0
+                  }
+                },
+                {
+                  "name": "size",
+                  "value": {
+                    "type": "number",
+                    "number": 48
+                  }
+                },
+                {
+                  "name": "warning",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_set_gamemode",
+              "values": [
+                {
+                  "name": "gamemode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ADVENTURE"
+                  }
+                },
+                {
+                  "name": "flight_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "RESPECT_GAMEMODE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_set_fog_distance",
+              "values": [
+                {
+                  "name": "distance",
+                  "value": {
+                    "type": "number",
+                    "number": 6
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_teleport",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "location",
+                    "x": 2.5,
+                    "y": 70,
+                    "z": 0.5,
+                    "yaw": -90,
+                    "pitch": 0
+                  }
+                },
+                {
+                  "name": "keep_rotation",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                },
+                {
+                  "name": "keep_velocity",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                },
+                {
+                  "name": "dismount",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&7Ты в игре! Догоняй напарника.",
+                        "parsing": "legacy"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SPACES"
+                  }
+                }
+              ]
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "event": "player_right_click",
+      "operations": [
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:feather\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "OFF_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "TYPE_ONLY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pfActive",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfByY",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "block_beneath",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Y"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfPy",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "y_coordinate",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_greater",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(pfPy - pfByY)"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": 1.1
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pf%player%Dj",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "number",
+                                "number": 0
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "player_launch_up",
+                          "values": [
+                            {
+                              "name": "power",
+                              "value": {
+                                "type": "number",
+                                "number": 0.9
+                              }
+                            },
+                            {
+                              "name": "increment",
+                              "value": {
+                                "type": "enum",
+                                "enum": "FALSE"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "pf%player%Dj",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 1
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "player_play_sound",
+                          "values": [
+                            {
+                              "name": "sound",
+                              "value": {
+                                "type": "sound",
+                                "sound": "minecraft:entity.ender_dragon.flap",
+                                "pitch": 1.5,
+                                "volume": 0.8
+                              }
+                            },
+                            {
+                              "name": "location",
+                              "value": {
+                                "type": "game_value",
+                                "game_value": "location",
+                                "selection": "{\"type\":\"default\"}"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "is_inverted": false
+                    }
+                  ],
+                  "is_inverted": false
+                }
+              ],
+              "is_inverted": false
+            }
+          ],
+          "is_inverted": false
+        },
+        {
+          "action": "else",
+          "values": [],
+          "operations": [
+            {
+              "action": "if_player_is_holding",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:carrot_on_a_stick\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hand_slot",
+                  "value": {
+                    "type": "enum",
+                    "enum": "MAIN_HAND"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pfActive",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "number",
+                            "number": 0
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "PF.start",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "is_inverted": false
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "PF.stop",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "is_inverted": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "event": "player_rotate",
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pfActive",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": []
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 4,
+      "event": "world_stop",
+      "operations": [
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "PF.stop",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "args",
+              "value": {
+                "type": "map",
+                "values": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
