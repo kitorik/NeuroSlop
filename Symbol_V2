@@ -531,29 +531,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c1",
+                    "variable": "cp1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• 1",
+                    "text": "{\"text\":\"• 1\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -561,29 +554,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c1",
+                    "variable": "cp1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ 1",
+                    "text": "{\"text\":\"◦ 1\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -625,29 +611,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c2",
+                    "variable": "cp2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• 2",
+                    "text": "{\"text\":\"• 2\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -655,29 +634,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c2",
+                    "variable": "cp2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ 2",
+                    "text": "{\"text\":\"◦ 2\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -719,29 +691,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c3",
+                    "variable": "cp3",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• 3",
+                    "text": "{\"text\":\"• 3\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -749,29 +714,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c3",
+                    "variable": "cp3",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ 3",
+                    "text": "{\"text\":\"◦ 3\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -813,29 +771,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c4",
+                    "variable": "cp4",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• 4",
+                    "text": "{\"text\":\"• 4\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -843,29 +794,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c4",
+                    "variable": "cp4",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ 4",
+                    "text": "{\"text\":\"◦ 4\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -907,29 +851,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c5",
+                    "variable": "cd1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• Лёгкая",
+                    "text": "{\"text\":\"• Лёгкая\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -937,29 +874,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c5",
+                    "variable": "cd1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ Лёгкая",
+                    "text": "{\"text\":\"◦ Лёгкая\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1001,29 +931,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c6",
+                    "variable": "cd2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• Обычная",
+                    "text": "{\"text\":\"• Обычная\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1031,29 +954,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c6",
+                    "variable": "cd2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ Обычная",
+                    "text": "{\"text\":\"◦ Обычная\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1095,29 +1011,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c7",
+                    "variable": "cd3",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• Тяжёлая",
+                    "text": "{\"text\":\"• Тяжёлая\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1125,29 +1034,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c7",
+                    "variable": "cd3",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ Тяжёлая",
+                    "text": "{\"text\":\"◦ Тяжёлая\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1189,29 +1091,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c8",
+                    "variable": "cs1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• Нет",
+                    "text": "{\"text\":\"• Нет\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1219,29 +1114,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c8",
+                    "variable": "cs1",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ Нет",
+                    "text": "{\"text\":\"◦ Нет\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1283,29 +1171,22 @@
           ],
           "operations": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c9",
+                    "variable": "cs2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "• Да",
+                    "text": "{\"text\":\"• Да\",\"color\":\"lime\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1313,29 +1194,22 @@
           ],
           "else": [
             {
-              "action": "set_variable_text",
+              "action": "set_variable_value",
               "values": [
                 {
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "c9",
+                    "variable": "cs2",
                     "scope": "line"
                   }
                 },
                 {
-                  "name": "text",
+                  "name": "value",
                   "value": {
                     "type": "text",
-                    "text": "◦ Да",
+                    "text": "{\"text\":\"◦ Да\",\"color\":\"gray\",\"italic\":false}",
                     "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
                   }
                 }
               ]
@@ -1356,26 +1230,7 @@
               "name": "item",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(c1)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 11
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(c2)'}}}"
+                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'{\"text\":\"Люди\",\"color\":\"white\",\"italic\":false}',Lore:['%var_line(cp1)','%var_line(cp2)','%var_line(cp3)','%var_line(cp4)']}}}"
               }
             }
           ]
@@ -1394,7 +1249,7 @@
               "name": "item",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(c3)'}}}"
+                "item": "{Count:1b,id:\"minecraft:lime_dye\",tag:{display:{Name:'{\"text\":\"Сложность\",\"color\":\"white\",\"italic\":false}',Lore:['%var_line(cd1)','%var_line(cd2)','%var_line(cd3)']}}}"
               }
             }
           ]
@@ -1406,109 +1261,14 @@
               "name": "slot",
               "value": {
                 "type": "number",
-                "number": 13
+                "number": 14
               }
             },
             {
               "name": "item",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(c4)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 19
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:lime_dye\",tag:{display:{Name:'%var_line(c5)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 20
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:yellow_dye\",tag:{display:{Name:'%var_line(c6)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 21
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:red_dye\",tag:{display:{Name:'%var_line(c7)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 28
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:feather\",tag:{display:{Name:'%var_line(c8)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 29
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:sugar\",tag:{display:{Name:'%var_line(c9)'}}}"
+                "item": "{Count:1b,id:\"minecraft:feather\",tag:{display:{Name:'{\"text\":\"Спидран\",\"color\":\"white\",\"italic\":false}',Lore:['%var_line(cs1)','%var_line(cs2)']}}}"
               }
             }
           ]
@@ -1547,7 +1307,7 @@
               "name": "start",
               "value": {
                 "type": "number",
-                "number": 27
+                "number": 0
               }
             },
             {
@@ -1582,7 +1342,7 @@
                   "name": "compare",
                   "value": {
                     "type": "number",
-                    "number": 28
+                    "number": 10
                   }
                 }
               ],
@@ -1603,16 +1363,17 @@
                       "name": "compare",
                       "value": {
                         "type": "number",
-                        "number": 29
+                        "number": 12
                       }
                     }
                   ],
                   "operations": [
                     {
-                      "action": "player_set_inventory_menu_item",
+                      "action": "if_variable_not_equals",
+                      "is_inverted": false,
                       "values": [
                         {
-                          "name": "slot",
+                          "name": "value",
                           "value": {
                             "type": "variable",
                             "variable": "slot",
@@ -1620,11 +1381,56 @@
                           }
                         },
                         {
-                          "name": "item",
+                          "name": "compare",
                           "value": {
-                            "type": "item",
-                            "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}"
+                            "type": "number",
+                            "number": 14
                           }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "if_variable_not_equals",
+                          "is_inverted": false,
+                          "values": [
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "variable",
+                                "variable": "slot",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "compare",
+                              "value": {
+                                "type": "number",
+                                "number": 49
+                              }
+                            }
+                          ],
+                          "operations": [
+                            {
+                              "action": "player_set_inventory_menu_item",
+                              "values": [
+                                {
+                                  "name": "slot",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "slot",
+                                    "scope": "line"
+                                  }
+                                },
+                                {
+                                  "name": "item",
+                                  "value": {
+                                    "type": "item",
+                                    "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1720,1130 +1526,80 @@
           ]
         },
         {
-          "action": "if_variable_equals",
-          "is_inverted": false,
+          "action": "call_function",
           "values": [
             {
-              "name": "value",
+              "name": "function_name",
               "value": {
-                "type": "variable",
-                "variable": "sel_people",
-                "scope": "line"
+                "type": "text",
+                "text": "build_join_people",
+                "parsing": "plain"
               }
             },
             {
-              "name": "compare",
+              "name": "args",
               "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "1",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
+                "type": "map",
+                "values": {
+                  "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
                     "type": "variable",
-                    "variable": "j1",
+                    "variable": "sel_people",
                     "scope": "line"
                   }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• 1",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
                 }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j1",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ 1",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
+              }
             }
           ]
         },
         {
-          "action": "if_variable_equals",
-          "is_inverted": false,
+          "action": "call_function",
           "values": [
             {
-              "name": "value",
+              "name": "function_name",
               "value": {
-                "type": "variable",
-                "variable": "sel_people",
-                "scope": "line"
+                "type": "text",
+                "text": "build_join_diff",
+                "parsing": "plain"
               }
             },
             {
-              "name": "compare",
+              "name": "args",
               "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "2",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
+                "type": "map",
+                "values": {
+                  "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
                     "type": "variable",
-                    "variable": "j2",
+                    "variable": "sel_diff",
                     "scope": "line"
                   }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• 2",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
                 }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j2",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ 2",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
+              }
             }
           ]
         },
         {
-          "action": "if_variable_equals",
-          "is_inverted": false,
+          "action": "call_function",
           "values": [
             {
-              "name": "value",
+              "name": "function_name",
               "value": {
-                "type": "variable",
-                "variable": "sel_people",
-                "scope": "line"
+                "type": "text",
+                "text": "build_join_speed",
+                "parsing": "plain"
               }
             },
             {
-              "name": "compare",
+              "name": "args",
               "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "3",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
+                "type": "map",
+                "values": {
+                  "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
                     "type": "variable",
-                    "variable": "j3",
+                    "variable": "sel_speed",
                     "scope": "line"
                   }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• 3",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
                 }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j3",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ 3",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_people",
-                "scope": "line"
               }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "4",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j4",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• 4",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j4",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ 4",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_people",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j5",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j5",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_diff",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "easy",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j6",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Лёгкая",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j6",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Лёгкая",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_diff",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "normal",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j7",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Обычная",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j7",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Обычная",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_diff",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "hard",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j8",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Тяжёлая",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j8",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Тяжёлая",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_diff",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j9",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j9",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_speed",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "no",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j10",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Нет",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j10",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Нет",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_speed",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "yes",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j11",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Да",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j11",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Да",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sel_speed",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j12",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "• Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
-            }
-          ],
-          "else": [
-            {
-              "action": "set_variable_text",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "j12",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "text",
-                  "value": {
-                    "type": "text",
-                    "text": "◦ Без разницы",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "merging",
-                  "value": {
-                    "type": "enum",
-                    "enum": "CONCATENATION"
-                  }
-                }
-              ]
             }
           ]
         },
@@ -2854,14 +1610,14 @@
               "name": "slot",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 46
               }
             },
             {
               "name": "item",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(j1)'}}}"
+                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'{\"text\":\"Люди\",\"color\":\"white\",\"italic\":false}',Lore:['%var(lp1)','%var(lp2)','%var(lp3)','%var(lp4)','%var(lp5)']}}}"
               }
             }
           ]
@@ -2871,207 +1627,161 @@
           "values": [
             {
               "name": "slot",
+              "value": {
+                "type": "number",
+                "number": 47
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:lime_dye\",tag:{display:{Name:'{\"text\":\"Сложность\",\"color\":\"white\",\"italic\":false}',Lore:['%var(ld1)','%var(ld2)','%var(ld3)','%var(ld4)']}}}"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": 48
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:feather\",tag:{display:{Name:'{\"text\":\"Спидран\",\"color\":\"white\",\"italic\":false}',Lore:['%var(ls1)','%var(ls2)','%var(ls3)']}}}"
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "slot",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 45
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": 53
+              }
+            },
+            {
+              "name": "interval",
               "value": {
                 "type": "number",
                 "number": 1
               }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(j2)'}}}"
-              }
             }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
+          ],
+          "operations": [
             {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 2
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(j3)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 3
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(j4)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 4
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:player_head\",tag:{display:{Name:'%var_line(j5)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 9
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:lime_dye\",tag:{display:{Name:'%var_line(j6)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 10
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:yellow_dye\",tag:{display:{Name:'%var_line(j7)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 11
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:red_dye\",tag:{display:{Name:'%var_line(j8)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 12
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:barrier\",tag:{display:{Name:'%var_line(j9)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 18
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:feather\",tag:{display:{Name:'%var_line(j10)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 19
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:sugar\",tag:{display:{Name:'%var_line(j11)'}}}"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_set_inventory_menu_item",
-          "values": [
-            {
-              "name": "slot",
-              "value": {
-                "type": "number",
-                "number": 20
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "item",
-                "item": "{Count:1b,id:\"minecraft:barrier\",tag:{display:{Name:'%var_line(j12)'}}}"
-              }
+              "action": "if_variable_not_equals",
+              "is_inverted": false,
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "slot",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 46
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_not_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "slot",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": 47
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_not_equals",
+                      "is_inverted": false,
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "slot",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "number",
+                            "number": 48
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "player_set_inventory_menu_item",
+                          "values": [
+                            {
+                              "name": "slot",
+                              "value": {
+                                "type": "variable",
+                                "variable": "slot",
+                                "scope": "line"
+                              }
+                            },
+                            {
+                              "name": "item",
+                              "value": {
+                                "type": "item",
+                                "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -4931,10 +3641,11 @@
           ],
           "operations": [
             {
-              "action": "set_variable_value",
+              "action": "if_variable_equals",
+              "is_inverted": false,
               "values": [
                 {
-                  "name": "variable",
+                  "name": "value",
                   "value": {
                     "type": "variable",
                     "variable": "create_people",
@@ -4942,104 +3653,247 @@
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "1",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "1",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_speed",
-                        "scope": "game"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 11
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_people",
-                    "scope": "game"
+                    ]
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare_type",
                   "value": {
-                    "type": "text",
-                    "text": "2",
-                    "parsing": "plain"
+                    "type": "enum",
+                    "enum": "ANY"
                   }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "create_people",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "text",
+                        "text": "2",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "create_people",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "2",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_people",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "3",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "action": "if_variable_equals",
+                      "is_inverted": false,
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_people",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "3",
+                                "parsing": "plain"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "compare_type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "ANY"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "create_people",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "4",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "action": "if_variable_equals",
+                          "is_inverted": false,
+                          "values": [
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "variable",
+                                "variable": "create_people",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "compare",
+                              "value": {
+                                "type": "array",
+                                "values": [
+                                  {
+                                    "type": "text",
+                                    "text": "4",
+                                    "parsing": "plain"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "compare_type",
+                              "value": {
+                                "type": "enum",
+                                "enum": "ANY"
+                              }
+                            }
+                          ],
+                          "operations": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                {
+                                  "name": "variable",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "create_people",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "value",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "none",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "else": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                {
+                                  "name": "variable",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "create_people",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "value",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "none",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -5060,9 +3914,9 @@
                     "type": "map",
                     "values": {
                       "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "2",
-                        "parsing": "plain"
+                        "type": "variable",
+                        "variable": "create_people",
+                        "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
                         "type": "variable",
@@ -5115,194 +3969,11 @@
           ],
           "operations": [
             {
-              "action": "set_variable_value",
+              "action": "if_variable_equals",
+              "is_inverted": false,
               "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_people",
-                    "scope": "game"
-                  }
-                },
                 {
                   "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "3",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "3",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_speed",
-                        "scope": "game"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 13
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_people",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "4",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "4",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_speed",
-                        "scope": "game"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 19
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
                   "value": {
                     "type": "variable",
                     "variable": "create_diff",
@@ -5310,196 +3981,188 @@
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "easy",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "easy",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
                         "type": "variable",
-                        "variable": "create_speed",
+                        "variable": "create_diff",
                         "scope": "game"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 20
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_diff",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "normal",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                    },
+                    {
+                      "name": "value",
+                      "value": {
                         "type": "text",
                         "text": "normal",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_speed",
-                        "scope": "game"
                       }
                     }
-                  }
+                  ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 21
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
+              ],
+              "else": [
                 {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_diff",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "hard",
-                    "parsing": "plain"
-                  }
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "create_diff",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "normal",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_diff",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "hard",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "action": "if_variable_equals",
+                      "is_inverted": false,
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_diff",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "hard",
+                                "parsing": "plain"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "compare_type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "ANY"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "create_diff",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "none",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "create_diff",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "easy",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -5525,9 +4188,9 @@
                         "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "hard",
-                        "parsing": "plain"
+                        "type": "variable",
+                        "variable": "create_diff",
+                        "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
                         "type": "variable",
@@ -5560,7 +4223,7 @@
                 "values": [
                   {
                     "type": "number",
-                    "number": 28
+                    "number": 14
                   }
                 ]
               }
@@ -5575,10 +4238,11 @@
           ],
           "operations": [
             {
-              "action": "set_variable_value",
+              "action": "if_variable_equals",
+              "is_inverted": false,
               "values": [
                 {
-                  "name": "variable",
+                  "name": "value",
                   "value": {
                     "type": "variable",
                     "variable": "create_speed",
@@ -5586,104 +4250,129 @@
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "no",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_create_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "create_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "no",
                         "parsing": "plain"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 29
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "create_speed",
-                    "scope": "game"
+                    ]
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare_type",
                   "value": {
-                    "type": "text",
-                    "text": "yes",
-                    "parsing": "plain"
+                    "type": "enum",
+                    "enum": "ANY"
                   }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "create_speed",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "text",
+                        "text": "yes",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "create_speed",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "yes",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_speed",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "none",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "create_speed",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "no",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -5714,9 +4403,9 @@
                         "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "yes",
-                        "parsing": "plain"
+                        "type": "variable",
+                        "variable": "create_speed",
+                        "scope": "game"
                       }
                     }
                   }
@@ -5827,7 +4516,7 @@
                 "values": [
                   {
                     "type": "number",
-                    "number": 0
+                    "number": 46
                   }
                 ]
               }
@@ -5842,10 +4531,11 @@
           ],
           "operations": [
             {
-              "action": "set_variable_value",
+              "action": "if_variable_equals",
+              "is_inverted": false,
               "values": [
                 {
-                  "name": "variable",
+                  "name": "value",
                   "value": {
                     "type": "variable",
                     "variable": "join_people",
@@ -5853,472 +4543,247 @@
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "1",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "1",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
                         "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
+                        "variable": "join_people",
                         "scope": "game"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 1
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_people",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "2",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
+                    },
+                    {
+                      "name": "value",
+                      "value": {
                         "type": "text",
                         "text": "2",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
-                        "scope": "game"
                       }
                     }
-                  }
+                  ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 2
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
+              ],
+              "else": [
                 {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_people",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "3",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "3",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
                         "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
+                        "variable": "join_people",
                         "scope": "game"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 3
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_people",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "4",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "4",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
-                        "scope": "game"
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "2",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
                       }
                     }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 4
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_people",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "any",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
-                        "scope": "game"
-                      }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_people",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "3",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
                     }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 9
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_diff",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "easy",
-                    "parsing": "plain"
-                  }
+                  ],
+                  "else": [
+                    {
+                      "action": "if_variable_equals",
+                      "is_inverted": false,
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_people",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "3",
+                                "parsing": "plain"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "compare_type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "ANY"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "join_people",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "4",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "action": "if_variable_equals",
+                          "is_inverted": false,
+                          "values": [
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "variable",
+                                "variable": "join_people",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "compare",
+                              "value": {
+                                "type": "array",
+                                "values": [
+                                  {
+                                    "type": "text",
+                                    "text": "4",
+                                    "parsing": "plain"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "compare_type",
+                              "value": {
+                                "type": "enum",
+                                "enum": "ANY"
+                              }
+                            }
+                          ],
+                          "operations": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                {
+                                  "name": "variable",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "join_people",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "value",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "any",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "else": [
+                            {
+                              "action": "set_variable_value",
+                              "values": [
+                                {
+                                  "name": "variable",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "join_people",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "value",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "1",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -6344,165 +4809,250 @@
                         "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                        "type": "variable",
+                        "variable": "join_diff",
+                        "scope": "game"
+                      },
+                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                        "type": "variable",
+                        "variable": "join_speed",
+                        "scope": "game"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "clicked_slot",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 47
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "is_inverted": false,
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "join_diff",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "easy",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
                         "type": "variable",
-                        "variable": "join_speed",
+                        "variable": "join_diff",
                         "scope": "game"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 10
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_diff",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "normal",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
+                    },
+                    {
+                      "name": "value",
+                      "value": {
                         "type": "text",
                         "text": "normal",
                         "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
-                        "scope": "game"
                       }
                     }
-                  }
+                  ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 11
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
+              ],
+              "else": [
                 {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_diff",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "hard",
-                    "parsing": "plain"
-                  }
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "join_diff",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "normal",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_diff",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "hard",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "action": "if_variable_equals",
+                      "is_inverted": false,
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_diff",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "hard",
+                                "parsing": "plain"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "compare_type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "ANY"
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "join_diff",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "any",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "join_diff",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "text",
+                                "text": "easy",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -6528,9 +5078,9 @@
                         "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "hard",
-                        "parsing": "plain"
+                        "type": "variable",
+                        "variable": "join_diff",
+                        "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
                         "type": "variable",
@@ -6563,7 +5113,7 @@
                 "values": [
                   {
                     "type": "number",
-                    "number": 12
+                    "number": 48
                   }
                 ]
               }
@@ -6578,102 +5128,11 @@
           ],
           "operations": [
             {
-              "action": "set_variable_value",
+              "action": "if_variable_equals",
+              "is_inverted": false,
               "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_diff",
-                    "scope": "game"
-                  }
-                },
                 {
                   "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "any",
-                        "parsing": "plain"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_speed",
-                        "scope": "game"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 18
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
                   "value": {
                     "type": "variable",
                     "variable": "join_speed",
@@ -6681,196 +5140,129 @@
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "no",
-                    "parsing": "plain"
-                  }
-                }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
-                {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_people",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                    "type": "array",
+                    "values": [
+                      {
                         "type": "text",
                         "text": "no",
                         "parsing": "plain"
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 19
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_speed",
-                    "scope": "game"
+                    ]
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "compare_type",
                   "value": {
-                    "type": "text",
-                    "text": "yes",
-                    "parsing": "plain"
+                    "type": "enum",
+                    "enum": "ANY"
                   }
                 }
-              ]
-            },
-            {
-              "action": "call_function",
-              "values": [
+              ],
+              "operations": [
                 {
-                  "name": "function_name",
-                  "value": {
-                    "type": "text",
-                    "text": "open_join_menu",
-                    "parsing": "plain"
-                  }
-                },
-                {
-                  "name": "args",
-                  "value": {
-                    "type": "map",
-                    "values": {
-                      "{\"type\":\"text\",\"text\":\"sel_people\",\"parsing\":\"plain\"}": {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
                         "type": "variable",
-                        "variable": "join_people",
+                        "variable": "join_speed",
                         "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_diff\",\"parsing\":\"plain\"}": {
-                        "type": "variable",
-                        "variable": "join_diff",
-                        "scope": "game"
-                      },
-                      "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
                         "type": "text",
                         "text": "yes",
                         "parsing": "plain"
                       }
                     }
-                  }
+                  ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "if_variable_equals",
-          "is_inverted": false,
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "clicked_slot",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "number",
-                    "number": 20
-                  }
-                ]
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
+              ],
+              "else": [
                 {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "join_speed",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "text",
-                    "text": "any",
-                    "parsing": "plain"
-                  }
+                  "action": "if_variable_equals",
+                  "is_inverted": false,
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "join_speed",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "yes",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_speed",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "any",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "join_speed",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "no",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -6901,9 +5293,9 @@
                         "scope": "game"
                       },
                       "{\"type\":\"text\",\"text\":\"sel_speed\",\"parsing\":\"plain\"}": {
-                        "type": "text",
-                        "text": "any",
-                        "parsing": "plain"
+                        "type": "variable",
+                        "variable": "join_speed",
+                        "scope": "game"
                       }
                     }
                   }
@@ -6928,7 +5320,7 @@
               "name": "compare",
               "value": {
                 "type": "number",
-                "number": 21
+                "number": 0
               }
             }
           ],
@@ -6962,7 +5354,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "room_%math(%var_line(clicked_slot))_active",
+                        "variable": "room_%var_line(clicked_slot)_active",
                         "scope": "game"
                       }
                     },
@@ -7002,6 +5394,1050 @@
                       ]
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "build_join_people",
+      "position": 19,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "name": "sel_people",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{}",
+                "slot": 0,
+                "description_slot": 9,
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Люди\",\"parsingType\":\"LEGACY\"}}"
+              }
+            ]
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_people",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "1",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• 1\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ 1\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_people",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "2",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• 2\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ 2\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_people",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "3",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• 3\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ 3\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_people",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "4",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp4",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• 4\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp4",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ 4\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_people",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "any",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp5",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Неважно\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "lp5",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Неважно\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "build_join_diff",
+      "position": 20,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "name": "sel_diff",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{}",
+                "slot": 0,
+                "description_slot": 9,
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Сложность\",\"parsingType\":\"LEGACY\"}}"
+              }
+            ]
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_diff",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "easy",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Лёгкая\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Лёгкая\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_diff",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "normal",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Обычная\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Обычная\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_diff",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "hard",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Тяжёлая\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Тяжёлая\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_diff",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "any",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld4",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Неважно\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ld4",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Неважно\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "build_join_speed",
+      "position": 21,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "name": "sel_speed",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{}",
+                "slot": 0,
+                "description_slot": 9,
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Спидран\",\"parsingType\":\"LEGACY\"}}"
+              }
+            ]
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_speed",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "no",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Нет\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls1",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Нет\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_speed",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "yes",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Да\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls2",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Да\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "is_inverted": false,
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sel_speed",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "any",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"• Неважно\",\"color\":\"lime\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "ls3",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "text",
+                    "text": "{\"text\":\"◦ Неважно\",\"color\":\"gray\",\"italic\":false}",
+                    "parsing": "plain"
+                  }
                 }
               ]
             }
