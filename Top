@@ -1,0 +1,260 @@
+{
+  "handlers": [
+    {
+      "type": "event",
+      "event": "world_start",
+      "position": [0, 0],
+      "operations": [
+        { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "variable", "variable": "rooms", "scope": "game" } } ] },
+        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rooms", "scope": "game" } }, { "name": "keys", "value": { "type": "array", "values": [] } }, { "name": "values", "value": { "type": "array", "values": [] } } ] },
+        { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "variable", "variable": "room_slots", "scope": "game" } } ] },
+        { "action": "set_variable_create_list", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slots", "scope": "game" } }, { "name": "values", "value": { "type": "array", "values": [] } } ] },
+        { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "variable", "variable": "speedruns", "scope": "save" } } ] },
+        { "action": "set_variable_create_map", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "speedruns", "scope": "save" } }, { "name": "keys", "value": { "type": "array", "values": [] } }, { "name": "values", "value": { "type": "array", "values": [] } } ] },
+        { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "build_lobby", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "build_lobby",
+      "position": [1, 0],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "FALSE" } } ],
+      "operations": [
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -8, "y": 3, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 8, "y": 3, "z": 8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -8, "y": 4, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": -8, "y": 7, "z": 8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": 8, "y": 4, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 8, "y": 7, "z": 8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -8, "y": 4, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 8, "y": 7, "z": -8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -8, "y": 4, "z": 8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 8, "y": 7, "z": 8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:quartz_block\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -8, "y": 8, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 8, "y": 8, "z": 8, "yaw": 0, "pitch": 0 } } ] },
+        { "action": "game_set_region", "values": [ { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:air\"}" } }, { "name": "pos_1", "value": { "type": "location", "x": -1, "y": 4, "z": -8, "yaw": 0, "pitch": 0 } }, { "name": "pos_2", "value": { "type": "location", "x": 1, "y": 6, "z": -8, "yaw": 0, "pitch": 0 } } ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_join",
+      "position": [2, 0],
+      "operations": [
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "location", "x": 0, "y": 4, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "{count:1,id:\"minecraft:wind_charge\",components:{\"minecraft:custom_name\":'{\"text\":\"§bЗаряд ветра\",\"italic\":false}',\"minecraft:lore\":['{\"text\":\"§7ПКМ — открыть меню комнат\",\"italic\":false}']}}" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] },
+        { "action": "player_send_message", "values": [ { "name": "messages", "value": { "type": "text", "text": "§eДобро пожаловать! ПКМ зарядом ветра — меню комнат. Или /room", "parsing": "legacy" } }, { "name": "merging", "value": { "type": "enum", "enum": "SPACES" } } ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_respawn",
+      "position": [3, 0],
+      "operations": [
+        { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "location", "x": 0, "y": 4, "z": 0, "yaw": 0, "pitch": 0 } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+        { "action": "player_give_items", "values": [ { "name": "items", "value": { "type": "item", "item": "{count:1,id:\"minecraft:wind_charge\",components:{\"minecraft:custom_name\":'{\"text\":\"§bЗаряд ветра\",\"italic\":false}',\"minecraft:lore\":['{\"text\":\"§7ПКМ — открыть меню комнат\",\"italic\":false}']}}" } }, { "name": "amount", "value": { "type": "number", "number": 1 } } ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_interact",
+      "position": [4, 0],
+      "operations": [
+        { "action": "if_game_event_item_equals", "values": [ { "name": "items", "value": { "type": "item", "item": "{count:1,id:\"minecraft:wind_charge\"}" } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } } ], "operations": [
+          { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "game_value", "game_value": "event_interaction", "selection": "null" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "right_click" }, { "type": "text", "text": "right_click_block" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [
+              { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "open_main_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+            ] }
+        ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_chat",
+      "position": [5, 0],
+      "operations": [
+        { "action": "if_player_chat_message_equals", "values": [ { "name": "chat_messages", "value": { "type": "text", "text": "/room", "parsing": "plain" } }, { "name": "ignore_case", "value": { "type": "enum", "enum": "FALSE" } } ], "operations": [
+            { "action": "game_cancel_event", "values": [] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "open_main_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "open_main_menu",
+      "position": [6, 0],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "FALSE" } } ],
+      "operations": [
+        { "action": "player_show_inventory_menu", "values": [ { "name": "name", "value": { "type": "text", "text": "§8Главное меню", "parsing": "legacy" } }, { "name": "custom_id", "value": { "type": "text", "text": "main_menu", "parsing": "plain" } }, { "name": "inventory_type", "value": { "type": "enum", "enum": "CHEST" } }, { "name": "items", "value": { "type": "array", "values": [
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:lime_dye\",components:{\"minecraft:custom_name\":'{\"text\":\"§fСоздать комнату\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:green_dye\",components:{\"minecraft:custom_name\":'{\"text\":\"§aПрисоединиться\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" }
+        ] } } ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_click_inventory",
+      "position": [7, 0],
+      "operations": [
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 10 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_dye\"}" } } ], "operations": [
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "normal" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_players", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "normal" } } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "show_create_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] },
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 14 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:green_dye\"}" } } ], "operations": [
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "show_join_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "show_create_menu",
+      "position": [8, 0],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "FALSE" } } ],
+      "operations": [
+        { "action": "player_show_inventory_menu", "values": [ { "name": "name", "value": { "type": "text", "text": "§8Создание комнаты", "parsing": "legacy" } }, { "name": "custom_id", "value": { "type": "text", "text": "create_menu", "parsing": "plain" } }, { "name": "inventory_type", "value": { "type": "enum", "enum": "CHEST" } }, { "name": "items", "value": { "type": "array", "values": [
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:compass\",components:{\"minecraft:custom_name\":'{\"text\":\"§fСложность\",\"italic\":false}',\"minecraft:lore\":['{\"text\":\"§7• §aЛёгкая\",\"italic\":false}','{\"text\":\"§7• §7Обычная\",\"italic\":false}','{\"text\":\"§7• §7Тяжёлая\",\"italic\":false}']}}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:player_head\",components:{\"minecraft:custom_name\":'{\"text\":\"§fИгроки\",\"italic\":false}',\"minecraft:lore\":['{\"text\":\"§7• §a1\",\"italic\":false}','{\"text\":\"§7• §72\",\"italic\":false}','{\"text\":\"§7• §73\",\"italic\":false}','{\"text\":\"§7• §74\",\"italic\":false}']}}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:clock\",components:{\"minecraft:custom_name\":'{\"text\":\"§fРежим\",\"italic\":false}',\"minecraft:lore\":['{\"text\":\"§7• §aОбычный\",\"italic\":false}','{\"text\":\"§7• §7Спидран\",\"italic\":false}','{\"text\":\"§7• §7Хардкор\",\"italic\":false}']}}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:lime_dye\",components:{\"minecraft:custom_name\":'{\"text\":\"§aНачать\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" }
+        ] } } ] }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_click_inventory",
+      "position": [9, 0],
+      "operations": [
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 10 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:compass\"}" } } ], "operations": [
+            { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "normal" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "easy" } } ] } ], "else": [ { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "easy" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "hard" } } ] } ], "else": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "normal" } } ] } ] } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "show_create_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] },
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 11 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:player_head\"}" } } ], "operations": [
+            { "action": "if_variable_greater_or_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_players", "scope": "game" } }, { "name": "compare", "value": { "type": "number", "number": 4 } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_players", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] } ], "else": [ { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_players", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "show_create_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] },
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 12 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:clock\"}" } } ], "operations": [
+            { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "normal" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "speedrun" } } ] } ], "else": [ { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "speedrun" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "hardcore" } } ] } ], "else": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "menu_mode", "scope": "game" } }, { "name": "value", "value": { "type": "text", "text": "normal" } } ] } ] } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "show_create_menu", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": {} } } ] }
+        ] },
+        { "action": "if_player_inventory_menu_slot_equals", "values": [ { "name": "slots", "value": { "type": "number", "number": 22 } }, { "name": "comparison_mode", "value": { "type": "enum", "enum": "TYPE_ONLY" } }, { "name": "items", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:lime_dye\"}" } } ], "operations": [
+            { "action": "set_variable_text", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "new_room_id", "scope": "game" } }, { "name": "text", "value": { "type": "text", "text": "%random_uuid%" } }, { "name": "merging", "value": { "type": "enum", "enum": "CONCATENATION" } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_size", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 40 } } ] },
+            { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "easy" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_size", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 25 } } ] } ] },
+            { "action": "if_variable_equals", "values": [ { "name": "value", "value": { "type": "variable", "variable": "menu_diff", "scope": "game" } }, { "name": "compare", "value": { "type": "array", "values": [ { "type": "text", "text": "hard" } ] } }, { "name": "compare_type", "value": { "type": "enum", "enum": "ANY" } } ], "operations": [ { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_size", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 60 } } ] } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slot_x", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "set_variable_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slot_z", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "repeat_for_each_in_list", "values": [ { "name": "index_variable", "value": { "type": "variable", "variable": "slot_idx", "scope": "line" } }, { "name": "value_variable", "value": { "type": "variable", "variable": "slot_val", "scope": "line" } }, { "name": "list", "value": { "type": "variable", "variable": "room_slots", "scope": "game" } } ], "operations": [
+                { "action": "set_variable_add", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slot_x", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 1 } } ] }
+            ] },
+            { "action": "set_variable_multiply", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slot_x", "scope": "game" } }, { "name": "value", "value": { "type": "number", "number": 150 } } ] },
+            { "action": "set_variable_set_all_coordinates", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_origin", "scope": "game" } }, { "name": "x", "value": { "type": "variable", "variable": "room_slot_x", "scope": "game" } }, { "name": "y", "value": { "type": "number", "number": 4 } }, { "name": "z", "value": { "type": "variable", "variable": "room_slot_z", "scope": "game" } }, { "name": "yaw", "value": { "type": "number", "number": 0 } }, { "name": "pitch", "value": { "type": "number", "number": 0 } } ] },
+            { "action": "set_variable_set_map_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "rooms", "scope": "game" } }, { "name": "map", "value": { "type": "variable", "variable": "rooms", "scope": "game" } }, { "name": "key", "value": { "type": "variable", "variable": "new_room_id", "scope": "game" } }, { "name": "value", "value": { "type": "map", "values": {
+                "{\"type\":\"text\",\"text\":\"owner\",\"parsing\":\"plain\"}": { "type": "text", "text": "%player%" },
+                "{\"type\":\"text\",\"text\":\"difficulty\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "menu_diff", "scope": "game" },
+                "{\"type\":\"text\",\"text\":\"max_players\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "menu_players", "scope": "game" },
+                "{\"type\":\"text\",\"text\":\"mode\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "menu_mode", "scope": "game" },
+                "{\"type\":\"text\",\"text\":\"size\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "room_size", "scope": "game" },
+                "{\"type\":\"text\",\"text\":\"origin\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "room_origin", "scope": "game" },
+                "{\"type\":\"text\",\"text\":\"state\",\"parsing\":\"plain\"}": { "type": "text", "text": "waiting" },
+                "{\"type\":\"text\",\"text\":\"players\",\"parsing\":\"plain\"}": { "type": "array", "values": [ { "type": "text", "text": "%player_uuid%" } ] }
+            } } } ] },
+            { "action": "set_variable_append_value", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "room_slots", "scope": "game" } }, { "name": "values", "value": { "type": "variable", "variable": "new_room_id", "scope": "game" } } ] },
+            { "action": "call_function", "values": [ { "name": "function_name", "value": { "type": "text", "text": "build_room_from_data", "parsing": "plain" } }, { "name": "args", "value": { "type": "map", "values": { "{\"type\":\"text\",\"text\":\"room_id\",\"parsing\":\"plain\"}": { "type": "variable", "variable": "new_room_id", "scope": "game" } } } } ] },
+            { "action": "player_teleport", "values": [ { "name": "location", "value": { "type": "variable", "variable": "room_origin", "scope": "game" } }, { "name": "keep_rotation", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "keep_velocity", "value": { "type": "enum", "enum": "FALSE" } }, { "name": "dismount", "value": { "type": "enum", "enum": "TRUE" } } ] },
+            { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "array", "values": [ { "type": "variable", "variable": "menu_diff", "scope": "game" }, { "type": "variable", "variable": "menu_players", "scope": "game" }, { "type": "variable", "variable": "menu_mode", "scope": "game" }, { "type": "variable", "variable": "room_size", "scope": "game" }, { "type": "variable", "variable": "room_slot_x", "scope": "game" }, { "type": "variable", "variable": "room_slot_z", "scope": "game" }, { "type": "variable", "variable": "room_origin", "scope": "game" }, { "type": "variable", "variable": "slot_idx", "scope": "line" }, { "type": "variable", "variable": "slot_val", "scope": "line" } ] } } ] }
+        ] }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "build_room_from_data",
+      "position": [10, 0],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [ { "type": "parameter", "type_key": "singular", "name": "room_id", "value_type": "text", "is_required": "true", "default_value": "{}", "slot": 0, "description_slot": 9, "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Room ID\",\"parsingType\":\"LEGACY\"}}" } ] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "FALSE" } } ],
+      "operations": [
+        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "r_size", "scope": "line" } }, { "name": "map", "value": { "type": "variable", "variable": "rooms", "scope": "game" } }, { "name": "key", "value": { "type": "variable", "variable": "room_id", "scope": "line" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "variable", "variable": "r_size", "scope": "line" } } ] },
+        { "action": "set_variable_get_map_value_single", "values": [ { "name": "variable", "value": { "type": "variable", "variable": "r_origin", "scope": "line" } }, { "name": "map", "value": { "type": "variable", "variable": "rooms", "scope": "game" } }, { "name": "key", "value": { "type": "variable", "variable": "room_id", "scope": "line" } }, { "name": "default_value", "value": { "type": "number", "number": 0 } } ] },
+        { "action": "set_variable_remove", "values": [ { "name": "variables", "value": { "type": "variable", "variable": "r_origin", "scope": "line" } } ] }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "show_join_menu",
+      "position": [11, 0],
+      "values": [ { "name": "parameters", "value": { "type": "array", "values": [] } }, { "name": "is_hidden", "value": { "type": "enum", "enum": "FALSE" } } ],
+      "operations": [
+        { "action": "player_show_inventory_menu", "values": [ { "name": "name", "value": { "type": "text", "text": "§8Присоединиться", "parsing": "legacy" } }, { "name": "custom_id", "value": { "type": "text", "text": "join_menu", "parsing": "plain" } }, { "name": "inventory_type", "value": { "type": "enum", "enum": "CHEST" } }, { "name": "items", "value": { "type": "array", "values": [
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:compass\",components:{\"minecraft:custom_name\":'{\"text\":\"§fСложность: Неважно\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:clock\",components:{\"minecraft:custom_name\":'{\"text\":\"§fРежим: Неважно\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{count:1,id:\"minecraft:player_head\",components:{\"minecraft:custom_name\":'{\"text\":\"§fИгроки: Неважно\",\"italic\":false}'}}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" },
+            { "type": "item", "item": "{Count:1b,id:\"minecraft:black_stained_glass_pane\"}" }
+        ] } } ] }
+      ]
+    }
+  ]
+}
