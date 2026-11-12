@@ -19,7 +19,7 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.lit
  * 1. Отправляет запрос в OpenRouter.
  * 2. Заливает ответ на paste.rs.
  * 3. Отправляет за игрока: /module load-url <ссылка>.
- * 4. Книга установки откроется — BookAcceptHandler сам нажмёт «ПРИНЯТЬ»..
+ * 4. Книга установки откроется — BookAcceptHandler сам нажмёт «ПРИНЯТЬ».
  */
 public final class JaiCommand {
 
