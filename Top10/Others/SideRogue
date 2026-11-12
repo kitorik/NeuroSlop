@@ -1,7 +1,7 @@
 {
   "name": "SideRogue",
   "display_name": "Рогалик-коридор 2D",
-  "description": "2D-рогалик сбоку с комнатами: правый клик КЛЮЧОМ (восстановленный компас, выдаётся при входе) — создать комнату; другие заходят тем же ключом. Маркеры-стойки: ⚙ Сложность (клик — переключить: • НОРМА / •(враги падают с одного клика) ЛЕГКО / •(враги 3 удара, Хранитель 15 HP) ХАРД; выбранный — лаймовый, остальные — серые) и ▶ СТАРТ (только хозяин). На время сессии вход закрыт. Коридор в 1 блок, клик-враги, двери за зачистку, магма, босс-Хранитель, лут-дождь. Стоп: \\rogue stop",
+  "description": "2D-рогалик сбоку с комнатами: правый клик КЛЮЧОМ (восстановленный компас, выдаётся при входе) — создать комнату; другие заходят тем же ключом. Маркеры-стойки: ⚙ Сложность (клик — переключить: • НОРМА / •(враги падают с одного клика) ЛЕГКО / •(враги 3 удара, Хранитель 15 HP) ХАРД; выбранный — лаймовый, остальные — серые) и ▶ СТАРТ (только хозяин). На время сессии вход закрыт. Коридор в 1 блок, клик-враги, двери за зачистку, магма, босс-Хранитель, лут-дождь. Стоп: \\rogue stop | Вход: правый клик ключ-предметом (выдаётся при входе в мир); во время сессии вход закрыт. Арена строится на высоте ~80 блоков над спавном (в пределах мира 1024) и полностью зачищается после игры (стоп: \\rogue stop).",
   "handlers": [
     {
       "type": "event",
@@ -1041,6 +1041,26 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "sr.CLEAN",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
@@ -1874,6 +1894,26 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "sr.CLEAN",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -2608,6 +2648,26 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sr.CLEAN",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -2753,6 +2813,62 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sr.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sr.run",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_remainder",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sr.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "dividend",
+              "value": {
+                "type": "variable",
+                "variable": "sr.run",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "divisor",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "remainder_mode",
+              "value": {
+                "type": "enum",
+                "enum": "MODULO"
+              }
+            }
+          ]
+        },
+        {
           "action": "set_variable_shift_all_coordinates",
           "values": [
             {
@@ -2775,14 +2891,14 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": "%math(%var(sr.run) * 300)"
+                "number": "%math(%var(sr.col) * 250)%"
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 80
               }
             },
             {
@@ -5072,6 +5188,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -5225,6 +5353,18 @@
                 "type": "text",
                 "text": "&e&l⚙ Сложность",
                 "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
               }
             }
           ]
@@ -5805,6 +5945,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -6055,6 +6207,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -6305,6 +6469,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -6555,6 +6731,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -6805,6 +6993,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -7055,6 +7255,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -7305,6 +7517,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -7555,6 +7779,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -7805,6 +8041,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -8055,6 +8303,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -8265,6 +8525,18 @@
                 "type": "text",
                 "text": "&4&lХРАНИТЕЛЬ КОРИДОРА",
                 "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
               }
             }
           ]
@@ -8901,6 +9173,359 @@
                       }
                     }
                   ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sr.CLEAN",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 9,
+      "name": "sr.CLEAN",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "TRUE"
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_exists",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sr.origin",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sr.origin",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": -7
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": -12
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {}
+                },
+                {
+                  "name": "pitch",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sr.origin",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": 79
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 14
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {}
+                },
+                {
+                  "name": "pitch",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "action": "game_set_region",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:air\"}"
+                  }
+                },
+                {
+                  "name": "pos_1",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "pos_2",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl2",
+                    "scope": "line"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "xp_%random_uuid%",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&a&l▶ СТАРТ",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&e&l⚙ Сложность",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&8Враг тьмы",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&4&lХРАНИТЕЛЬ КОРИДОРА",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "sr.",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "GAME"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "STARTS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "_srin",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SAVE"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ENDS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
                 }
               ]
             }
