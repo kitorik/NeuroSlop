@@ -70,20 +70,17 @@ public class BookAcceptHandler {
         MinecraftClient mc = MinecraftClient.getInstance();
         if (mc.player == null) return false;
 
-        // Самый надёжный путь — выполнить действие клика напрямую
-        if (event.getAction() == ClickEvent.Action.RUN_COMMAND) {
-            String cmd = event.getValue();
-            if (cmd.startsWith("/")) cmd = cmd.substring(1);
-            JaiMod.LOGGER.info("[JAI] Автонажатие «ПРИНЯТЬ»: выполняю /{}", cmd);
-            mc.player.networkHandler.sendChatCommand(cmd);
-            return true;
-        }
-
-        // Фолбэк: штатный обработчик клика BookScreen
+        // Штатный обработчик клика BookScreen — работает для любого типа события
+        // (RUN_COMMAND, SHOW_DIALOG и т.д.), без обращения к внутренностям ClickEvent,
+        // которые в 1.21.11 не замаплены (sealed-классы RunCommand/OpenUrl/...).
         try {
             boolean ok = ((BookScreenMixin) (Object) book).jai$handleClickEvent(event);
-            if (ok) return true;
-        } catch (Throwable ignored) {
+            if (ok) {
+                JaiMod.LOGGER.info("[JAI] Автонажатие «ПРИНЯТЬ» выполнено");
+                return true;
+            }
+        } catch (Throwable t) {
+            JaiMod.LOGGER.error("[JAI] Ошибка автонажатия", t);
         }
         return false;
     }
