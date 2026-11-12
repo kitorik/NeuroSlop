@@ -289,6 +289,26 @@
                       }
                     }
                   ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "pp.CLEAN",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -510,6 +530,62 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pp.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pp.run",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_remainder",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pp.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "dividend",
+              "value": {
+                "type": "variable",
+                "variable": "pp.run",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "divisor",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "remainder_mode",
+              "value": {
+                "type": "enum",
+                "enum": "MODULO"
+              }
+            }
+          ]
+        },
+        {
           "action": "set_variable_shift_all_coordinates",
           "values": [
             {
@@ -523,23 +599,23 @@
             {
               "name": "location",
               "value": {
-                "type": "game_value",
-                "game_value": "spawn_location",
-                "selection": "null"
+                "type": "variable",
+                "variable": "pp.origin",
+                "scope": "game"
               }
             },
             {
               "name": "x",
               "value": {
                 "type": "number",
-                "number": "%math(%var(pp.run)*300)"
+                "number": "%math(%var(pp.col) * 250)%"
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 80
               }
             },
             {
@@ -2273,21 +2349,21 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": -44
+                    "number": -48
                   }
                 },
                 {
                   "name": "y",
                   "value": {
                     "type": "number",
-                    "number": -28
+                    "number": -36
                   }
                 },
                 {
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": -44
+                    "number": -48
                   }
                 },
                 {
@@ -2323,21 +2399,21 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": 44
+                    "number": 48
                   }
                 },
                 {
                   "name": "y",
                   "value": {
                     "type": "number",
-                    "number": 28
+                    "number": 36
                   }
                 },
                 {
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": 44
+                    "number": 48
                   }
                 },
                 {

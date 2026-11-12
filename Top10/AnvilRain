@@ -392,6 +392,62 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "ar.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "ar.run",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_remainder",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "ar.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "dividend",
+              "value": {
+                "type": "variable",
+                "variable": "ar.run",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "divisor",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "remainder_mode",
+              "value": {
+                "type": "enum",
+                "enum": "MODULO"
+              }
+            }
+          ]
+        },
+        {
           "action": "set_variable_shift_all_coordinates",
           "values": [
             {
@@ -405,23 +461,23 @@
             {
               "name": "location",
               "value": {
-                "type": "game_value",
-                "game_value": "spawn_location",
-                "selection": "null"
+                "type": "variable",
+                "variable": "ar.origin",
+                "scope": "game"
               }
             },
             {
               "name": "x",
               "value": {
                 "type": "number",
-                "number": "%math(%var(ar.run)*300)"
+                "number": "%math(%var(ar.col) * 250)%"
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 80
               }
             },
             {
@@ -2270,6 +2326,26 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "ar.CLEAN",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -2487,6 +2563,26 @@
                       }
                     }
                   ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "ar.CLEAN",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -2565,21 +2661,21 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": -44
+                    "number": -48
                   }
                 },
                 {
                   "name": "y",
                   "value": {
                     "type": "number",
-                    "number": -28
+                    "number": -36
                   }
                 },
                 {
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": -44
+                    "number": -48
                   }
                 },
                 {
@@ -2615,21 +2711,21 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": 44
+                    "number": 48
                   }
                 },
                 {
                   "name": "y",
                   "value": {
                     "type": "number",
-                    "number": 28
+                    "number": 36
                   }
                 },
                 {
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": 44
+                    "number": 48
                   }
                 },
                 {
