@@ -1,7 +1,7 @@
 {
   "name": "SideParkour",
   "display_name": "Небесный коридор 2D",
-  "description": "2D-паркур сбоку: барьерные стены по бокам, платформы в один блок над бездной, золотые чекпоинты, финиш на изумрудной площадке с алмазом. Упал — возврат на последний чекпоинт. Запуск: \\side, стоп: \\side stop",
+  "description": "2D-паркур сбоку с комнатами: правый клик КЛЮЧОМ (кроличья лапка, выдаётся при входе) — создать комнату, другие заходят тем же ключом. Маркеры: ⚙ Режим (клик — переключить: • С ЧЕКПОИНТАМИ / •(падение = возврат на старт) БЕЗ ЧЕКПОИНТОВ; выбранный — лаймовый, остальные — серые) и ▶ СТАРТ (только хозяин). На время сессии вход закрыт. Платформы над бездной, золотые чекпоинты, изумрудный финиш. Стоп: \\side stop",
   "handlers": [
     {
       "type": "event",
@@ -113,53 +113,120 @@
     {
       "type": "event",
       "position": 1,
-      "event": "player_chat",
+      "event": "player_join",
       "operations": [
         {
-          "action": "set_variable_value",
+          "action": "select_player_by_name",
           "values": [
             {
-              "name": "variable",
+              "name": "name_or_uuid",
               "value": {
-                "type": "variable",
-                "variable": "msg",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "game_value",
-                "game_value": "event_chat_message",
-                "selection": "null"
+                "type": "text",
+                "text": "%player%",
+                "parsing": "plain"
               }
             }
           ]
         },
         {
-          "action": "if_variable_text_contains",
+          "action": "player_give_items",
           "values": [
             {
-              "name": "value",
+              "name": "items",
               "value": {
-                "type": "variable",
-                "variable": "msg",
-                "scope": "line"
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:rabbit_foot\"}"
               }
             },
             {
-              "name": "compare",
+              "name": "amount",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ]
+        },
+        {
+          "action": "select_player_by_name",
+          "values": [
+            {
+              "name": "name_or_uuid",
               "value": {
                 "type": "text",
-                "text": "\\side",
+                "text": "%player%",
                 "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&8[&6Небесный коридор&8] &7Выдан ключ-вход: &eправый клик с ним &7— создать/зайти в комнату.",
+                    "parsing": "legacy"
+                  }
+                ]
               }
             },
             {
-              "name": "ignore_case",
+              "name": "merging",
               "value": {
                 "type": "enum",
-                "enum": "TRUE"
+                "enum": "SPACES"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "event": "player_right_click",
+      "operations": [
+        {
+          "action": "select_player_by_name",
+          "values": [
+            {
+              "name": "name_or_uuid",
+              "value": {
+                "type": "text",
+                "text": "%player%",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:rabbit_foot\"}"
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "EITHER_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "TYPE_ONLY"
               }
             }
           ],
@@ -169,32 +236,75 @@
               "values": []
             },
             {
-              "action": "if_variable_text_contains",
+              "action": "if_variable_equals",
               "values": [
                 {
                   "name": "value",
                   "value": {
                     "type": "variable",
-                    "variable": "msg",
-                    "scope": "line"
+                    "variable": "sp.state",
+                    "scope": "game"
                   }
                 },
                 {
                   "name": "compare",
                   "value": {
-                    "type": "text",
-                    "text": "stop",
-                    "parsing": "plain"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 2
+                      }
+                    ]
                   }
                 },
                 {
-                  "name": "ignore_case",
+                  "name": "compare_type",
                   "value": {
                     "type": "enum",
-                    "enum": "TRUE"
+                    "enum": "ANY"
                   }
                 }
               ],
+              "operations": [
+                {
+                  "action": "select_player_by_name",
+                  "values": [
+                    {
+                      "name": "name_or_uuid",
+                      "value": {
+                        "type": "text",
+                        "text": "%player%",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_send_action_bar",
+                  "values": [
+                    {
+                      "name": "messages",
+                      "value": {
+                        "type": "text",
+                        "text": "&cСессия идёт — комната закрыта!",
+                        "parsing": "legacy"
+                      }
+                    },
+                    {
+                      "name": "merging",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SPACES"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
               "operations": [
                 {
                   "action": "if_variable_equals",
@@ -203,7 +313,7 @@
                       "name": "value",
                       "value": {
                         "type": "variable",
-                        "variable": "sp.on",
+                        "variable": "sp.state",
                         "scope": "game"
                       }
                     },
@@ -235,7 +345,113 @@
                           "name": "variable",
                           "value": {
                             "type": "variable",
-                            "variable": "sp.on",
+                            "variable": "%player%_spin",
+                            "scope": "save"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 1
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_teleport",
+                      "values": [
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.startLoc",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "keep_rotation",
+                          "value": {
+                            "type": "enum",
+                            "enum": "FALSE"
+                          }
+                        },
+                        {
+                          "name": "keep_velocity",
+                          "value": {
+                            "type": "enum",
+                            "enum": "FALSE"
+                          }
+                        },
+                        {
+                          "name": "dismount",
+                          "value": {
+                            "type": "enum",
+                            "enum": "TRUE"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_send_action_bar",
+                      "values": [
+                        {
+                          "name": "messages",
+                          "value": {
+                            "type": "text",
+                            "text": "&aТы в комнате! Настрой маркеры, старт — клик по &2▶ СТАРТ",
+                            "parsing": "legacy"
+                          }
+                        },
+                        {
+                          "name": "merging",
+                          "value": {
+                            "type": "enum",
+                            "enum": "SPACES"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.state",
                             "scope": "game"
                           }
                         },
@@ -243,10 +459,331 @@
                           "name": "value",
                           "value": {
                             "type": "number",
-                            "number": 0
+                            "number": 1
                           }
                         }
                       ]
+                    },
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.host",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "%player%_spin",
+                            "scope": "save"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 1
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "SP.lobby",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_teleport",
+                      "values": [
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.startLoc",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "keep_rotation",
+                          "value": {
+                            "type": "enum",
+                            "enum": "FALSE"
+                          }
+                        },
+                        {
+                          "name": "keep_velocity",
+                          "value": {
+                            "type": "enum",
+                            "enum": "FALSE"
+                          }
+                        },
+                        {
+                          "name": "dismount",
+                          "value": {
+                            "type": "enum",
+                            "enum": "TRUE"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_send_action_bar",
+                      "values": [
+                        {
+                          "name": "messages",
+                          "value": {
+                            "type": "text",
+                            "text": "&aКомната создана! Другие заходят правым кликом с ключом",
+                            "parsing": "legacy"
+                          }
+                        },
+                        {
+                          "name": "merging",
+                          "value": {
+                            "type": "enum",
+                            "enum": "SPACES"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "event": "player_right_click_entity",
+      "operations": [
+        {
+          "action": "select_event_target",
+          "values": [
+            {
+              "name": "selection_type",
+              "value": {
+                "type": "enum",
+                "enum": "VICTIM"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_get_custom_tag",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "mrk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "mrk",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "default",
+              "value": {
+                "type": "text",
+                "text": "none",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "mrk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "start",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": []
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp.state",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "text",
+                        "text": "%player%",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "text",
+                            "text": "%var(sp.host)",
+                            "parsing": "plain"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.state",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 2
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "entity_remove",
+                      "values": []
                     },
                     {
                       "action": "select_all_players",
@@ -259,7 +796,66 @@
                           "name": "messages",
                           "value": {
                             "type": "text",
-                            "text": "&bКоридор закрыт...",
+                            "text": "&aСессия началась! Комната закрыта.",
+                            "parsing": "legacy"
+                          }
+                        },
+                        {
+                          "name": "merging",
+                          "value": {
+                            "type": "enum",
+                            "enum": "SPACES"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "SP.go",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "else",
+                  "values": [],
+                  "operations": [
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_send_action_bar",
+                      "values": [
+                        {
+                          "name": "messages",
+                          "value": {
+                            "type": "text",
+                            "text": "&cСтартовать может только хозяин: &e%var(sp.host)%",
                             "parsing": "legacy"
                           }
                         },
@@ -281,13 +877,263 @@
               "values": [],
               "operations": [
                 {
+                  "action": "select_player_by_name",
+                  "values": [
+                    {
+                      "name": "name_or_uuid",
+                      "value": {
+                        "type": "text",
+                        "text": "%player%",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_send_action_bar",
+                  "values": [
+                    {
+                      "name": "messages",
+                      "value": {
+                        "type": "text",
+                        "text": "&7Кнопка неактивна",
+                        "parsing": "legacy"
+                      }
+                    },
+                    {
+                      "name": "merging",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SPACES"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "mrk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "s1",
+                    "parsing": "plain"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": []
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp.state",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_increment",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.s1",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_greater",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.s1",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp.s1",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": 0
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "action": "if_variable_equals",
                   "values": [
                     {
                       "name": "value",
                       "value": {
                         "type": "variable",
-                        "variable": "sp.on",
+                        "variable": "sp.s1",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "number",
+                            "number": 0
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_send_message",
+                      "values": [
+                        {
+                          "name": "messages",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "&6⚙ Режим &8— &7клик по маркеру переключает:",
+                                "parsing": "legacy"
+                              },
+                              {
+                                "type": "text",
+                                "text": "&a• С ЧЕКПОИНТАМИ",
+                                "parsing": "legacy"
+                              },
+                              {
+                                "type": "text",
+                                "text": "&8•(падение = возврат на старт) БЕЗ ЧЕКПОИНТОВ",
+                                "parsing": "legacy"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "merging",
+                          "value": {
+                            "type": "enum",
+                            "enum": "SEPARATE_LINES"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.s1",
                         "scope": "game"
                       }
                     },
@@ -326,50 +1172,78 @@
                       ]
                     },
                     {
-                      "action": "player_send_action_bar",
+                      "action": "player_send_message",
                       "values": [
                         {
                           "name": "messages",
                           "value": {
-                            "type": "text",
-                            "text": "&cКоридор уже построен!",
-                            "parsing": "legacy"
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "text",
+                                "text": "&6⚙ Режим &8— &7клик по маркеру переключает:",
+                                "parsing": "legacy"
+                              },
+                              {
+                                "type": "text",
+                                "text": "&8•(падение = возврат на золотой чекпоинт) С ЧЕКПОИНТАМИ",
+                                "parsing": "legacy"
+                              },
+                              {
+                                "type": "text",
+                                "text": "&a• БЕЗ ЧЕКПОИНТОВ",
+                                "parsing": "legacy"
+                              }
+                            ]
                           }
                         },
                         {
                           "name": "merging",
                           "value": {
                             "type": "enum",
-                            "enum": "SPACES"
+                            "enum": "SEPARATE_LINES"
                           }
                         }
                       ]
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "select_player_by_name",
+                  "values": [
+                    {
+                      "name": "name_or_uuid",
+                      "value": {
+                        "type": "text",
+                        "text": "%player%",
+                        "parsing": "plain"
+                      }
+                    }
+                  ]
                 },
                 {
-                  "action": "else",
-                  "values": [],
-                  "operations": [
+                  "action": "player_send_action_bar",
+                  "values": [
                     {
-                      "action": "call_function",
-                      "values": [
-                        {
-                          "name": "function_name",
-                          "value": {
-                            "type": "text",
-                            "text": "SP.start",
-                            "parsing": "plain"
-                          }
-                        },
-                        {
-                          "name": "args",
-                          "value": {
-                            "type": "map",
-                            "values": {}
-                          }
-                        }
-                      ]
+                      "name": "messages",
+                      "value": {
+                        "type": "text",
+                        "text": "&7Настройки — только до старта сессии",
+                        "parsing": "legacy"
+                      }
+                    },
+                    {
+                      "name": "merging",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SPACES"
+                      }
                     }
                   ]
                 }
@@ -381,8 +1255,8 @@
     },
     {
       "type": "function",
-      "position": 2,
-      "name": "SP.start",
+      "position": 4,
+      "name": "SP.lobby",
       "values": [
         {
           "name": "parameters",
@@ -407,6 +1281,40 @@
         }
       ],
       "operations": [
+        {
+          "action": "set_variable_purge",
+          "values": [
+            {
+              "name": "names",
+              "value": {
+                "type": "text",
+                "text": "_spin",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "scope",
+              "value": {
+                "type": "enum",
+                "enum": "SAVE"
+              }
+            },
+            {
+              "name": "match",
+              "value": {
+                "type": "enum",
+                "enum": "ENDS_WITH"
+              }
+            },
+            {
+              "name": "ignore_case",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            }
+          ]
+        },
         {
           "action": "set_variable_purge",
           "values": [
@@ -649,6 +1557,26 @@
               "name": "variable",
               "value": {
                 "type": "variable",
+                "variable": "sp.s1",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
                 "variable": "sp.on",
                 "scope": "game"
               }
@@ -657,7 +1585,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": 1
+                "number": 0
               }
             }
           ]
@@ -4593,6 +5521,322 @@
               "name": "variable",
               "value": {
                 "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "sp.origin",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {}
+            },
+            {
+              "name": "pitch",
+              "value": {}
+            }
+          ]
+        },
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            {
+              "name": "helmet",
+              "value": {}
+            },
+            {
+              "name": "chestplate",
+              "value": {}
+            },
+            {
+              "name": "leggings",
+              "value": {}
+            },
+            {
+              "name": "boots",
+              "value": {}
+            },
+            {
+              "name": "right_hand",
+              "value": {}
+            },
+            {
+              "name": "left_hand",
+              "value": {}
+            },
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "marker",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "small",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "show_arms",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "base_plate",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "invisible",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "custom_name",
+              "value": {
+                "type": "text",
+                "text": "&a&l▶ СТАРТ",
+                "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_custom_tag",
+          "values": [
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "mrk",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "start",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "sp.origin",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {}
+            },
+            {
+              "name": "pitch",
+              "value": {}
+            }
+          ]
+        },
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            {
+              "name": "helmet",
+              "value": {}
+            },
+            {
+              "name": "chestplate",
+              "value": {}
+            },
+            {
+              "name": "leggings",
+              "value": {}
+            },
+            {
+              "name": "boots",
+              "value": {}
+            },
+            {
+              "name": "right_hand",
+              "value": {}
+            },
+            {
+              "name": "left_hand",
+              "value": {}
+            },
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "marker",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "small",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            },
+            {
+              "name": "show_arms",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "base_plate",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "invisible",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "custom_name",
+              "value": {
+                "type": "text",
+                "text": "&e&l⚙ Режим",
+                "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_custom_tag",
+          "values": [
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "mrk",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "text",
+                "text": "s1",
+                "parsing": "plain"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
                 "variable": "sl",
                 "scope": "line"
               }
@@ -4662,44 +5906,6 @@
           "values": []
         },
         {
-          "action": "player_teleport",
-          "values": [
-            {
-              "name": "location",
-              "value": {
-                "type": "variable",
-                "variable": "sp.startLoc",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "keep_rotation",
-              "value": {
-                "type": "enum",
-                "enum": "FALSE"
-              }
-            },
-            {
-              "name": "keep_velocity",
-              "value": {
-                "type": "enum",
-                "enum": "FALSE"
-              }
-            },
-            {
-              "name": "dismount",
-              "value": {
-                "type": "enum",
-                "enum": "TRUE"
-              }
-            }
-          ]
-        },
-        {
-          "action": "select_all_players",
-          "values": []
-        },
-        {
           "action": "player_send_title",
           "values": [
             {
@@ -4714,7 +5920,7 @@
               "name": "subtitle",
               "value": {
                 "type": "text",
-                "text": "&72D-паркур: барьеры по бокам, внизу — бездна",
+                "text": "&7Комната создана — настрой маркеры и стартуй!",
                 "parsing": "legacy"
               }
             },
@@ -4740,6 +5946,56 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "name": "SP.go",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "TRUE"
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:golden_boots\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp.on",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ]
         },
         {
           "action": "select_all_players",
@@ -4755,17 +6011,7 @@
                 "values": [
                   {
                     "type": "text",
-                    "text": "&b&lПАРКУР 2D &8» &7Прыгай по платформам: только вперёд!",
-                    "parsing": "legacy"
-                  },
-                  {
-                    "type": "text",
-                    "text": "&7Золотые блоки — &eчекпоинты&7. Упал — вернёшься на последний.",
-                    "parsing": "legacy"
-                  },
-                  {
-                    "type": "text",
-                    "text": "&7Финиш — &bалмаз на изумрудной площадке&7. Стоп: &e\\side stop",
+                    "text": "&b&lПАРКУР 2D &8» &7Сессия пошла! Только вперёд — барьеры не пустят вбок.",
                     "parsing": "legacy"
                   }
                 ]
@@ -4775,7 +6021,7 @@
               "name": "merging",
               "value": {
                 "type": "enum",
-                "enum": "SEPARATE_LINES"
+                "enum": "SPACES"
               }
             }
           ]
@@ -4784,7 +6030,7 @@
     },
     {
       "type": "event",
-      "position": 3,
+      "position": 6,
       "event": "player_move",
       "operations": [
         {
@@ -4808,33 +6054,28 @@
           ],
           "operations": [
             {
-              "action": "if_variable_equals",
+              "action": "if_player_is_near",
               "values": [
                 {
-                  "name": "value",
+                  "name": "location",
                   "value": {
                     "type": "variable",
-                    "variable": "sp.on",
+                    "variable": "sp.origin",
                     "scope": "game"
                   }
                 },
                 {
-                  "name": "compare",
+                  "name": "range",
                   "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "number",
-                        "number": 1
-                      }
-                    ]
+                    "type": "number",
+                    "number": 130
                   }
                 },
                 {
-                  "name": "compare_type",
+                  "name": "ignore_y_axis",
                   "value": {
                     "type": "enum",
-                    "enum": "ANY"
+                    "enum": "TRUE"
                   }
                 }
               ],
@@ -4862,6 +6103,159 @@
                       "value": {
                         "type": "enum",
                         "enum": "TRUE"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "%player%_spin",
+                            "scope": "save"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "number",
+                                "number": 1
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "compare_type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "ANY"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    },
+                    {
+                      "action": "else",
+                      "values": [],
+                      "operations": [
+                        {
+                          "action": "select_player_by_name",
+                          "values": [
+                            {
+                              "name": "name_or_uuid",
+                              "value": {
+                                "type": "text",
+                                "text": "%player%",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "player_teleport",
+                          "values": [
+                            {
+                              "name": "location",
+                              "value": {
+                                "type": "game_value",
+                                "game_value": "spawn_location",
+                                "selection": "null"
+                              }
+                            },
+                            {
+                              "name": "keep_rotation",
+                              "value": {
+                                "type": "enum",
+                                "enum": "FALSE"
+                              }
+                            },
+                            {
+                              "name": "keep_velocity",
+                              "value": {
+                                "type": "enum",
+                                "enum": "FALSE"
+                              }
+                            },
+                            {
+                              "name": "dismount",
+                              "value": {
+                                "type": "enum",
+                                "enum": "TRUE"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "select_player_by_name",
+                          "values": [
+                            {
+                              "name": "name_or_uuid",
+                              "value": {
+                                "type": "text",
+                                "text": "%player%",
+                                "parsing": "plain"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "player_send_action_bar",
+                          "values": [
+                            {
+                              "name": "messages",
+                              "value": {
+                                "type": "text",
+                                "text": "&cКомната закрыта — нужен ключ-вход!",
+                                "parsing": "legacy"
+                              }
+                            },
+                            {
+                              "name": "merging",
+                              "value": {
+                                "type": "enum",
+                                "enum": "SPACES"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.on",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "number",
+                            "number": 1
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
                       }
                     }
                   ],
@@ -4916,14 +6310,26 @@
                       ],
                       "operations": [
                         {
-                          "action": "if_variable_exists",
+                          "action": "if_variable_equals",
                           "values": [
                             {
-                              "name": "variable",
+                              "name": "value",
                               "value": {
                                 "type": "variable",
-                                "variable": "%player%_spx",
-                                "scope": "save"
+                                "variable": "sp.s1",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "compare",
+                              "value": {
+                                "type": "array",
+                                "values": [
+                                  {
+                                    "type": "number",
+                                    "number": 1
+                                  }
+                                ]
                               }
                             },
                             {
@@ -4934,14 +6340,95 @@
                               }
                             }
                           ],
-                          "operations": []
+                          "operations": [
+                            {
+                              "action": "select_player_by_name",
+                              "values": [
+                                {
+                                  "name": "name_or_uuid",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "%player%",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "action": "player_teleport",
+                              "values": [
+                                {
+                                  "name": "location",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "sp.startLoc",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "keep_rotation",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "FALSE"
+                                  }
+                                },
+                                {
+                                  "name": "keep_velocity",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "FALSE"
+                                  }
+                                },
+                                {
+                                  "name": "dismount",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "TRUE"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "action": "select_player_by_name",
+                              "values": [
+                                {
+                                  "name": "name_or_uuid",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "%player%",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "action": "player_send_action_bar",
+                              "values": [
+                                {
+                                  "name": "messages",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "&cПадение! Возврат на старт",
+                                    "parsing": "legacy"
+                                  }
+                                },
+                                {
+                                  "name": "merging",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "SPACES"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
                         },
                         {
                           "action": "else",
                           "values": [],
                           "operations": [
                             {
-                              "action": "set_variable_value",
+                              "action": "if_variable_exists",
                               "values": [
                                 {
                                   "name": "variable",
@@ -4952,214 +6439,241 @@
                                   }
                                 },
                                 {
-                                  "name": "value",
+                                  "name": "compare_type",
                                   "value": {
-                                    "type": "number",
-                                    "number": 1
+                                    "type": "enum",
+                                    "enum": "ANY"
                                   }
+                                }
+                              ],
+                              "operations": []
+                            },
+                            {
+                              "action": "else",
+                              "values": [],
+                              "operations": [
+                                {
+                                  "action": "set_variable_value",
+                                  "values": [
+                                    {
+                                      "name": "variable",
+                                      "value": {
+                                        "type": "variable",
+                                        "variable": "%player%_spx",
+                                        "scope": "save"
+                                      }
+                                    },
+                                    {
+                                      "name": "value",
+                                      "value": {
+                                        "type": "number",
+                                        "number": 1
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "action": "set_variable_value",
+                                  "values": [
+                                    {
+                                      "name": "variable",
+                                      "value": {
+                                        "type": "variable",
+                                        "variable": "%player%_spy",
+                                        "scope": "save"
+                                      }
+                                    },
+                                    {
+                                      "name": "value",
+                                      "value": {
+                                        "type": "number",
+                                        "number": 0
+                                      }
+                                    }
+                                  ]
                                 }
                               ]
                             },
                             {
-                              "action": "set_variable_value",
+                              "action": "set_variable_shift_all_coordinates",
                               "values": [
                                 {
                                   "name": "variable",
                                   "value": {
                                     "type": "variable",
-                                    "variable": "%player%_spy",
+                                    "variable": "rsp",
+                                    "scope": "line"
+                                  }
+                                },
+                                {
+                                  "name": "location",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "sp.origin",
+                                    "scope": "game"
+                                  }
+                                },
+                                {
+                                  "name": "x",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "%player%_spx",
                                     "scope": "save"
                                   }
                                 },
                                 {
-                                  "name": "value",
+                                  "name": "y",
+                                  "value": {
+                                    "type": "number",
+                                    "number": "%var_save(%player%_spy)"
+                                  }
+                                },
+                                {
+                                  "name": "z",
                                   "value": {
                                     "type": "number",
                                     "number": 0
                                   }
+                                },
+                                {
+                                  "name": "yaw",
+                                  "value": {}
+                                },
+                                {
+                                  "name": "pitch",
+                                  "value": {}
                                 }
                               ]
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_shift_all_coordinates",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "rsp",
-                                "scope": "line"
-                              }
                             },
                             {
-                              "name": "location",
-                              "value": {
-                                "type": "variable",
-                                "variable": "sp.origin",
-                                "scope": "game"
-                              }
+                              "action": "set_variable_shift_all_coordinates",
+                              "values": [
+                                {
+                                  "name": "variable",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "rsp",
+                                    "scope": "line"
+                                  }
+                                },
+                                {
+                                  "name": "location",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "rsp",
+                                    "scope": "line"
+                                  }
+                                },
+                                {
+                                  "name": "x",
+                                  "value": {
+                                    "type": "number",
+                                    "number": 0
+                                  }
+                                },
+                                {
+                                  "name": "y",
+                                  "value": {
+                                    "type": "number",
+                                    "number": 1
+                                  }
+                                },
+                                {
+                                  "name": "z",
+                                  "value": {
+                                    "type": "number",
+                                    "number": 0
+                                  }
+                                },
+                                {
+                                  "name": "yaw",
+                                  "value": {}
+                                },
+                                {
+                                  "name": "pitch",
+                                  "value": {}
+                                }
+                              ]
                             },
                             {
-                              "name": "x",
-                              "value": {
-                                "type": "variable",
-                                "variable": "%player%_spx",
-                                "scope": "save"
-                              }
+                              "action": "select_player_by_name",
+                              "values": [
+                                {
+                                  "name": "name_or_uuid",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "%player%",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
                             },
                             {
-                              "name": "y",
-                              "value": {
-                                "type": "number",
-                                "number": "%var_save(%player%_spy)"
-                              }
+                              "action": "player_teleport",
+                              "values": [
+                                {
+                                  "name": "location",
+                                  "value": {
+                                    "type": "variable",
+                                    "variable": "rsp",
+                                    "scope": "line"
+                                  }
+                                },
+                                {
+                                  "name": "keep_rotation",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "FALSE"
+                                  }
+                                },
+                                {
+                                  "name": "keep_velocity",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "FALSE"
+                                  }
+                                },
+                                {
+                                  "name": "dismount",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "TRUE"
+                                  }
+                                }
+                              ]
                             },
                             {
-                              "name": "z",
-                              "value": {
-                                "type": "number",
-                                "number": 0
-                              }
+                              "action": "select_player_by_name",
+                              "values": [
+                                {
+                                  "name": "name_or_uuid",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "%player%",
+                                    "parsing": "plain"
+                                  }
+                                }
+                              ]
                             },
                             {
-                              "name": "yaw",
-                              "value": {}
-                            },
-                            {
-                              "name": "pitch",
-                              "value": {}
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_shift_all_coordinates",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "rsp",
-                                "scope": "line"
-                              }
-                            },
-                            {
-                              "name": "location",
-                              "value": {
-                                "type": "variable",
-                                "variable": "rsp",
-                                "scope": "line"
-                              }
-                            },
-                            {
-                              "name": "x",
-                              "value": {
-                                "type": "number",
-                                "number": 0
-                              }
-                            },
-                            {
-                              "name": "y",
-                              "value": {
-                                "type": "number",
-                                "number": 1
-                              }
-                            },
-                            {
-                              "name": "z",
-                              "value": {
-                                "type": "number",
-                                "number": 0
-                              }
-                            },
-                            {
-                              "name": "yaw",
-                              "value": {}
-                            },
-                            {
-                              "name": "pitch",
-                              "value": {}
-                            }
-                          ]
-                        },
-                        {
-                          "action": "select_player_by_name",
-                          "values": [
-                            {
-                              "name": "name_or_uuid",
-                              "value": {
-                                "type": "text",
-                                "text": "%player%",
-                                "parsing": "plain"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "player_teleport",
-                          "values": [
-                            {
-                              "name": "location",
-                              "value": {
-                                "type": "variable",
-                                "variable": "rsp",
-                                "scope": "line"
-                              }
-                            },
-                            {
-                              "name": "keep_rotation",
-                              "value": {
-                                "type": "enum",
-                                "enum": "FALSE"
-                              }
-                            },
-                            {
-                              "name": "keep_velocity",
-                              "value": {
-                                "type": "enum",
-                                "enum": "FALSE"
-                              }
-                            },
-                            {
-                              "name": "dismount",
-                              "value": {
-                                "type": "enum",
-                                "enum": "TRUE"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "select_player_by_name",
-                          "values": [
-                            {
-                              "name": "name_or_uuid",
-                              "value": {
-                                "type": "text",
-                                "text": "%player%",
-                                "parsing": "plain"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "player_send_action_bar",
-                          "values": [
-                            {
-                              "name": "messages",
-                              "value": {
-                                "type": "text",
-                                "text": "&cПадение! Возврат на чекпоинт",
-                                "parsing": "legacy"
-                              }
-                            },
-                            {
-                              "name": "merging",
-                              "value": {
-                                "type": "enum",
-                                "enum": "SPACES"
-                              }
+                              "action": "player_send_action_bar",
+                              "values": [
+                                {
+                                  "name": "messages",
+                                  "value": {
+                                    "type": "text",
+                                    "text": "&cПадение! Возврат на чекпоинт",
+                                    "parsing": "legacy"
+                                  }
+                                },
+                                {
+                                  "name": "merging",
+                                  "value": {
+                                    "type": "enum",
+                                    "enum": "SPACES"
+                                  }
+                                }
+                              ]
                             }
                           ]
                         }
@@ -5687,6 +7201,162 @@
                           ]
                         }
                       ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 7,
+      "event": "player_chat",
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "msg",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "game_value",
+                "game_value": "event_chat_message",
+                "selection": "null"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_text_contains",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "msg",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "text",
+                "text": "\\side",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "ignore_case",
+              "value": {
+                "type": "enum",
+                "enum": "TRUE"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": []
+            },
+            {
+              "action": "if_variable_text_contains",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "msg",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "text",
+                    "text": "stop",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.state",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 0
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp.on",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 0
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "select_all_players",
+                  "values": []
+                },
+                {
+                  "action": "player_send_action_bar",
+                  "values": [
+                    {
+                      "name": "messages",
+                      "value": {
+                        "type": "text",
+                        "text": "&cКомната закрыта.",
+                        "parsing": "legacy"
+                      }
+                    },
+                    {
+                      "name": "merging",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SPACES"
+                      }
                     }
                   ]
                 }
