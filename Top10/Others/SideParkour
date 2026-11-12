@@ -1,7 +1,7 @@
 {
   "name": "SideParkour",
   "display_name": "Небесный коридор 2D",
-  "description": "2D-паркур сбоку с комнатами: правый клик КЛЮЧОМ (кроличья лапка, выдаётся при входе) — создать комнату, другие заходят тем же ключом. Маркеры: ⚙ Режим (клик — переключить: • С ЧЕКПОИНТАМИ / •(падение = возврат на старт) БЕЗ ЧЕКПОИНТОВ; выбранный — лаймовый, остальные — серые) и ▶ СТАРТ (только хозяин). На время сессии вход закрыт. Платформы над бездной, золотые чекпоинты, изумрудный финиш. Стоп: \\side stop",
+  "description": "2D-паркур сбоку с комнатами: правый клик КЛЮЧОМ (кроличья лапка, выдаётся при входе) — создать комнату, другие заходят тем же ключом. Маркеры: ⚙ Режим (клик — переключить: • С ЧЕКПОИНТАМИ / •(падение = возврат на старт) БЕЗ ЧЕКПОИНТОВ; выбранный — лаймовый, остальные — серые) и ▶ СТАРТ (только хозяин). На время сессии вход закрыт. Платформы над бездной, золотые чекпоинты, изумрудный финиш. Стоп: \\side stop Арены строятся на высоте ~80 блоков над спавном (в пределах мира 1024), после сессии всё зачищается (блоки, стойки, переменные).",
   "handlers": [
     {
       "type": "event",
@@ -1041,6 +1041,26 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "sp.CLEAN",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ]
                     }
                   ]
                 },
@@ -1459,6 +1479,62 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "sp.run",
+                "scope": "game"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_remainder",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp.col",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "dividend",
+              "value": {
+                "type": "variable",
+                "variable": "sp.run",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "divisor",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "remainder_mode",
+              "value": {
+                "type": "enum",
+                "enum": "MODULO"
+              }
+            }
+          ]
+        },
+        {
           "action": "set_variable_shift_all_coordinates",
           "values": [
             {
@@ -1481,14 +1557,14 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": "%math(%var(sp.run) * 300)"
+                "number": "%math(%var(sp.col) * 250)%"
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 80
               }
             },
             {
@@ -5652,6 +5728,18 @@
           ]
         },
         {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
+              }
+            }
+          ]
+        },
+        {
           "action": "entity_set_custom_tag",
           "values": [
             {
@@ -5805,6 +5893,18 @@
                 "type": "text",
                 "text": "&e&l⚙ Режим",
                 "parsing": "legacy"
+              }
+            }
+          ]
+        },
+        {
+          "action": "entity_set_gravity",
+          "values": [
+            {
+              "name": "gravity",
+              "value": {
+                "type": "enum",
+                "enum": "FALSE"
               }
             }
           ]
@@ -7359,6 +7459,410 @@
                       }
                     }
                   ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sp.CLEAN",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "position": 8,
+      "name": "sp.CLEAN",
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "TRUE"
+          }
+        },
+        {
+          "name": "icon",
+          "value": {
+            "type": "item",
+            "item": "{Count:1b,id:\"minecraft:rabbit_foot\"}"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_exists",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp.origin",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp.origin",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": -8
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": -22
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {}
+                },
+                {
+                  "name": "pitch",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp.origin",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": 102
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 17
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {}
+                },
+                {
+                  "name": "pitch",
+                  "value": {}
+                }
+              ]
+            },
+            {
+              "action": "game_set_region",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:air\"}"
+                  }
+                },
+                {
+                  "name": "pos_1",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "pos_2",
+                  "value": {
+                    "type": "variable",
+                    "variable": "cl2",
+                    "scope": "line"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&a&l▶ СТАРТ",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "select_entity_by_name",
+              "values": [
+                {
+                  "name": "name_or_uuid",
+                  "value": {
+                    "type": "text",
+                    "text": "&e&l⚙ Режим",
+                    "parsing": "legacy"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "entity_remove",
+              "values": []
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "sp.",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "GAME"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "STARTS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "_spin",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SAVE"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ENDS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "_spx",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SAVE"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ENDS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "_spy",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SAVE"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ENDS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_purge",
+              "values": [
+                {
+                  "name": "names",
+                  "value": {
+                    "type": "text",
+                    "text": "_sd",
+                    "parsing": "plain"
+                  }
+                },
+                {
+                  "name": "scope",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SAVE"
+                  }
+                },
+                {
+                  "name": "match",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ENDS_WITH"
+                  }
+                },
+                {
+                  "name": "ignore_case",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
                 }
               ]
             }
