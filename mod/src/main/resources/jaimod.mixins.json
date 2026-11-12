@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "dev.kitorik.jai.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BookScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

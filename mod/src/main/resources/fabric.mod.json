@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "jaimod",
+  "version": "1.1.0",
+  "name": "JAI Mod",
+  "description": "Клиентский мод для JustMC: /jai code <запрос> -> OpenRouter -> paste.rs -> /module load-url -> автонажатие «ПРИНЯТЬ».",
+  "authors": ["kitorik"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.kitorik.jai.JaiMod"]
+  },
+  "mixins": [
+    "jaimod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11",
+    "java": ">=21"
+  }
+}
