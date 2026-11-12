@@ -426,6 +426,26 @@
           ]
         },
         {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "bt.active",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
           "action": "set_variable_increment",
           "values": [
             {
@@ -1884,7 +1904,7 @@
                       "value": {
                         "type": "variable",
                         "variable": "bt.center",
-                        "scope": "line"
+                        "scope": "game"
                       }
                     },
                     {
@@ -2002,7 +2022,7 @@
                       "value": {
                         "type": "variable",
                         "variable": "bt.center",
-                        "scope": "line"
+                        "scope": "game"
                       }
                     }
                   ]
@@ -2028,7 +2048,7 @@
                       "value": {
                         "type": "variable",
                         "variable": "bt.center",
-                        "scope": "line"
+                        "scope": "game"
                       }
                     }
                   ]
@@ -2081,59 +2101,21 @@
                   ]
                 },
                 {
-                  "action": "select_all_players",
-                  "values": []
-                },
-                {
-                  "action": "select_filter_by_distance",
+                  "action": "set_variable_value",
                   "values": [
                     {
-                      "name": "location",
+                      "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "bt.center",
-                        "scope": "line"
+                        "variable": "bt.active",
+                        "scope": "game"
                       }
                     },
                     {
-                      "name": "selection_size",
+                      "name": "value",
                       "value": {
                         "type": "number",
-                        "number": 2
-                      }
-                    },
-                    {
-                      "name": "ignore_y_axis",
-                      "value": {
-                        "type": "enum",
-                        "enum": "TRUE"
-                      }
-                    },
-                    {
-                      "name": "compare_mode",
-                      "value": {
-                        "type": "enum",
-                        "enum": "NEAREST"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "action": "player_damage",
-                  "values": [
-                    {
-                      "name": "damage",
-                      "value": {
-                        "type": "number",
-                        "number": 5
-                      }
-                    },
-                    {
-                      "name": "source",
-                      "value": {
-                        "type": "text",
-                        "text": "лавовый бит",
-                        "parsing": "plain"
+                        "number": 1
                       }
                     }
                   ]
@@ -2182,6 +2164,193 @@
                         "variable": "bt.c2",
                         "scope": "line"
                       }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "bt.active",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 0
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "position": 4,
+      "event": "player_move",
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "bt.on",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "bt.active",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "compare_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "ANY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_location_is_near",
+                  "values": [
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "event_new_location",
+                        "selection": "null"
+                      }
+                    },
+                    {
+                      "name": "radius",
+                      "value": {
+                        "type": "number",
+                        "number": 2.5
+                      }
+                    },
+                    {
+                      "name": "check",
+                      "value": {
+                        "type": "variable",
+                        "variable": "bt.center",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "shape",
+                      "value": {
+                        "type": "enum",
+                        "enum": "SQUARE"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "player_damage",
+                      "values": [
+                        {
+                          "name": "damage",
+                          "value": {
+                            "type": "number",
+                            "number": 5
+                          }
+                        },
+                        {
+                          "name": "source",
+                          "value": {
+                            "type": "text",
+                            "text": "лавовый бит",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "select_player_by_name",
+                      "values": [
+                        {
+                          "name": "name_or_uuid",
+                          "value": {
+                            "type": "text",
+                            "text": "%player%",
+                            "parsing": "plain"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "player_play_sound",
+                      "values": [
+                        {
+                          "name": "sound",
+                          "value": {
+                            "type": "sound",
+                            "sound": "minecraft:block.lava.ambient",
+                            "pitch": 1,
+                            "volume": 1
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "game_value",
+                            "game_value": "event_new_location",
+                            "selection": "null"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
